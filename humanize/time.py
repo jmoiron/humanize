@@ -7,7 +7,7 @@
 import time
 from datetime import datetime, timedelta, date
 
-__all__ = ['timeago', 'timeuntil', 'naturalday']
+__all__ = ['naturaltime', 'naturalday']
 
 def _now():
     return datetime.now()
