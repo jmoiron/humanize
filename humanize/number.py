@@ -61,3 +61,15 @@ def intword(value, format='%.1f'):
             return (' '.join([format, human_powers[ordinal-1]])) % chopped
     return str(value)
 
+def apnumber(value):
+    """For numbers 1-9, returns the number spelled out. Otherwise, returns the
+    number. This follows Associated Press style.  This always returns a string
+    unless the value was not int-able, unlike the Django filter."""
+    try:
+        value = int(value)
+    except (TypeError, ValueError):
+        return value
+    if not 0 < value < 10:
+        return str(value)
+    return ('one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine')[value-1]
+

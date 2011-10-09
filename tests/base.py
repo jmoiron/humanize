@@ -5,6 +5,7 @@
 
 from itertools import izip
 from unittest import TestCase
+from datetime import datetime, date, timedelta
 
 class HumanizeTestCase(TestCase):
 
@@ -17,4 +18,11 @@ class HumanizeTestCase(TestCase):
                 self.assertEqual(function(*arg), result)
             else:
                 self.assertEqual(function(arg), result)
+
+    def assertEqualDatetime(self, dt1, dt2):
+        self.assertEqual((dt1 - dt2).seconds, 0)
+
+    def assertEqualTimedelta(self, td1, td2):
+        self.assertEqual(td1.days, td2.days)
+        self.assertEqual(td1.seconds, td2.seconds)
 

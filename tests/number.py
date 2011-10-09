@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-""" """
+"""Number tests."""
 
 from humanize import number
 from base import HumanizeTestCase
 
-class TimeTestCase(HumanizeTestCase):
+class NumberTestCase(HumanizeTestCase):
 
     def test_ordinal(self):
         test_list = ('1', '2', '3', '4', '11', '12', '13', '101', '102', '103',
@@ -29,10 +29,15 @@ class TimeTestCase(HumanizeTestCase):
         # test the result of intword
         test_list = ('100', '1000000', '1200000', '1290000', '1000000000',
             '2000000000', '6000000000000', '1300000000000000',
-            '3500000000000000000000', '8100000000000000000000000000000000', 
+            '3500000000000000000000', '8100000000000000000000000000000000',
             None, ('1230000', '%0.2f'))
         result_list = ('100', '1.0 million', '1.2 million', '1.3 million',
            '1.0 billion', '2.0 billion', '6.0 trillion', '1.3 quadrillion',
            '3.5 sextillion', '8.1 decillion', None, '1.23 million')
         self.assertManyResults(number.intword, test_list, result_list)
+
+    def test_apnumber(self):
+        test_list = (1, 2, 4, 5, 9, 10, '7', None)
+        result_list = ('one', 'two', 'four', 'five', 'nine', '10', 'seven', None)
+        self.assertManyResults(number.apnumber, test_list, result_list)
 
