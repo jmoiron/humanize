@@ -87,7 +87,7 @@ def naturaltime(value, date_fallback=30, format='%b %d'):
         return 'a minute %s' % ago
     elif 120 <= abs(delta.seconds) < 3600:
         return '%d minutes %s' % (delta.seconds // 60, ago)
-    elif 3600 < abs(delta.seconds) < 3600*2:
+    elif 3600 <= abs(delta.seconds) < 3600*2:
         return 'an hour %s' % ago
     elif 3600 < abs(delta.seconds):
         return '%d hours %s' % (delta.seconds // 3600, ago)
