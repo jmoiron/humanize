@@ -6,16 +6,15 @@ humanize
 -----------
 
 .. automodule:: humanize
-
 .. highlight:: sh
 
 You can install humanize with pip::
 
     pip install humanize
 
-You can fork humanize `from its hg repository
-<http://bitbucket.org/jmoiron/humanize/>`_::
+You can fork humanize `from its git repository
+<http://github.com/jmoiron/humanize/>`_::
 
-    hg clone http://bitbucket.org/jmoiron/humanize/
+    git clone https://github.com/jmoiron/humanize.git
 
 .. highlight:: python
