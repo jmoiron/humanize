@@ -4,13 +4,14 @@
 """Time humanizing functions.  These are largely borrowed from Django's
 ``contrib.humanize``."""
 
-import time
-from datetime import datetime, timedelta, date
+from datetime import datetime, timedelta
+from datetime import date as Date
+from django.utils import timezone
 
 __all__ = ['naturaltime', 'naturalday']
 
 def _now():
-    return datetime.now()
+    return datetime.now(tz=timezone.get_default_timezone())
 
 def abs_timedelta(delta):
     """Returns an "absolute" value for a timedelta, always representing a
@@ -45,7 +46,6 @@ def naturaldelta(value, months=True):
     ``naturaltime``, but does not add tense to the result.  If ``months``
     is True, then a number of months (based on 30.5 days) will be used
     for fuzziness between years."""
-    now = _now()
     date, delta = date_and_delta(value)
     if date is None:
         return value
@@ -129,14 +129,14 @@ def naturalday(value, format='%b %d'):
     present day returns representing string. Otherwise, returns a string
     formatted according to ``format``."""
     try:
-        value = date(value.year, value.month, value.day)
+        value = Date(value.year, value.month, value.day)
     except AttributeError:
         # Passed value wasn't date-ish
         return value
     except (OverflowError, ValueError):
         # Date arguments out of range
         return value
-    delta = value - date.today()
+    delta = value - Date.today()
     if delta.days == 0:
         return 'today'
     elif delta.days == 1:
