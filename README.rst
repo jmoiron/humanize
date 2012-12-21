@@ -43,3 +43,16 @@ Filesize humanization::
     >>> humanize.naturalsize(1000000, gnu=True)
     '976.6K'
 
+
+Human digestable numbers::
+
+    >>> humanize.digestable(1/3)
+    '1/3'
+    >>> humanize.digestable(1.5)
+    '1 1/2'
+    >>> humanize.digestable(0.3)
+    '3/10'
+    >>> humanize.digestable(0.333)
+    '1/3'
+    >>> humanize.digestable(1)
+    '1'
