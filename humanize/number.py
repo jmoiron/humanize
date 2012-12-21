@@ -4,6 +4,8 @@
 """Humanizing functions for numbers."""
 
 import re
+from fractions import Fraction
+
 
 def ordinal(value):
     """Converts an integer to its ordinal as a string. 1 is '1st', 2 is '2nd',
@@ -14,9 +16,10 @@ def ordinal(value):
     except (TypeError, ValueError):
         return value
     t = ('th', 'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th')
-    if value % 100 in (11, 12, 13): # special case
+    if value % 100 in (11, 12, 13):  # special case
         return u"%d%s" % (value, t[0])
     return u'%d%s' % (value, t[value % 10])
+
 
 def intcomma(value):
     """Converts an integer to a string containing commas every three digits.
@@ -37,9 +40,10 @@ def intcomma(value):
     else:
         return intcomma(new)
 
-powers = [10**x for x in (6,9,12,15,18,21,24,27,30,33,100)]
+powers = [10 ** x for x in (6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 100)]
 human_powers = ('million', 'billion', 'trillion', 'quadrillion', 'quintillion',
     'sextillion', 'septillion', 'octillion', 'nonillion', 'decillion', 'googol')
+
 
 def intword(value, format='%.1f'):
     """Converts a large integer to a friendly text representation. Works best for
@@ -55,11 +59,12 @@ def intword(value, format='%.1f'):
 
     if value < powers[0]:
         return str(value)
-    for ordinal,power in enumerate(powers[1:], 1):
+    for ordinal, power in enumerate(powers[1:], 1):
         if value < power:
-            chopped = value / float(powers[ordinal-1])
-            return (' '.join([format, human_powers[ordinal-1]])) % chopped
+            chopped = value / float(powers[ordinal - 1])
+            return (' '.join([format, human_powers[ordinal - 1]])) % chopped
     return str(value)
+
 
 def apnumber(value):
     """For numbers 1-9, returns the number spelled out. Otherwise, returns the
@@ -71,5 +76,37 @@ def apnumber(value):
         return value
     if not 0 < value < 10:
         return str(value)
-    return ('one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine')[value-1]
+    return ('one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine')[value - 1]
 
+
+def digestable(value):
+    '''
+    There will be some cases where one might not want to show
+        ugly decimal places for floats and decimals.
+    This function returns a human digestable number
+        in form of fractions and mixed fractions.
+    Pass in a string, or a number or a float, and this function returns
+        a string representation of a fraction
+        or whole number
+        or a mixed fraction
+    Examples:
+        digestable(0.3) will return '1/3'
+        digestable(1.3) will return '1 3/10'
+        digestable(float(1/3)) will return '1/3'
+        digestable(1) will return '1'
+    This will always return a string.
+    '''
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return value
+    wholeNumber = int(number)
+    frac = Fraction(number - wholeNumber).limit_denominator(1000)
+    numerator = frac._numerator
+    denominator = frac._denominator
+    if wholeNumber and not numerator and denominator == 1:
+        return '%.0f' % wholeNumber  # this means that an integer was passed in (or variants of that integer like 1.0000)
+    elif not wholeNumber:
+        return '%.0f/%.0f' % (numerator, denominator)
+    else:
+        return '%.0f %.0f/%.0f' % (wholeNumber, numerator, denominator)
