@@ -5,4 +5,4 @@ from humanize.number import *
 from humanize.filesize import *
 
 __all__ = ['VERSION', 'naturalday', 'naturaltime', 'ordinal', 'intword',
-    'naturaldelta', 'intcomma', 'apnumber', 'digestable', 'naturalsize']
+    'naturaldelta', 'intcomma', 'apnumber', 'fractional', 'naturalsize']

@@ -42,7 +42,7 @@ class NumberTestCase(HumanizeTestCase):
         result_list = ('one', 'two', 'four', 'five', 'nine', '10', 'seven', None)
         self.assertManyResults(number.apnumber, test_list, result_list)
 
-    def test_digestable(self):
-        test_list = (1, 2.0, (4/3), (5/6), '7', '8.9', 'ten', None)
+    def test_fractional(self):
+        test_list = (1, 2.0, (4.0/3.0), (5.0/6.0), '7', '8.9', 'ten', None)
         result_list = ('1', '2', '1 1/3', '5/6', '7',  '8 9/10', 'ten', None)
-        self.assertManyResults(number.digestable, test_list, result_list)
+        self.assertManyResults(number.fractional, test_list, result_list)

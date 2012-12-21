@@ -79,21 +79,21 @@ def apnumber(value):
     return ('one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine')[value - 1]
 
 
-def digestable(value):
+def fractional(value):
     '''
     There will be some cases where one might not want to show
         ugly decimal places for floats and decimals.
-    This function returns a human digestable number
+    This function returns a human readable fractional number
         in form of fractions and mixed fractions.
     Pass in a string, or a number or a float, and this function returns
         a string representation of a fraction
         or whole number
         or a mixed fraction
     Examples:
-        digestable(0.3) will return '1/3'
-        digestable(1.3) will return '1 3/10'
-        digestable(float(1/3)) will return '1/3'
-        digestable(1) will return '1'
+        fractional(0.3) will return '1/3'
+        fractional(1.3) will return '1 3/10'
+        fractional(float(1/3)) will return '1/3'
+        fractional(1) will return '1'
     This will always return a string.
     '''
     try:

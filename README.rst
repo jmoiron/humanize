@@ -44,15 +44,15 @@ Filesize humanization::
     '976.6K'
 
 
-Human digestable numbers::
+Human readable floating point numbers::
 
-    >>> humanize.digestable(1/3)
+    >>> humanize.fractional(1/3)
     '1/3'
-    >>> humanize.digestable(1.5)
+    >>> humanize.fractional(1.5)
     '1 1/2'
-    >>> humanize.digestable(0.3)
+    >>> humanize.fractional(0.3)
     '3/10'
-    >>> humanize.digestable(0.333)
+    >>> humanize.fractional(0.333)
     '1/3'
-    >>> humanize.digestable(1)
+    >>> humanize.fractional(1)
     '1'
