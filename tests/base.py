@@ -3,9 +3,7 @@
 
 """Tests base classes."""
 
-from itertools import izip
 from unittest import TestCase
-from datetime import datetime, date, timedelta
 
 class HumanizeTestCase(TestCase):
 
@@ -13,7 +11,7 @@ class HumanizeTestCase(TestCase):
         """Goes through a list of arguments and makes sure that function called
         upon them lists a similarly ordered list of results.  If more than one
         argument is required, each position in args may be a tuple."""
-        for arg, result in izip(args, results):
+        for arg, result in zip(args, results):
             if isinstance(arg, tuple):
                 self.assertEqual(function(*arg), result)
             else:

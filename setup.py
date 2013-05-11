@@ -19,9 +19,11 @@ setup(
     # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
         'Development Status :: 4 - Beta',
-        'License :: OSI Approved :: MIT License',
         'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
         'Operating System :: POSIX',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python',
     ],
     keywords='humanize time size',
     author='Jason Moiron',

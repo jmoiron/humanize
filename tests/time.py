@@ -3,12 +3,11 @@
 
 """Tests for time humanizing."""
 
-from mock import patch, Mock
-from itertools import izip, chain
+from mock import patch
 
 from humanize import time
 from datetime import date, datetime, timedelta
-from base import HumanizeTestCase
+from .base import HumanizeTestCase
 
 today = date.today()
 one_day = timedelta(days=1)
@@ -23,7 +22,7 @@ class TimeUtilitiesTestCase(HumanizeTestCase):
         td_tests = [td(seconds=x) for x in int_tests]
         results = [(now - td(seconds=x), td(seconds=x)) for x in int_tests]
         for t in (int_tests, date_tests, td_tests):
-            for arg, result in izip(t, results):
+            for arg, result in zip(t, results):
                 dt, d = time.date_and_delta(arg)
                 self.assertEqualDatetime(dt, result[0])
                 self.assertEqualTimedelta(d, result[1])
