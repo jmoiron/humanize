@@ -4,7 +4,7 @@
 """Number tests."""
 
 from humanize import number
-from base import HumanizeTestCase
+from .base import HumanizeTestCase
 
 class NumberTestCase(HumanizeTestCase):
 

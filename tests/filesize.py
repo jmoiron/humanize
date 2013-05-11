@@ -3,11 +3,8 @@
 
 """Tests for filesize humanizing."""
 
-from mock import patch, Mock
-from itertools import izip, chain
-
 from humanize import filesize
-from base import HumanizeTestCase
+from .base import HumanizeTestCase
 
 class FilesizeTestCase(HumanizeTestCase):
     def test_naturalsize(self):
