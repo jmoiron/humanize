@@ -6,7 +6,7 @@
 
 import time
 from datetime import datetime, timedelta, date
-from gettext import ngettext, gettext as _
+from i18n import ngettext, gettext as _
 
 __all__ = ['naturaltime', 'naturalday']
 

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2013-05-15 04:26+0400\n"
-"PO-Revision-Date: 2013-05-15 04:36+0300\n"
+"PO-Revision-Date: 2013-05-16 02:20+0300\n"
 "Last-Translator: Sergey Prokhorov <me@seriyps.ru>\n"
 "Language-Team: ru_RU <LL@li.org>\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -25,7 +25,7 @@ msgstr "только что"
 
 #: humanize/time.py:66
 msgid "a second"
-msgstr "секунда"
+msgstr "секунду"
 
 #: humanize/time.py:68
 #, python-format
@@ -37,7 +37,7 @@ msgstr[2] "%d секунд"
 
 #: humanize/time.py:70
 msgid "a minute"
-msgstr "минута"
+msgstr "минуту"
 
 #: humanize/time.py:73
 #, python-format
