@@ -59,3 +59,15 @@ Human readable floating point numbers::
     '1/3'
     >>> humanize.fractional(1)
     '1'
+
+Localization
+------------
+
+How to add new phrases to existing locale files ::
+
+    $ pybabel extract -o messages.pot -k _ -k L_ humanize  # extract new phrases
+    $ pybabel update -i messages.pot locale/
+
+How to add new locale ::
+
+    $ pybabel init -i messages.pot -d locale/ -D humanize -l <lang abbreviation, eg 'en_GB'>

@@ -1,0 +1,142 @@
+# Russian (Russia) translations for PROJECT.
+# Copyright (C) 2013 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2013-05-15 04:26+0400\n"
+"PO-Revision-Date: 2013-05-15 04:36+0300\n"
+"Last-Translator: Sergey Prokhorov <me@seriyps.ru>\n"
+"Language-Team: ru_RU <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: humanize/time.py:64 humanize/time.py:126
+msgid "a moment"
+msgstr "только что"
+
+#: humanize/time.py:66
+msgid "a second"
+msgstr "секунда"
+
+#: humanize/time.py:68
+#, python-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d секунда"
+msgstr[1] "%d секунды"
+msgstr[2] "%d секунд"
+
+#: humanize/time.py:70
+msgid "a minute"
+msgstr "минута"
+
+#: humanize/time.py:73
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d минута"
+msgstr[1] "%d минуты"
+msgstr[2] "%d минут"
+
+#: humanize/time.py:75
+msgid "an hour"
+msgstr "час"
+
+#: humanize/time.py:78
+#, python-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d час"
+msgstr[1] "%d часа"
+msgstr[2] "%d часов"
+
+#: humanize/time.py:81
+msgid "a day"
+msgstr "день"
+
+#: humanize/time.py:83 humanize/time.py:86
+#, python-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d день"
+msgstr[1] "%d дня"
+msgstr[2] "%d дней"
+
+#: humanize/time.py:88
+msgid "a month"
+msgstr "месяц"
+
+#: humanize/time.py:90
+#, python-format
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] "%d месяц"
+msgstr[1] "%d месяца"
+msgstr[2] "%d месяцев"
+
+#: humanize/time.py:93
+msgid "a year"
+msgstr "год"
+
+#: humanize/time.py:95 humanize/time.py:103
+#, python-format
+msgid "1 year, %d day"
+msgid_plural "1 year, %d days"
+msgstr[0] "1 год, %d день"
+msgstr[1] "1 год, %d дня"
+msgstr[2] "1 год, %d дней"
+
+#: humanize/time.py:98
+msgid "1 year, 1 month"
+msgstr "1 год, 1 месяц"
+
+#: humanize/time.py:100
+#, python-format
+msgid "1 year, %d month"
+msgid_plural "1 year, %d months"
+msgstr[0] "1 год, %d месяц"
+msgstr[1] "1 год, %d месяца"
+msgstr[2] "1 год, %d месяцев"
+
+#: humanize/time.py:105
+#, python-format
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] "%d год"
+msgstr[1] "%d года"
+msgstr[2] "%d лет"
+
+#: humanize/time.py:123
+#, python-format
+msgid "%s from now"
+msgstr "через %s"
+
+#: humanize/time.py:123
+#, python-format
+msgid "%s ago"
+msgstr "%s назад"
+
+#: humanize/time.py:127
+msgid "now"
+msgstr "сейчас"
+
+#: humanize/time.py:145
+msgid "today"
+msgstr "сегодня"
+
+#: humanize/time.py:147
+msgid "tomorrow"
+msgstr "завтра"
+
+#: humanize/time.py:149
+msgid "yesterday"
+msgstr "вчера"
