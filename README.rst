@@ -84,9 +84,9 @@ search locales in. ::
 
 How to add new phrases to existing locale files ::
 
-    $ pybabel extract -o messages.pot -k _ -k L_ humanize  # extract new phrases
-    $ pybabel update -i messages.pot locale/
+    $ pybabel extract -o messages.pot -k _ -k N_ humanize  # extract new phrases
+    $ pybabel update -i messages.pot -D humanize -d humanize/locale/
 
 How to add new locale ::
 
-    $ pybabel init -i messages.pot -d locale/ -D humanize -l <lang abbreviation, eg 'en_GB'>
+    $ pybabel init -i messages.pot -d humanize/locale/ -D humanize -l <lang abbreviation, eg 'en_GB'>

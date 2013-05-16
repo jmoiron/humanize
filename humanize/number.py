@@ -6,6 +6,7 @@
 import re
 from fractions import Fraction
 from .import compat
+from .i18n import gettext as _, gettext_noop as N_
 
 
 def ordinal(value):
@@ -16,10 +17,10 @@ def ordinal(value):
         value = int(value)
     except (TypeError, ValueError):
         return value
-    t = ('th', 'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th')
+    t = (_('th'), _('st'), _('nd'), _('rd'), _('th'), _('th'), _('th'), _('th'), _('th'), _('th'))
     if value % 100 in (11, 12, 13):  # special case
-        return u"%d%s" % (value, t[0])
-    return u'%d%s' % (value, t[value % 10])
+        return "%d%s" % (value, t[0])
+    return '%d%s' % (value, t[value % 10])
 
 
 def intcomma(value):
@@ -42,8 +43,9 @@ def intcomma(value):
         return intcomma(new)
 
 powers = [10 ** x for x in (6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 100)]
-human_powers = ('million', 'billion', 'trillion', 'quadrillion', 'quintillion',
-    'sextillion', 'septillion', 'octillion', 'nonillion', 'decillion', 'googol')
+human_powers = (N_('million'), N_('billion'), N_('trillion'), N_('quadrillion'),
+                N_('quintillion'), N_('sextillion'), N_('septillion'),
+                N_('octillion'), N_('nonillion'), N_('decillion'), N_('googol'))
 
 
 def intword(value, format='%.1f'):
@@ -63,7 +65,7 @@ def intword(value, format='%.1f'):
     for ordinal, power in enumerate(powers[1:], 1):
         if value < power:
             chopped = value / float(powers[ordinal - 1])
-            return (' '.join([format, human_powers[ordinal - 1]])) % chopped
+            return (' '.join([format, _(human_powers[ordinal - 1])])) % chopped
     return str(value)
 
 
@@ -77,7 +79,8 @@ def apnumber(value):
         return value
     if not 0 < value < 10:
         return str(value)
-    return ('one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine')[value - 1]
+    return (_('one'), _('two'), _('three'), _('four'), _('five'), _('six'),
+            _('seven'), _('eight'), _('nine'))[value - 1]
 
 
 def fractional(value):

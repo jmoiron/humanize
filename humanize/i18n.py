@@ -39,3 +39,11 @@ def gettext(message):
 
 def ngettext(message, plural, num):
     return get_translation().ngettext(message, plural, num)
+
+
+def gettext_noop(message):
+    """Example usage:
+    CONSTANTS = [gettext_noop('first'), gettext_noop('second')]
+    def num_name(n):
+        return gettext(CONSTANTS[n])"""
+    return message

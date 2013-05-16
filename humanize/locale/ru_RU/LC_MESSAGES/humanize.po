@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-05-15 04:26+0400\n"
-"PO-Revision-Date: 2013-05-16 02:20+0300\n"
+"POT-Creation-Date: 2013-05-16 15:18+0400\n"
+"PO-Revision-Date: 2013-05-17 01:31+0300\n"
 "Last-Translator: Sergey Prokhorov <me@seriyps.ru>\n"
 "Language-Team: ru_RU <LL@li.org>\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -18,6 +18,103 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 "X-Generator: Poedit 1.5.4\n"
+
+# в Django тут "ий" но на самом деле оба варианта работают плохо
+#: humanize/number.py:20
+msgid "th"
+msgstr "ый"
+
+#: humanize/number.py:20
+msgid "st"
+msgstr "ый"
+
+#: humanize/number.py:20
+msgid "nd"
+msgstr "ой"
+
+#: humanize/number.py:20
+msgid "rd"
+msgstr "ий"
+
+#: humanize/number.py:46
+msgid "million"
+msgstr "миллиона"
+
+#: humanize/number.py:46
+msgid "billion"
+msgstr "миллиарда"
+
+#: humanize/number.py:46
+msgid "trillion"
+msgstr "триллиона"
+
+#: humanize/number.py:46
+msgid "quadrillion"
+msgstr "квадриллиона"
+
+#: humanize/number.py:47
+msgid "quintillion"
+msgstr "квинтиллиона"
+
+#: humanize/number.py:47
+msgid "sextillion"
+msgstr "сикстиллиона"
+
+#: humanize/number.py:47
+msgid "septillion"
+msgstr "септиллиона"
+
+#: humanize/number.py:48
+msgid "octillion"
+msgstr "октиллиона"
+
+#: humanize/number.py:48
+msgid "nonillion"
+msgstr "нониллиона"
+
+#: humanize/number.py:48
+msgid "decillion"
+msgstr "децилиона"
+
+#: humanize/number.py:48
+msgid "googol"
+msgstr "гогола"
+
+#: humanize/number.py:82
+msgid "one"
+msgstr "один"
+
+#: humanize/number.py:82
+msgid "two"
+msgstr "два"
+
+#: humanize/number.py:82
+msgid "three"
+msgstr "три"
+
+#: humanize/number.py:82
+msgid "four"
+msgstr "четыре"
+
+#: humanize/number.py:82
+msgid "five"
+msgstr "пять"
+
+#: humanize/number.py:82
+msgid "six"
+msgstr "шесть"
+
+#: humanize/number.py:83
+msgid "seven"
+msgstr "семь"
+
+#: humanize/number.py:83
+msgid "eight"
+msgstr "восемь"
+
+#: humanize/number.py:83
+msgid "nine"
+msgstr "девять"
 
 #: humanize/time.py:64 humanize/time.py:126
 msgid "a moment"
