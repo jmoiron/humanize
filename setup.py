@@ -6,7 +6,7 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '0.3'
+version = '0.4'
 
 # some trove classifiers:
 
