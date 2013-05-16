@@ -63,6 +63,25 @@ Human readable floating point numbers::
 Localization
 ------------
 
+How to change locale in runtime ::
+
+    >>> print humanize.naturaltime(datetime.timedelta(seconds=3))
+    3 seconds ago
+    >>> _t = humanize.i18n.activate('ru_RU')
+    >>> print humanize.naturaltime(datetime.timedelta(seconds=3))
+    3 секунды назад
+    >>> humanize.i18n.deactivate()
+    >>> print humanize.naturaltime(datetime.timedelta(seconds=3))
+    3 seconds ago
+
+You can pass additional parameter *path* to :func:`activate` to specify a path to
+search locales in. ::
+
+    >>> humanize.i18n.activate('pt_BR')
+    IOError: [Errno 2] No translation file found for domain: 'humanize'
+    >>> humanize.i18n.activate('pt_BR', path='path/to/my/portuguese/translation/')
+    <gettext.GNUTranslations instance ...>
+
 How to add new phrases to existing locale files ::
 
     $ pybabel extract -o messages.pot -k _ -k L_ humanize  # extract new phrases

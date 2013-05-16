@@ -8,7 +8,7 @@ __all__ = ['activate', 'deactivate', 'gettext', 'ngettext']
 _TRANSLATIONS = {None: gettext_module.NullTranslations()}
 _CURRENT = local()
 
-_DEFAULT_LOCALE_PATH = os.path.join(os.path.dirname(__file__), '..', 'locale')
+_DEFAULT_LOCALE_PATH = os.path.join(os.path.dirname(__file__), 'locale')
 
 
 def get_translation():
