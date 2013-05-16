@@ -1,5 +1,5 @@
 humanize
------------
+--------
 
 .. image:: https://secure.travis-ci.org/jmoiron/humanize.png?branch=master
   :target: http://travis-ci.org/jmoiron/humanize
