@@ -6,6 +6,7 @@
 
 import time
 from datetime import datetime, timedelta, date
+from .i18n import ngettext, gettext as _
 
 __all__ = ['naturaltime', 'naturalday']
 
@@ -60,45 +61,48 @@ def naturaldelta(value, months=True):
 
     if not years and days < 1:
         if seconds == 0:
-            return "a moment"
+            return _("a moment")
         elif seconds == 1:
-            return "a second"
+            return _("a second")
         elif seconds < 60:
-            return "%d seconds" % (seconds)
+            return ngettext("%d second", "%d seconds", seconds) % seconds
         elif 60 <= seconds < 120:
-            return "a minute"
+            return _("a minute")
         elif 120 <= seconds < 3600:
-            return "%d minutes" % (seconds // 60)
-        elif 3600 <= seconds < 3600*2:
-            return "an hour"
+            minutes = seconds // 60
+            return ngettext("%d minute", "%d minutes", minutes) % minutes
+        elif 3600 <= seconds < 3600 * 2:
+            return _("an hour")
         elif 3600 < seconds:
-            return "%d hours" % (seconds // 3600)
+            hours = seconds // 3600
+            return ngettext("%d hour", "%d hours", hours) % hours
     elif years == 0:
         if days == 1:
-            return "a day"
+            return _("a day")
         if not use_months:
-            return "%d days" % days
+            return ngettext("%d day", "%d days", days) % days
         else:
             if not months:
-                return "%d days" % days
+                return ngettext("%d day", "%d days", days) % days
             elif months == 1:
-                return "a month"
+                return _("a month")
             else:
-                return "%d months" % months
+                return ngettext("%d month", "%d months", months) % months
     elif years == 1:
         if not months and not days:
-            return "a year"
+            return _("a year")
         elif not months:
-            return "1 year, %d days" % days
+            return ngettext("1 year, %d day", "1 year, %d days", days) % days
         elif use_months:
             if months == 1:
-                return "1 year, 1 month"
+                return _("1 year, 1 month")
             else:
-                return "1 year, %d months" % months
+                return ngettext("1 year, %d month",
+                                "1 year, %d months", months) % months
         else:
-            return "1 year, %d days" % days
+            return ngettext("1 year, %d day", "1 year, %d days", days) % days
     else:
-        return "%d years" % years
+        return ngettext("%d year", "%d years", years) % years
 
 
 def naturaltime(value, future=False, months=True):
@@ -116,13 +120,13 @@ def naturaltime(value, future=False, months=True):
     if isinstance(value, (datetime, timedelta)):
         future = date > now
 
-    ago = 'from now' if future else 'ago'
+    ago = _('%s from now') if future else _('%s ago')
     delta = naturaldelta(delta)
 
-    if delta == "a moment":
-        return "now"
+    if delta == _("a moment"):
+        return _("now")
 
-    return "%s %s" % (delta, ago)
+    return ago % delta
 
 def naturalday(value, format='%b %d'):
     """For date values that are tomorrow, today or yesterday compared to
@@ -138,11 +142,11 @@ def naturalday(value, format='%b %d'):
         return value
     delta = value - date.today()
     if delta.days == 0:
-        return 'today'
+        return _('today')
     elif delta.days == 1:
-        return 'tomorrow'
+        return _('tomorrow')
     elif delta.days == -1:
-        return 'yesterday'
+        return _('yesterday')
     return value.strftime(format)
 
 
