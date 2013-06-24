@@ -1,9 +1,18 @@
 # -*- coding: utf-8 -*-
+import logging
 import gettext as gettext_module
 from threading import local
 import os.path
 
-__all__ = ['activate', 'deactivate', 'gettext', 'ngettext']
+try:
+    from django.utils import translation as django_translation
+
+except ImportError:
+    django_translation = None # NOQA
+
+LOGGER = logging.getLogger(__name__)
+
+__all__ = ['activate', 'deactivate', 'gettext', 'ngettext', 'django_language']
 
 _TRANSLATIONS = {None: gettext_module.NullTranslations()}
 _CURRENT = local()
@@ -47,3 +56,40 @@ def gettext_noop(message):
     def num_name(n):
         return gettext(CONSTANTS[n])"""
     return message
+
+
+class django_language(object):
+    """ a context manager for easy language switching in Django. Usage::
+
+            with django_language():
+                humanize.whatever(…)
+
+        And that's all. It runs activate with the current django language
+        in the current thread.
+
+    """
+
+    def __enter__(self):
+        if django_translation is None:
+            return
+
+        current_lang = django_translation.get_language()
+
+        if current_lang != 'en':
+            try:
+                # TODO: find a way to do this automatically, application-wide…
+                activate(current_lang, path=os.path.join(
+                         os.path.dirname(__file__), 'locale'))
+            except:
+                # Humanize will crash badly if it find no gettext message file.
+                # But we shouldn't because it's harmless, in the end.
+                LOGGER.warning(u'could not switch `humanize` i18n to %s, '
+                               u'its translations will appear in english.',
+                               current_lang)
+
+    def __exit__(self, *args, **kwargs):
+        try:
+            deactivate()
+
+        except:
+            pass
