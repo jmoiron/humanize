@@ -8,7 +8,7 @@ import time
 from datetime import datetime, timedelta, date
 from .i18n import ngettext, gettext as _
 
-__all__ = ['naturaltime', 'naturalday']
+__all__ = ['naturaltime', 'naturalday', 'naturaldate']
 
 def _now():
     return datetime.now()
@@ -149,5 +149,20 @@ def naturalday(value, format='%b %d'):
         return _('yesterday')
     return value.strftime(format)
 
+def naturaldate(value):
+    """Like naturalday, but will append a year for dates that are a year
+    ago or more."""
+    try:
+        value = date(value.year, value.month, value.day)
+    except AttributeError:
+        # Passed value wasn't date-ish
+        return value
+    except (OverflowError, ValueError):
+        # Date arguments out of range
+        return value
+    delta = abs_timedelta(value - date.today())
+    if delta.days >= 365:
+        return naturalday(value, '%b %d %Y')
+    return naturalday(value)
 
 

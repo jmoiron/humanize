@@ -7,4 +7,4 @@ from humanize.i18n import activate, deactivate
 
 __all__ = ['VERSION', 'naturalday', 'naturaltime', 'ordinal', 'intword',
     'naturaldelta', 'intcomma', 'apnumber', 'fractional', 'naturalsize',
-    'activate', 'deactivate']
+    'activate', 'deactivate', 'naturaldate']

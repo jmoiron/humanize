@@ -12,6 +12,10 @@ from .base import HumanizeTestCase
 today = date.today()
 one_day = timedelta(days=1)
 
+class fakedate(object):
+    def __init__(self, year, month, day):
+        self.year, self.month, self.day = year, month, day
+
 class TimeUtilitiesTestCase(HumanizeTestCase):
     """These are not considered "public" interfaces, but require tests anyway."""
     def test_date_and_delta(self):
@@ -181,9 +185,6 @@ class TimeTestCase(HumanizeTestCase):
             self.assertManyResults(time.naturaltime, test_list, result_list)
 
     def test_naturalday(self):
-        class fakedate(object):
-            def __init__(self, year, month, day):
-                self.year, self.month, self.day = year, month, day
         tomorrow = today + one_day
         yesterday = today - one_day
         if today.month != 3:
@@ -203,4 +204,19 @@ class TimeTestCase(HumanizeTestCase):
             valerrtest, overflowtest
         )
         self.assertManyResults(time.naturalday, test_list, result_list)
+
+    def test_naturaldate(self):
+        tomorrow = today + one_day
+        yesterday = today - one_day
+
+        if today.month != 3:
+            someday = date(today.year, 3, 5)
+            someday_result = 'Mar 05'
+        else:
+            someday = date(today.year, 9, 5)
+            someday_result = 'Sep 09'
+
+        test_list = (today, tomorrow, yesterday, someday, date(1982, 6, 27))
+        result_list = ('today', 'tomorrow', 'yesterday', someday_result, 'Jun 27 1982')
+        self.assertManyResults(time.naturaldate, test_list, result_list)
 
