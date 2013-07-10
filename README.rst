@@ -6,7 +6,8 @@ humanize
 
 This modest package contains various common humanization utilities, like turning
 a number into a fuzzy human readable duration ('3 minutes ago') or into a human
-readable size or throughput.
+readable size or throughput.  It works with python 2.7 and 3.3 and is localized
+to Russian, French, and Korean.
 
 usage
 -----
@@ -32,6 +33,10 @@ Date & time humanization::
     'today'
     >>> humanize.naturalday(datetime.datetime.now() - datetime.timedelta(days=1))
     'yesterday'
+    >>> humanize.naturalday(datetime.date(2007, 6, 5))
+    'Jun 05'
+    >>> humanize.naturaldate(datetime.date(2007, 6, 5))
+    'Jun 05 2007'
     >>> humanize.naturaltime(datetime.datetime.now() - datetime.timedelta(seconds=1))
     'a second ago'
     >>> humanize.naturaltime(datetime.datetime.now() - datetime.timedelta(seconds=3600))
