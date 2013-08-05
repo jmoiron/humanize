@@ -8,7 +8,7 @@ import time
 from datetime import datetime, timedelta, date
 from .i18n import ngettext, gettext as _
 
-__all__ = ['naturaltime', 'naturalday', 'naturaldate']
+__all__ = ['naturaldelta', 'naturaltime', 'naturalday', 'naturaldate']
 
 def _now():
     return datetime.now()
