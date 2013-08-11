@@ -9,7 +9,8 @@ suffixes = {
     'gnu': "KMGTPEZY",
 }
 
-def naturalsize(value, binary=False, gnu=False):
+
+def naturalsize(value, binary=False, gnu=False, format='%.1f'):
     """Format a number of byteslike a human readable filesize (eg. 10 kB).  By
     default, decimal suffixes (kB, MB) are used.  Passing binary=true will use
     binary suffixes (KiB, MiB) are used and the base will be 2**10 instead of
@@ -30,10 +31,10 @@ def naturalsize(value, binary=False, gnu=False):
     for i,s in enumerate(suffix):
         unit = base ** (i+2)
         if bytes < unit and not gnu:
-            return '%.1f %s' % ((base * bytes / unit), s)
+            return (format + ' %s') % ((base * bytes / unit), s)
         elif bytes < unit and gnu:
-            return '%.1f%s' % ((base * bytes / unit), s)
+            return (format + '%s') % ((base * bytes / unit), s)
     if gnu:
-        return '%.1f%s' % ((base * bytes / unit), s)
-    return '%.1f %s' % ((base * bytes / unit), s)
+        return (format + '%s') % ((base * bytes / unit), s)
+    return (format + ' %s') % ((base * bytes / unit), s)
 
