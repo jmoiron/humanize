@@ -5,6 +5,7 @@
 
 from setuptools import setup, find_packages
 import sys, os
+import io
 
 version = '0.5'
 
@@ -15,7 +16,7 @@ setup(
     name='humanize',
     version=version,
     description="python humanize utilities",
-    long_description=open('README.rst', encoding="utf-8").read(),
+    long_description=io.open('README.rst', encoding="utf-8").read(),
     # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
         'Development Status :: 4 - Beta',
