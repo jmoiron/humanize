@@ -192,7 +192,7 @@ class TimeTestCase(HumanizeTestCase):
             someday_result = 'Mar 05'
         else:
             someday = date(today.year, 9, 5)
-            someday_result = 'Sep 09'
+            someday_result = 'Sep 05'
         valerrtest = fakedate(290149024, 2, 2)
         overflowtest = fakedate(120390192341, 2, 2)
         test_list = (today, tomorrow, yesterday, someday, '02/26/1984',
@@ -214,7 +214,7 @@ class TimeTestCase(HumanizeTestCase):
             someday_result = 'Mar 05'
         else:
             someday = date(today.year, 9, 5)
-            someday_result = 'Sep 09'
+            someday_result = 'Sep 05'
 
         test_list = (today, tomorrow, yesterday, someday, date(1982, 6, 27))
         result_list = ('today', 'tomorrow', 'yesterday', someday_result, 'Jun 27 1982')
