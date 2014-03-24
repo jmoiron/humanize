@@ -27,7 +27,7 @@ def activate(locale, path=None):
         translation = gettext_module.translation('humanize', path, [locale])
         _TRANSLATIONS[locale] = translation
     _CURRENT.locale = locale
-    return translation
+    return _TRANSLATIONS[locale]
 
 
 def deactivate():
