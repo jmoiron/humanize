@@ -23,8 +23,9 @@ def activate(locale, path=None):
     @param locale: language name, eg 'en_GB'"""
     if path is None:
         path = _DEFAULT_LOCALE_PATH
-    translation = gettext_module.translation('humanize', path, [locale])
-    _TRANSLATIONS[locale] = translation
+    if locale not in _TRANSLATIONS:
+        translation = gettext_module.translation('humanize', path, [locale])
+        _TRANSLATIONS[locale] = translation
     _CURRENT.locale = locale
     return translation
 
