@@ -37,6 +37,17 @@ def gettext(message):
     return get_translation().gettext(message)
 
 
+def pgettext(msgctxt, message):
+    """'Particular gettext' function.
+    It works with 'msgctxt' .po modifiers and allow duplicate keys with
+    different translations.
+    Python 2 don't have support for this GNU gettext function, so we
+    reimplement it. It works by joining msgctx and msgid by '4' byte."""
+    key = msgctxt + '\x04' + message
+    translation = get_translation().gettext(key)
+    return message if translation == key else translation
+
+
 def ngettext(message, plural, num):
     return get_translation().ngettext(message, plural, num)
 
