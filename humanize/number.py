@@ -6,7 +6,7 @@
 import re
 from fractions import Fraction
 from .import compat
-from .i18n import gettext as _, gettext_noop as N_
+from .i18n import gettext as _, gettext_noop as N_, pgettext as P_
 
 
 def ordinal(value):
@@ -17,7 +17,16 @@ def ordinal(value):
         value = int(value)
     except (TypeError, ValueError):
         return value
-    t = (_('th'), _('st'), _('nd'), _('rd'), _('th'), _('th'), _('th'), _('th'), _('th'), _('th'))
+    t = (P_('0', 'th'),
+         P_('1', 'st'),
+         P_('2', 'nd'),
+         P_('3', 'rd'),
+         P_('4', 'th'),
+         P_('5', 'th'),
+         P_('6', 'th'),
+         P_('7', 'th'),
+         P_('8', 'th'),
+         P_('9', 'th'))
     if value % 100 in (11, 12, 13):  # special case
         return "%d%s" % (value, t[0])
     return '%d%s' % (value, t[value % 10])

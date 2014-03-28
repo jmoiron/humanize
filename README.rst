@@ -89,9 +89,12 @@ search locales in. ::
 
 How to add new phrases to existing locale files ::
 
-    $ pybabel extract -o messages.pot -k _ -k N_ humanize  # extract new phrases
-    $ pybabel update -i messages.pot -D humanize -d humanize/locale/
+    $ xgettext -o humanize.pot -k'_' -k'N_' -k'P_:1c,2' -l python humanize/*.py  # extract new phrases
+    $ msgmerge -U humanize/locale/ru_RU/LC_MESSAGES/humanize.po humanize.pot # add them to locale files
+    $ msgfmt --check -o humanize/locale/ru_RU/LC_MESSAGES/humanize{.po,.mo} # compile to binary .mo
 
 How to add new locale ::
 
-    $ pybabel init -i messages.pot -d humanize/locale/ -D humanize -l <lang abbreviation, eg 'en_GB'>
+    $ msginit -i humanize.pot -o humanize/locale/<locale name>/LC_MESSAGES/humanize.po --locale <locale name>
+
+Where <locale name> is locale abbreviation, eg 'en_GB', 'pt_BR' or just 'ru', 'fr' etc.

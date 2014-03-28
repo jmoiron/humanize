@@ -23,10 +23,11 @@ def activate(locale, path=None):
     @param locale: language name, eg 'en_GB'"""
     if path is None:
         path = _DEFAULT_LOCALE_PATH
-    translation = gettext_module.translation('humanize', path, [locale])
-    _TRANSLATIONS[locale] = translation
+    if locale not in _TRANSLATIONS:
+        translation = gettext_module.translation('humanize', path, [locale])
+        _TRANSLATIONS[locale] = translation
     _CURRENT.locale = locale
-    return translation
+    return _TRANSLATIONS[locale]
 
 
 def deactivate():
@@ -35,6 +36,17 @@ def deactivate():
 
 def gettext(message):
     return get_translation().gettext(message)
+
+
+def pgettext(msgctxt, message):
+    """'Particular gettext' function.
+    It works with 'msgctxt' .po modifiers and allow duplicate keys with
+    different translations.
+    Python 2 don't have support for this GNU gettext function, so we
+    reimplement it. It works by joining msgctx and msgid by '4' byte."""
+    key = msgctxt + '\x04' + message
+    translation = get_translation().gettext(key)
+    return message if translation == key else translation
 
 
 def ngettext(message, plural, num):
