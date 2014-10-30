@@ -184,6 +184,72 @@ class TimeTestCase(HumanizeTestCase):
             mocked.return_value = now
             self.assertManyResults(time.naturaltime, test_list, result_list)
 
+    def test_naturaltime_nomonths(self):
+        now = datetime.now()
+        test_list = [
+            now,
+            now - timedelta(seconds=1),
+            now - timedelta(seconds=30),
+            now - timedelta(minutes=1, seconds=30),
+            now - timedelta(minutes=2),
+            now - timedelta(hours=1, minutes=30, seconds=30),
+            now - timedelta(hours=23, minutes=50, seconds=50),
+            now - timedelta(days=1),
+            now - timedelta(days=17),
+            now - timedelta(days=47),
+            now - timedelta(days=500),
+            now - timedelta(days=365*2 + 35),
+            now + timedelta(seconds=1),
+            now + timedelta(seconds=30),
+            now + timedelta(minutes=1, seconds=30),
+            now + timedelta(minutes=2),
+            now + timedelta(hours=1, minutes=30, seconds=30),
+            now + timedelta(hours=23, minutes=50, seconds=50),
+            now + timedelta(days=1),
+            now + timedelta(days=500),
+            now + timedelta(days=365*2 + 35),
+            # regression tests for bugs in post-release humanize
+            now + timedelta(days=10000),
+            now - timedelta(days=365+35),
+            30,
+            now - timedelta(days=365*2 + 65),
+            now - timedelta(days=365 + 4),
+            "NaN",
+        ]
+        result_list = [
+            'now',
+            'a second ago',
+            '30 seconds ago',
+            'a minute ago',
+            '2 minutes ago',
+            'an hour ago',
+            '23 hours ago',
+            'a day ago',
+            '17 days ago',
+            '47 days ago',
+            '1 year, 135 days ago',
+            '2 years ago',
+            'a second from now',
+            '30 seconds from now',
+            'a minute from now',
+            '2 minutes from now',
+            'an hour from now',
+            '23 hours from now',
+            'a day from now',
+            '1 year, 135 days from now',
+            '2 years from now',
+            '27 years from now',
+            '1 year, 35 days ago',
+            '30 seconds ago',
+            '2 years ago',
+            '1 year, 4 days ago',
+            "NaN",
+        ]
+        with patch('humanize.time._now') as mocked:
+            mocked.return_value = now
+            nt_nomonths = lambda d: time.naturaltime(d, months=False)
+            self.assertManyResults(nt_nomonths, test_list, result_list)
+
     def test_naturalday(self):
         tomorrow = today + one_day
         yesterday = today - one_day
