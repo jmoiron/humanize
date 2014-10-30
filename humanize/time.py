@@ -121,7 +121,7 @@ def naturaltime(value, future=False, months=True):
         future = date > now
 
     ago = _('%s from now') if future else _('%s ago')
-    delta = naturaldelta(delta)
+    delta = naturaldelta(delta, months)
 
     if delta == _("a moment"):
         return _("now")
