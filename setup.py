@@ -38,7 +38,7 @@ setup(
     test_suite="tests",
     tests_require=['mock'],
     install_requires=[
-      # -*- Extra requirements: -*-
+      'pytz'
     ],
     entry_points="""
     # -*- Entry points: -*-
