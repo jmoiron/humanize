@@ -9,27 +9,31 @@ from .i18n import ngettext, gettext as _
 
 __all__ = ['naturaldelta', 'naturaltime', 'naturalday', 'naturaldate']
 
-def _now(tz_aware=False):
-    if tz_aware:
-      return utc.localize(datetime.utcnow())
-    else:
-      return datetime.now()
+def _now():
+    return utc.localize(datetime.utcnow())
 
-def _need_tz_awareness(value):
-    return hasattr(value, 'tzinfo') and value.tzinfo is not None
+def convert_to_utc(value):
+  if isinstance(value, datetime):
+    if value.tzinfo:
+      return value.astimezone(utc)
+    else:
+      return utc.localize(value)
+  else:
+    return value
 
 def abs_timedelta(delta):
     """Returns an "absolute" value for a timedelta, always representing a
     time distance."""
     if delta.days < 0:
-        now = _now(tz_aware=True)
+        now = _now()
         return now - (now + delta)
     return delta
 
 def date_and_delta(value):
     """Turn a value into a date and a timedelta which represents how long ago
     it was.  If that's not possible, return (None, value)."""
-    now = _now(tz_aware=_need_tz_awareness(value))
+    value = convert_to_utc(value)
+    now = _now()
     if isinstance(value, datetime):
         date = value
         delta = now - value
@@ -117,7 +121,7 @@ def naturaltime(value, future=False, months=True):
     If an integer is passed, the return value will be past tense by default,
     unless ``future`` is set to True."""
 
-    now = _now(tz_aware=_need_tz_awareness(value))
+    now = _now()
     date, delta = date_and_delta(value)
     if date is None:
         return value

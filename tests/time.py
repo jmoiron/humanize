@@ -19,10 +19,11 @@ class fakedate(object):
     def __init__(self, year, month, day):
         self.year, self.month, self.day = year, month, day
 
+
 class TimeUtilitiesTestCase(HumanizeTestCase):
     """These are not considered "public" interfaces, but require tests anyway."""
     def test_date_and_delta(self):
-        now = datetime.now()
+        now = utc.localize(datetime.utcnow())
         td = timedelta
         int_tests = (3, 29, 86399, 86400, 86401*30)
         date_tests = [now - td(seconds=x) for x in int_tests]
@@ -34,6 +35,7 @@ class TimeUtilitiesTestCase(HumanizeTestCase):
                 self.assertEqualDatetime(dt, result[0])
                 self.assertEqualTimedelta(d, result[1])
         self.assertEqual(time.date_and_delta("NaN"), (None, "NaN"))
+
 
 class TimeTestCase(HumanizeTestCase):
     """Tests for the public interface of humanize.time"""
@@ -54,12 +56,6 @@ class TimeTestCase(HumanizeTestCase):
         ]
 
 
-        now = datetime.now()
-        with patch('humanize.time._now') as mocked:
-            mocked.return_value = now
-            nd_nomonths = lambda d: time.naturaldelta(d, months=False)
-            self.assertManyResults(nd_nomonths, test_list, result_list)
-
         now = utc.localize(datetime.utcnow())
         with patch('humanize.time._now') as mocked:
             mocked.return_value = now
@@ -68,7 +64,7 @@ class TimeTestCase(HumanizeTestCase):
 
 
     def test_naturaldelta(self):
-        now = datetime.now()
+        now = utc.localize(datetime.utcnow())
         test_list = [
             0,
             1,
@@ -134,10 +130,12 @@ class TimeTestCase(HumanizeTestCase):
         ]
         with patch('humanize.time._now') as mocked:
             mocked.return_value = now
+
+
             self.assertManyResults(time.naturaldelta, test_list, result_list)
 
     def test_naturaltime(self):
-        now = datetime.now()
+        now = utc.localize(datetime.utcnow())
         test_list = [
             now,
             now - timedelta(seconds=1),
@@ -198,7 +196,7 @@ class TimeTestCase(HumanizeTestCase):
             self.assertManyResults(time.naturaltime, test_list, result_list)
 
     def test_naturaltime_nomonths(self):
-        now = datetime.now()
+        now = utc.localize(datetime.utcnow())
         test_list = [
             now,
             now - timedelta(seconds=1),
@@ -554,4 +552,3 @@ class TimeTestCaseTimezoneAware(HumanizeTestCase):
         test_list = (today_tzaware, tomorrow, yesterday, someday, date(1982, 6, 27))
         result_list = ('today', 'tomorrow', 'yesterday', someday_result, 'Jun 27 1982')
         self.assertManyResults(time.naturaldate, test_list, result_list)
-
