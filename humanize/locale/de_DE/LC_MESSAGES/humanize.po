@@ -197,7 +197,7 @@ msgstr[1] "%d Minuten"
 
 #: humanize/time.py:75
 msgid "an hour"
-msgstr "eine Stunde"
+msgstr "einer Stunde"
 
 #: humanize/time.py:78
 #, python-format
