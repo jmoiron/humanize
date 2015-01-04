@@ -265,7 +265,7 @@ msgstr "%s von jetzt"
 #: humanize/time.py:123
 #, python-format
 msgid "%s ago"
-msgstr "%s alt"
+msgstr "vor %s"
 
 #: humanize/time.py:127
 msgid "now"
