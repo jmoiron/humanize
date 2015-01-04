@@ -175,7 +175,7 @@ msgstr "ein Moment"
 
 #: humanize/time.py:66
 msgid "a second"
-msgstr "eine Sekunde"
+msgstr "einer Sekunde"
 
 #: humanize/time.py:68
 #, python-format
