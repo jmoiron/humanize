@@ -86,12 +86,12 @@ msgstr "%(value)s million"
 
 #: humanize/number.py:55
 msgid "billion"
-msgstr "milliard"
+msgstr "Milliarde"
 
 #: humanize/number.py:55
 #, fuzzy
 msgid "trillion"
-msgstr "%(value)s billion"
+msgstr "%(value)s Billion"
 
 #: humanize/number.py:55
 #, fuzzy
@@ -219,7 +219,7 @@ msgstr[1] "%d Tage"
 
 #: humanize/time.py:88
 msgid "a month"
-msgstr "ein Monat"
+msgstr "einen Monat"
 
 #: humanize/time.py:90
 #, python-format
@@ -260,7 +260,7 @@ msgstr[1] "%d Jahr"
 #: humanize/time.py:123
 #, python-format
 msgid "%s from now"
-msgstr "%s von jetzt"
+msgstr "in %s"
 
 #: humanize/time.py:123
 #, python-format
