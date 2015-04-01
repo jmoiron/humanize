@@ -208,14 +208,14 @@ msgstr[1] "%d Stunden"
 
 #: humanize/time.py:81
 msgid "a day"
-msgstr "ein Tag"
+msgstr "einem Tag"
 
 #: humanize/time.py:83 humanize/time.py:86
 #, python-format
 msgid "%d day"
 msgid_plural "%d Tage"
 msgstr[0] "%d Tag"
-msgstr[1] "%d Tage"
+msgstr[1] "%d Tagen"
 
 #: humanize/time.py:88
 msgid "a month"
@@ -235,7 +235,7 @@ msgstr "ein Jahr"
 #: humanize/time.py:95 humanize/time.py:103
 #, python-format
 msgid "1 year, %d day"
-msgid_plural "1 Jahr, %d Tage"
+msgid_plural "1 Jahr, %d Tagen"
 msgstr[0] "un an et %d jour"
 msgstr[1] "Ein Jahr und %d Tage"
 
