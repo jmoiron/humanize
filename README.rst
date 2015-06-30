@@ -31,6 +31,8 @@ Date & time humanization::
     >>> import datetime
     >>> humanize.naturalday(datetime.datetime.now())
     'today'
+    >>> humanize.naturaldelta(datetime.timedelta(seconds=1001))
+    '16 minutes'
     >>> humanize.naturalday(datetime.datetime.now() - datetime.timedelta(days=1))
     'yesterday'
     >>> humanize.naturalday(datetime.date(2007, 6, 5))
