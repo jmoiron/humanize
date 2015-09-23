@@ -41,6 +41,8 @@ Date & time humanization::
     'a second ago'
     >>> humanize.naturaltime(datetime.datetime.now() - datetime.timedelta(seconds=3600))
     'an hour ago'
+    >>> humanize.naturaldelta(datetime.datetime.fromtimestamp(1443006086) - datetime.datetime.fromtimestamp(1411470081))
+    'a year'
 
 Filesize humanization::
 
