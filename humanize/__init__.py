@@ -1,4 +1,4 @@
-VERSION = (0,4)
+VERSION = (0,5,1)
 
 from humanize.time import *
 from humanize.number import *
