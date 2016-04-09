@@ -93,7 +93,7 @@ How to add new phrases to existing locale files ::
 
     $ xgettext -o humanize.pot -k'_' -k'N_' -k'P_:1c,2' -l python humanize/*.py  # extract new phrases
     $ msgmerge -U humanize/locale/ru_RU/LC_MESSAGES/humanize.po humanize.pot # add them to locale files
-    $ msgfmt --check -o humanize/locale/ru_RU/LC_MESSAGES/humanize{.po,.mo} # compile to binary .mo
+    $ msgfmt --check -o humanize/locale/ru_RU/LC_MESSAGES/humanize{.mo,.po} # compile to binary .mo
 
 How to add new locale ::
 
