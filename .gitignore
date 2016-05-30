@@ -2,6 +2,7 @@ tags
 *.py[co]
 *.sw[po]
 *.egg-info*
+*.eggs*
 *.pot
 docs/_build*
 build
