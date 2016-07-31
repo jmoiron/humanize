@@ -24,8 +24,6 @@ class NumberTestCase(HumanizeTestCase):
         self.assertManyResults(number.intcomma, test_list, result_list)
 
     def test_intword(self):
-        # make sure that powers & human_powers have the same number of items
-        self.assertEqual(len(number.powers), len(number.human_powers))
         # test the result of intword
         test_list = ('100', '1000000', '1200000', '1290000', '1000000000',
             '2000000000', '6000000000000', '1300000000000000',
@@ -34,7 +32,7 @@ class NumberTestCase(HumanizeTestCase):
         result_list = ('100', '1.0 million', '1.2 million', '1.3 million',
            '1.0 billion', '2.0 billion', '6.0 trillion', '1.3 quadrillion',
            '3.5 sextillion', '8.1 decillion', None, '1.23 million',
-           '1'+'0'*101)
+           '10.0 googol')
         self.assertManyResults(number.intword, test_list, result_list)
 
     def test_apnumber(self):

@@ -5,6 +5,7 @@
 
 import re
 from fractions import Fraction
+from math import log10
 from .import compat
 from .i18n import gettext as _, gettext_noop as N_, pgettext as P_
 
@@ -28,7 +29,7 @@ def ordinal(value):
          P_('8', 'th'),
          P_('9', 'th'))
     if value % 100 in (11, 12, 13):  # special case
-        return "%d%s" % (value, t[0])
+        return "%dth" % (value,)
     return '%d%s' % (value, t[value % 10])
 
 
@@ -51,10 +52,20 @@ def intcomma(value):
     else:
         return intcomma(new)
 
-powers = [10 ** x for x in (6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 100)]
-human_powers = (N_('million'), N_('billion'), N_('trillion'), N_('quadrillion'),
-                N_('quintillion'), N_('sextillion'), N_('septillion'),
-                N_('octillion'), N_('nonillion'), N_('decillion'), N_('googol'))
+
+human_powers = (
+    (100, N_('googol')),
+    (33,  N_('decillion')),
+    (30,  N_('nonillion')),
+    (27,  N_('octillion')),
+    (24,  N_('septillion')),
+    (21,  N_('sextillion')),
+    (18,  N_('quintillion')),
+    (15,  N_('quadrillion')),
+    (12,  N_('trillion')),
+    (9,   N_('billion')),
+    (6,   N_('million')),
+)
 
 
 def intword(value, format='%.1f'):
@@ -69,12 +80,14 @@ def intword(value, format='%.1f'):
     except (TypeError, ValueError):
         return value
 
-    if value < powers[0]:
+    power = log10(value)
+    if power < 6:
         return str(value)
-    for ordinal, power in enumerate(powers[1:], 1):
-        if value < power:
-            chopped = value / float(powers[ordinal - 1])
-            return (' '.join([format, _(human_powers[ordinal - 1])])) % chopped
+
+    for exponent, suffix in human_powers:
+        if power >= exponent:
+            chopped = 10 ** (power - exponent)
+            return (' '.join([format, _(suffix)])) % chopped
     return str(value)
 
 
@@ -113,13 +126,21 @@ def fractional(value):
         number = float(value)
     except (TypeError, ValueError):
         return value
+
     wholeNumber = int(number)
     frac = Fraction(number - wholeNumber).limit_denominator(1000)
-    numerator = frac._numerator
-    denominator = frac._denominator
-    if wholeNumber and not numerator and denominator == 1:
-        return '%.0f' % wholeNumber  # this means that an integer was passed in (or variants of that integer like 1.0000)
-    elif not wholeNumber:
-        return '%.0f/%.0f' % (numerator, denominator)
-    else:
-        return '%.0f %.0f/%.0f' % (wholeNumber, numerator, denominator)
+
+    numerator = frac.numerator
+    denominator = frac.denominator
+
+    parts = []
+
+    if wholeNumber:
+        parts.append(str(wholeNumber))
+
+    # no need to check for denominator here.
+    # denominator must always exist in any case.
+    if numerator:
+        parts.append('%.0f/%.0f' % (numerator, denominator))
+
+    return ' '.join(parts)
