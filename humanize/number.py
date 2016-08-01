@@ -66,6 +66,8 @@ human_powers = (
     (9,   N_('billion')),
     (6,   N_('million')),
 )
+human_powers = tuple((10.0**power, suffix)
+        for power, suffix in human_powers)
 
 
 def intword(value, format='%.1f'):
@@ -80,13 +82,12 @@ def intword(value, format='%.1f'):
     except (TypeError, ValueError):
         return value
 
-    power = log10(value)
-    if power < 6:
+    if value < 10**6:
         return str(value)
 
-    for exponent, suffix in human_powers:
-        if power >= exponent:
-            chopped = 10 ** (power - exponent)
+    for number, suffix in human_powers:
+        if value >= number:
+            chopped = value / float(number)
             return (' '.join([format, _(suffix)])) % chopped
     return str(value)
 
