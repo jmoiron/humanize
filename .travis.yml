@@ -5,4 +5,4 @@ python:
  - "pypy"
 
 script: python setup.py test
-
+sudo: false
