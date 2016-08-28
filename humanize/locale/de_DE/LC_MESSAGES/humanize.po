@@ -60,7 +60,7 @@ msgstr "einem Moment"
 
 #: time.py:66
 msgid "a second"
-msgstr "eine Sekunde"
+msgstr "einer Sekunde"
 
 #: time.py:68
 #, python-format
