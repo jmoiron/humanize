@@ -145,12 +145,12 @@ msgstr[1] "%d Jahren"
 #: time.py:123
 #, python-format
 msgid "%s from now"
-msgstr "In %s"
+msgstr "in %s"
 
 #: time.py:123
 #, python-format
 msgid "%s ago"
-msgstr "Vor %s"
+msgstr "vor %s"
 
 #: time.py:127
 msgid "now"
