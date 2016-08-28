@@ -1,0 +1,169 @@
+# German (Germany) translations for humanize
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the humanize package.
+# Christian Romberg <distjubo@gmail.com>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-08-28 09:07+0200\n"
+"PO-Revision-Date: 2016-08-28 09:07+0200\n"
+"Last-Translator: Christian Romberg <distjubo@gmail.com>\n"
+"Language-Team:\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: number.py:91
+msgid "one"
+msgstr "eins"
+
+#: number.py:91
+msgid "two"
+msgstr "zwei"
+
+#: number.py:91
+msgid "three"
+msgstr "drei"
+
+#: number.py:91
+msgid "four"
+msgstr "vier"
+
+#: number.py:91
+msgid "five"
+msgstr "fünf"
+
+#: number.py:91
+msgid "six"
+msgstr "sechs"
+
+#: number.py:92
+msgid "seven"
+msgstr "sieben"
+
+#: number.py:92
+msgid "eight"
+msgstr "acht"
+
+#: number.py:92
+msgid "nine"
+msgstr "neun"
+
+#: time.py:64 time.py:126
+msgid "a moment"
+msgstr "einem Moment"
+
+#: time.py:66
+msgid "a second"
+msgstr "einer Sekunde"
+
+#: time.py:68
+#, python-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d Sekunde"
+msgstr[1] "%d Sekunden"
+
+#: time.py:70
+msgid "a minute"
+msgstr "einer Minute"
+
+#: time.py:73
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d Minute"
+msgstr[1] "%d Minuten"
+
+#: time.py:75
+msgid "an hour"
+msgstr "einer Stunde"
+
+#: time.py:78
+#, python-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d Stunde"
+msgstr[1] "%d Stunden"
+
+#: time.py:81
+msgid "a day"
+msgstr "einem Tag"
+
+#: time.py:83 time.py:86
+#, python-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d Tag"
+msgstr[1] "%d Tagen"
+
+#: time.py:88
+msgid "a month"
+msgstr "einem Monat"
+
+#: time.py:90
+#, python-format
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] "%d Monat"
+msgstr[1] "%d Monaten"
+
+#: time.py:93
+msgid "a year"
+msgstr "einem Jahr"
+
+#: time.py:95 time.py:103
+#, python-format
+msgid "1 year, %d day"
+msgid_plural "1 year, %d days"
+msgstr[0] "1 Jahr, %d Tag"
+msgstr[1] "1 Jahr, %d Tage"
+
+#: time.py:98
+msgid "1 year, 1 month"
+msgstr "1 Jahr, 1 Monat"
+
+#: time.py:100
+#, python-format
+msgid "1 year, %d month"
+msgid_plural "1 year, %d months"
+msgstr[0] "1 Jahr, %d Monat"
+msgstr[1] "1 Jahr, %d Monate"
+
+#: time.py:105
+#, python-format
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] "%d Jahr"
+msgstr[1] "%d Jahren"
+
+#: time.py:123
+#, python-format
+msgid "%s from now"
+msgstr "in %s"
+
+#: time.py:123
+#, python-format
+msgid "%s ago"
+msgstr "vor %s"
+
+#: time.py:127
+msgid "now"
+msgstr "jetzt"
+
+#: time.py:145
+msgid "today"
+msgstr "heute"
+
+#: time.py:147
+msgid "tomorrow"
+msgstr "morgen"
+
+#: time.py:149
+msgid "yesterday"
+msgstr "gestern"
