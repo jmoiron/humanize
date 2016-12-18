@@ -7,7 +7,7 @@ humanize
 This modest package contains various common humanization utilities, like turning
 a number into a fuzzy human readable duration ('3 minutes ago') or into a human
 readable size or throughput.  It works with python 2.7 and 3.3 and is localized
-to Russian, French, and Korean.
+to Russian, French, Korean and Slovak.
 
 usage
 -----
@@ -93,7 +93,7 @@ How to add new phrases to existing locale files ::
 
     $ xgettext -o humanize.pot -k'_' -k'N_' -k'P_:1c,2' -l python humanize/*.py  # extract new phrases
     $ msgmerge -U humanize/locale/ru_RU/LC_MESSAGES/humanize.po humanize.pot # add them to locale files
-    $ msgfmt --check -o humanize/locale/ru_RU/LC_MESSAGES/humanize{.po,.mo} # compile to binary .mo
+    $ msgfmt --check -o humanize/locale/ru_RU/LC_MESSAGES/humanize{.mo,.po} # compile to binary .mo
 
 How to add new locale ::
 
