@@ -3,7 +3,12 @@
 
 """Tests for time humanizing."""
 
-from mock import patch
+try:
+    # Python 3.0+
+    from unittest.mock import patch
+except:
+    # Python 3.0 <
+    from mock import patch
 
 from humanize import time
 from datetime import date, datetime, timedelta
