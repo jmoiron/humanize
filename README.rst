@@ -7,7 +7,7 @@ humanize
 This modest package contains various common humanization utilities, like turning
 a number into a fuzzy human readable duration ('3 minutes ago') or into a human
 readable size or throughput.  It works with python 2.7 and 3.3 and is localized
-to Russian, French, and Korean.
+to Russian, French, Brazilian Portuguese and Korean.
 
 usage
 -----
@@ -84,9 +84,9 @@ How to change locale in runtime ::
 You can pass additional parameter *path* to :func:`activate` to specify a path to
 search locales in. ::
 
-    >>> humanize.i18n.activate('pt_BR')
+    >>> humanize.i18n.activate('cs_CZ')
     IOError: [Errno 2] No translation file found for domain: 'humanize'
-    >>> humanize.i18n.activate('pt_BR', path='path/to/my/portuguese/translation/')
+    >>> humanize.i18n.activate('cs_CZ', path='path/to/my/czech/translation/')
     <gettext.GNUTranslations instance ...>
 
 How to add new phrases to existing locale files ::
