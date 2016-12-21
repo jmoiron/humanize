@@ -3,15 +3,23 @@
 
 """Time humanizing functions.  These are largely borrowed from Django's
 ``contrib.humanize``."""
-
-import time
+from pytz import utc
 from datetime import datetime, timedelta, date
 from .i18n import ngettext, gettext as _
 
 __all__ = ['naturaldelta', 'naturaltime', 'naturalday', 'naturaldate']
 
 def _now():
-    return datetime.now()
+    return utc.localize(datetime.utcnow())
+
+def convert_to_utc(value):
+  if isinstance(value, datetime):
+    if value.tzinfo:
+      return value.astimezone(utc)
+    else:
+      return utc.localize(value)
+  else:
+    return value
 
 def abs_timedelta(delta):
     """Returns an "absolute" value for a timedelta, always representing a
@@ -24,6 +32,7 @@ def abs_timedelta(delta):
 def date_and_delta(value):
     """Turn a value into a date and a timedelta which represents how long ago
     it was.  If that's not possible, return (None, value)."""
+    value = convert_to_utc(value)
     now = _now()
     if isinstance(value, datetime):
         date = value
@@ -46,7 +55,6 @@ def naturaldelta(value, months=True):
     ``naturaltime``, but does not add tense to the result.  If ``months``
     is True, then a number of months (based on 30.5 days) will be used
     for fuzziness between years."""
-    now = _now()
     date, delta = date_and_delta(value)
     if date is None:
         return value
@@ -112,6 +120,7 @@ def naturaltime(value, future=False, months=True):
     datetimes, where the tense is always figured out based on the current time.
     If an integer is passed, the return value will be past tense by default,
     unless ``future`` is set to True."""
+
     now = _now()
     date, delta = date_and_delta(value)
     if date is None:
