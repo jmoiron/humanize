@@ -128,7 +128,7 @@ def naturaltime(value, future=False, months=True):
 
     return ago % delta
 
-def naturalday(value, format='%b %d'):
+def naturalday(value, format='%b %d', as_date=False):
     """For date values that are tomorrow, today or yesterday compared to
     present day returns representing string. Otherwise, returns a string
     formatted according to ``format``."""
@@ -141,15 +141,15 @@ def naturalday(value, format='%b %d'):
         # Date arguments out of range
         return value
     delta = value - date.today()
-    if delta.days == 0:
+    if delta.days == 0 and not as_date:
         return _('today')
-    elif delta.days == 1:
+    elif delta.days == 1 and not as_date:
         return _('tomorrow')
-    elif delta.days == -1:
+    elif delta.days == -1 and not as_date:
         return _('yesterday')
     return value.strftime(format)
 
-def naturaldate(value):
+def naturaldate(value, with_year=False):
     """Like naturalday, but will append a year for dates that are a year
     ago or more."""
     try:
@@ -161,8 +161,8 @@ def naturaldate(value):
         # Date arguments out of range
         return value
     delta = abs_timedelta(value - date.today())
-    if delta.days >= 365:
-        return naturalday(value, '%b %d %Y')
+    if delta.days >= 365 or with_year:
+        return naturalday(value, '%b %d %Y', as_date=with_year)
     return naturalday(value)
 
 
