@@ -22,7 +22,7 @@ msgstr ""
 #: humanize/number.py:20
 msgctxt "0"
 msgid "th"
-msgstr "صفرمین"
+msgstr "."
 
 #: humanize/number.py:21
 msgctxt "1"

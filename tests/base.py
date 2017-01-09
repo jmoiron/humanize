@@ -5,6 +5,7 @@
 
 from unittest import TestCase
 
+
 class HumanizeTestCase(TestCase):
 
     def assertManyResults(self, function, args, results):
@@ -23,4 +24,3 @@ class HumanizeTestCase(TestCase):
     def assertEqualTimedelta(self, td1, td2):
         self.assertEqual(td1.days, td2.days)
         self.assertEqual(td1.seconds, td2.seconds)
-
