@@ -142,11 +142,11 @@ msgstr "sete"
 
 #: humanize/number.py:92
 msgid "eight"
-msgstr "ouito"
+msgstr "oito"
 
 #: humanize/number.py:92
 msgid "nine"
-msgstr "novo"
+msgstr "nove"
 
 #: humanize/time.py:64 humanize/time.py:126
 msgid "a moment"
@@ -244,7 +244,7 @@ msgstr "em %s"
 #: humanize/time.py:123
 #, python-format
 msgid "%s ago"
-msgstr "há %s"
+msgstr "a %s"
 
 #: humanize/time.py:127
 msgid "now"
