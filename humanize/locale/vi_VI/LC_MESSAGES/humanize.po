@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-24 21:07+0400\n"
-"PO-Revision-Date: 2017-05-30 08:28+0700\n"
+"PO-Revision-Date: 2017-05-30 11:51+0700\n"
 "Last-Translator: Olivier Cortès <oc@1flow.io>\n"
 "Language-Team: vi_VI <sapd@vccloud.vn>\n"
 "Language: vi_VN\n"
@@ -22,59 +22,52 @@ msgstr ""
 #: humanize/number.py:20
 msgctxt "0"
 msgid "th"
-msgstr "e"
+msgstr "."
 
 #: humanize/number.py:21
 msgctxt "1"
 msgid "st"
-msgstr "er"
+msgstr "."
 
 #: humanize/number.py:22
 msgctxt "2"
 msgid "nd"
-msgstr "e"
+msgstr "."
 
 #: humanize/number.py:23
-#, fuzzy
 msgctxt "3"
 msgid "rd"
-msgstr "e"
+msgstr "."
 
 #: humanize/number.py:24
-#, fuzzy
 msgctxt "4"
 msgid "th"
-msgstr "e"
+msgstr "."
 
 #: humanize/number.py:25
-#, fuzzy
 msgctxt "5"
 msgid "th"
-msgstr "e"
+msgstr "."
 
 #: humanize/number.py:26
-#, fuzzy
 msgctxt "6"
 msgid "th"
-msgstr "e"
+msgstr "."
 
 #: humanize/number.py:27
-#, fuzzy
 msgctxt "7"
 msgid "th"
-msgstr "e"
+msgstr "."
 
 #: humanize/number.py:28
-#, fuzzy
 msgctxt "8"
 msgid "th"
-msgstr "e"
+msgstr "."
 
 #: humanize/number.py:29
-#, fuzzy
 msgctxt "9"
 msgid "th"
-msgstr "e"
+msgstr "."
 
 #: humanize/number.py:55
 msgid "million"
@@ -82,11 +75,11 @@ msgstr "%(value)s triệu"
 
 #: humanize/number.py:55
 msgid "billion"
-msgstr "milliard"
+msgstr "tỷ"
 
 #: humanize/number.py:55
 msgid "trillion"
-msgstr "%(value)s tỉ"
+msgstr "%(value)s nghìn tỷ"
 
 #: humanize/number.py:55
 msgid "quadrillion"
