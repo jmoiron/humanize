@@ -8,7 +8,7 @@ import time
 from datetime import datetime, timedelta, date
 from .i18n import ngettext, gettext as _
 
-__all__ = ['naturaldelta', 'naturaltime', 'naturalday', 'naturaldate']
+__all__ = ['naturaldelta', 'naturaltime', 'naturalday', 'naturaldate', 'format_timedelta']
 
 def _now():
     return datetime.now()
@@ -166,3 +166,66 @@ def naturaldate(value):
     return naturalday(value)
 
 
+def english_list(
+    l,
+    empty='nothing',
+    key=str,
+    sep=', ',
+    and_='and '
+):
+    """Return a decently-formatted list."""
+    l = [key(x) for x in l]
+    if not l:
+        return empty
+    elif len(l) == 1:
+        return l[0]
+    else:
+        res = ''
+        for pos, item in enumerate(l):
+            if pos == len(l) - 1:
+                res += '%s%s' % (sep, and_)
+            elif res:
+                res += sep
+            res += item
+        return res
+
+
+def format_timedelta(
+    td,
+    show_years=True,
+    show_months=True,
+    show_days=True,
+    show_hours=True,
+    show_minutes=True,
+    show_seconds=True
+):
+    """
+    Format timedelta td.
+
+    If any of the show_* arguments evaluates to False, don't show that unit.
+    """
+    fmt = []  # The format as a list.
+    seconds = td.total_seconds()
+    years, seconds = divmod(seconds, 31536000)
+    if years and show_years:
+        fmt.append('%d %s' % (years, 'year' if years == 1 else 'years'))
+    months, seconds = divmod(seconds, 2592000)
+    if months and show_months:
+        fmt.append('%d %s' % (months, 'month' if months == 1 else 'months'))
+    days, seconds = divmod(seconds, 86400)
+    if days and show_days:
+        fmt.append('%d %s' % (days, 'day' if days == 1 else 'days'))
+    hours, seconds = divmod(seconds, 3600)
+    if hours and show_hours:
+        fmt.append('%d %s' % (hours, 'hour' if hours == 1 else 'hours'))
+    minutes, seconds = divmod(seconds, 60)
+    if minutes and show_minutes:
+        fmt.append(
+            '%d %s' % (
+                minutes,
+                'minute' if minutes == 1 else 'minutes'
+            )
+        )
+    if seconds and show_seconds:
+        fmt.append('%.2f seconds' % seconds)
+    return english_list(fmt)
