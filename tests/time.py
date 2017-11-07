@@ -262,11 +262,11 @@ class TimeTestCase(HumanizeTestCase):
         valerrtest = fakedate(290149024, 2, 2)
         overflowtest = fakedate(120390192341, 2, 2)
         test_list = (today, tomorrow, yesterday, someday, '02/26/1984',
-            (date(1982, 6, 27), '%Y.%M.%D'), None, "Not a date at all.",
+            (date(1982, 6, 27), '%Y.%m.%d'), None, "Not a date at all.",
             valerrtest, overflowtest
         )
         result_list = ('today', 'tomorrow', 'yesterday', someday_result, '02/26/1984',
-            date(1982, 6, 27).strftime('%Y.%M.%D'), None, "Not a date at all.",
+            date(1982, 6, 27).strftime('%Y.%m.%d'), None, "Not a date at all.",
             valerrtest, overflowtest
         )
         self.assertManyResults(time.naturalday, test_list, result_list)
