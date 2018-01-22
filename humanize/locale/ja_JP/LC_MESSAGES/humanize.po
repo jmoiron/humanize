@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: humanize\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-22 10:48+0900\n"
-"PO-Revision-Date: 2018-01-22 11:11+0900\n"
+"PO-Revision-Date: 2018-01-22 10:48+0900\n"
 "Last-Translator: Kan Torii <oss@qoolloop.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=0;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 0.9.6\n"
 "X-Generator: Poedit 2.0.6\n"
 
@@ -172,7 +172,6 @@ msgstr "1秒"
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d秒"
-msgstr[1] "%d秒"
 
 #: humanize/time.py:70
 msgid "a minute"
@@ -183,7 +182,6 @@ msgstr "1分"
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d分"
-msgstr[1] "%d分"
 
 #: humanize/time.py:75
 msgid "an hour"
@@ -194,7 +192,6 @@ msgstr "1時間"
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "%d時間"
-msgstr[1] "%d時間"
 
 #: humanize/time.py:81
 msgid "a day"
@@ -205,7 +202,6 @@ msgstr "1日"
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d日"
-msgstr[1] "%d日"
 
 #: humanize/time.py:88
 msgid "a month"
@@ -216,7 +212,6 @@ msgstr "1ヶ月"
 msgid "%d month"
 msgid_plural "%d months"
 msgstr[0] "%dヶ月"
-msgstr[1] "%dヶ月"
 
 #: humanize/time.py:93
 msgid "a year"
@@ -227,7 +222,6 @@ msgstr "1年"
 msgid "1 year, %d day"
 msgid_plural "1 year, %d days"
 msgstr[0] "1年 %d日"
-msgstr[1] "1年 %d日"
 
 #: humanize/time.py:98
 msgid "1 year, 1 month"
@@ -238,14 +232,12 @@ msgstr "1年 1ヶ月"
 msgid "1 year, %d month"
 msgid_plural "1 year, %d months"
 msgstr[0] "1年 %dヶ月"
-msgstr[1] "1年 %dヶ月"
 
 #: humanize/time.py:105
 #, python-format
 msgid "%d year"
 msgid_plural "%d years"
 msgstr[0] "%d年"
-msgstr[1] "%d年"
 
 #: humanize/time.py:123
 #, python-format
