@@ -1,271 +1,267 @@
-# Slovak translation of humanize
-# Copyright (C) 2016
-# This file is distributed under the same license as the PACKAGE package.
-# Jose Riha <jose1711 gmail com>, 2016.
+# Japanese (Japan) translations for humanize.
+# Copyright (C) 2018
+# This file is distributed under the same license as the humanize project.
+# @qoolloop, 2018.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: humanize\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-09 22:29+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Jose Riha <jose1711 gmail com>\n"
-"Language-Team: sk <LL@li.org>\n"
-"Language: sk\n"
+"POT-Creation-Date: 2018-01-22 10:48+0900\n"
+"PO-Revision-Date: 2018-01-22 10:48+0900\n"
+"Last-Translator: Kan Torii <oss@qoolloop.com>\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Generated-By: Babel 0.9.6\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: humanize/number.py:20
 msgctxt "0"
 msgid "th"
-msgstr "."
+msgstr "番目"
 
 #: humanize/number.py:21
 msgctxt "1"
 msgid "st"
-msgstr "."
+msgstr "番目"
 
 #: humanize/number.py:22
 msgctxt "2"
 msgid "nd"
-msgstr "."
+msgstr "番目"
 
 #: humanize/number.py:23
 msgctxt "3"
 msgid "rd"
-msgstr "."
+msgstr "番目"
 
 #: humanize/number.py:24
 msgctxt "4"
 msgid "th"
-msgstr "."
+msgstr "番目"
 
 #: humanize/number.py:25
 msgctxt "5"
 msgid "th"
-msgstr "."
+msgstr "番目"
 
 #: humanize/number.py:26
 msgctxt "6"
 msgid "th"
-msgstr "."
+msgstr "番目"
 
 #: humanize/number.py:27
 msgctxt "7"
 msgid "th"
-msgstr "."
+msgstr "番目"
 
 #: humanize/number.py:28
 msgctxt "8"
 msgid "th"
-msgstr "."
+msgstr "番目"
 
 #: humanize/number.py:29
 msgctxt "9"
 msgid "th"
-msgstr "."
+msgstr "番目"
 
 #: humanize/number.py:55
 msgid "million"
-msgstr "milióna/ov"
+msgstr "百万"
 
 #: humanize/number.py:55
+#, fuzzy
 msgid "billion"
-msgstr "miliardy/árd"
+msgstr "十億"
 
 #: humanize/number.py:55
 msgid "trillion"
-msgstr "bilióna/ov"
+msgstr "兆"
 
 #: humanize/number.py:55
+#, fuzzy
 msgid "quadrillion"
-msgstr "biliardy/árd"
+msgstr "千兆"
 
 #: humanize/number.py:56
+#, fuzzy
 msgid "quintillion"
-msgstr "trilióna/árd"
+msgstr "百京"
 
 #: humanize/number.py:56
+#, fuzzy
 msgid "sextillion"
-msgstr "triliardy/árd"
+msgstr "十垓"
 
 #: humanize/number.py:56
+#, fuzzy
 msgid "septillion"
-msgstr "kvadrilióna/ov"
+msgstr "じょ"
 
 #: humanize/number.py:57
+#, fuzzy
 msgid "octillion"
-msgstr "kvadriliardy/árd"
+msgstr "千じょ"
 
 #: humanize/number.py:57
+#, fuzzy
 msgid "nonillion"
-msgstr "kvintilióna/ov"
+msgstr "百穣"
 
 #: humanize/number.py:57
+#, fuzzy
 msgid "decillion"
-msgstr "kvintiliardy/árd"
+msgstr "十溝"
 
 #: humanize/number.py:57
+#, fuzzy
 msgid "googol"
-msgstr "googola/ov"
+msgstr "溝無量大数"
 
 #: humanize/number.py:91
 msgid "one"
-msgstr "jedna"
+msgstr "一"
 
 #: humanize/number.py:91
 msgid "two"
-msgstr "dve"
+msgstr "二"
 
 #: humanize/number.py:91
 msgid "three"
-msgstr "tri"
+msgstr "三"
 
 #: humanize/number.py:91
 msgid "four"
-msgstr "štyri"
+msgstr "四"
 
 #: humanize/number.py:91
 msgid "five"
-msgstr "päť"
+msgstr "五"
 
 #: humanize/number.py:91
 msgid "six"
-msgstr "šesť"
+msgstr "六"
 
 #: humanize/number.py:92
 msgid "seven"
-msgstr "sedem"
+msgstr "七"
 
 #: humanize/number.py:92
 msgid "eight"
-msgstr "osem"
+msgstr "八"
 
 #: humanize/number.py:92
 msgid "nine"
-msgstr "deväť"
+msgstr "九"
 
 #: humanize/time.py:64 humanize/time.py:126
+#, fuzzy
 msgid "a moment"
-msgstr "chvíľku"
+msgstr "短時間"
 
 #: humanize/time.py:66
 msgid "a second"
-msgstr "sekundu"
+msgstr "1秒"
 
 #: humanize/time.py:68
 #, python-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "%d sekundu"
-msgstr[1] "%d sekundy"
-msgstr[2] "%d sekúnd"
+msgstr[0] "%d秒"
 
 #: humanize/time.py:70
 msgid "a minute"
-msgstr "minútu"
+msgstr "1分"
 
 #: humanize/time.py:73
 #, python-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "%d minútu"
-msgstr[1] "%d minúty"
-msgstr[2] "%d minút"
+msgstr[0] "%d分"
 
 #: humanize/time.py:75
 msgid "an hour"
-msgstr "hodinu"
+msgstr "1時間"
 
 #: humanize/time.py:78
 #, python-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] "%d hodina"
-msgstr[1] "%d hodiny"
-msgstr[2] "%d hodín"
+msgstr[0] "%d時間"
 
 #: humanize/time.py:81
 msgid "a day"
-msgstr "deň"
+msgstr "1日"
 
 #: humanize/time.py:83 humanize/time.py:86
 #, python-format
 msgid "%d day"
 msgid_plural "%d days"
-msgstr[0] "%d deň"
-msgstr[1] "%d dni"
-msgstr[2] "%d dní"
+msgstr[0] "%d日"
 
 #: humanize/time.py:88
 msgid "a month"
-msgstr "mesiac"
+msgstr "1ヶ月"
 
 #: humanize/time.py:90
 #, python-format
 msgid "%d month"
 msgid_plural "%d months"
-msgstr[0] "%d mesiac"
-msgstr[1] "%d mesiace"
-msgstr[2] "%d mesiacov"
+msgstr[0] "%dヶ月"
 
 #: humanize/time.py:93
 msgid "a year"
-msgstr "rok"
+msgstr "1年"
 
 #: humanize/time.py:95 humanize/time.py:103
 #, python-format
 msgid "1 year, %d day"
 msgid_plural "1 year, %d days"
-msgstr[0] "1 rok, %d deň"
-msgstr[1] "1 rok, %d dni"
-msgstr[2] "1 rok, %d dní"
+msgstr[0] "1年 %d日"
 
 #: humanize/time.py:98
 msgid "1 year, 1 month"
-msgstr "1 rok, 1 mesiac"
+msgstr "1年 1ヶ月"
 
 #: humanize/time.py:100
 #, python-format
 msgid "1 year, %d month"
 msgid_plural "1 year, %d months"
-msgstr[0] "1 rok, %d mesiac"
-msgstr[1] "1 rok, %d mesiace"
-msgstr[2] "1 rok, %d mesiacov"
+msgstr[0] "1年 %dヶ月"
 
 #: humanize/time.py:105
 #, python-format
 msgid "%d year"
 msgid_plural "%d years"
-msgstr[0] "%d rok"
-msgstr[1] "%d roky"
-msgstr[2] "%d rokov"
+msgstr[0] "%d年"
 
 #: humanize/time.py:123
 #, python-format
 msgid "%s from now"
-msgstr "o %s"
+msgstr "%s後"
 
 #: humanize/time.py:123
 #, python-format
 msgid "%s ago"
-msgstr "%s naspäť"
+msgstr "%s前"
 
 #: humanize/time.py:127
+#, fuzzy
 msgid "now"
-msgstr "teraz"
+msgstr "今"
 
 #: humanize/time.py:145
 msgid "today"
-msgstr "dnes"
+msgstr "本日"
 
 #: humanize/time.py:147
 msgid "tomorrow"
-msgstr "zajtra"
+msgstr "明日"
 
 #: humanize/time.py:149
 msgid "yesterday"
-msgstr "včera"
+msgstr "昨日"
