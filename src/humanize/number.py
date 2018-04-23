@@ -88,7 +88,11 @@ def intword(value, format="%.1f"):
     for ordinal, power in enumerate(powers[1:], 1):
         if value < power:
             chopped = value / float(powers[ordinal - 1])
-            return (" ".join([format, _(human_powers[ordinal - 1])])) % chopped
+            if float(format % chopped) == float(10 ** 3):
+                chopped = value / float(powers[ordinal])
+                return (' '.join([format, _(human_powers[ordinal])])) % chopped
+            else:
+                return (' '.join([format, _(human_powers[ordinal - 1])])) % chopped
     return str(value)
 
 
