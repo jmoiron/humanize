@@ -96,37 +96,37 @@ msgstr "%(value)s billion"
 #: humanize/number.py:55
 #, fuzzy
 msgid "quadrillion"
-msgstr "%(value)s quadrillion"
+msgstr "%(value)s billiard"
 
 #: humanize/number.py:56
 #, fuzzy
 msgid "quintillion"
-msgstr "%(value)s quintillion"
+msgstr "%(value)s trillion"
 
 #: humanize/number.py:56
 #, fuzzy
 msgid "sextillion"
-msgstr "%(value)s sextillion"
+msgstr "%(value)s trilliard"
 
 #: humanize/number.py:56
 #, fuzzy
 msgid "septillion"
-msgstr "%(value)s septillion"
+msgstr "%(value)s quatrillion"
 
 #: humanize/number.py:57
 #, fuzzy
 msgid "octillion"
-msgstr "%(value)s octillion"
+msgstr "%(value)s quadrilliard"
 
 #: humanize/number.py:57
 #, fuzzy
 msgid "nonillion"
-msgstr "%(value)s nonillion"
+msgstr "%(value)s quintillion"
 
 #: humanize/number.py:57
 #, fuzzy
 msgid "decillion"
-msgstr "%(value)s décillion"
+msgstr "%(value)s quintilliard"
 
 #: humanize/number.py:57
 #, fuzzy
