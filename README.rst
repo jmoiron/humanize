@@ -100,3 +100,22 @@ How to add new locale ::
     $ msginit -i humanize.pot -o humanize/locale/<locale name>/LC_MESSAGES/humanize.po --locale <locale name>
 
 Where <locale name> is locale abbreviation, eg 'en_GB', 'pt_BR' or just 'ru', 'fr' etc.
+
+Abbreviations
+-------------
+
+A special locale, `en_ABBR`, renderes abbreviated versions of output:
+
+    >>> humanize.naturaltime(datetime.timedelta(seconds=3))
+    3 seconds ago
+    >>> humanize.intword(12345591313)
+    12.3 billion
+    >>> humanize.naturaltime(datetime.timedelta(seconds=86400*476))
+    1 year, 3 months ago
+    >>> humanize.i18n.activate('en_ABBR')
+    >>> humanize.naturaltime(datetime.timedelta(seconds=3))
+    3s
+    >>> humanize.intword(12345591313)
+    12.3 B
+    >>> humanize.naturaltime(datetime.timedelta(seconds=86400*476))
+    1y 3M
