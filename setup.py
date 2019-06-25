@@ -36,7 +36,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     test_suite="tests",
-    tests_require=['mock'],
+    tests_require=['mock', 'pylint'],
     install_requires=[
       # -*- Extra requirements: -*-
     ],
