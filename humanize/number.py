@@ -7,6 +7,7 @@ import re
 from fractions import Fraction
 from .import compat
 from .i18n import gettext as _, gettext_noop as N_, pgettext as P_
+import decimal
 
 
 def ordinal(value):
@@ -123,3 +124,48 @@ def fractional(value):
         return '%.0f/%.0f' % (numerator, denominator)
     else:
         return '%.0f %.0f/%.0f' % (wholeNumber, numerator, denominator)
+
+def scientific(value):
+    '''
+    Return number in string scientific notation z.wq x 10ⁿ
+    Examples:
+        float(0.3) will return '3.00 x 10⁻¹'
+        int(500) will return '5.00 x 10²'
+    This will always return a string.
+    '''
+    exposants = {
+        "0": "⁰",
+        "1": "¹",
+        "2": "²",
+        "3": "³",
+        "4": "⁴",
+        "5": "⁵",
+        "6": "⁶",
+        "7": "⁷",
+        "8": "⁸",
+        "9": "⁹",
+        "+": "⁺",
+        "-": "⁻",
+    }
+    negative = False
+    try:
+        if "-" in str(value):
+            value = str(value).replace("-", "")
+            negative = True
+        if isinstance(value, str):
+            value = float(value)
+        n = '{:.2e}'.format(value)
+    except (ValueError, TypeError):
+        return value
+    part1, part2 = n.split("e")
+    if "-0" in part2 :
+        part2 = part2.replace("-0","-")
+    if "+0" in part2:
+        part2 = part2.replace("+0", "")
+    new_part2 = []
+    if negative:
+        new_part2.append(exposants["-"])
+    for char in part2:
+        new_part2.append(exposants[char])
+    final_str = part1 + " x 10" + "".join(new_part2)
+    return final_str

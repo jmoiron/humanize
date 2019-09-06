@@ -46,3 +46,8 @@ class NumberTestCase(HumanizeTestCase):
         test_list = (1, 2.0, (4.0/3.0), (5.0/6.0), '7', '8.9', 'ten', None)
         result_list = ('1', '2', '1 1/3', '5/6', '7',  '8 9/10', 'ten', None)
         self.assertManyResults(number.fractional, test_list, result_list)
+
+    def test_scientific(self):
+        test_list = (1000, -1000, 5.5, 5781651000, "1000", "99", float(0.3),'foo', None)
+        result_list = ('1.00 x 10³', '1.00 x 10⁻³', '5.50 x 10⁰', '5.78 x 10⁹', '1.00 x 10³', '9.90 x 10¹','3.00 x 10⁻¹', 'foo', None)
+        self.assertManyResults(number.scientific, test_list, result_list)
