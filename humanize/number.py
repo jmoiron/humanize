@@ -124,13 +124,15 @@ def fractional(value):
     else:
         return '%.0f %.0f/%.0f' % (wholeNumber, numerator, denominator)
 
-def scientific(value):
+def scientific(value,precision=2):
     '''
     Return number in string scientific notation z.wq x 10ⁿ
     Examples:
         float(0.3) will return '3.00 x 10⁻¹'
         int(500) will return '5.00 x 10²'
     This will always return a string.
+
+    :param precision int : Number of decimal for first par number
     '''
     exponents = {
         "0": "⁰",
@@ -153,7 +155,8 @@ def scientific(value):
             negative = True
         if isinstance(value, str):
             value = float(value)
-        n = '{:.2e}'.format(value)
+        fmt = '{:.%se}' % str(int(precision))
+        n = fmt.format(value)
     except (ValueError, TypeError):
         return value
     part1, part2 = n.split("e")
