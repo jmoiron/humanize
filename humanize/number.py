@@ -132,7 +132,7 @@ def scientific(value):
         int(500) will return '5.00 x 10²'
     This will always return a string.
     '''
-    exposants = {
+    exponents = {
         "0": "⁰",
         "1": "¹",
         "2": "²",
@@ -163,8 +163,8 @@ def scientific(value):
         part2 = part2.replace("+0", "")
     new_part2 = []
     if negative:
-        new_part2.append(exposants["-"])
+        new_part2.append(exponents["-"])
     for char in part2:
-        new_part2.append(exposants[char])
+        new_part2.append(exponents[char])
     final_str = part1 + " x 10" + "".join(new_part2)
     return final_str
