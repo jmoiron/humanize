@@ -7,7 +7,6 @@ import re
 from fractions import Fraction
 from .import compat
 from .i18n import gettext as _, gettext_noop as N_, pgettext as P_
-import decimal
 
 
 def ordinal(value):
