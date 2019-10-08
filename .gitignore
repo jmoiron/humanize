@@ -6,3 +6,5 @@ tags
 docs/_build*
 build
 dist
+.tox
+.eggs

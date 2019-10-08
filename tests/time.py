@@ -54,6 +54,25 @@ class TimeTestCase(HumanizeTestCase):
             nd_nomonths = lambda d: time.naturaldelta(d, months=False)
             self.assertManyResults(nd_nomonths, test_list, result_list)
 
+    def test_naturaldelta_nomonths_precise(self):
+        now = datetime.now()
+        test_list = [
+            timedelta(days=7),
+            timedelta(days=31),
+            timedelta(days=230),
+            timedelta(days=400),
+        ]
+        result_list = [
+            '7.0 days',
+            '31.0 days',
+            '230.0 days',
+            '1 year, 35 days',
+        ]
+        with patch('humanize.time._now') as mocked:
+            mocked.return_value = now
+            nd_nomonths_prec = lambda d: time.naturaldelta(d, months=False, precise=True)
+            self.assertManyResults(nd_nomonths_prec, test_list, result_list)
+
     def test_naturaldelta(self):
         now = datetime.now()
         test_list = [
@@ -123,6 +142,76 @@ class TimeTestCase(HumanizeTestCase):
             mocked.return_value = now
             self.assertManyResults(time.naturaldelta, test_list, result_list)
 
+    def test_naturaldelta_precise(self):
+        now = datetime.now()
+        test_list = [
+            0,
+            1,
+            30,
+            timedelta(minutes=1, seconds=30),
+            timedelta(minutes=2),
+            timedelta(hours=1, minutes=30, seconds=30),
+            timedelta(hours=23, minutes=50, seconds=50),
+            timedelta(days=1),
+            timedelta(days=500),
+            timedelta(days=365*2 + 35),
+            timedelta(seconds=1),
+            timedelta(seconds=30),
+            timedelta(minutes=1, seconds=30),
+            timedelta(minutes=2),
+            timedelta(hours=1, minutes=30, seconds=30),
+            timedelta(hours=23, minutes=50, seconds=50),
+            timedelta(days=1),
+            timedelta(days=500),
+            timedelta(days=365*2 + 35),
+            # regression tests for bugs in post-release humanize
+            timedelta(days=10000),
+            timedelta(days=365+35),
+            30,
+            timedelta(days=365*2 + 65),
+            timedelta(days=365 + 4),
+            timedelta(days=35),
+            timedelta(days=65),
+            timedelta(days=9),
+            timedelta(days=365),
+            "NaN",
+        ]
+        result_list = [
+            '<1 second',
+            '1.0 seconds',
+            '30.0 seconds',
+            '1.5 minutes',
+            '2.0 minutes',
+            '1.5 hours',
+            '23.8 hours',
+            '1.0 days',
+            '1 year, 4 months',
+            '2.1 years',
+            '1.0 seconds',
+            '30.0 seconds',
+            '1.5 minutes',
+            '2.0 minutes',
+            '1.5 hours',
+            '23.8 hours',
+            '1.0 days',
+            '1 year, 4 months',
+            '2.1 years',
+            '27.4 years',
+            '1 year, 1 month',
+            '30.0 seconds',
+            '2.2 years',
+            '1 year, 4 days',
+            '1.0 months',
+            '2.0 months',
+            '9.0 days',
+            '1.0 years',
+            "NaN",
+        ]
+        with patch('humanize.time._now') as mocked:
+            mocked.return_value = now
+            nd_prec = lambda d: time.naturaldelta(d, precise=True)
+            self.assertManyResults(nd_prec, test_list, result_list)
+
     def test_naturaltime(self):
         now = datetime.now()
         test_list = [
@@ -183,6 +272,68 @@ class TimeTestCase(HumanizeTestCase):
         with patch('humanize.time._now') as mocked:
             mocked.return_value = now
             self.assertManyResults(time.naturaltime, test_list, result_list)
+
+    def test_naturaltime_precise(self):
+        now = datetime.now()
+        test_list = [
+            now,
+            now - timedelta(seconds=1),
+            now - timedelta(seconds=30),
+            now - timedelta(minutes=1, seconds=30),
+            now - timedelta(minutes=2),
+            now - timedelta(hours=1, minutes=30, seconds=30),
+            now - timedelta(hours=23, minutes=50, seconds=50),
+            now - timedelta(days=1),
+            now - timedelta(days=500),
+            now - timedelta(days=365*2 + 35),
+            now + timedelta(seconds=1),
+            now + timedelta(seconds=30),
+            now + timedelta(minutes=1, seconds=30),
+            now + timedelta(minutes=2),
+            now + timedelta(hours=1, minutes=30, seconds=30),
+            now + timedelta(hours=23, minutes=50, seconds=50),
+            now + timedelta(days=1),
+            now + timedelta(days=500),
+            now + timedelta(days=365*2 + 35),
+            # regression tests for bugs in post-release humanize
+            now + timedelta(days=10000),
+            now - timedelta(days=365+35),
+            30,
+            now - timedelta(days=365*2 + 65),
+            now - timedelta(days=365 + 4),
+            "NaN",
+        ]
+        result_list = [
+            '<1 second ago',
+            '1.0 seconds ago',
+            '30.0 seconds ago',
+            '1.5 minutes ago',
+            '2.0 minutes ago',
+            '1.5 hours ago',
+            '23.8 hours ago',
+            '1.0 days ago',
+            '1 year, 4 months ago',
+            '2.1 years ago',
+            '1.0 seconds from now',
+            '30.0 seconds from now',
+            '1.5 minutes from now',
+            '2.0 minutes from now',
+            '1.5 hours from now',
+            '23.8 hours from now',
+            '1.0 days from now',
+            '1 year, 4 months from now',
+            '2.1 years from now',
+            '27.4 years from now',
+            '1 year, 1 month ago',
+            '30.0 seconds ago',
+            '2.2 years ago',
+            '1 year, 4 days ago',
+            "NaN",
+        ]
+        with patch('humanize.time._now') as mocked:
+            mocked.return_value = now
+            nt_prec = lambda d: time.naturaltime(d, precise=True)
+            self.assertManyResults(nt_prec, test_list, result_list)
 
     def test_naturaltime_nomonths(self):
         now = datetime.now()

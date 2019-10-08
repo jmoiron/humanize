@@ -43,6 +43,10 @@ Date & time humanization::
     'a second ago'
     >>> humanize.naturaltime(datetime.datetime.now() - datetime.timedelta(seconds=3600))
     'an hour ago'
+    >>> humanize.naturaltime(datetime.datetime.now() - datetime.timedelta(seconds=7000))
+    'an hour ago'
+    >>> humanize.naturaltime(datetime.datetime.now() - datetime.timedelta(seconds=7000), precise=True)
+    '1.9 hours ago'
 
 Filesize humanization::
 
