@@ -1,8 +1,14 @@
 language: python
+cache: pip
+
 python:
  - 2.7
- - 3.3
- - "pypy"
+ - 3.5
+ - 3.6
+ - 3.7
+ - 3.8
+ - 3.9-dev
+ - pypy
+ - pypy3
 
 script: python setup.py test
-
