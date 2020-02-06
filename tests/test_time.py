@@ -10,9 +10,9 @@ except (ImportError, AttributeError):
 
 from humanize import time
 from datetime import date, datetime, timedelta
+from freezegun import freeze_time
 from .base import HumanizeTestCase
 
-today = date.today()
 one_day = timedelta(days=1)
 
 
@@ -256,17 +256,19 @@ class TimeTestCase(HumanizeTestCase):
             nt_nomonths = lambda d: time.naturaltime(d, months=False)
             self.assertManyResults(nt_nomonths, test_list, result_list)
 
+    @freeze_time("2020-02-02")
     def test_naturalday(self):
+        # Arrange
+        today = date.today()
         tomorrow = today + one_day
         yesterday = today - one_day
-        if today.month != 3:
-            someday = date(today.year, 3, 5)
-            someday_result = 'Mar 05'
-        else:
-            someday = date(today.year, 9, 5)
-            someday_result = 'Sep 05'
+
+        someday = date(today.year, 3, 5)
+        someday_result = 'Mar 05'
+
         valerrtest = fakedate(290149024, 2, 2)
         overflowtest = fakedate(120390192341, 2, 2)
+
         test_list = (today, tomorrow, yesterday, someday, '02/26/1984',
             (date(1982, 6, 27), '%Y.%m.%d'), None, "Not a date at all.",
             valerrtest, overflowtest
@@ -275,21 +277,24 @@ class TimeTestCase(HumanizeTestCase):
             '1982.06.27', None, "Not a date at all.",
             valerrtest, overflowtest
         )
+
+        # Act / Assert
         self.assertManyResults(time.naturalday, test_list, result_list)
 
+    @freeze_time("2020-02-02")
     def test_naturaldate(self):
+        # Arrange
+        today = date.today()
         tomorrow = today + one_day
         yesterday = today - one_day
 
-        if today.month != 3:
-            someday = date(today.year, 3, 5)
-            someday_result = 'Mar 05'
-        else:
-            someday = date(today.year, 9, 5)
-            someday_result = 'Sep 05'
+        someday = date(today.year, 3, 5)
+        someday_result = 'Mar 05'
 
         test_list = (today, tomorrow, yesterday, someday, date(1982, 6, 27))
         result_list = ('today', 'tomorrow', 'yesterday', someday_result, 'Jun 27 1982')
+
+        # Act / Assert
         self.assertManyResults(time.naturaldate, test_list, result_list)
 
     def test_naturaldate_non_dates(self):
