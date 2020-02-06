@@ -1,8 +1,13 @@
 humanize
 --------
 
-.. image:: https://secure.travis-ci.org/jmoiron/humanize.png?branch=master
-  :target: http://travis-ci.org/jmoiron/humanize
+[![PyPI version](https://img.shields.io/pypi/v/humanize.svg?logo=pypi&logoColor=FFE873)](https://pypi.org/project/humanize/)
+[![Supported Python versions](https://img.shields.io/pypi/pyversions/humanize.svg?logo=python&logoColor=FFE873)](https://pypi.org/project/humanize/)
+[![PyPI downloads](https://img.shields.io/pypi/dm/humanize.svg)](https://pypistats.org/packages/humanize)
+[![Travis CI Status](https://travis-ci.com/hugovk/humanize.svg?branch=master)](https://travis-ci.com/hugovk/humanize)
+[![GitHub Actions status](https://github.com/jmoiron/humanize/workflows/Test/badge.svg)](https://github.com/jmoiron/humanize/actions)
+[![codecov](https://codecov.io/gh/hugovk/humanize/branch/master/graph/badge.svg)](https://codecov.io/gh/hugovk/humanize)
+[![MIT License](https://img.shields.io/github/license/jmoiron/humanize.svg)](LICENSE)
 
 This modest package contains various common humanization utilities, like turning
 a number into a fuzzy human readable duration ('3 minutes ago') or into a human
