@@ -72,13 +72,13 @@ Localization
 
 How to change locale in runtime ::
 
-    >>> print humanize.naturaltime(datetime.timedelta(seconds=3))
+    >>> print(humanize.naturaltime(datetime.timedelta(seconds=3)))
     3 seconds ago
     >>> _t = humanize.i18n.activate('ru_RU')
-    >>> print humanize.naturaltime(datetime.timedelta(seconds=3))
+    >>> print(humanize.naturaltime(datetime.timedelta(seconds=3)))
     3 секунды назад
     >>> humanize.i18n.deactivate()
-    >>> print humanize.naturaltime(datetime.timedelta(seconds=3))
+    >>> print(humanize.naturaltime(datetime.timedelta(seconds=3)))
     3 seconds ago
 
 You can pass additional parameter *path* to :func:`activate` to specify a path to
