@@ -11,4 +11,9 @@ python:
  - pypy
  - pypy3
 
-script: python setup.py test
+install:
+  - pip install -U pip
+  - pip install -U tox-travis
+
+script:
+  - tox

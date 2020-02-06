@@ -3,6 +3,7 @@
 *.py[co]
 *.sw[po]
 .eggs
+.tox
 build
 dist
 docs/_build*
