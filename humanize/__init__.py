@@ -5,6 +5,19 @@ from humanize.number import *
 from humanize.filesize import *
 from humanize.i18n import activate, deactivate
 
-__all__ = ['__version__', 'VERSION', 'naturalday', 'naturaltime', 'ordinal', 'intword',
-    'naturaldelta', 'intcomma', 'apnumber', 'fractional', 'naturalsize',
-    'activate', 'deactivate', 'naturaldate']
+__all__ = [
+    "__version__",
+    "activate",
+    "apnumber",
+    "deactivate",
+    "fractional",
+    "intcomma",
+    "intword",
+    "naturaldate",
+    "naturalday",
+    "naturaldelta",
+    "naturalsize",
+    "naturaltime",
+    "ordinal",
+    "VERSION",
+]
