@@ -13,6 +13,8 @@ setup(
     version=version,
     description="python humanize utilities",
     long_description=io.open('README.rst', 'r', encoding="UTF-8").read(),
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},
     extras_require={
         "tests": ["freezegun", "pytest", "pytest-cov"],
         "tests:python_version < '3.4'": ["mock"],
@@ -40,7 +42,6 @@ setup(
 
     url='https://github.com/jmoiron/humanize',
     license='MIT',
-    packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     include_package_data=True,
     zip_safe=False,
     install_requires=[
