@@ -13,7 +13,7 @@ from datetime import date, datetime, timedelta
 from freezegun import freeze_time
 from .base import HumanizeTestCase
 
-one_day = timedelta(days=1)
+ONE_DAY = timedelta(days=1)
 
 
 class fakedate(object):
@@ -21,12 +21,17 @@ class fakedate(object):
         self.year, self.month, self.day = year, month, day
 
 
+VALUE_ERROR_TEST = fakedate(290149024, 2, 2)
+OVERFLOW_ERROR_TEST = fakedate(120390192341, 2, 2)
+
+
 class TimeUtilitiesTestCase(HumanizeTestCase):
     """These are not considered "public" interfaces, but require tests anyway."""
+
     def test_date_and_delta(self):
         now = datetime.now()
         td = timedelta
-        int_tests = (3, 29, 86399, 86400, 86401*30)
+        int_tests = (3, 29, 86399, 86400, 86401 * 30)
         date_tests = [now - td(seconds=x) for x in int_tests]
         td_tests = [td(seconds=x) for x in int_tests]
         results = [(now - td(seconds=x), td(seconds=x)) for x in int_tests]
@@ -72,7 +77,7 @@ class TimeTestCase(HumanizeTestCase):
             timedelta(hours=23, minutes=50, seconds=50),
             timedelta(days=1),
             timedelta(days=500),
-            timedelta(days=365*2 + 35),
+            timedelta(days=365 * 2 + 35),
             timedelta(seconds=1),
             timedelta(seconds=30),
             timedelta(minutes=1, seconds=30),
@@ -81,12 +86,12 @@ class TimeTestCase(HumanizeTestCase):
             timedelta(hours=23, minutes=50, seconds=50),
             timedelta(days=1),
             timedelta(days=500),
-            timedelta(days=365*2 + 35),
+            timedelta(days=365 * 2 + 35),
             # regression tests for bugs in post-release humanize
             timedelta(days=10000),
-            timedelta(days=365+35),
+            timedelta(days=365 + 35),
             30,
-            timedelta(days=365*2 + 65),
+            timedelta(days=365 * 2 + 65),
             timedelta(days=365 + 4),
             timedelta(days=35),
             timedelta(days=65),
@@ -141,7 +146,7 @@ class TimeTestCase(HumanizeTestCase):
             now - timedelta(hours=23, minutes=50, seconds=50),
             now - timedelta(days=1),
             now - timedelta(days=500),
-            now - timedelta(days=365*2 + 35),
+            now - timedelta(days=365 * 2 + 35),
             now + timedelta(seconds=1),
             now + timedelta(seconds=30),
             now + timedelta(minutes=1, seconds=30),
@@ -150,12 +155,12 @@ class TimeTestCase(HumanizeTestCase):
             now + timedelta(hours=23, minutes=50, seconds=50),
             now + timedelta(days=1),
             now + timedelta(days=500),
-            now + timedelta(days=365*2 + 35),
+            now + timedelta(days=365 * 2 + 35),
             # regression tests for bugs in post-release humanize
             now + timedelta(days=10000),
-            now - timedelta(days=365+35),
+            now - timedelta(days=365 + 35),
             30,
-            now - timedelta(days=365*2 + 65),
+            now - timedelta(days=365 * 2 + 65),
             now - timedelta(days=365 + 4),
             "NaN",
         ]
@@ -204,7 +209,7 @@ class TimeTestCase(HumanizeTestCase):
             now - timedelta(days=17),
             now - timedelta(days=47),
             now - timedelta(days=500),
-            now - timedelta(days=365*2 + 35),
+            now - timedelta(days=365 * 2 + 35),
             now + timedelta(seconds=1),
             now + timedelta(seconds=30),
             now + timedelta(minutes=1, seconds=30),
@@ -213,12 +218,12 @@ class TimeTestCase(HumanizeTestCase):
             now + timedelta(hours=23, minutes=50, seconds=50),
             now + timedelta(days=1),
             now + timedelta(days=500),
-            now + timedelta(days=365*2 + 35),
+            now + timedelta(days=365 * 2 + 35),
             # regression tests for bugs in post-release humanize
             now + timedelta(days=10000),
-            now - timedelta(days=365+35),
+            now - timedelta(days=365 + 35),
             30,
-            now - timedelta(days=365*2 + 65),
+            now - timedelta(days=365 * 2 + 65),
             now - timedelta(days=365 + 4),
             "NaN",
         ]
@@ -260,8 +265,8 @@ class TimeTestCase(HumanizeTestCase):
     def test_naturalday(self):
         # Arrange
         today = date.today()
-        tomorrow = today + one_day
-        yesterday = today - one_day
+        tomorrow = today + ONE_DAY
+        yesterday = today - ONE_DAY
 
         someday = date(today.year, 3, 5)
         someday_result = 'Mar 05'
@@ -269,13 +274,29 @@ class TimeTestCase(HumanizeTestCase):
         valerrtest = fakedate(290149024, 2, 2)
         overflowtest = fakedate(120390192341, 2, 2)
 
-        test_list = (today, tomorrow, yesterday, someday, '02/26/1984',
-            (date(1982, 6, 27), '%Y.%m.%d'), None, "Not a date at all.",
-            valerrtest, overflowtest
+        test_list = (
+            today,
+            tomorrow,
+            yesterday,
+            someday,
+            '02/26/1984',
+            (date(1982, 6, 27), '%Y.%m.%d'),
+            None,
+            "Not a date at all.",
+            valerrtest,
+            overflowtest,
         )
-        result_list = ('today', 'tomorrow', 'yesterday', someday_result, '02/26/1984',
-            '1982.06.27', None, "Not a date at all.",
-            valerrtest, overflowtest
+        result_list = (
+            'today',
+            'tomorrow',
+            'yesterday',
+            someday_result,
+            '02/26/1984',
+            '1982.06.27',
+            None,
+            "Not a date at all.",
+            valerrtest,
+            overflowtest,
         )
 
         # Act / Assert
@@ -285,25 +306,34 @@ class TimeTestCase(HumanizeTestCase):
     def test_naturaldate(self):
         # Arrange
         today = date.today()
-        tomorrow = today + one_day
-        yesterday = today - one_day
+        tomorrow = today + ONE_DAY
+        yesterday = today - ONE_DAY
 
         someday = date(today.year, 3, 5)
         someday_result = 'Mar 05'
 
-        test_list = (today, tomorrow, yesterday, someday, date(1982, 6, 27))
-        result_list = ('today', 'tomorrow', 'yesterday', someday_result, 'Jun 27 1982')
+        test_list = (
+            today,
+            tomorrow,
+            yesterday,
+            someday,
+            date(1982, 6, 27),
+            None,
+            "Not a date at all.",
+            VALUE_ERROR_TEST,
+            OVERFLOW_ERROR_TEST,
+        )
+        result_list = (
+            'today',
+            'tomorrow',
+            'yesterday',
+            someday_result,
+            'Jun 27 1982',
+            None,
+            "Not a date at all.",
+            VALUE_ERROR_TEST,
+            OVERFLOW_ERROR_TEST,
+        )
 
         # Act / Assert
         self.assertManyResults(time.naturaldate, test_list, result_list)
-
-    def test_naturaldate_non_dates(self):
-        # Arrange
-        valerrtest = fakedate(290149024, 2, 2)
-        overflowtest = fakedate(120390192341, 2, 2)
-
-        # Act / Assert
-        assert time.naturaldate(None) is None
-        assert time.naturaldate("Not a date at all.") == "Not a date at all."
-        assert time.naturaldate(valerrtest) == valerrtest
-        assert time.naturaldate(overflowtest) == overflowtest
