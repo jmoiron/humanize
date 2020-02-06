@@ -65,7 +65,10 @@ class TimeTestCase(HumanizeTestCase):
         ]
         with patch("humanize.time._now") as mocked:
             mocked.return_value = now
-            nd_nomonths = lambda d: time.naturaldelta(d, months=False)
+
+            def nd_nomonths(d):
+                return time.naturaldelta(d, months=False)
+
             self.assertManyResults(nd_nomonths, test_list, result_list)
 
     def test_naturaldelta(self):
@@ -261,7 +264,10 @@ class TimeTestCase(HumanizeTestCase):
         ]
         with patch("humanize.time._now") as mocked:
             mocked.return_value = now
-            nt_nomonths = lambda d: time.naturaltime(d, months=False)
+
+            def nt_nomonths(d):
+                return time.naturaltime(d, months=False)
+
             self.assertManyResults(nt_nomonths, test_list, result_list)
 
     @freeze_time("2020-02-02")

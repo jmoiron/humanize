@@ -143,9 +143,9 @@ def fractional(value):
     numerator = frac._numerator
     denominator = frac._denominator
     if wholeNumber and not numerator and denominator == 1:
-        return (
-            "%.0f" % wholeNumber
-        )  # this means that an integer was passed in (or variants of that integer like 1.0000)
+        # this means that an integer was passed in
+        # (or variants of that integer like 1.0000)
+        return "%.0f" % wholeNumber
     elif not wholeNumber:
         return "%.0f/%.0f" % (numerator, denominator)
     else:

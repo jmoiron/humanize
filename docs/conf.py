@@ -10,7 +10,6 @@
 
 import os
 import sys
-from datetime import datetime
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -46,7 +45,7 @@ version = "0.1"
 version = None
 for line in open(os.path.join(projpath, "setup.py"), "r"):
     if line.startswith("version"):
-        exec line
+        exec(line)
 if version is None:
     version = "0.1"
 # The full version, including alpha/beta/rc tags.

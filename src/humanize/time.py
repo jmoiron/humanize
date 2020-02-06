@@ -4,7 +4,6 @@
 """Time humanizing functions.  These are largely borrowed from Django's
 ``contrib.humanize``."""
 
-import time
 from datetime import date, datetime, timedelta
 
 from .i18n import gettext as _
@@ -52,7 +51,6 @@ def naturaldelta(value, months=True):
     ``naturaltime``, but does not add tense to the result.  If ``months``
     is True, then a number of months (based on 30.5 days) will be used
     for fuzziness between years."""
-    now = _now()
     date, delta = date_and_delta(value)
     if date is None:
         return value
