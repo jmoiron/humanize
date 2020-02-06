@@ -2,6 +2,7 @@
 # Copyright (C) 2016
 # This file is distributed under the same license as the PACKAGE package.
 # AZLisme <helloazl@icloud.com>, 2016.
+# Liwen SUN <sunliwen@gmail.com>, 2019.
 #
 msgid ""
 msgstr ""
@@ -9,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-14 22:46+0000\n"
 "PO-Revision-Date: 2016-11-14 23:02+0000\n"
-"Last-Translator: AZLise <helloazl@icloud.com>\n"
+"Last-Translator: Liwen SUN <sunliwen@gmail.com>\n"
 "Language-Team: Chinese (simplified)\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -85,31 +86,31 @@ msgstr "万亿"
 
 #: humanize/number.py:56
 msgid "quintillion"
-msgstr "quintillion"
+msgstr "百京"
 
 #: humanize/number.py:56
 msgid "sextillion"
-msgstr "sextillion"
+msgstr "十垓"
 
 #: humanize/number.py:56
 msgid "septillion"
-msgstr "septillion"
+msgstr "秭"
 
 #: humanize/number.py:57
 msgid "octillion"
-msgstr "octillion"
+msgstr "千秭"
 
 #: humanize/number.py:57
 msgid "nonillion"
-msgstr "nonillion"
+msgstr "百穰"
 
 #: humanize/number.py:57
 msgid "decillion"
-msgstr "decillion"
+msgstr "十沟"
 
 #: humanize/number.py:57
 msgid "googol"
-msgstr "googol"
+msgstr "古高尔"
 
 #: humanize/number.py:91
 msgid "one"
