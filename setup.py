@@ -40,7 +40,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     test_suite="tests",
-    tests_require=['mock'],
+    tests_require=['mock;python_version<"3.4"'],
     install_requires=[
       # -*- Extra requirements: -*-
     ],

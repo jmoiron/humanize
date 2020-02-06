@@ -1,284 +1,263 @@
-# French (France) translations for PROJECT.
-# Copyright (C) 2013 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+# Finnish translations for humanize package
+# Copyright (C) 2017 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the humanize package.
+# Ville Skyttä <ville.skytta@iki.fi>, 2017.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PROJECT VERSION\n"
+"Project-Id-Version: humanize\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-24 21:07+0400\n"
-"PO-Revision-Date: 2013-06-22 08:52+0100\n"
-"Last-Translator: Olivier Cortès <oc@1flow.io>\n"
-"Language-Team: fr_FR <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2017-03-02 10:56+0200\n"
+"PO-Revision-Date: 2017-03-02 11:26+0200\n"
+"Last-Translator: Ville Skyttä <ville.skytta@iki.fi>\n"
+"Language-Team: Finnish\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Generated-By: Babel 0.9.6\n"
-"X-Generator: Poedit 1.5.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.12\n"
 
 #: humanize/number.py:20
-#, fuzzy
 msgctxt "0"
 msgid "th"
-msgstr "e"
+msgstr "."
 
 #: humanize/number.py:21
-#, fuzzy
 msgctxt "1"
 msgid "st"
-msgstr "er"
+msgstr "."
 
 #: humanize/number.py:22
-#, fuzzy
 msgctxt "2"
 msgid "nd"
-msgstr "e"
+msgstr "."
 
 #: humanize/number.py:23
-#, fuzzy
 msgctxt "3"
 msgid "rd"
-msgstr "e"
+msgstr "."
 
 #: humanize/number.py:24
-#, fuzzy
 msgctxt "4"
 msgid "th"
-msgstr "e"
+msgstr "."
 
 #: humanize/number.py:25
-#, fuzzy
 msgctxt "5"
 msgid "th"
-msgstr "e"
+msgstr "."
 
 #: humanize/number.py:26
-#, fuzzy
 msgctxt "6"
 msgid "th"
-msgstr "e"
+msgstr "."
 
 #: humanize/number.py:27
-#, fuzzy
 msgctxt "7"
 msgid "th"
-msgstr "e"
+msgstr "."
 
 #: humanize/number.py:28
-#, fuzzy
 msgctxt "8"
 msgid "th"
-msgstr "e"
+msgstr "."
 
 #: humanize/number.py:29
-#, fuzzy
 msgctxt "9"
 msgid "th"
-msgstr "e"
+msgstr "."
 
 #: humanize/number.py:55
-#, fuzzy
 msgid "million"
-msgstr "%(value)s million"
+msgstr "miljoonaa"
 
 #: humanize/number.py:55
 msgid "billion"
-msgstr "milliard"
+msgstr "miljardia"
 
 #: humanize/number.py:55
-#, fuzzy
 msgid "trillion"
-msgstr "%(value)s billion"
+msgstr "biljoonaa"
 
 #: humanize/number.py:55
-#, fuzzy
 msgid "quadrillion"
-msgstr "%(value)s billiard"
+msgstr "kvadriljoonaa"
 
 #: humanize/number.py:56
-#, fuzzy
 msgid "quintillion"
-msgstr "%(value)s trillion"
+msgstr "kvintiljoonaa"
 
 #: humanize/number.py:56
-#, fuzzy
 msgid "sextillion"
-msgstr "%(value)s trilliard"
+msgstr "sekstiljoonaa"
 
 #: humanize/number.py:56
-#, fuzzy
 msgid "septillion"
-msgstr "%(value)s quatrillion"
+msgstr "septiljoonaa"
 
 #: humanize/number.py:57
-#, fuzzy
 msgid "octillion"
-msgstr "%(value)s quadrilliard"
+msgstr "oktiljoonaa"
 
 #: humanize/number.py:57
-#, fuzzy
 msgid "nonillion"
-msgstr "%(value)s quintillion"
+msgstr "noniljoonaa"
 
 #: humanize/number.py:57
-#, fuzzy
 msgid "decillion"
-msgstr "%(value)s quintilliard"
+msgstr "dekiljoonaa"
 
 #: humanize/number.py:57
-#, fuzzy
 msgid "googol"
-msgstr "%(value)s gogol"
+msgstr "googol"
 
 #: humanize/number.py:91
 msgid "one"
-msgstr "un"
+msgstr "yksi"
 
 #: humanize/number.py:91
 msgid "two"
-msgstr "deux"
+msgstr "kaksi"
 
 #: humanize/number.py:91
 msgid "three"
-msgstr "trois"
+msgstr "kolme"
 
 #: humanize/number.py:91
 msgid "four"
-msgstr "quatre"
+msgstr "neljä"
 
 #: humanize/number.py:91
 msgid "five"
-msgstr "cinq"
+msgstr "viisi"
 
 #: humanize/number.py:91
 msgid "six"
-msgstr "six"
+msgstr "kuusi"
 
 #: humanize/number.py:92
 msgid "seven"
-msgstr "sept"
+msgstr "seitsemän"
 
 #: humanize/number.py:92
 msgid "eight"
-msgstr "huit"
+msgstr "kahdeksan"
 
 #: humanize/number.py:92
 msgid "nine"
-msgstr "neuf"
+msgstr "yhdeksän"
 
 #: humanize/time.py:64 humanize/time.py:126
 msgid "a moment"
-msgstr "un moment"
+msgstr "hetki"
 
 #: humanize/time.py:66
 msgid "a second"
-msgstr "une seconde"
+msgstr "sekunti"
 
 #: humanize/time.py:68
 #, python-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "%d seconde"
-msgstr[1] "%d secondes"
+msgstr[0] "%d sekunti"
+msgstr[1] "%d sekuntia"
 
 #: humanize/time.py:70
 msgid "a minute"
-msgstr "une minute"
+msgstr "minuutti"
 
 #: humanize/time.py:73
 #, python-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "%d minute"
-msgstr[1] "%d minutes"
+msgstr[0] "%d minuutti"
+msgstr[1] "%d minuuttia"
 
 #: humanize/time.py:75
 msgid "an hour"
-msgstr "une heure"
+msgstr "tunti"
 
 #: humanize/time.py:78
 #, python-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] "%d heure"
-msgstr[1] "%d heures"
+msgstr[0] "%d tunti"
+msgstr[1] "%d tuntia"
 
 #: humanize/time.py:81
 msgid "a day"
-msgstr "un jour"
+msgstr "päivä"
 
 #: humanize/time.py:83 humanize/time.py:86
 #, python-format
 msgid "%d day"
 msgid_plural "%d days"
-msgstr[0] "%d jour"
-msgstr[1] "%d jours"
+msgstr[0] "%d päivä"
+msgstr[1] "%d päivää"
 
 #: humanize/time.py:88
 msgid "a month"
-msgstr "un mois"
+msgstr "kuukausi"
 
 #: humanize/time.py:90
 #, python-format
 msgid "%d month"
 msgid_plural "%d months"
-msgstr[0] "%d mois"
-msgstr[1] "%d mois"
+msgstr[0] "%d kuukausi"
+msgstr[1] "%d kuukautta"
 
 #: humanize/time.py:93
 msgid "a year"
-msgstr "un an"
+msgstr "vuosi"
 
 #: humanize/time.py:95 humanize/time.py:103
 #, python-format
 msgid "1 year, %d day"
 msgid_plural "1 year, %d days"
-msgstr[0] "un an et %d jour"
-msgstr[1] "un an et %d jours"
+msgstr[0] "1 vuosi, %d päivä"
+msgstr[1] "1 vuosi, %d päivää"
 
 #: humanize/time.py:98
 msgid "1 year, 1 month"
-msgstr "un an et un mois"
+msgstr "1 vuosi, 1 kuukausi"
 
 #: humanize/time.py:100
 #, python-format
 msgid "1 year, %d month"
 msgid_plural "1 year, %d months"
-msgstr[0] "un an et %d mois"
-msgstr[1] "un an et %d mois"
+msgstr[0] "1 vuosi, %d kuukausi"
+msgstr[1] "1 vuosi, %d kuukautta"
 
 #: humanize/time.py:105
 #, python-format
 msgid "%d year"
 msgid_plural "%d years"
-msgstr[0] "%d an"
-msgstr[1] "%d ans"
+msgstr[0] "%d vuosi"
+msgstr[1] "%d vuotta"
 
 #: humanize/time.py:123
 #, python-format
 msgid "%s from now"
-msgstr "dans %s"
+msgstr "%s tästä"
 
 #: humanize/time.py:123
 #, python-format
 msgid "%s ago"
-msgstr "il y a %s"
+msgstr "%s sitten"
 
 #: humanize/time.py:127
 msgid "now"
-msgstr "maintenant"
+msgstr "nyt"
 
 #: humanize/time.py:145
 msgid "today"
-msgstr "aujourd'hui"
+msgstr "tänään"
 
 #: humanize/time.py:147
 msgid "tomorrow"
-msgstr "demain"
+msgstr "huomenna"
 
 #: humanize/time.py:149
 msgid "yesterday"
-msgstr "hier"
+msgstr "eilen"
