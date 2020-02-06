@@ -7,7 +7,7 @@ humanize
 This modest package contains various common humanization utilities, like turning
 a number into a fuzzy human readable duration ('3 minutes ago') or into a human
 readable size or throughput.  It works with python 2.7 and 3.3 and is localized
-to Russian, French, Korean and Slovak.
+to Russian, French, Korean, Slovak, and Finnish.
 
 usage
 -----
@@ -72,13 +72,13 @@ Localization
 
 How to change locale in runtime ::
 
-    >>> print humanize.naturaltime(datetime.timedelta(seconds=3))
+    >>> print(humanize.naturaltime(datetime.timedelta(seconds=3)))
     3 seconds ago
     >>> _t = humanize.i18n.activate('ru_RU')
-    >>> print humanize.naturaltime(datetime.timedelta(seconds=3))
+    >>> print(humanize.naturaltime(datetime.timedelta(seconds=3)))
     3 секунды назад
     >>> humanize.i18n.deactivate()
-    >>> print humanize.naturaltime(datetime.timedelta(seconds=3))
+    >>> print(humanize.naturaltime(datetime.timedelta(seconds=3)))
     3 seconds ago
 
 You can pass additional parameter *path* to :func:`activate` to specify a path to

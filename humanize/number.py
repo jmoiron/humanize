@@ -35,7 +35,7 @@ def ordinal(value):
 def intcomma(value):
     """Converts an integer to a string containing commas every three digits.
     For example, 3000 becomes '3,000' and 45000 becomes '45,000'.  To maintain
-    some compatability with Django's intcomma, this function also accepts
+    some compatibility with Django's intcomma, this function also accepts
     floats."""
     try:
         if isinstance(value, compat.string_types):
@@ -45,7 +45,7 @@ def intcomma(value):
     except (TypeError, ValueError):
         return value
     orig = str(value)
-    new = re.sub("^(-?\d+)(\d{3})", '\g<1>,\g<2>', orig)
+    new = re.sub(r"^(-?\d+)(\d{3})", r'\g<1>,\g<2>', orig)
     if orig == new:
         return new
     else:
