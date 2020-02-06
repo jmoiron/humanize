@@ -2,9 +2,11 @@
 *.pot
 *.py[co]
 *.sw[po]
+.coverage
 .eggs
 .tox
 build
 dist
 docs/_build*
+htmlcov
 tags

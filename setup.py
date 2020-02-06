@@ -14,7 +14,7 @@ setup(
     description="python humanize utilities",
     long_description=io.open('README.rst', 'r', encoding="UTF-8").read(),
     extras_require = {
-        "tests": ["pytest"],
+        "tests": ["pytest", "pytest-cov"],
         "tests:python_version < '3.4'": ["mock"],
     },
     # Get strings from https://pypi.org/pypi?%3Aaction=list_classifiers
