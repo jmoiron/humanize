@@ -3,7 +3,10 @@
 
 """Tests for time humanizing."""
 
-from mock import patch
+try:
+    from unittest.mock import patch
+except (ImportError, AttributeError):
+    from mock import patch
 
 from humanize import time
 from datetime import date, datetime, timedelta
