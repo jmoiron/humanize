@@ -1,4 +1,4 @@
-include README.rst
+include README.md
 include LICENCE
 recursive-include src/humanize/locale *
 recursive-include tests *.py
