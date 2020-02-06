@@ -4,15 +4,21 @@
 """Setup script for humanize."""
 
 from setuptools import setup, find_packages
-import io
+
+with open("README.md") as f:
+    long_description = f.read()
+
+
 
 version = '0.5.1'
+
 
 setup(
     name='humanize',
     version=version,
-    description="python humanize utilities",
-    long_description=io.open('README.rst', 'r', encoding="UTF-8").read(),
+    description="Python humanize utilities",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     extras_require={
