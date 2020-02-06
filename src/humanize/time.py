@@ -5,8 +5,10 @@
 ``contrib.humanize``."""
 
 import time
-from datetime import datetime, timedelta, date
-from .i18n import ngettext, gettext as _
+from datetime import date, datetime, timedelta
+
+from .i18n import gettext as _
+from .i18n import ngettext
 
 __all__ = ["naturaldelta", "naturaltime", "naturalday", "naturaldate"]
 

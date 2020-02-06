@@ -4,6 +4,7 @@
 """Number tests."""
 
 from humanize import number
+
 from .base import HumanizeTestCase
 
 

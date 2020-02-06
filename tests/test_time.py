@@ -8,9 +8,12 @@ try:
 except (ImportError, AttributeError):
     from mock import patch
 
-from humanize import time
 from datetime import date, datetime, timedelta
+
 from freezegun import freeze_time
+
+from humanize import time
+
 from .base import HumanizeTestCase
 
 ONE_DAY = timedelta(days=1)

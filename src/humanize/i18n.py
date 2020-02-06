@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import gettext as gettext_module
-from threading import local
 import os.path
+from threading import local
 
 __all__ = ["activate", "deactivate", "gettext", "ngettext"]
 

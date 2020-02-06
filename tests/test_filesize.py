@@ -4,6 +4,7 @@
 """Tests for filesize humanizing."""
 
 from humanize import filesize
+
 from .base import HumanizeTestCase
 
 

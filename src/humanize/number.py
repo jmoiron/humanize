@@ -5,8 +5,11 @@
 
 import re
 from fractions import Fraction
+
 from . import compat
-from .i18n import gettext as _, gettext_noop as N_, pgettext as P_
+from .i18n import gettext as _
+from .i18n import gettext_noop as N_
+from .i18n import pgettext as P_
 
 
 def ordinal(value):
