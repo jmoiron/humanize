@@ -4,10 +4,10 @@
 """Setup script for humanize."""
 
 from setuptools import setup, find_packages
+import io
 
-with open("README.md") as f:
+with io.open("README.md", encoding="UTF-8") as f:
     long_description = f.read()
-
 
 
 version = '0.5.1'
