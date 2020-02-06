@@ -15,9 +15,11 @@ from .base import HumanizeTestCase
 today = date.today()
 one_day = timedelta(days=1)
 
+
 class fakedate(object):
     def __init__(self, year, month, day):
         self.year, self.month, self.day = year, month, day
+
 
 class TimeUtilitiesTestCase(HumanizeTestCase):
     """These are not considered "public" interfaces, but require tests anyway."""
@@ -34,6 +36,7 @@ class TimeUtilitiesTestCase(HumanizeTestCase):
                 self.assertEqualDatetime(dt, result[0])
                 self.assertEqualTimedelta(d, result[1])
         self.assertEqual(time.date_and_delta("NaN"), (None, "NaN"))
+
 
 class TimeTestCase(HumanizeTestCase):
     """Tests for the public interface of humanize.time"""
@@ -289,3 +292,13 @@ class TimeTestCase(HumanizeTestCase):
         result_list = ('today', 'tomorrow', 'yesterday', someday_result, 'Jun 27 1982')
         self.assertManyResults(time.naturaldate, test_list, result_list)
 
+    def test_naturaldate_non_dates(self):
+        # Arrange
+        valerrtest = fakedate(290149024, 2, 2)
+        overflowtest = fakedate(120390192341, 2, 2)
+
+        # Act / Assert
+        assert time.naturaldate(None) is None
+        assert time.naturaldate("Not a date at all.") == "Not a date at all."
+        assert time.naturaldate(valerrtest) == valerrtest
+        assert time.naturaldate(overflowtest) == overflowtest
