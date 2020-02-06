@@ -1,3 +1,4 @@
 include README.rst
 include LICENCE
 recursive-include humanize/locale *
+recursive-include tests *.py
