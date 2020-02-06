@@ -7,7 +7,7 @@ humanize
 This modest package contains various common humanization utilities, like turning
 a number into a fuzzy human readable duration ('3 minutes ago') or into a human
 readable size or throughput.  It works with python 2.7 and 3.3 and is localized
-to Russian, French, Korean and Slovak.
+to Russian, French, Korean, Slovak, and Finnish.
 
 usage
 -----
