@@ -4,39 +4,45 @@
 """Setup script for humanize."""
 
 from setuptools import setup, find_packages
-import sys, os
 import io
 
 version = '0.5.1'
-
-# some trove classifiers:
-
 
 setup(
     name='humanize',
     version=version,
     description="python humanize utilities",
     long_description=io.open('README.rst', 'r', encoding="UTF-8").read(),
-    # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
+    extras_require={
+        "tests": ["freezegun", "pytest", "pytest-cov"],
+        "tests:python_version < '3.4'": ["mock"],
+    },
+    # Get strings from https://pypi.org/pypi?%3Aaction=list_classifiers
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: POSIX',
-        'Programming Language :: Python :: 3',
         'Programming Language :: Python',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: Implementation :: CPython',
+        'Programming Language :: Python :: Implementation :: PyPy',
     ],
     keywords='humanize time size',
     author='Jason Moiron',
     author_email='jmoiron@jmoiron.net',
 
-    url='http://github.com/jmoiron/humanize',
+    url='https://github.com/jmoiron/humanize',
     license='MIT',
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     include_package_data=True,
     zip_safe=False,
-    test_suite="tests",
-    tests_require=['mock;python_version<"3.4"'],
     install_requires=[
       # -*- Extra requirements: -*-
     ],

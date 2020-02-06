@@ -1,8 +1,22 @@
 language: python
+cache: pip
+
 python:
  - 2.7
+ - 3.5
+ - 3.6
+ - 3.7
  - 3.8
- - "pypy"
+ - 3.9-dev
+ - pypy
+ - pypy3
 
-script: python setup.py test
+install:
+  - pip install -U pip
+  - pip install -U tox-travis
 
+script:
+  - tox
+
+after_success:
+  - pip install -U codecov && codecov
