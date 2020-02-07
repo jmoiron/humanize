@@ -6,12 +6,14 @@ with io.open("README.md", encoding="UTF-8") as f:
     long_description = f.read()
 
 
-version = "0.5.1"
+def local_scheme(version):
+    """Skip the local version (eg. +xyz of 0.6.1.dev4+gdf99fe2)
+    to be able to upload to Test PyPI"""
+    return ""
 
 
 setup(
     name="humanize",
-    version=version,
     description="Python humanize utilities",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -25,6 +27,8 @@ setup(
     package_dir={"": "src"},
     include_package_data=True,
     zip_safe=False,
+    use_scm_version={"local_scheme": local_scheme},
+    setup_requires=["setuptools_scm"],
     extras_require={
         "tests": ["freezegun", "pytest", "pytest-cov"],
         "tests:python_version < '3.4'": ["mock"],
