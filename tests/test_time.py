@@ -11,7 +11,6 @@ except (ImportError, AttributeError):
 from datetime import date, datetime, timedelta
 
 from freezegun import freeze_time
-
 from humanize import time
 
 from .base import HumanizeTestCase
