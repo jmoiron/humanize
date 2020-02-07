@@ -4,14 +4,17 @@
 """Time humanizing functions.  These are largely borrowed from Django's
 ``contrib.humanize``."""
 
-import time
-from datetime import datetime, timedelta, date
-from .i18n import ngettext, gettext as _
+from datetime import date, datetime, timedelta
 
-__all__ = ['naturaldelta', 'naturaltime', 'naturalday', 'naturaldate']
+from .i18n import gettext as _
+from .i18n import ngettext
+
+__all__ = ["naturaldelta", "naturaltime", "naturalday", "naturaldate"]
+
 
 def _now():
     return datetime.now()
+
 
 def abs_timedelta(delta):
     """Returns an "absolute" value for a timedelta, always representing a
@@ -20,6 +23,7 @@ def abs_timedelta(delta):
         now = _now()
         return now - (now + delta)
     return delta
+
 
 def date_and_delta(value):
     """Turn a value into a date and a timedelta which represents how long ago
@@ -40,13 +44,13 @@ def date_and_delta(value):
             return (None, value)
     return date, abs_timedelta(delta)
 
+
 def naturaldelta(value, months=True):
     """Given a timedelta or a number of seconds, return a natural
     representation of the amount of time elapsed.  This is similar to
     ``naturaltime``, but does not add tense to the result.  If ``months``
     is True, then a number of months (based on 30.5 days) will be used
     for fuzziness between years."""
-    now = _now()
     date, delta = date_and_delta(value)
     if date is None:
         return value
@@ -97,8 +101,9 @@ def naturaldelta(value, months=True):
             if months == 1:
                 return _("1 year, 1 month")
             else:
-                return ngettext("1 year, %d month",
-                                "1 year, %d months", months) % months
+                return (
+                    ngettext("1 year, %d month", "1 year, %d months", months) % months
+                )
         else:
             return ngettext("1 year, %d day", "1 year, %d days", days) % days
     else:
@@ -120,7 +125,7 @@ def naturaltime(value, future=False, months=True):
     if isinstance(value, (datetime, timedelta)):
         future = date > now
 
-    ago = _('%s from now') if future else _('%s ago')
+    ago = _("%s from now") if future else _("%s ago")
     delta = naturaldelta(delta, months)
 
     if delta == _("a moment"):
@@ -128,7 +133,8 @@ def naturaltime(value, future=False, months=True):
 
     return ago % delta
 
-def naturalday(value, format='%b %d'):
+
+def naturalday(value, format="%b %d"):
     """For date values that are tomorrow, today or yesterday compared to
     present day returns representing string. Otherwise, returns a string
     formatted according to ``format``."""
@@ -142,12 +148,13 @@ def naturalday(value, format='%b %d'):
         return value
     delta = value - date.today()
     if delta.days == 0:
-        return _('today')
+        return _("today")
     elif delta.days == 1:
-        return _('tomorrow')
+        return _("tomorrow")
     elif delta.days == -1:
-        return _('yesterday')
+        return _("yesterday")
     return value.strftime(format)
+
 
 def naturaldate(value):
     """Like naturalday, but will append a year for dates that are a year
@@ -162,7 +169,5 @@ def naturaldate(value):
         return value
     delta = abs_timedelta(value - date.today())
     if delta.days >= 365:
-        return naturalday(value, '%b %d %Y')
+        return naturalday(value, "%b %d %Y")
     return naturalday(value)
-
-

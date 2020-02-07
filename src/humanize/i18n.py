@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 import gettext as gettext_module
-from threading import local
 import os.path
+from threading import local
 
-__all__ = ['activate', 'deactivate', 'gettext', 'ngettext']
+__all__ = ["activate", "deactivate", "gettext", "ngettext"]
 
 _TRANSLATIONS = {None: gettext_module.NullTranslations()}
 _CURRENT = local()
 
-_DEFAULT_LOCALE_PATH = os.path.join(os.path.dirname(__file__), 'locale')
+_DEFAULT_LOCALE_PATH = os.path.join(os.path.dirname(__file__), "locale")
 
 
 def get_translation():
@@ -24,7 +24,7 @@ def activate(locale, path=None):
     if path is None:
         path = _DEFAULT_LOCALE_PATH
     if locale not in _TRANSLATIONS:
-        translation = gettext_module.translation('humanize', path, [locale])
+        translation = gettext_module.translation("humanize", path, [locale])
         _TRANSLATIONS[locale] = translation
     _CURRENT.locale = locale
     return _TRANSLATIONS[locale]
@@ -44,7 +44,7 @@ def pgettext(msgctxt, message):
     different translations.
     Python 2 don't have support for this GNU gettext function, so we
     reimplement it. It works by joining msgctx and msgid by '4' byte."""
-    key = msgctxt + '\x04' + message
+    key = msgctxt + "\x04" + message
     translation = get_translation().gettext(key)
     return message if translation == key else translation
 

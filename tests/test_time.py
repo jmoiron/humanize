@@ -8,9 +8,11 @@ try:
 except (ImportError, AttributeError):
     from mock import patch
 
-from humanize import time
 from datetime import date, datetime, timedelta
+
 from freezegun import freeze_time
+from humanize import time
+
 from .base import HumanizeTestCase
 
 ONE_DAY = timedelta(days=1)
@@ -55,14 +57,17 @@ class TimeTestCase(HumanizeTestCase):
             timedelta(days=400),
         ]
         result_list = [
-            '7 days',
-            '31 days',
-            '230 days',
-            '1 year, 35 days',
+            "7 days",
+            "31 days",
+            "230 days",
+            "1 year, 35 days",
         ]
-        with patch('humanize.time._now') as mocked:
+        with patch("humanize.time._now") as mocked:
             mocked.return_value = now
-            nd_nomonths = lambda d: time.naturaldelta(d, months=False)
+
+            def nd_nomonths(d):
+                return time.naturaldelta(d, months=False)
+
             self.assertManyResults(nd_nomonths, test_list, result_list)
 
     def test_naturaldelta(self):
@@ -100,37 +105,37 @@ class TimeTestCase(HumanizeTestCase):
             "NaN",
         ]
         result_list = [
-            'a moment',
-            'a second',
-            '30 seconds',
-            'a minute',
-            '2 minutes',
-            'an hour',
-            '23 hours',
-            'a day',
-            '1 year, 4 months',
-            '2 years',
-            'a second',
-            '30 seconds',
-            'a minute',
-            '2 minutes',
-            'an hour',
-            '23 hours',
-            'a day',
-            '1 year, 4 months',
-            '2 years',
-            '27 years',
-            '1 year, 1 month',
-            '30 seconds',
-            '2 years',
-            '1 year, 4 days',
-            'a month',
-            '2 months',
-            '9 days',
-            'a year',
+            "a moment",
+            "a second",
+            "30 seconds",
+            "a minute",
+            "2 minutes",
+            "an hour",
+            "23 hours",
+            "a day",
+            "1 year, 4 months",
+            "2 years",
+            "a second",
+            "30 seconds",
+            "a minute",
+            "2 minutes",
+            "an hour",
+            "23 hours",
+            "a day",
+            "1 year, 4 months",
+            "2 years",
+            "27 years",
+            "1 year, 1 month",
+            "30 seconds",
+            "2 years",
+            "1 year, 4 days",
+            "a month",
+            "2 months",
+            "9 days",
+            "a year",
             "NaN",
         ]
-        with patch('humanize.time._now') as mocked:
+        with patch("humanize.time._now") as mocked:
             mocked.return_value = now
             self.assertManyResults(time.naturaldelta, test_list, result_list)
 
@@ -165,33 +170,33 @@ class TimeTestCase(HumanizeTestCase):
             "NaN",
         ]
         result_list = [
-            'now',
-            'a second ago',
-            '30 seconds ago',
-            'a minute ago',
-            '2 minutes ago',
-            'an hour ago',
-            '23 hours ago',
-            'a day ago',
-            '1 year, 4 months ago',
-            '2 years ago',
-            'a second from now',
-            '30 seconds from now',
-            'a minute from now',
-            '2 minutes from now',
-            'an hour from now',
-            '23 hours from now',
-            'a day from now',
-            '1 year, 4 months from now',
-            '2 years from now',
-            '27 years from now',
-            '1 year, 1 month ago',
-            '30 seconds ago',
-            '2 years ago',
-            '1 year, 4 days ago',
+            "now",
+            "a second ago",
+            "30 seconds ago",
+            "a minute ago",
+            "2 minutes ago",
+            "an hour ago",
+            "23 hours ago",
+            "a day ago",
+            "1 year, 4 months ago",
+            "2 years ago",
+            "a second from now",
+            "30 seconds from now",
+            "a minute from now",
+            "2 minutes from now",
+            "an hour from now",
+            "23 hours from now",
+            "a day from now",
+            "1 year, 4 months from now",
+            "2 years from now",
+            "27 years from now",
+            "1 year, 1 month ago",
+            "30 seconds ago",
+            "2 years ago",
+            "1 year, 4 days ago",
             "NaN",
         ]
-        with patch('humanize.time._now') as mocked:
+        with patch("humanize.time._now") as mocked:
             mocked.return_value = now
             self.assertManyResults(time.naturaltime, test_list, result_list)
 
@@ -228,37 +233,40 @@ class TimeTestCase(HumanizeTestCase):
             "NaN",
         ]
         result_list = [
-            'now',
-            'a second ago',
-            '30 seconds ago',
-            'a minute ago',
-            '2 minutes ago',
-            'an hour ago',
-            '23 hours ago',
-            'a day ago',
-            '17 days ago',
-            '47 days ago',
-            '1 year, 135 days ago',
-            '2 years ago',
-            'a second from now',
-            '30 seconds from now',
-            'a minute from now',
-            '2 minutes from now',
-            'an hour from now',
-            '23 hours from now',
-            'a day from now',
-            '1 year, 135 days from now',
-            '2 years from now',
-            '27 years from now',
-            '1 year, 35 days ago',
-            '30 seconds ago',
-            '2 years ago',
-            '1 year, 4 days ago',
+            "now",
+            "a second ago",
+            "30 seconds ago",
+            "a minute ago",
+            "2 minutes ago",
+            "an hour ago",
+            "23 hours ago",
+            "a day ago",
+            "17 days ago",
+            "47 days ago",
+            "1 year, 135 days ago",
+            "2 years ago",
+            "a second from now",
+            "30 seconds from now",
+            "a minute from now",
+            "2 minutes from now",
+            "an hour from now",
+            "23 hours from now",
+            "a day from now",
+            "1 year, 135 days from now",
+            "2 years from now",
+            "27 years from now",
+            "1 year, 35 days ago",
+            "30 seconds ago",
+            "2 years ago",
+            "1 year, 4 days ago",
             "NaN",
         ]
-        with patch('humanize.time._now') as mocked:
+        with patch("humanize.time._now") as mocked:
             mocked.return_value = now
-            nt_nomonths = lambda d: time.naturaltime(d, months=False)
+
+            def nt_nomonths(d):
+                return time.naturaltime(d, months=False)
+
             self.assertManyResults(nt_nomonths, test_list, result_list)
 
     @freeze_time("2020-02-02")
@@ -269,7 +277,7 @@ class TimeTestCase(HumanizeTestCase):
         yesterday = today - ONE_DAY
 
         someday = date(today.year, 3, 5)
-        someday_result = 'Mar 05'
+        someday_result = "Mar 05"
 
         valerrtest = fakedate(290149024, 2, 2)
         overflowtest = fakedate(120390192341, 2, 2)
@@ -279,20 +287,20 @@ class TimeTestCase(HumanizeTestCase):
             tomorrow,
             yesterday,
             someday,
-            '02/26/1984',
-            (date(1982, 6, 27), '%Y.%m.%d'),
+            "02/26/1984",
+            (date(1982, 6, 27), "%Y.%m.%d"),
             None,
             "Not a date at all.",
             valerrtest,
             overflowtest,
         )
         result_list = (
-            'today',
-            'tomorrow',
-            'yesterday',
+            "today",
+            "tomorrow",
+            "yesterday",
             someday_result,
-            '02/26/1984',
-            '1982.06.27',
+            "02/26/1984",
+            "1982.06.27",
             None,
             "Not a date at all.",
             valerrtest,
@@ -310,7 +318,7 @@ class TimeTestCase(HumanizeTestCase):
         yesterday = today - ONE_DAY
 
         someday = date(today.year, 3, 5)
-        someday_result = 'Mar 05'
+        someday_result = "Mar 05"
 
         test_list = (
             today,
@@ -324,11 +332,11 @@ class TimeTestCase(HumanizeTestCase):
             OVERFLOW_ERROR_TEST,
         )
         result_list = (
-            'today',
-            'tomorrow',
-            'yesterday',
+            "today",
+            "tomorrow",
+            "yesterday",
             someday_result,
-            'Jun 27 1982',
+            "Jun 27 1982",
             None,
             "Not a date at all.",
             VALUE_ERROR_TEST,
