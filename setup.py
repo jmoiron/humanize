@@ -20,8 +20,21 @@ setup(
     description="Python humanize utilities",
     long_description=long_description,
     long_description_content_type="text/markdown",
+    author="Jason Moiron",
+    author_email="jmoiron@jmoiron.net",
+    url="https://github.com/jmoiron/humanize",
+    license="MIT",
+    keywords="humanize time size",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
+    include_package_data=True,
+    entry_points="""
+    # -*- Entry points: -*-
+    """,
+    zip_safe=False,
+    install_requires=[
+        # -*- Extra requirements: -*-
+    ],
     extras_require={
         "tests": ["freezegun", "pytest", "pytest-cov"],
         "tests:python_version < '3.4'": ["mock"],
@@ -43,17 +56,4 @@ setup(
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: Implementation :: PyPy",
     ],
-    keywords="humanize time size",
-    author="Jason Moiron",
-    author_email="jmoiron@jmoiron.net",
-    url="https://github.com/jmoiron/humanize",
-    license="MIT",
-    include_package_data=True,
-    zip_safe=False,
-    install_requires=[
-        # -*- Extra requirements: -*-
-    ],
-    entry_points="""
-    # -*- Entry points: -*-
-    """,
 )
