@@ -1,8 +1,12 @@
-tags
-*.py[co]
-*.sw[po]
 *.egg-info*
 *.pot
-docs/_build*
+*.py[co]
+*.sw[po]
+.coverage
+.eggs
+.tox
 build
 dist
+docs/_build*
+htmlcov
+tags

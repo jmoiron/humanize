@@ -1,3 +1,0 @@
-include README.rst
-include LICENCE
-recursive-include humanize/locale *
