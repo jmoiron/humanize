@@ -20,6 +20,7 @@ to:
 * Indonesian
 * Italian
 * Korean
+* Persian
 * Portuguese Brazilian
 * Russian
 * Simplified Chinese

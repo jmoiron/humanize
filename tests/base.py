@@ -5,7 +5,6 @@
 
 from unittest import TestCase
 
-
 class HumanizeTestCase(TestCase):
     def assertManyResults(self, function, args, results):
         """Goes through a list of arguments and makes sure that function called
