@@ -13,13 +13,13 @@ from .base import HumanizeTestCase
 ONE_DAY = timedelta(days=1)
 
 
-class fakedate:
+class FakeDate:
     def __init__(self, year, month, day):
         self.year, self.month, self.day = year, month, day
 
 
-VALUE_ERROR_TEST = fakedate(290149024, 2, 2)
-OVERFLOW_ERROR_TEST = fakedate(120390192341, 2, 2)
+VALUE_ERROR_TEST = FakeDate(290149024, 2, 2)
+OVERFLOW_ERROR_TEST = FakeDate(120390192341, 2, 2)
 
 
 class TimeUtilitiesTestCase(HumanizeTestCase):
@@ -274,8 +274,8 @@ class TimeTestCase(HumanizeTestCase):
         someday = date(today.year, 3, 5)
         someday_result = "Mar 05"
 
-        valerrtest = fakedate(290149024, 2, 2)
-        overflowtest = fakedate(120390192341, 2, 2)
+        valerrtest = FakeDate(290149024, 2, 2)
+        overflowtest = FakeDate(120390192341, 2, 2)
 
         test_list = (
             today,

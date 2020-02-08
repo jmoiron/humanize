@@ -136,15 +136,15 @@ def fractional(value):
         number = float(value)
     except (TypeError, ValueError):
         return value
-    wholeNumber = int(number)
-    frac = Fraction(number - wholeNumber).limit_denominator(1000)
+    whole_number = int(number)
+    frac = Fraction(number - whole_number).limit_denominator(1000)
     numerator = frac._numerator
     denominator = frac._denominator
-    if wholeNumber and not numerator and denominator == 1:
+    if whole_number and not numerator and denominator == 1:
         # this means that an integer was passed in
         # (or variants of that integer like 1.0000)
-        return "%.0f" % wholeNumber
-    elif not wholeNumber:
+        return "%.0f" % whole_number
+    elif not whole_number:
         return "{:.0f}/{:.0f}".format(numerator, denominator)
     else:
-        return "{:.0f} {:.0f}/{:.0f}".format(wholeNumber, numerator, denominator)
+        return "{:.0f} {:.0f}/{:.0f}".format(whole_number, numerator, denominator)

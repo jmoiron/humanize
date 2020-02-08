@@ -40,7 +40,7 @@ def date_and_delta(value):
             delta = timedelta(seconds=value)
             date = now - delta
         except (ValueError, TypeError):
-            return (None, value)
+            return None, value
     return date, abs_timedelta(delta)
 
 

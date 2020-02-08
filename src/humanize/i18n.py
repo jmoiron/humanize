@@ -19,7 +19,8 @@ def get_translation():
 
 def activate(locale, path=None):
     """Set 'locale' as current locale. Search for locale in directory 'path'
-    @param locale: language name, eg 'en_GB'"""
+    @param locale: language name, eg 'en_GB'
+    @param path: path to search for locales"""
     if path is None:
         path = _DEFAULT_LOCALE_PATH
     if locale not in _TRANSLATIONS:
