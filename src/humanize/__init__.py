@@ -1,5 +1,4 @@
 import pkg_resources
-
 from humanize.filesize import naturalsize
 from humanize.i18n import activate, deactivate
 from humanize.number import apnumber, fractional, intcomma, intword, ordinal
