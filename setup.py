@@ -1,5 +1,3 @@
-import io
-
 from setuptools import find_packages, setup
 
 with open("README.md", encoding="UTF-8") as f:

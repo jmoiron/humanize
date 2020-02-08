@@ -5,7 +5,6 @@
 import re
 from fractions import Fraction
 
-from . import compat
 from .i18n import gettext as _
 from .i18n import gettext_noop as N_
 from .i18n import pgettext as P_
@@ -42,7 +41,7 @@ def intcomma(value):
     some compatibility with Django's intcomma, this function also accepts
     floats."""
     try:
-        if isinstance(value, compat.string_types):
+        if isinstance(value, str):
             float(value.replace(",", ""))
         else:
             float(value)
