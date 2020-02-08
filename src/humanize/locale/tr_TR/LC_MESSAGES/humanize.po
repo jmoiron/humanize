@@ -6,259 +6,259 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: humanize\n"
-"Report-Msgid-Bugs-To: Emre Çintay <emre@cintay.com>\n"
-"POT-Creation-Date: 2017-02-23 19:37+0300\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-08 20:05+0200\n"
 "PO-Revision-Date: 2017-02-23 20:00+0300\n"
+"Last-Translator: Emre Çintay <emre@cintay.com>\n"
 "Language-Team: Turkish\n"
+"Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.7.1\n"
 "Generated-By: Emre Çintay\n"
-"Last-Translator: Emre Çintay <emre@cintay.com>\n"
-"Language: tr_TR\n"
 
-#: humanize/number.py:20
+#: src/humanize/number.py:24
 msgctxt "0"
 msgid "th"
 msgstr "."
 
-#: humanize/number.py:21
+#: src/humanize/number.py:25
 msgctxt "1"
 msgid "st"
 msgstr "."
 
-#: humanize/number.py:22
+#: src/humanize/number.py:26
 msgctxt "2"
 msgid "nd"
 msgstr "."
 
-#: humanize/number.py:23
+#: src/humanize/number.py:27
 msgctxt "3"
 msgid "rd"
 msgstr "."
 
-#: humanize/number.py:24
+#: src/humanize/number.py:28
 msgctxt "4"
 msgid "th"
 msgstr "."
 
-#: humanize/number.py:25
+#: src/humanize/number.py:29
 msgctxt "5"
 msgid "th"
 msgstr "."
 
-#: humanize/number.py:26
+#: src/humanize/number.py:30
 msgctxt "6"
 msgid "th"
 msgstr "."
 
-#: humanize/number.py:27
+#: src/humanize/number.py:31
 msgctxt "7"
 msgid "th"
 msgstr "."
 
-#: humanize/number.py:28
+#: src/humanize/number.py:32
 msgctxt "8"
 msgid "th"
 msgstr "."
 
-#: humanize/number.py:29
+#: src/humanize/number.py:33
 msgctxt "9"
 msgid "th"
 msgstr "."
 
-#: humanize/number.py:55
+#: src/humanize/number.py:62
 msgid "million"
 msgstr "milyon"
 
-#: humanize/number.py:55
+#: src/humanize/number.py:63
 msgid "billion"
 msgstr "milyar"
 
-#: humanize/number.py:55
+#: src/humanize/number.py:64
 msgid "trillion"
 msgstr "trilyon"
 
-#: humanize/number.py:55
+#: src/humanize/number.py:65
 msgid "quadrillion"
 msgstr "katrilyon"
 
-#: humanize/number.py:56
+#: src/humanize/number.py:66
 msgid "quintillion"
 msgstr "kentilyon"
 
-#: humanize/number.py:56
+#: src/humanize/number.py:67
 msgid "sextillion"
 msgstr "sekstilyon"
 
-#: humanize/number.py:56
+#: src/humanize/number.py:68
 msgid "septillion"
 msgstr "septilyon"
 
-#: humanize/number.py:57
+#: src/humanize/number.py:69
 msgid "octillion"
 msgstr "oktilyon"
 
-#: humanize/number.py:57
+#: src/humanize/number.py:70
 msgid "nonillion"
 msgstr "nonilyon"
 
-#: humanize/number.py:57
+#: src/humanize/number.py:71
 msgid "decillion"
 msgstr "desilyon"
 
-#: humanize/number.py:57
+#: src/humanize/number.py:72
 msgid "googol"
 msgstr "googol"
 
-#: humanize/number.py:91
+#: src/humanize/number.py:108
 msgid "one"
 msgstr "bir"
 
-#: humanize/number.py:91
+#: src/humanize/number.py:109
 msgid "two"
 msgstr "iki"
 
-#: humanize/number.py:91
+#: src/humanize/number.py:110
 msgid "three"
 msgstr "üç"
 
-#: humanize/number.py:91
+#: src/humanize/number.py:111
 msgid "four"
 msgstr "dört"
 
-#: humanize/number.py:91
+#: src/humanize/number.py:112
 msgid "five"
 msgstr "beş"
 
-#: humanize/number.py:91
+#: src/humanize/number.py:113
 msgid "six"
 msgstr "altı"
 
-#: humanize/number.py:92
+#: src/humanize/number.py:114
 msgid "seven"
 msgstr "yedi"
 
-#: humanize/number.py:92
+#: src/humanize/number.py:115
 msgid "eight"
 msgstr "sekiz"
 
-#: humanize/number.py:92
+#: src/humanize/number.py:116
 msgid "nine"
 msgstr "dokuz"
 
-#: humanize/time.py:64 humanize/time.py:126
+#: src/humanize/time.py:68 src/humanize/time.py:131
 msgid "a moment"
 msgstr "biraz"
 
-#: humanize/time.py:66
+#: src/humanize/time.py:70
 msgid "a second"
 msgstr "bir saniye"
 
-#: humanize/time.py:68
+#: src/humanize/time.py:72
 #, python-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d saniye"
 msgstr[1] "%d saniye"
 
-#: humanize/time.py:70
+#: src/humanize/time.py:74
 msgid "a minute"
 msgstr "bir dakika"
 
-#: humanize/time.py:73
+#: src/humanize/time.py:77
 #, python-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d dakika"
 msgstr[1] "%d dakika"
 
-#: humanize/time.py:75
+#: src/humanize/time.py:79
 msgid "an hour"
 msgstr "bir saat"
 
-#: humanize/time.py:78
+#: src/humanize/time.py:82
 #, python-format
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "%d saat"
 msgstr[1] "%d saat"
 
-#: humanize/time.py:81
+#: src/humanize/time.py:85
 msgid "a day"
 msgstr "bir gün"
 
-#: humanize/time.py:83 humanize/time.py:86
+#: src/humanize/time.py:87 src/humanize/time.py:90
 #, python-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d gün"
 msgstr[1] "%d gün"
 
-#: humanize/time.py:88
+#: src/humanize/time.py:92
 msgid "a month"
 msgstr "bir ay"
 
-#: humanize/time.py:90
+#: src/humanize/time.py:94
 #, python-format
 msgid "%d month"
 msgid_plural "%d months"
 msgstr[0] "%d ay"
 msgstr[1] "%d ay"
 
-#: humanize/time.py:93
+#: src/humanize/time.py:97
 msgid "a year"
 msgstr "bir yıl"
 
-#: humanize/time.py:95 humanize/time.py:103
+#: src/humanize/time.py:99 src/humanize/time.py:108
 #, python-format
 msgid "1 year, %d day"
 msgid_plural "1 year, %d days"
 msgstr[0] "1 yıl, %d gün"
 msgstr[1] "1 yıl, %d gün"
 
-#: humanize/time.py:98
+#: src/humanize/time.py:102
 msgid "1 year, 1 month"
 msgstr "1 yıl, 1 ay"
 
-#: humanize/time.py:100
+#: src/humanize/time.py:105
 #, python-format
 msgid "1 year, %d month"
 msgid_plural "1 year, %d months"
 msgstr[0] "1 yıl, %d ay"
 msgstr[1] "1 yıl, %d ay"
 
-#: humanize/time.py:105
+#: src/humanize/time.py:110
 #, python-format
 msgid "%d year"
 msgid_plural "%d years"
 msgstr[0] "%d yıl"
 msgstr[1] "%d yıl"
 
-#: humanize/time.py:123
+#: src/humanize/time.py:128
 #, python-format
 msgid "%s from now"
 msgstr "şu andan itibaren %s"
 
-#: humanize/time.py:123
+#: src/humanize/time.py:128
 #, python-format
 msgid "%s ago"
 msgstr "%s önce"
 
-#: humanize/time.py:127
+#: src/humanize/time.py:132
 msgid "now"
 msgstr "şimdi"
 
-#: humanize/time.py:145
+#: src/humanize/time.py:151
 msgid "today"
 msgstr "bugün"
 
-#: humanize/time.py:147
+#: src/humanize/time.py:153
 msgid "tomorrow"
 msgstr "yarın"
 
-#: humanize/time.py:149
+#: src/humanize/time.py:155
 msgid "yesterday"
 msgstr "dün"
