@@ -217,7 +217,7 @@ msgstr "یک سال"
 msgid "1 year, %d day"
 msgid_plural "1 year, %d days"
 msgstr[0] "۱ سال و %d روز"
-msgstr[1] "ein Jahr und %d Tage"
+msgstr[1] "۱ سال و %d روز"
 
 #: humanize/time.py:98
 msgid "1 year, 1 month"
