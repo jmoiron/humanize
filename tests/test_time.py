@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 """Tests for time humanizing."""
 
@@ -18,7 +17,7 @@ from .base import HumanizeTestCase
 ONE_DAY = timedelta(days=1)
 
 
-class fakedate(object):
+class fakedate:
     def __init__(self, year, month, day):
         self.year, self.month, self.day = year, month, day
 

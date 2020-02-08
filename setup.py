@@ -2,7 +2,7 @@ import io
 
 from setuptools import find_packages, setup
 
-with io.open("README.md", encoding="UTF-8") as f:
+with open("README.md", encoding="UTF-8") as f:
     long_description = f.read()
 
 

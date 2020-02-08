@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 """Humanizing functions for numbers."""
 
@@ -147,6 +146,6 @@ def fractional(value):
         # (or variants of that integer like 1.0000)
         return "%.0f" % wholeNumber
     elif not wholeNumber:
-        return "%.0f/%.0f" % (numerator, denominator)
+        return "{:.0f}/{:.0f}".format(numerator, denominator)
     else:
-        return "%.0f %.0f/%.0f" % (wholeNumber, numerator, denominator)
+        return "{:.0f} {:.0f}/{:.0f}".format(wholeNumber, numerator, denominator)

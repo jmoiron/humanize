@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import gettext as gettext_module
 import os.path
 from threading import local
