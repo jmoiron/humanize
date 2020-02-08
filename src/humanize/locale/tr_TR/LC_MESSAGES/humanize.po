@@ -1,12 +1,12 @@
 # Turkish translation for humanize.
 # Copyright (C) 2017 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the humanize package.
-# Emre ÇİNTAY <emre@cintay.com>, 2017.
+# Emre Çintay <emre@cintay.com>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: humanize\n"
-"Report-Msgid-Bugs-To: Emre ÇİNTAY <emre@cintay.com>\n"
+"Report-Msgid-Bugs-To: Emre Çintay <emre@cintay.com>\n"
 "POT-Creation-Date: 2017-02-23 19:37+0300\n"
 "PO-Revision-Date: 2017-02-23 20:00+0300\n"
 "Language-Team: Turkish\n"
@@ -15,8 +15,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.7.1\n"
-"Generated-By: Emre ÇİNTAY\n"
-"Last-Translator: Emre ÇİNTAY <emre@cintay.com>\n"
+"Generated-By: Emre Çintay\n"
+"Last-Translator: Emre Çintay <emre@cintay.com>\n"
 "Language: tr_TR\n"
 
 #: humanize/number.py:20
@@ -83,11 +83,11 @@ msgstr "trilyon"
 
 #: humanize/number.py:55
 msgid "quadrillion"
-msgstr "kuadrilyon"
+msgstr "katrilyon"
 
 #: humanize/number.py:56
 msgid "quintillion"
-msgstr "kuintilyon"
+msgstr "kentilyon"
 
 #: humanize/number.py:56
 msgid "sextillion"
@@ -111,7 +111,7 @@ msgstr "desilyon"
 
 #: humanize/number.py:57
 msgid "googol"
-msgstr "gogol"
+msgstr "googol"
 
 #: humanize/number.py:91
 msgid "one"
@@ -227,8 +227,8 @@ msgstr "1 yıl, 1 ay"
 #, python-format
 msgid "1 year, %d month"
 msgid_plural "1 year, %d months"
-msgstr[0] "1 yıl, %d gün"
-msgstr[1] "1 yıl, %d gün"
+msgstr[0] "1 yıl, %d ay"
+msgstr[1] "1 yıl, %d ay"
 
 #: humanize/time.py:105
 #, python-format
@@ -240,7 +240,7 @@ msgstr[1] "%d yıl"
 #: humanize/time.py:123
 #, python-format
 msgid "%s from now"
-msgstr "şuandan itibaren %s"
+msgstr "şu andan itibaren %s"
 
 #: humanize/time.py:123
 #, python-format
@@ -249,7 +249,7 @@ msgstr "%s önce"
 
 #: humanize/time.py:127
 msgid "now"
-msgstr "şuan"
+msgstr "şimdi"
 
 #: humanize/time.py:145
 msgid "today"
