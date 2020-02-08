@@ -19,6 +19,7 @@ to:
 * German
 * Indonesian
 * Italian
+* Japanese
 * Korean
 * Persian
 * Portuguese Brazilian
