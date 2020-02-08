@@ -9,9 +9,8 @@
 [![MIT License](https://img.shields.io/github/license/jmoiron/humanize.svg)](LICENSE)
 
 This modest package contains various common humanization utilities, like turning
-a number into a fuzzy human readable duration ('3 minutes ago') or into a human
-readable size or throughput.  It works with Python 2.7 and 3.5+ and is localized
-to:
+a number into a fuzzy human readable duration ("3 minutes ago") or into a human
+readable size or throughput. It is localized to:
 
 * Dutch
 * Finnish
