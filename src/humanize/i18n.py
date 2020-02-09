@@ -42,11 +42,16 @@ def pgettext(msgctxt, message):
     """'Particular gettext' function.
     It works with 'msgctxt' .po modifiers and allow duplicate keys with
     different translations.
-    Python 2 don't have support for this GNU gettext function, so we
+    This GNU gettext function was added in Python 3.8, so for older versions we
     reimplement it. It works by joining msgctx and msgid by '4' byte."""
-    key = msgctxt + "\x04" + message
-    translation = get_translation().gettext(key)
-    return message if translation == key else translation
+    try:
+        # Python 3.8+
+        return get_translation().pgettext(msgctxt, message)
+    except AttributeError:
+        # Python 3.7 and older
+        key = msgctxt + "\x04" + message
+        translation = get_translation().gettext(key)
+        return message if translation == key else translation
 
 
 def ngettext(message, plural, num):
