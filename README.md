@@ -49,26 +49,28 @@ Integer humanization:
 Date & time humanization:
 
 ```pycon
->>> import datetime
->>> humanize.naturalday(datetime.datetime.now())
+>>> import humanize
+>>> import datetime as dt
+>>> humanize.naturalday(dt.datetime.now())
 'today'
->>> humanize.naturaldelta(datetime.timedelta(seconds=1001))
+>>> humanize.naturaldelta(dt.timedelta(seconds=1001))
 '16 minutes'
->>> humanize.naturalday(datetime.datetime.now() - datetime.timedelta(days=1))
+>>> humanize.naturalday(dt.datetime.now() - dt.timedelta(days=1))
 'yesterday'
->>> humanize.naturalday(datetime.date(2007, 6, 5))
+>>> humanize.naturalday(dt.date(2007, 6, 5))
 'Jun 05'
->>> humanize.naturaldate(datetime.date(2007, 6, 5))
+>>> humanize.naturaldate(dt.date(2007, 6, 5))
 'Jun 05 2007'
->>> humanize.naturaltime(datetime.datetime.now() - datetime.timedelta(seconds=1))
+>>> humanize.naturaltime(dt.datetime.now() - dt.timedelta(seconds=1))
 'a second ago'
->>> humanize.naturaltime(datetime.datetime.now() - datetime.timedelta(seconds=3600))
+>>> humanize.naturaltime(dt.datetime.now() - dt.timedelta(seconds=3600))
 'an hour ago'
 ```
 
 File size humanization:
 
 ```pycon
+>>> import humanize
 >>> humanize.naturalsize(1000000)
 '1.0 MB'
 >>> humanize.naturalsize(1000000, binary=True)
@@ -80,6 +82,7 @@ File size humanization:
 Human readable floating point numbers:
 
 ```pycon
+>>> import humanize
 >>> humanize.fractional(1/3)
 '1/3'
 >>> humanize.fractional(1.5)
@@ -97,13 +100,15 @@ Human readable floating point numbers:
 How to change locale at runtime:
 
 ```pycon
->>> print(humanize.naturaltime(datetime.timedelta(seconds=3)))
+>>> import humanize
+>>> import datetime as dt
+>>> humanize.naturaltime(dt.timedelta(seconds=3))
 3 seconds ago
->>> _t = humanize.i18n.activate('ru_RU')
->>> print(humanize.naturaltime(datetime.timedelta(seconds=3)))
+>>> _t = humanize.i18n.activate("ru_RU")
+>>> humanize.naturaltime(dt.timedelta(seconds=3))
 3 секунды назад
 >>> humanize.i18n.deactivate()
->>> print(humanize.naturaltime(datetime.timedelta(seconds=3)))
+>>> humanize.naturaltime(dt.timedelta(seconds=3))
 3 seconds ago
 ```
 
@@ -111,6 +116,7 @@ You can pass additional parameter `path` to `activate` to specify a path to sear
 locales in.
 
 ```pycon
+>>> import humanize
 >>> humanize.i18n.activate("pt_BR")
 IOError: [Errno 2] No translation file found for domain: 'humanize'
 >>> humanize.i18n.activate("pt_BR", path="path/to/my/portuguese/translation/")
