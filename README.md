@@ -12,6 +12,7 @@ This modest package contains various common humanization utilities, like turning
 a number into a fuzzy human readable duration ("3 minutes ago") or into a human
 readable size or throughput. It is localized to:
 
+* Brazilian Portuguese
 * Dutch
 * Finnish
 * French
@@ -21,7 +22,6 @@ readable size or throughput. It is localized to:
 * Japanese
 * Korean
 * Persian
-* Portuguese Brazilian
 * Russian
 * Simplified Chinese
 * Slovak
