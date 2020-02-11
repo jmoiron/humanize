@@ -1,10 +1,9 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 """Time humanizing functions.  These are largely borrowed from Django's
 ``contrib.humanize``."""
 
-from datetime import date, datetime, timedelta
+import datetime as dt
 
 from .i18n import gettext as _
 from .i18n import ngettext
@@ -13,7 +12,7 @@ __all__ = ["naturaldelta", "naturaltime", "naturalday", "naturaldate"]
 
 
 def _now():
-    return datetime.now()
+    return dt.datetime.now()
 
 
 def abs_timedelta(delta):
@@ -29,19 +28,19 @@ def date_and_delta(value):
     """Turn a value into a date and a timedelta which represents how long ago
     it was.  If that's not possible, return (None, value)."""
     now = _now()
-    if isinstance(value, datetime):
+    if isinstance(value, dt.datetime):
         date = value
         delta = now - value
-    elif isinstance(value, timedelta):
+    elif isinstance(value, dt.timedelta):
         date = now - value
         delta = value
     else:
         try:
             value = int(value)
-            delta = timedelta(seconds=value)
+            delta = dt.timedelta(seconds=value)
             date = now - delta
         except (ValueError, TypeError):
-            return (None, value)
+            return None, value
     return date, abs_timedelta(delta)
 
 
@@ -122,7 +121,7 @@ def naturaltime(value, future=False, months=True):
     if date is None:
         return value
     # determine tense by value only if datetime/timedelta were passed
-    if isinstance(value, (datetime, timedelta)):
+    if isinstance(value, (dt.datetime, dt.timedelta)):
         future = date > now
 
     ago = _("%s from now") if future else _("%s ago")
@@ -139,14 +138,14 @@ def naturalday(value, format="%b %d"):
     present day returns representing string. Otherwise, returns a string
     formatted according to ``format``."""
     try:
-        value = date(value.year, value.month, value.day)
+        value = dt.date(value.year, value.month, value.day)
     except AttributeError:
         # Passed value wasn't date-ish
         return value
     except (OverflowError, ValueError):
         # Date arguments out of range
         return value
-    delta = value - date.today()
+    delta = value - dt.date.today()
     if delta.days == 0:
         return _("today")
     elif delta.days == 1:
@@ -160,14 +159,14 @@ def naturaldate(value):
     """Like naturalday, but will append a year for dates that are a year
     ago or more."""
     try:
-        value = date(value.year, value.month, value.day)
+        value = dt.date(value.year, value.month, value.day)
     except AttributeError:
         # Passed value wasn't date-ish
         return value
     except (OverflowError, ValueError):
         # Date arguments out of range
         return value
-    delta = abs_timedelta(value - date.today())
+    delta = abs_timedelta(value - dt.date.today())
     if delta.days >= 365:
         return naturalday(value, "%b %d %Y")
     return naturalday(value)

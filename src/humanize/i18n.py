@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import gettext as gettext_module
 import os.path
 from threading import local
@@ -20,7 +19,8 @@ def get_translation():
 
 def activate(locale, path=None):
     """Set 'locale' as current locale. Search for locale in directory 'path'
-    @param locale: language name, eg 'en_GB'"""
+    @param locale: language name, eg 'en_GB'
+    @param path: path to search for locales"""
     if path is None:
         path = _DEFAULT_LOCALE_PATH
     if locale not in _TRANSLATIONS:
@@ -42,11 +42,16 @@ def pgettext(msgctxt, message):
     """'Particular gettext' function.
     It works with 'msgctxt' .po modifiers and allow duplicate keys with
     different translations.
-    Python 2 don't have support for this GNU gettext function, so we
+    This GNU gettext function was added in Python 3.8, so for older versions we
     reimplement it. It works by joining msgctx and msgid by '4' byte."""
-    key = msgctxt + "\x04" + message
-    translation = get_translation().gettext(key)
-    return message if translation == key else translation
+    try:
+        # Python 3.8+
+        return get_translation().pgettext(msgctxt, message)
+    except AttributeError:
+        # Python 3.7 and older
+        key = msgctxt + "\x04" + message
+        translation = get_translation().gettext(key)
+        return message if translation == key else translation
 
 
 def ngettext(message, plural, num):
