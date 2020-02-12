@@ -5,12 +5,22 @@
 import datetime as dt
 from unittest.mock import patch
 
+import pytest
 from freezegun import freeze_time
 from humanize import time
 
 from .base import HumanizeTestCase
 
-ONE_DAY = dt.timedelta(days=1)
+ONE_DAY_DELTA = dt.timedelta(days=1)
+
+# In seconds
+ONE_YEAR = 31556952
+ONE_DAY = 86400
+ONE_HOUR = 3600
+FOUR_MILLISECONDS = 4 / 1000
+ONE_MILLISECOND = 1 / 1000
+FOUR_MICROSECONDS = 4 / 1000000
+ONE_MICROSECOND = 1 / 1000000
 
 
 class FakeDate:
@@ -268,8 +278,8 @@ class TimeTestCase(HumanizeTestCase):
     def test_naturalday(self):
         # Arrange
         today = dt.date.today()
-        tomorrow = today + ONE_DAY
-        yesterday = today - ONE_DAY
+        tomorrow = today + ONE_DAY_DELTA
+        yesterday = today - ONE_DAY_DELTA
 
         someday = dt.date(today.year, 3, 5)
         someday_result = "Mar 05"
@@ -309,8 +319,8 @@ class TimeTestCase(HumanizeTestCase):
     def test_naturaldate(self):
         # Arrange
         today = dt.date.today()
-        tomorrow = today + ONE_DAY
-        yesterday = today - ONE_DAY
+        tomorrow = today + ONE_DAY_DELTA
+        yesterday = today - ONE_DAY_DELTA
 
         someday = dt.date(today.year, 3, 5)
         someday_result = "Mar 05"
@@ -340,3 +350,117 @@ class TimeTestCase(HumanizeTestCase):
 
         # Act / Assert
         self.assertManyResults(time.naturaldate, test_list, result_list)
+
+
+@pytest.mark.parametrize(
+    "seconds, expected",
+    [
+        (ONE_MICROSECOND, "a moment"),
+        (FOUR_MICROSECONDS, "a moment"),
+        (ONE_MILLISECOND, "a moment"),
+        (FOUR_MILLISECONDS, "a moment"),
+        (2, "2 seconds"),
+        (4, "4 seconds"),
+        (ONE_HOUR + FOUR_MILLISECONDS, "an hour"),
+        (ONE_DAY + FOUR_MILLISECONDS, "a day"),
+        (ONE_YEAR + FOUR_MICROSECONDS, "a year"),
+    ],
+)
+def test_naturaldelta_minimum_unit_default(seconds, expected):
+    # Arrange
+    delta = dt.timedelta(seconds=seconds)
+
+    # Act / Assert
+    assert time.naturaldelta(delta) == expected
+
+
+@pytest.mark.parametrize(
+    "minimum_unit, seconds, expected",
+    [
+        ("seconds", ONE_MICROSECOND, "a moment"),
+        ("seconds", FOUR_MICROSECONDS, "a moment"),
+        ("seconds", ONE_MILLISECOND, "a moment"),
+        ("seconds", FOUR_MILLISECONDS, "a moment"),
+        ("seconds", 2, "2 seconds"),
+        ("seconds", 4, "4 seconds"),
+        ("seconds", ONE_HOUR + FOUR_MILLISECONDS, "an hour"),
+        ("seconds", ONE_DAY + FOUR_MILLISECONDS, "a day"),
+        ("seconds", ONE_YEAR + FOUR_MICROSECONDS, "a year"),
+        ("microseconds", ONE_MICROSECOND, "1 microsecond"),
+        ("microseconds", FOUR_MICROSECONDS, "4 microseconds"),
+        ("microseconds", 2, "2 seconds"),
+        ("microseconds", 4, "4 seconds"),
+        ("microseconds", ONE_HOUR + FOUR_MILLISECONDS, "an hour"),
+        ("microseconds", ONE_DAY + FOUR_MILLISECONDS, "a day"),
+        ("microseconds", ONE_YEAR + FOUR_MICROSECONDS, "a year"),
+        ("milliseconds", ONE_MILLISECOND, "1 millisecond"),
+        ("milliseconds", FOUR_MILLISECONDS, "4 milliseconds"),
+        ("milliseconds", 2, "2 seconds"),
+        ("milliseconds", 4, "4 seconds"),
+        ("milliseconds", ONE_HOUR + FOUR_MILLISECONDS, "an hour"),
+        ("milliseconds", ONE_YEAR + FOUR_MICROSECONDS, "a year"),
+    ],
+)
+def test_naturaldelta_minimum_unit_explicit(minimum_unit, seconds, expected):
+    # Arrange
+    delta = dt.timedelta(seconds=seconds)
+
+    # Act / Assert
+    assert time.naturaldelta(delta, minimum_unit=minimum_unit) == expected
+
+
+@pytest.mark.parametrize(
+    "seconds, expected",
+    [
+        (ONE_MICROSECOND, "now"),
+        (FOUR_MICROSECONDS, "now"),
+        (ONE_MILLISECOND, "now"),
+        (FOUR_MILLISECONDS, "now"),
+        (2, "2 seconds ago"),
+        (4, "4 seconds ago"),
+        (ONE_HOUR + FOUR_MILLISECONDS, "an hour ago"),
+        (ONE_DAY + FOUR_MILLISECONDS, "a day ago"),
+        (ONE_YEAR + FOUR_MICROSECONDS, "a year ago"),
+    ],
+)
+def test_naturaltime_minimum_unit_default(seconds, expected):
+    # Arrange
+    delta = dt.timedelta(seconds=seconds)
+
+    # Act / Assert
+    assert time.naturaltime(delta) == expected
+
+
+@pytest.mark.parametrize(
+    "minimum_unit, seconds, expected",
+    [
+        ("seconds", ONE_MICROSECOND, "now"),
+        ("seconds", FOUR_MICROSECONDS, "now"),
+        ("seconds", ONE_MILLISECOND, "now"),
+        ("seconds", FOUR_MILLISECONDS, "now"),
+        ("seconds", 2, "2 seconds ago"),
+        ("seconds", 4, "4 seconds ago"),
+        ("seconds", ONE_HOUR + FOUR_MILLISECONDS, "an hour ago"),
+        ("seconds", ONE_DAY + FOUR_MILLISECONDS, "a day ago"),
+        ("seconds", ONE_YEAR + FOUR_MICROSECONDS, "a year ago"),
+        ("microseconds", ONE_MICROSECOND, "1 microsecond ago"),
+        ("microseconds", FOUR_MICROSECONDS, "4 microseconds ago"),
+        ("microseconds", 2, "2 seconds ago"),
+        ("microseconds", 4, "4 seconds ago"),
+        ("microseconds", ONE_HOUR + FOUR_MILLISECONDS, "an hour ago"),
+        ("microseconds", ONE_DAY + FOUR_MILLISECONDS, "a day ago"),
+        ("microseconds", ONE_YEAR + FOUR_MICROSECONDS, "a year ago"),
+        ("milliseconds", ONE_MILLISECOND, "1 millisecond ago"),
+        ("milliseconds", FOUR_MILLISECONDS, "4 milliseconds ago"),
+        ("milliseconds", 2, "2 seconds ago"),
+        ("milliseconds", 4, "4 seconds ago"),
+        ("milliseconds", ONE_HOUR + FOUR_MILLISECONDS, "an hour ago"),
+        ("milliseconds", ONE_YEAR + FOUR_MICROSECONDS, "a year ago"),
+    ],
+)
+def test_naturaltime_minimum_unit_explicit(minimum_unit, seconds, expected):
+    # Arrange
+    delta = dt.timedelta(seconds=seconds)
+
+    # Act / Assert
+    assert time.naturaltime(delta, minimum_unit=minimum_unit) == expected
