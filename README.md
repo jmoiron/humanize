@@ -30,7 +30,7 @@ readable size or throughput. It is localized to:
 
 ## Usage
 
-Integer humanization:
+### Integer humanization
 
 ```pycon
 >>> import humanize
@@ -46,7 +46,7 @@ Integer humanization:
 '41'
 ```
 
-Date & time humanization:
+### Date & time humanization
 
 ```pycon
 >>> import humanize
@@ -67,7 +67,35 @@ Date & time humanization:
 'an hour ago'
 ```
 
-File size humanization:
+#### Smaller units
+
+If seconds are too large, set `minimum_unit` to milliseconds or microseconds:
+
+```pycon
+>>> import humanize
+>>> import datetime as dt
+>>> humanize.naturaldelta(dt.timedelta(seconds=2))
+'2 seconds'
+```
+```pycon
+>>> delta = dt.timedelta(milliseconds=4)
+>>> humanize.naturaldelta(delta)
+'a moment'
+>>> humanize.naturaldelta(delta, minimum_unit="milliseconds")
+'4 milliseconds'
+>>> humanize.naturaldelta(delta, minimum_unit="microseconds")
+'4000 microseconds'
+```
+```pycon
+>>> humanize.naturaltime(delta)
+'now'
+>>> humanize.naturaltime(delta, minimum_unit="milliseconds")
+'4 milliseconds ago'
+>>> humanize.naturaltime(delta, minimum_unit="microseconds")
+'4000 microseconds ago'
+```
+
+### File size humanization
 
 ```pycon
 >>> import humanize
@@ -79,7 +107,7 @@ File size humanization:
 '976.6K'
 ```
 
-Human readable floating point numbers:
+### Human-readable floating point numbers
 
 ```pycon
 >>> import humanize
