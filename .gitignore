@@ -4,6 +4,7 @@
 *.sw[po]
 .coverage
 .eggs
+.testmondata
 .tox
 build
 dist
