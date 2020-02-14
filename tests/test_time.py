@@ -14,13 +14,18 @@ from .base import HumanizeTestCase
 ONE_DAY_DELTA = dt.timedelta(days=1)
 
 # In seconds
-ONE_YEAR = 31556952
-ONE_DAY = 86400
-ONE_HOUR = 3600
-FOUR_MILLISECONDS = 4 / 1000
-ONE_MILLISECOND = 1 / 1000
-FOUR_MICROSECONDS = 4 / 1000000
 ONE_MICROSECOND = 1 / 1000000
+FOUR_MICROSECONDS = 4 / 1000000
+ONE_MILLISECOND = 1 / 1000
+FOUR_MILLISECONDS = 4 / 1000
+ONE_HOUR = 3600
+ONE_DAY = 24 * ONE_HOUR
+ONE_YEAR = 365.25 * ONE_DAY
+
+with freeze_time("2020-02-02"):
+    TODAY = dt.date.today()
+    TOMORROW = TODAY + ONE_DAY_DELTA
+    YESTERDAY = TODAY - ONE_DAY_DELTA
 
 
 class FakeDate:
@@ -274,82 +279,69 @@ class TimeTestCase(HumanizeTestCase):
 
             self.assertManyResults(nt_nomonths, test_list, result_list)
 
-    @freeze_time("2020-02-02")
-    def test_naturalday(self):
-        # Arrange
-        today = dt.date.today()
-        tomorrow = today + ONE_DAY_DELTA
-        yesterday = today - ONE_DAY_DELTA
 
-        someday = dt.date(today.year, 3, 5)
-        someday_result = "Mar 05"
+@freeze_time("2020-02-02")
+@pytest.mark.parametrize(
+    "test_args, expected",
+    [
+        ([TODAY], "today"),
+        ([TOMORROW], "tomorrow"),
+        ([YESTERDAY], "yesterday"),
+        ([dt.date(TODAY.year, 3, 5)], "Mar 05"),
+        (["02/26/1984"], "02/26/1984"),
+        ([dt.date(1982, 6, 27), "%Y.%m.%d"], "1982.06.27"),
+        ([None], None),
+        (["Not a date at all."], "Not a date at all."),
+        ([VALUE_ERROR_TEST], VALUE_ERROR_TEST),
+        ([OVERFLOW_ERROR_TEST], OVERFLOW_ERROR_TEST),
+    ],
+)
+def test_naturalday(test_args, expected):
+    assert time.naturalday(*test_args) == expected
 
-        valerrtest = FakeDate(290149024, 2, 2)
-        overflowtest = FakeDate(120390192341, 2, 2)
 
-        test_list = (
-            today,
-            tomorrow,
-            yesterday,
-            someday,
-            "02/26/1984",
-            (dt.date(1982, 6, 27), "%Y.%m.%d"),
-            None,
-            "Not a date at all.",
-            valerrtest,
-            overflowtest,
-        )
-        result_list = (
-            "today",
-            "tomorrow",
-            "yesterday",
-            someday_result,
-            "02/26/1984",
-            "1982.06.27",
-            None,
-            "Not a date at all.",
-            valerrtest,
-            overflowtest,
-        )
-
-        # Act / Assert
-        self.assertManyResults(time.naturalday, test_list, result_list)
-
-    @freeze_time("2020-02-02")
-    def test_naturaldate(self):
-        # Arrange
-        today = dt.date.today()
-        tomorrow = today + ONE_DAY_DELTA
-        yesterday = today - ONE_DAY_DELTA
-
-        someday = dt.date(today.year, 3, 5)
-        someday_result = "Mar 05"
-
-        test_list = (
-            today,
-            tomorrow,
-            yesterday,
-            someday,
-            dt.date(1982, 6, 27),
-            None,
-            "Not a date at all.",
-            VALUE_ERROR_TEST,
-            OVERFLOW_ERROR_TEST,
-        )
-        result_list = (
-            "today",
-            "tomorrow",
-            "yesterday",
-            someday_result,
-            "Jun 27 1982",
-            None,
-            "Not a date at all.",
-            VALUE_ERROR_TEST,
-            OVERFLOW_ERROR_TEST,
-        )
-
-        # Act / Assert
-        self.assertManyResults(time.naturaldate, test_list, result_list)
+@freeze_time("2020-02-02")
+@pytest.mark.parametrize(
+    "test_input, expected",
+    [
+        (TODAY, "today"),
+        (TOMORROW, "tomorrow"),
+        (YESTERDAY, "yesterday"),
+        (dt.date(TODAY.year, 3, 5), "Mar 05"),
+        (dt.date(1982, 6, 27), "Jun 27 1982"),
+        (None, None),
+        ("Not a date at all.", "Not a date at all."),
+        (VALUE_ERROR_TEST, VALUE_ERROR_TEST),
+        (OVERFLOW_ERROR_TEST, OVERFLOW_ERROR_TEST),
+        (dt.date(2019, 2, 2), "Feb 02 2019"),
+        (dt.date(2019, 3, 2), "Mar 02"),
+        (dt.date(2019, 4, 2), "Apr 02"),
+        (dt.date(2019, 5, 2), "May 02"),
+        (dt.date(2019, 6, 2), "Jun 02"),
+        (dt.date(2019, 7, 2), "Jul 02"),
+        (dt.date(2019, 8, 2), "Aug 02"),
+        (dt.date(2019, 9, 2), "Sep 02"),
+        (dt.date(2019, 10, 2), "Oct 02"),
+        (dt.date(2019, 11, 2), "Nov 02"),
+        (dt.date(2019, 12, 2), "Dec 02"),
+        (dt.date(2020, 1, 2), "Jan 02"),
+        (dt.date(2020, 2, 2), "today"),
+        (dt.date(2020, 3, 2), "Mar 02"),
+        (dt.date(2020, 4, 2), "Apr 02"),
+        (dt.date(2020, 5, 2), "May 02"),
+        (dt.date(2020, 6, 2), "Jun 02"),
+        (dt.date(2020, 7, 2), "Jul 02"),
+        (dt.date(2020, 8, 2), "Aug 02"),
+        (dt.date(2020, 9, 2), "Sep 02"),
+        (dt.date(2020, 10, 2), "Oct 02"),
+        (dt.date(2020, 11, 2), "Nov 02"),
+        (dt.date(2020, 12, 2), "Dec 02"),
+        (dt.date(2021, 1, 2), "Jan 02"),
+        (dt.date(2021, 2, 2), "Feb 02 2021"),
+    ],
+)
+def test_naturaldate(test_input, expected):
+    assert time.naturaldate(test_input) == expected
 
 
 @pytest.mark.parametrize(
