@@ -56,31 +56,25 @@ def test_intword_powers():
 
 
 @pytest.mark.parametrize(
-    "test_input, expected",
+    "test_args, expected",
     [
-        ("100", "100"),
-        ("1000000", "1.0 million"),
-        ("1200000", "1.2 million"),
-        ("1290000", "1.3 million"),
-        ("1000000000", "1.0 billion"),
-        ("2000000000", "2.0 billion"),
-        ("6000000000000", "6.0 trillion"),
-        ("1300000000000000", "1.3 quadrillion"),
-        ("3500000000000000000000", "3.5 sextillion"),
-        ("8100000000000000000000000000000000", "8.1 decillion"),
-        (None, None),
-        (10 ** 101, "1" + "0" * 101),
+        (["100"], "100"),
+        (["1000000"], "1.0 million"),
+        (["1200000"], "1.2 million"),
+        (["1290000"], "1.3 million"),
+        (["1000000000"], "1.0 billion"),
+        (["2000000000"], "2.0 billion"),
+        (["6000000000000"], "6.0 trillion"),
+        (["1300000000000000"], "1.3 quadrillion"),
+        (["3500000000000000000000"], "3.5 sextillion"),
+        (["8100000000000000000000000000000000"], "8.1 decillion"),
+        ([None], None),
+        (["1230000", "%0.2f"], "1.23 million"),
+        ([10 ** 101], "1" + "0" * 101),
     ],
 )
-def test_intword(test_input, expected):
-    assert number.intword(test_input) == expected
-
-
-@pytest.mark.parametrize(
-    "test_value, test_format, expected", [("1230000", "%0.2f", "1.23 million")],
-)
-def test_intword_format(test_value, test_format, expected):
-    assert number.intword(test_value, test_format) == expected
+def test_intword(test_args, expected):
+    assert number.intword(*test_args) == expected
 
 
 @pytest.mark.parametrize(

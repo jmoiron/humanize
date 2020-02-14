@@ -282,30 +282,22 @@ class TimeTestCase(HumanizeTestCase):
 
 @freeze_time("2020-02-02")
 @pytest.mark.parametrize(
-    "test_input, expected",
+    "test_args, expected",
     [
-        (TODAY, "today"),
-        (TOMORROW, "tomorrow"),
-        (YESTERDAY, "yesterday"),
-        (dt.date(TODAY.year, 3, 5), "Mar 05"),
-        ("02/26/1984", "02/26/1984"),
-        (None, None),
-        ("Not a date at all.", "Not a date at all."),
-        (VALUE_ERROR_TEST, VALUE_ERROR_TEST),
-        (OVERFLOW_ERROR_TEST, OVERFLOW_ERROR_TEST),
+        ([TODAY], "today"),
+        ([TOMORROW], "tomorrow"),
+        ([YESTERDAY], "yesterday"),
+        ([dt.date(TODAY.year, 3, 5)], "Mar 05"),
+        (["02/26/1984"], "02/26/1984"),
+        ([dt.date(1982, 6, 27), "%Y.%m.%d"], "1982.06.27"),
+        ([None], None),
+        (["Not a date at all."], "Not a date at all."),
+        ([VALUE_ERROR_TEST], VALUE_ERROR_TEST),
+        ([OVERFLOW_ERROR_TEST], OVERFLOW_ERROR_TEST),
     ],
 )
-def test_naturalday(test_input, expected):
-    assert time.naturalday(test_input) == expected
-
-
-@freeze_time("2020-02-02")
-@pytest.mark.parametrize(
-    "test_value, test_format, expected",
-    [(dt.date(1982, 6, 27), "%Y.%m.%d", "1982.06.27")],
-)
-def test_naturalday_format(test_value, test_format, expected):
-    assert time.naturalday(test_value, test_format) == expected
+def test_naturalday(test_args, expected):
+    assert time.naturalday(*test_args) == expected
 
 
 @freeze_time("2020-02-02")
