@@ -109,3 +109,25 @@ def test_apnumber(test_input, expected):
 )
 def test_fractional(test_input, expected):
     assert number.fractional(test_input) == expected
+
+
+@pytest.mark.parametrize(
+    "test_args, expected",
+    [
+        ([1000], "1.00 x 10³"),
+        ([-1000], "1.00 x 10⁻³"),
+        ([5.5], "5.50 x 10⁰"),
+        ([5781651000], "5.78 x 10⁹"),
+        (["1000"], "1.00 x 10³"),
+        (["99"], "9.90 x 10¹"),
+        ([float(0.3)], "3.00 x 10⁻¹"),
+        (["foo"], "foo"),
+        ([None], None),
+        ([1000, 1], "1.0 x 10³"),
+        ([float(0.3), 1], "3.0 x 10⁻¹"),
+        ([1000, 0], "1 x 10³"),
+        ([float(0.3), 0], "3 x 10⁻¹"),
+    ],
+)
+def test_scientific(test_args, expected):
+    assert number.scientific(*test_args) == expected
