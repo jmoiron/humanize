@@ -72,12 +72,21 @@ human_powers = (
 
 
 def intword(value, format="%.1f"):
-    """Converts a large integer to a friendly text representation. Works best for
-    numbers over 1 million. For example, 1000000 becomes '1.0 million', 1200000
-    becomes '1.2 million' and '1200000000' becomes '1.2 billion'.  Supports up to
-    decillion (33 digits) and googol (100 digits).  You can pass format to change
-    the number of decimal or general format of the number portion.  This function
-    returns a string unless the value passed was unable to be coaxed into an int."""
+    """Converts a large integer to a friendly text representation.
+
+    Works best for numbers over 1 million. For example, 1000000 becomes "1.0 million",
+    1200000 becomes "1.2 million" and "1200000000" becomes "1.2 billion". Supports up to
+    decillion (33 digits) and googol (100 digits).
+
+    Args:
+        value (int, float, string): Integer to convert.
+        format (str): to change the number of decimal or general format of the number
+            portion.
+
+    Returns:
+        str: friendly text representation as a string, unless the value passed could not
+        be coaxed into an int.
+    """
     try:
         value = int(value)
     except (TypeError, ValueError):
@@ -90,9 +99,9 @@ def intword(value, format="%.1f"):
             chopped = value / float(powers[ordinal - 1])
             if float(format % chopped) == float(10 ** 3):
                 chopped = value / float(powers[ordinal])
-                return (' '.join([format, _(human_powers[ordinal])])) % chopped
+                return (" ".join([format, _(human_powers[ordinal])])) % chopped
             else:
-                return (' '.join([format, _(human_powers[ordinal - 1])])) % chopped
+                return (" ".join([format, _(human_powers[ordinal - 1])])) % chopped
     return str(value)
 
 
