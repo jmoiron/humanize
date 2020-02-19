@@ -28,22 +28,22 @@
 # https://keepachangelog.com/en/1.0.0/
 - color: 0e8a16
   name: "changelog: Added"
-  description: "Changelog: for new features"
+  description: "For new features"
 - color: af99e5
   name: "changelog: Changed"
-  description: "Changelog: for changes in existing functionality"
+  description: "For changes in existing functionality"
 - color: FFA500
   name: "changelog: Deprecated"
-  description: "Changelog: for soon-to-be removed features"
+  description: "For soon-to-be removed features"
 - color: 00A800
   name: "changelog: Fixed"
-  description: "Changelog: for any bug fixes"
+  description: "For any bug fixes"
 - color: ff0000
   name: "changelog: Removed"
-  description: "Changelog: for now removed features"
+  description: "For now removed features"
 - color: 045aa0
   name: "changelog: Security"
-  description: "Changelog: in case of vulnerabilities"
+  description: "In case of vulnerabilities"
 - color: fbca04
   name: "changelog: skip"
   description: "Exclude PR from release draft"
