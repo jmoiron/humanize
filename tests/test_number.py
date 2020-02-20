@@ -2,6 +2,7 @@
 
 """Number tests."""
 
+import humanize
 import pytest
 from humanize import number
 
@@ -25,7 +26,7 @@ from humanize import number
     ],
 )
 def test_ordinal(test_input, expected):
-    assert number.ordinal(test_input) == expected
+    assert humanize.ordinal(test_input) == expected
 
 
 @pytest.mark.parametrize(
@@ -47,7 +48,7 @@ def test_ordinal(test_input, expected):
     ],
 )
 def test_intcomma(test_input, expected):
-    assert number.intcomma(test_input) == expected
+    assert humanize.intcomma(test_input) == expected
 
 
 def test_intword_powers():
@@ -74,7 +75,7 @@ def test_intword_powers():
     ],
 )
 def test_intword(test_args, expected):
-    assert number.intword(*test_args) == expected
+    assert humanize.intword(*test_args) == expected
 
 
 @pytest.mark.parametrize(
@@ -91,7 +92,7 @@ def test_intword(test_args, expected):
     ],
 )
 def test_apnumber(test_input, expected):
-    assert number.apnumber(test_input) == expected
+    assert humanize.apnumber(test_input) == expected
 
 
 @pytest.mark.parametrize(
@@ -108,7 +109,7 @@ def test_apnumber(test_input, expected):
     ],
 )
 def test_fractional(test_input, expected):
-    assert number.fractional(test_input) == expected
+    assert humanize.fractional(test_input) == expected
 
 
 @pytest.mark.parametrize(
@@ -130,4 +131,4 @@ def test_fractional(test_input, expected):
     ],
 )
 def test_scientific(test_args, expected):
-    assert number.scientific(*test_args) == expected
+    assert humanize.scientific(*test_args) == expected

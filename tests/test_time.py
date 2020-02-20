@@ -4,6 +4,7 @@
 
 import datetime as dt
 
+import humanize
 import pytest
 from freezegun import freeze_time
 from humanize import time
@@ -66,7 +67,7 @@ def test_date_and_delta():
 
 
 def nd_nomonths(d):
-    return time.naturaldelta(d, months=False)
+    return humanize.naturaldelta(d, months=False)
 
 
 @pytest.mark.parametrize(
@@ -118,7 +119,7 @@ def test_naturaldelta_nomonths(test_input, expected):
     ],
 )
 def test_naturaldelta(test_input, expected):
-    assert time.naturaldelta(test_input) == expected
+    assert humanize.naturaldelta(test_input) == expected
 
 
 @freeze_time("2020-02-02")
@@ -154,11 +155,11 @@ def test_naturaldelta(test_input, expected):
     ],
 )
 def test_naturaltime(test_input, expected):
-    assert time.naturaltime(test_input) == expected
+    assert humanize.naturaltime(test_input) == expected
 
 
 def nt_nomonths(d):
-    return time.naturaltime(d, months=False)
+    return humanize.naturaltime(d, months=False)
 
 
 @freeze_time("2020-02-02")
@@ -216,7 +217,7 @@ def test_naturaltime_nomonths(test_input, expected):
     ],
 )
 def test_naturalday(test_args, expected):
-    assert time.naturalday(*test_args) == expected
+    assert humanize.naturalday(*test_args) == expected
 
 
 @freeze_time("2020-02-02")
@@ -260,7 +261,7 @@ def test_naturalday(test_args, expected):
     ],
 )
 def test_naturaldate(test_input, expected):
-    assert time.naturaldate(test_input) == expected
+    assert humanize.naturaldate(test_input) == expected
 
 
 @pytest.mark.parametrize(
@@ -282,7 +283,7 @@ def test_naturaldelta_minimum_unit_default(seconds, expected):
     delta = dt.timedelta(seconds=seconds)
 
     # Act / Assert
-    assert time.naturaldelta(delta) == expected
+    assert humanize.naturaldelta(delta) == expected
 
 
 @pytest.mark.parametrize(
@@ -317,7 +318,7 @@ def test_naturaldelta_minimum_unit_explicit(minimum_unit, seconds, expected):
     delta = dt.timedelta(seconds=seconds)
 
     # Act / Assert
-    assert time.naturaldelta(delta, minimum_unit=minimum_unit) == expected
+    assert humanize.naturaldelta(delta, minimum_unit=minimum_unit) == expected
 
 
 @pytest.mark.parametrize(
@@ -339,7 +340,7 @@ def test_naturaltime_minimum_unit_default(seconds, expected):
     delta = dt.timedelta(seconds=seconds)
 
     # Act / Assert
-    assert time.naturaltime(delta) == expected
+    assert humanize.naturaltime(delta) == expected
 
 
 @pytest.mark.parametrize(
@@ -374,4 +375,4 @@ def test_naturaltime_minimum_unit_explicit(minimum_unit, seconds, expected):
     delta = dt.timedelta(seconds=seconds)
 
     # Act / Assert
-    assert time.naturaltime(delta, minimum_unit=minimum_unit) == expected
+    assert humanize.naturaltime(delta, minimum_unit=minimum_unit) == expected
