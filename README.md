@@ -123,6 +123,24 @@ If seconds are too large, set `minimum_unit` to milliseconds or microseconds:
 '1'
 ```
 
+### Scientific notation
+
+```pycon
+>>> import humanize
+>>> humanize.scientific(0.3)
+'3.00 x 10⁻¹'
+>>> humanize.scientific(500)
+'5.00 x 10²'
+>>> humanize.scientific("20000")
+'2.00 x 10⁴'
+>>> humanize.scientific(1**10)
+'1.00 x 10⁰'
+>>> humanize.scientific(1**10, precision=1)
+'1.0 x 10⁰'
+>>> humanize.scientific(1**10, precision=0)
+'1 x 10⁰'
+```
+
 ## Localization
 
 How to change locale at runtime:

@@ -2,6 +2,7 @@
 
 """Number tests."""
 
+import humanize
 import pytest
 from humanize import number
 
@@ -25,7 +26,7 @@ from humanize import number
     ],
 )
 def test_ordinal(test_input, expected):
-    assert number.ordinal(test_input) == expected
+    assert humanize.ordinal(test_input) == expected
 
 
 @pytest.mark.parametrize(
@@ -47,7 +48,7 @@ def test_ordinal(test_input, expected):
     ],
 )
 def test_intcomma(test_input, expected):
-    assert number.intcomma(test_input) == expected
+    assert humanize.intcomma(test_input) == expected
 
 
 def test_intword_powers():
@@ -74,7 +75,7 @@ def test_intword_powers():
     ],
 )
 def test_intword(test_args, expected):
-    assert number.intword(*test_args) == expected
+    assert humanize.intword(*test_args) == expected
 
 
 @pytest.mark.parametrize(
@@ -91,7 +92,7 @@ def test_intword(test_args, expected):
     ],
 )
 def test_apnumber(test_input, expected):
-    assert number.apnumber(test_input) == expected
+    assert humanize.apnumber(test_input) == expected
 
 
 @pytest.mark.parametrize(
@@ -108,4 +109,26 @@ def test_apnumber(test_input, expected):
     ],
 )
 def test_fractional(test_input, expected):
-    assert number.fractional(test_input) == expected
+    assert humanize.fractional(test_input) == expected
+
+
+@pytest.mark.parametrize(
+    "test_args, expected",
+    [
+        ([1000], "1.00 x 10³"),
+        ([-1000], "1.00 x 10⁻³"),
+        ([5.5], "5.50 x 10⁰"),
+        ([5781651000], "5.78 x 10⁹"),
+        (["1000"], "1.00 x 10³"),
+        (["99"], "9.90 x 10¹"),
+        ([float(0.3)], "3.00 x 10⁻¹"),
+        (["foo"], "foo"),
+        ([None], None),
+        ([1000, 1], "1.0 x 10³"),
+        ([float(0.3), 1], "3.0 x 10⁻¹"),
+        ([1000, 0], "1 x 10³"),
+        ([float(0.3), 0], "3 x 10⁻¹"),
+    ],
+)
+def test_scientific(test_args, expected):
+    assert humanize.scientific(*test_args) == expected

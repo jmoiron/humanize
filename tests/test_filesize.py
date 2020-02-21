@@ -2,8 +2,8 @@
 
 """Tests for filesize humanizing."""
 
+import humanize
 import pytest
-from humanize import filesize
 
 
 @pytest.mark.parametrize(
@@ -32,4 +32,4 @@ from humanize import filesize
     ],
 )
 def test_naturaltime_minimum_unit_default(test_args, expected):
-    assert filesize.naturalsize(*test_args) == expected
+    assert humanize.naturalsize(*test_args) == expected
