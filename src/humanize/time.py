@@ -196,8 +196,8 @@ def naturalday(value, format="%b %d"):
 
 
 def naturaldate(value):
-    """Like naturalday, but will append a year for dates that are a year
-    ago or more."""
+    """Like naturalday, but append a year for dates more than about five months away.
+    """
     try:
         value = dt.date(value.year, value.month, value.day)
     except AttributeError:
@@ -207,6 +207,6 @@ def naturaldate(value):
         # Date arguments out of range
         return value
     delta = abs_timedelta(value - dt.date.today())
-    if delta.days >= 365:
+    if delta.days >= 5 * 365 / 12:
         return naturalday(value, "%b %d %Y")
     return naturalday(value)
