@@ -72,4 +72,6 @@ jobs:
 
       - name: Upload coverage
         if: success()
-        run: bash <(curl -s https://codecov.io/bash) -F ${{ matrix.codecov-flag }}
+        run: |
+          curl -s https://codecov.io/bash -o codecov.sh
+          ./codecov.sh -F ${{ matrix.codecov-flag }}
