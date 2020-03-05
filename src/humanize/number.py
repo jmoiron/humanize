@@ -106,16 +106,17 @@ def intword(value, format="%.1f"):
 
 
 def apnumber(value):
-    """For numbers 1-9, returns the number spelled out. Otherwise, returns the
+    """For numbers 0-9, returns the number spelled out. Otherwise, returns the
     number. This follows Associated Press style.  This always returns a string
     unless the value was not int-able, unlike the Django filter."""
     try:
         value = int(value)
     except (TypeError, ValueError):
         return value
-    if not 0 < value < 10:
+    if not 0 <= value < 10:
         return str(value)
     return (
+        _("zero"),
         _("one"),
         _("two"),
         _("three"),
@@ -125,7 +126,7 @@ def apnumber(value):
         _("seven"),
         _("eight"),
         _("nine"),
-    )[value - 1]
+    )[value]
 
 
 def fractional(value):
