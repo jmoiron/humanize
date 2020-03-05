@@ -1,59 +1,59 @@
 # Default GitHub labels
 - color: d73a4a
-  name: bug
   description: "Something isn't working"
+  name: bug
 - color: cfd3d7
-  name: duplicate
   description: "This issue or pull request already exists"
+  name: duplicate
 - color: a2eeef
-  name: enhancement
   description: "New feature or request"
+  name: enhancement
 - color: 7057ff
-  name: good first issue
   description: "Good for newcomers"
+  name: good first issue
 - color: 008672
-  name: help wanted
   description: "Extra attention is needed"
+  name: help wanted
 - color: e4e669
-  name: invalid
   description: "This doesn't seem right"
+  name: invalid
 - color: d876e3
-  name: question
   description: "Further information is requested"
+  name: question
 - color: ffffff
-  name: wontfix
   description: "This will not be worked on"
+  name: wontfix
 
 # Keep a Changelog labels
 # https://keepachangelog.com/en/1.0.0/
 - color: 0e8a16
-  name: "changelog: Added"
   description: "For new features"
+  name: "changelog: Added"
 - color: af99e5
-  name: "changelog: Changed"
   description: "For changes in existing functionality"
+  name: "changelog: Changed"
 - color: FFA500
-  name: "changelog: Deprecated"
   description: "For soon-to-be removed features"
+  name: "changelog: Deprecated"
 - color: 00A800
-  name: "changelog: Fixed"
   description: "For any bug fixes"
+  name: "changelog: Fixed"
 - color: ff0000
-  name: "changelog: Removed"
   description: "For now removed features"
+  name: "changelog: Removed"
 - color: 045aa0
-  name: "changelog: Security"
   description: "In case of vulnerabilities"
+  name: "changelog: Security"
 - color: fbca04
-  name: "changelog: skip"
   description: "Exclude PR from release draft"
+  name: "changelog: skip"
 
 # Other labels
 - color: d0c1ff
-  name: "needs localisation"
   description: "Translations need updating"
+  name: "needs localisation"
 - color: e29673
   name: "needs tests"
 - color: fbca04
-  name: testing
   description: "Unit tests, linting, CI, etc."
+  name: testing
