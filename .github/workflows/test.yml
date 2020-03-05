@@ -74,4 +74,4 @@ jobs:
         if: success()
         run: |
           curl -s https://codecov.io/bash -o codecov.sh
-          ./codecov.sh -F ${{ matrix.codecov-flag }}
+          bash codecov.sh -F ${{ matrix.codecov-flag }}
