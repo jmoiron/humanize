@@ -106,9 +106,15 @@ def intword(value, format="%.1f"):
 
 
 def apnumber(value):
-    """For numbers 0-9, returns the number spelled out. Otherwise, returns the
-    number. This follows Associated Press style.  This always returns a string
-    unless the value was not int-able, unlike the Django filter."""
+    """Converts an integer to Associated Press style.
+
+    Args:
+        value (int, float, string): Integer to convert.
+
+    Returns:
+        str: For numbers 0-9, the number spelled out. Otherwise, the number. This always
+        returns a string unless the value was not int-able, unlike the Django filter.
+    """
     try:
         value = int(value)
     except (TypeError, ValueError):
