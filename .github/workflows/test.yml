@@ -10,6 +10,14 @@ jobs:
       matrix:
         python-version: [3.5, 3.6, 3.7, 3.8]
         os: [ubuntu-latest, macos-latest, windows-latest]
+        include:
+          # Include new variables for Codecov
+          - os: ubuntu-latest
+            codecov-flag: GHA_Ubuntu
+          - os: macOS-latest
+            codecov-flag: GHA_macOS
+          - os: windows-latest
+            codecov-flag: GHA_Windows
 
     steps:
       - uses: actions/checkout@v1
@@ -61,3 +69,11 @@ jobs:
         shell: bash
         run: |
           tox -e py
+
+      - name: Upload coverage
+        if: success()
+        run: |
+          curl -s https://codecov.io/bash -o codecov.sh
+          bash codecov.sh -F ${{ matrix.codecov-flag }}
+        env:
+          CODECOV_NAME: ${{ matrix.os }} Python ${{ matrix.python-version }}
