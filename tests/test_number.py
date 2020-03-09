@@ -30,30 +30,21 @@ def test_ordinal(test_input, expected):
 
 
 @pytest.mark.parametrize(
-    "test_input, expected",
-    [
-        (100, "100"),
-        (1000, "1,000"),
-        (10123, "10,123"),
-        (10311, "10,311"),
-        (1000000, "1,000,000"),
-        (1234567.25, "1,234,567.25"),
-        ("100", "100"),
-        ("1000", "1,000"),
-        ("10123", "10,123"),
-        ("10311", "10,311"),
-        ("1000000", "1,000,000"),
-        ("1234567.1234567", "1,234,567.1234567"),
-        (None, None),
-    ],
-)
-def test_intcomma(test_input, expected):
-    assert humanize.intcomma(test_input) == expected
-
-
-@pytest.mark.parametrize(
     "test_args, expected",
     [
+        ([100], "100"),
+        ([1000], "1,000"),
+        ([10123], "10,123"),
+        ([10311], "10,311"),
+        ([1000000], "1,000,000"),
+        ([1234567.25], "1,234,567.25"),
+        (["100"], "100"),
+        (["1000"], "1,000"),
+        (["10123"], "10,123"),
+        (["10311"], "10,311"),
+        (["1000000"], "1,000,000"),
+        (["1234567.1234567"], "1,234,567.1234567"),
+        ([None], None),
         ([14308.40], "14,308.4"),
         ([14308.40, None], "14,308.4"),
         ([14308.40, 1], "14,308.4"),
@@ -67,7 +58,7 @@ def test_intcomma(test_input, expected):
         ([1234.5454545, 10], "1,234.5454545000"),
     ],
 )
-def test_intcomma_ndigits(test_args, expected):
+def test_intcomma(test_args, expected):
     assert humanize.intcomma(*test_args) == expected
 
 
