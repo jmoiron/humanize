@@ -31,5 +31,9 @@ import pytest
         ([10 ** 26 * 30, True, False, "%.3f"], "2481.542 YiB"),
     ],
 )
-def test_naturaltime_minimum_unit_default(test_args, expected):
+def test_naturalsize(test_args, expected):
     assert humanize.naturalsize(*test_args) == expected
+
+    args_with_negative = test_args
+    args_with_negative[0] *= -1
+    assert humanize.naturalsize(*args_with_negative) == "-" + expected

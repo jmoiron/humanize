@@ -97,6 +97,7 @@ def test_intword(test_args, expected):
 @pytest.mark.parametrize(
     "test_input, expected",
     [
+        (0, "zero"),
         (1, "one"),
         (2, "two"),
         (4, "four"),

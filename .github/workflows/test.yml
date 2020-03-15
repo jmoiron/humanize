@@ -8,16 +8,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.5, 3.6, 3.7, 3.8]
+        python-version: ["pypy3", "3.5", "3.6", "3.7", "3.8", "3.9"]
         os: [ubuntu-latest, macos-latest, windows-latest]
         include:
           # Include new variables for Codecov
-          - os: ubuntu-latest
-            codecov-flag: GHA_Ubuntu
-          - os: macos-latest
-            codecov-flag: GHA_macOS
-          - os: windows-latest
-            codecov-flag: GHA_Windows
+          - { codecov-flag: GHA_Ubuntu, os: ubuntu-latest }
+          - { codecov-flag: GHA_macOS, os: macos-latest }
+          - { codecov-flag: GHA_Windows, os: windows-latest }
+        exclude:
+          - { python-version: 3.9, os: macos-latest }
+          - { python-version: 3.9, os: windows-latest }
+          - { python-version: pypy3, os: windows-latest }
 
     steps:
       - uses: actions/checkout@v2
@@ -35,7 +36,7 @@ jobs:
 
       - name: macOS cache
         uses: actions/cache@v1
-        if: startsWith(matrix.os, 'macOS')
+        if: startsWith(matrix.os, 'macos')
         with:
           path: ~/Library/Caches/pip
           key:
@@ -55,7 +56,19 @@ jobs:
           restore-keys: |
             ${{ matrix.os }}-${{ matrix.python-version }}-
 
+      - name: Install Python 3.9
+        if: matrix.python-version == '3.9'
+        run: |
+          sudo add-apt-repository ppa:deadsnakes/ppa
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends python3.9-dev python3.9-distutils python3.9-venv
+          python3.9 -m pip install --upgrade pip setuptools
+          python3.9 -m venv $HOME/venv-python3.9
+          echo "::set-env name=VIRTUAL_ENV::$HOME/venv-python3.9"
+          echo "::add-path::$HOME/venv-python3.9/bin"
+
       - name: Set up Python ${{ matrix.python-version }}
+        if: matrix.python-version != '3.9'
         uses: actions/setup-python@v1
         with:
           python-version: ${{ matrix.python-version }}
@@ -73,7 +86,7 @@ jobs:
       - name: Upload coverage
         if: success()
         run: |
-          curl -s https://codecov.io/bash -o codecov.sh
+          curl --retry 8 -s https://codecov.io/bash -o codecov.sh
           bash codecov.sh -F ${{ matrix.codecov-flag }}
         env:
           CODECOV_NAME: ${{ matrix.os }} Python ${{ matrix.python-version }}
