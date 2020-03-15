@@ -86,7 +86,7 @@ jobs:
       - name: Upload coverage
         if: success()
         run: |
-          curl --retry 5 -s https://codecov.io/bash -o codecov.sh
+          curl --retry 8 -s https://codecov.io/bash -o codecov.sh
           bash codecov.sh -F ${{ matrix.codecov-flag }}
         env:
           CODECOV_NAME: ${{ matrix.os }} Python ${{ matrix.python-version }}
