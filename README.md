@@ -172,7 +172,7 @@ IOError: [Errno 2] No translation file found for domain: 'humanize'
 How to add new phrases to existing locale files:
 
 ```console
-$ xgettext -o humanize.pot -k'_' -k'N_' -k'P_:1c,2' -l python src/humanize/*.py  # extract new phrases
+$ xgettext --from-code=UTF-8 -o humanize.pot -k'_' -k'N_' -k'P_:1c,2' -l python src/humanize/*.py  # extract new phrases
 $ msgmerge -U src/humanize/locale/ru_RU/LC_MESSAGES/humanize.po humanize.pot # add them to locale files
 $ msgfmt --check -o src/humanize/locale/ru_RU/LC_MESSAGES/humanize{.mo,.po} # compile to binary .mo
 ```
