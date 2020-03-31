@@ -22,7 +22,8 @@ setup(
     project_urls={
         "Source": "https://github.com/jmoiron/humanize",
         "Issue tracker": "https://github.com/jmoiron/humanize/issues",
-        "Funding": "https://tidelift.com/subscription/pkg/pypi-humanize",
+        "Funding": "https://tidelift.com/subscription/pkg/pypi-humanize?"
+        "utm_source=pypi-humanize&utm_medium=pypi",
     },
     license="MIT",
     keywords="humanize time size",
