@@ -19,6 +19,11 @@ setup(
     author_email="jmoiron@jmoiron.net",
     maintainer="Hugo van Kemenade",
     url="https://github.com/jmoiron/humanize",
+    project_urls={
+        "Source": "https://github.com/jmoiron/humanize",
+        "Issue tracker": "https://github.com/jmoiron/humanize/issues",
+        "Funding": "https://tidelift.com/subscription/pkg/pypi-humanize",
+    },
     license="MIT",
     keywords="humanize time size",
     packages=find_packages(where="src"),
