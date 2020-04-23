@@ -22,6 +22,7 @@ readable size or throughput. It is localized to:
 * Japanese
 * Korean
 * Persian
+* Polish
 * Russian
 * Simplified Chinese
 * Slovak
@@ -186,3 +187,5 @@ $ msginit -i humanize.pot -o humanize/locale/<locale name>/LC_MESSAGES/humanize.
 
 Where `<locale name>` is a locale abbreviation, eg. `en_GB`, `pt_BR` or just `ru`, `fr`
 etc.
+
+List the language at the top of this README.
