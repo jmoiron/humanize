@@ -120,7 +120,7 @@ If seconds are too large, set `minimum_unit` to milliseconds or microseconds:
 >>> humanize.fractional(0.3)
 '3/10'
 >>> humanize.fractional(0.333)
-'1/3'
+'333/1000'
 >>> humanize.fractional(1)
 '1'
 ```
