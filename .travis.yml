@@ -8,6 +8,10 @@ python:
  - 3.7
  - 3.8
  - 3.9-dev
+ - 3.10-dev
+
+matrix:
+  fast_finish: true
 
 install:
   - pip install -U pip
