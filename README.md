@@ -151,13 +151,13 @@ How to change locale at runtime:
 >>> import humanize
 >>> import datetime as dt
 >>> humanize.naturaltime(dt.timedelta(seconds=3))
-3 seconds ago
+'3 seconds ago'
 >>> _t = humanize.i18n.activate("ru_RU")
 >>> humanize.naturaltime(dt.timedelta(seconds=3))
-3 секунды назад
+'3 секунды назад'
 >>> humanize.i18n.deactivate()
 >>> humanize.naturaltime(dt.timedelta(seconds=3))
-3 seconds ago
+'3 seconds ago'
 ```
 
 You can pass additional parameter `path` to `activate` to specify a path to search
