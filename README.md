@@ -120,7 +120,7 @@ If seconds are too large, set `minimum_unit` to milliseconds or microseconds:
 >>> humanize.fractional(0.3)
 '3/10'
 >>> humanize.fractional(0.333)
-'1/3'
+'333/1000'
 >>> humanize.fractional(1)
 '1'
 ```
@@ -151,13 +151,13 @@ How to change locale at runtime:
 >>> import humanize
 >>> import datetime as dt
 >>> humanize.naturaltime(dt.timedelta(seconds=3))
-3 seconds ago
+'3 seconds ago'
 >>> _t = humanize.i18n.activate("ru_RU")
 >>> humanize.naturaltime(dt.timedelta(seconds=3))
-3 секунды назад
+'3 секунды назад'
 >>> humanize.i18n.deactivate()
 >>> humanize.naturaltime(dt.timedelta(seconds=3))
-3 seconds ago
+'3 seconds ago'
 ```
 
 You can pass additional parameter `path` to `activate` to specify a path to search
