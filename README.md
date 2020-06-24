@@ -165,8 +165,9 @@ locales in.
 
 ```pycon
 >>> import humanize
->>> humanize.i18n.activate("pt_BR")
-IOError: [Errno 2] No translation file found for domain: 'humanize'
+>>> humanize.i18n.activate("xx_XX")
+<...>
+FileNotFoundError: [Errno 2] No translation file found for domain: 'humanize'
 >>> humanize.i18n.activate("pt_BR", path="path/to/my/portuguese/translation/")
 <gettext.GNUTranslations instance ...>
 ```
