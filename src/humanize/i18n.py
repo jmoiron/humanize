@@ -7,7 +7,11 @@ __all__ = ["activate", "deactivate", "gettext", "ngettext"]
 _TRANSLATIONS = {None: gettext_module.NullTranslations()}
 _CURRENT = local()
 
-_DEFAULT_LOCALE_PATH = os.path.join(os.path.dirname(__file__), "locale")
+try:
+    _DEFAULT_LOCALE_PATH = os.path.join(os.path.dirname(__file__), "locale")
+except AttributeError:
+    # in case that __file__ does not exist
+    _DEFAULT_LOCALE_PATH = None
 
 
 def get_translation():
@@ -23,6 +27,12 @@ def activate(locale, path=None):
     @param path: path to search for locales"""
     if path is None:
         path = _DEFAULT_LOCALE_PATH
+
+    if path is None:
+        raise Exception(
+            "Humanize cannot determinate the default location of the 'locale' folder. "
+            "You need to pass the path explicitly."
+        )
     if locale not in _TRANSLATIONS:
         translation = gettext_module.translation("humanize", path, [locale])
         _TRANSLATIONS[locale] = translation
