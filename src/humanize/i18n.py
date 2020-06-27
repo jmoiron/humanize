@@ -13,6 +13,7 @@ except AttributeError:
     # in case that __file__ does not exist
     _DEFAULT_LOCALE_PATH = None
 
+
 def get_translation():
     try:
         return _TRANSLATIONS[_CURRENT.locale]
@@ -29,8 +30,9 @@ def activate(locale, path=None):
 
     if path is None:
         raise Exception(
-                "humanize cannot determinate the default location "
-                "of the 'locale' folder. You need to pass the path explicitly.")
+            "Humanize cannot determinate the default location of the 'locale' folder. "
+            "You need to pass the path explicitly."
+        )
     if locale not in _TRANSLATIONS:
         translation = gettext_module.translation("humanize", path, [locale])
         _TRANSLATIONS[locale] = translation
