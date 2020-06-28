@@ -80,7 +80,11 @@ def naturaldelta(value, months=True, minimum_unit="seconds"):
     Returns:
         str: A natural representation of the amount of time elapsed.
     """
-    minimum_unit = Unit[minimum_unit.upper()]
+    tmp = Unit[minimum_unit.upper()]
+    if tmp not in (Unit.SECONDS, Unit.MILLISECONDS, Unit.MICROSECONDS):
+        raise ValueError("Minimum unit '%s' not supported" % minimum_unit)
+    minimum_unit = tmp
+
     date, delta = date_and_delta(value)
     if date is None:
         return value
