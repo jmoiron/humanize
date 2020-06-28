@@ -4,14 +4,20 @@
 ``contrib.humanize``."""
 
 import datetime as dt
+import math
 from enum import Enum
 from functools import total_ordering
 
 from .i18n import gettext as _
 from .i18n import ngettext
 
-__all__ = ["naturaldelta", "naturaltime", "naturalday", "naturaldate"]
-
+__all__ = [
+    "naturaldelta",
+    "naturaltime",
+    "naturalday",
+    "naturaldate",
+    "precisedelta",
+]
 
 
 @total_ordering
@@ -346,3 +352,122 @@ def _suppress_lower_units(min_unit, suppress):
 
     return suppress
 
+
+def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
+    """Return a precise representation of a timedelta.
+
+       >>> import datetime as dt
+       >>> from humanize.time import precisedelta
+
+       >>> delta = dt.timedelta(seconds=3633, days=2, microseconds=123000)
+       >>> precisedelta(delta)
+       '2 days, 1 hour and 33.12 seconds'
+
+       A custom format can be specified to control how the fractional part
+       is represented:
+
+       >>> precisedelta(delta, format="%0.4f")
+       '2 days, 1 hour and 33.1230 seconds'
+
+       Instead, the minimum unit can be changed to have a better resolution;
+       the function still will readjust the unit to use the greatest of the
+       units that does not loose precision.
+
+       For example setting microseconds but still representing the date
+       with milliseconds:
+
+       >>> precisedelta(delta, minimum_unit="microseconds")
+       '2 days, 1 hour, 33 seconds and 123 milliseconds'
+
+       If desired, some units can be suppressed: you will not see them
+       represented and the time of the other units will be adjusted
+       to keep representing the same timedelta:
+
+       >>> precisedelta(delta, suppress=['days'])
+       '49 hours and 33.12 seconds'
+    """
+
+    date, delta = date_and_delta(value)
+    if date is None:
+        return value
+
+    suppress = [Unit[s.upper()] for s in suppress]
+
+    # Find a suitable minimum unit (it an be greater the one that the
+    # user gave us if it is suppressed.
+    min_unit = Unit[minimum_unit.upper()]
+    min_unit = _suitable_minimum_unit(min_unit, suppress)
+    del minimum_unit
+
+    # Expand the suppressed units list/set to include all the units
+    # that are below the minimum unit
+    suppress = _suppress_lower_units(min_unit, suppress)
+
+    # handy aliases
+    days = delta.days
+    secs = delta.seconds
+    usecs = delta.microseconds
+
+    MICROSECONDS, MILLISECONDS, SECONDS, MINUTES, HOURS, DAYS, MONTHS, YEARS = list(
+        Unit
+    )
+
+    # Compute
+    #   years, days = years/days, 0  if YEARS is the minimum unit
+    #   years, days = 0, days  if YEARS is a suppressed
+    #   years, days = divmod(years, days)  otherwise
+    #
+    # The same applies for months, hours, minutes and milliseconds below
+    years, days = _quotient_and_remainer(days, 365, YEARS, min_unit, suppress)
+    months, days = _quotient_and_remainer(days, 30.5, MONTHS, min_unit, suppress)
+
+    # If DAYS is not in suppress, we can represent the days but
+    # if it is a suppressed unit, we need to carry it to a lower units,
+    # seconds in this case.
+    #
+    # The same applies for secs and usecs below
+    days, secs = _carry(days, secs, 24 * 3600, DAYS, min_unit, suppress)
+
+    hours, secs = _quotient_and_remainer(secs, 3600, HOURS, min_unit, suppress)
+    minutes, secs = _quotient_and_remainer(secs, 60, MINUTES, min_unit, suppress)
+
+    secs, usecs = _carry(secs, usecs, 1e6, SECONDS, min_unit, suppress)
+
+    msecs, usecs = _quotient_and_remainer(usecs, 1000, MILLISECONDS, min_unit, suppress)
+
+    # If MICROSECONDS is suppressed we expect to have a value of 0 (remain==0)
+    # otherwise it is an error in the algorithm as we would be lossing precision
+    usecs, remain = _carry(usecs, 0, 1, MICROSECONDS, min_unit, suppress)
+    assert remain == 0
+
+    fmts = [
+        ("%d year", "%d years", years),
+        ("%d month", "%d months", months),
+        ("%d day", "%d days", days),
+        ("%d hour", "%d hours", hours),
+        ("%d minute", "%d minutes", minutes),
+        ("%d second", "%d seconds", secs),
+        ("%d millisecond", "%d milliseconds", msecs),
+        ("%d microsecond", "%d microseconds", usecs),
+    ]
+
+    texts = []
+    for unit, fmt in zip(reversed(Unit), fmts):
+        singular_txt, plural_txt, value = fmt
+        if value > 0:
+            fmt_txt = ngettext(singular_txt, plural_txt, value)
+            if unit == min_unit and math.modf(value)[0] > 0:
+                fmt_txt = fmt_txt.replace("%d", format)
+
+            texts.append(fmt_txt % value)
+
+        if unit == min_unit:
+            break
+
+    if len(texts) == 1:
+        return texts[0]
+
+    head = ", ".join(texts[:-1])
+    tail = texts[-1]
+
+    return " and ".join((head, tail))
