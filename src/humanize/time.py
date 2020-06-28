@@ -5,6 +5,7 @@
 
 import datetime as dt
 from enum import Enum
+from functools import total_ordering
 
 from .i18n import gettext as _
 from .i18n import ngettext
@@ -12,10 +13,22 @@ from .i18n import ngettext
 __all__ = ["naturaldelta", "naturaltime", "naturalday", "naturaldate"]
 
 
+
+@total_ordering
 class Unit(Enum):
-    MILLISECONDS = 0
-    MICROSECONDS = 1
+    MICROSECONDS = 0
+    MILLISECONDS = 1
     SECONDS = 2
+    MINUTES = 3
+    HOURS = 4
+    DAYS = 5
+    MONTHS = 6
+    YEARS = 7
+
+    def __lt__(self, other):
+        if self.__class__ is other.__class__:
+            return self.value < other.value
+        return NotImplemented
 
 
 def _now():
