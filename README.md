@@ -15,6 +15,7 @@ readable size or throughput. It is localized to:
 
 * Brazilian Portuguese
 * Dutch
+* European Portuguese
 * Finnish
 * French
 * German
