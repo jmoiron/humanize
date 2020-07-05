@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: humanize\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-20 23:04-0300\n"
-"PO-Revision-Date: 2020-07-05 17:52+0100\n"
+"PO-Revision-Date: 2020-07-05 18:17+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_PT\n"
@@ -153,14 +153,14 @@ msgid "nine"
 msgstr "nove"
 
 #: src/humanize/time.py:87
-#, fuzzy, python-format
+#, python-format
 msgid "%d microsecond"
 msgid_plural "%d microseconds"
 msgstr[0] "%d microssegundo"
 msgstr[1] "%d microssegundos"
 
 #: src/humanize/time.py:93
-#, fuzzy, python-format
+#, python-format
 msgid "%d millisecond"
 msgid_plural "%d milliseconds"
 msgstr[0] "%d milissegundo"
