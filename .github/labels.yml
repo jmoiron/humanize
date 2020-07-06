@@ -49,6 +49,9 @@
   name: "changelog: skip"
 
 # Other labels
+- color: 0075ca
+  description: "Improvements or additions to documentation"
+  name: documentation
 - color: d0c1ff
   description: "Translations need updating"
   name: "needs localisation"
