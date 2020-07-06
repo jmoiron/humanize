@@ -385,6 +385,14 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
 
        >>> precisedelta(delta, suppress=['days'])
        '49 hours and 33.12 seconds'
+
+       Note that microseconds precision is lost if the seconds and all
+       the units below are suppressed:
+
+       >>> delta = dt.timedelta(seconds=90, microseconds=100)
+       >>> precisedelta(delta, suppress=['seconds', 'milliseconds', 'microseconds'])
+       '1.50 minutes'
+
     """
 
     date, delta = date_and_delta(value)
@@ -412,17 +420,23 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
         Unit
     )
 
-    # Compute
-    #   years, days = years/days, 0  if YEARS is the minimum unit
-    #   years, days = 0, days  if YEARS is a suppressed
-    #   years, days = divmod(years, days)  otherwise
+    # Given DAYS compute YEARS and the remainder of DAYS as follows:
+    #   if YEARS is the minimum unit, we cannot use DAYS so
+    #   we will use a float for YEARS and 0 for DAYS:
+    #       years, days = years/days, 0
+    #
+    #   if YEARS is suppressed, use DAYS:
+    #       years, days = 0, days
+    #
+    #   otherwise:
+    #       years, days = divmod(years, days)
     #
     # The same applies for months, hours, minutes and milliseconds below
     years, days = _quotient_and_remainer(days, 365, YEARS, min_unit, suppress)
     months, days = _quotient_and_remainer(days, 30.5, MONTHS, min_unit, suppress)
 
     # If DAYS is not in suppress, we can represent the days but
-    # if it is a suppressed unit, we need to carry it to a lower units,
+    # if it is a suppressed unit, we need to carry it to a lower unit,
     # seconds in this case.
     #
     # The same applies for secs and usecs below
@@ -435,10 +449,8 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
 
     msecs, usecs = _quotient_and_remainer(usecs, 1000, MILLISECONDS, min_unit, suppress)
 
-    # If MICROSECONDS is suppressed we expect to have a value of 0 (remain==0)
-    # otherwise it is an error in the algorithm as we would be lossing precision
-    usecs, remain = _carry(usecs, 0, 1, MICROSECONDS, min_unit, suppress)
-    assert remain == 0
+    # if _unused != 0 we had lost some precision
+    usecs, _unused = _carry(usecs, 0, 1, MICROSECONDS, min_unit, suppress)
 
     fmts = [
         ("%d year", "%d years", years),
