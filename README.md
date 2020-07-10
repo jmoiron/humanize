@@ -30,6 +30,7 @@ readable size or throughput. It is localized to:
 * Slovak
 * Spanish
 * Turkish
+* Ukrainian
 * Vietnamese
 
 ## Usage
