@@ -313,8 +313,8 @@ def test_naturaldelta_minimum_unit_default(seconds, expected):
         ("milliseconds", ONE_YEAR + FOUR_MICROSECONDS, "a year"),
         ("microseconds", ONE_MICROSECOND, "1 microsecond"),
         ("microseconds", FOUR_MICROSECONDS, "4 microseconds"),
-        ("microseconds", FOUR_MILLISECONDS, "4000 microseconds"),
-        ("microseconds", MICROSECONDS_101_943, "101943 microseconds"),  # 101,940 µs
+        ("microseconds", FOUR_MILLISECONDS, "4 milliseconds"),
+        ("microseconds", MICROSECONDS_101_943, "101 milliseconds"),  # 101,940 µs
         ("microseconds", MILLISECONDS_1_337, "a second"),  # 1,337,000 µs
         ("microseconds", 2, "2 seconds"),
         ("microseconds", 4, "4 seconds"),
@@ -378,8 +378,8 @@ def test_naturaltime_minimum_unit_default(seconds, expected):
         ("milliseconds", ONE_YEAR + FOUR_MICROSECONDS, "a year ago"),
         ("microseconds", ONE_MICROSECOND, "1 microsecond ago"),
         ("microseconds", FOUR_MICROSECONDS, "4 microseconds ago"),
-        ("microseconds", FOUR_MILLISECONDS, "4000 microseconds ago"),
-        ("microseconds", MICROSECONDS_101_943, "101943 microseconds ago"),  # 101,940 µs
+        ("microseconds", FOUR_MILLISECONDS, "4 milliseconds ago"),
+        ("microseconds", MICROSECONDS_101_943, "101 milliseconds ago"),  # 101,940 µs
         ("microseconds", MILLISECONDS_1_337, "a second ago"),  # 1,337,000 µs
         ("microseconds", 2, "2 seconds ago"),
         ("microseconds", 4, "4 seconds ago"),

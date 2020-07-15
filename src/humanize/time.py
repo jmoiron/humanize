@@ -114,12 +114,15 @@ def naturaldelta(value, months=True, minimum_unit="seconds"):
 
     if not years and days < 1:
         if seconds == 0:
-            if minimum_unit == Unit.MICROSECONDS:
+            if minimum_unit == Unit.MICROSECONDS and delta.microseconds < 1000:
                 return (
                     ngettext("%d microsecond", "%d microseconds", delta.microseconds)
                     % delta.microseconds
                 )
-            elif minimum_unit == Unit.MILLISECONDS:
+            elif minimum_unit == Unit.MILLISECONDS or (
+                minimum_unit == Unit.MICROSECONDS
+                and 1000 <= delta.microseconds < 1_000_000
+            ):
                 milliseconds = delta.microseconds / 1000
                 return (
                     ngettext("%d millisecond", "%d milliseconds", milliseconds)
