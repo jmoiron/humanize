@@ -235,32 +235,32 @@ def naturaldate(value):
     return naturalday(value)
 
 
-def _quotient_and_remainer(value, divisor, unit, minimum_unit, suppress):
+def _quotient_and_remainder(value, divisor, unit, minimum_unit, suppress):
     """Divide ``value`` by ``divisor`` returning the quotient and
-       the remainer as follows:
+       the remainder as follows:
 
-       If unit is minimum_unit, makes the quotient a float number
-       and the remainer will be zero. The rational is that if unit
+       If ``unit`` is ``minimum_unit``, makes the quotient a float number
+       and the remainder will be zero. The rational is that if unit
        is the unit of the quotient, we cannot
-       represent the remainer because it would require an unit smaller
+       represent the remainder because it would require an unit smaller
        than the minimum_unit.
 
-       >>> from humanize.time import _quotient_and_remainer, Unit
-       >>> _quotient_and_remainer(36, 24, Unit.DAYS, Unit.DAYS, [])
+       >>> from humanize.time import _quotient_and_remainder, Unit
+       >>> _quotient_and_remainder(36, 24, Unit.DAYS, Unit.DAYS, [])
        (1.5, 0)
 
        If unit is in suppress, the quotient will be zero and the
-       remainer will be the initial value. The idea is that if we
+       remainder will be the initial value. The idea is that if we
        cannot use unit, we are forced to use a lower unit so we cannot
        do the division.
 
-       >>> _quotient_and_remainer(36, 24, Unit.DAYS, Unit.HOURS, [Unit.DAYS])
+       >>> _quotient_and_remainder(36, 24, Unit.DAYS, Unit.HOURS, [Unit.DAYS])
        (0, 36)
 
-       In other case return quotient and remainer as ``divmod`` would
+       In other case return quotient and remainder as ``divmod`` would
        do it.
 
-       >>> _quotient_and_remainer(36, 24, Unit.DAYS, Unit.HOURS, [])
+       >>> _quotient_and_remainder(36, 24, Unit.DAYS, Unit.HOURS, [])
        (1, 12)
 
     """
@@ -330,7 +330,7 @@ def _suitable_minimum_unit(min_unit, suppress):
                 return unit
 
         raise ValueError(
-            "Minimum unit is suppresed and not suitable replacement was found"
+            "Minimum unit is suppressed and not suitable replacement was found"
         )
 
     return min_unit
@@ -371,7 +371,7 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
 
        Instead, the minimum unit can be changed to have a better resolution;
        the function still will readjust the unit to use the greatest of the
-       units that does not loose precision.
+       units that does not lose precision.
 
        For example setting microseconds but still representing the date
        with milliseconds:
@@ -401,7 +401,7 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
 
     suppress = [Unit[s.upper()] for s in suppress]
 
-    # Find a suitable minimum unit (it an be greater the one that the
+    # Find a suitable minimum unit (it can be greater the one that the
     # user gave us if it is suppressed.
     min_unit = Unit[minimum_unit.upper()]
     min_unit = _suitable_minimum_unit(min_unit, suppress)
@@ -432,8 +432,8 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
     #       years, days = divmod(years, days)
     #
     # The same applies for months, hours, minutes and milliseconds below
-    years, days = _quotient_and_remainer(days, 365, YEARS, min_unit, suppress)
-    months, days = _quotient_and_remainer(days, 30.5, MONTHS, min_unit, suppress)
+    years, days = _quotient_and_remainder(days, 365, YEARS, min_unit, suppress)
+    months, days = _quotient_and_remainder(days, 30.5, MONTHS, min_unit, suppress)
 
     # If DAYS is not in suppress, we can represent the days but
     # if it is a suppressed unit, we need to carry it to a lower unit,
@@ -442,12 +442,14 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
     # The same applies for secs and usecs below
     days, secs = _carry(days, secs, 24 * 3600, DAYS, min_unit, suppress)
 
-    hours, secs = _quotient_and_remainer(secs, 3600, HOURS, min_unit, suppress)
-    minutes, secs = _quotient_and_remainer(secs, 60, MINUTES, min_unit, suppress)
+    hours, secs = _quotient_and_remainder(secs, 3600, HOURS, min_unit, suppress)
+    minutes, secs = _quotient_and_remainder(secs, 60, MINUTES, min_unit, suppress)
 
     secs, usecs = _carry(secs, usecs, 1e6, SECONDS, min_unit, suppress)
 
-    msecs, usecs = _quotient_and_remainer(usecs, 1000, MILLISECONDS, min_unit, suppress)
+    msecs, usecs = _quotient_and_remainder(
+        usecs, 1000, MILLISECONDS, min_unit, suppress
+    )
 
     # if _unused != 0 we had lost some precision
     usecs, _unused = _carry(usecs, 0, 1, MICROSECONDS, min_unit, suppress)
