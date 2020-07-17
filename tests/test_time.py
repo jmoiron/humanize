@@ -575,3 +575,33 @@ def test_precisedelta_suppress_units(val, min_unit, suppress, expected):
     assert (
         humanize.precisedelta(val, minimum_unit=min_unit, suppress=suppress) == expected
     )
+
+
+def assertRaises(func, exception_class, *args, **kargs):
+    try:
+        func(*args, **kargs)
+    except Exception as e:
+        if isinstance(e, exception_class):
+            assert True
+            return
+
+    assert False
+
+
+def test_precisedelta_bogus_call():
+    assert humanize.precisedelta(None) is None
+
+    assertRaises(
+        humanize.precisedelta, ValueError, 1, minimum_unit="years", suppress=["years"]
+    )
+
+    assertRaises(humanize.naturaldelta, ValueError, 1, minimum_unit="years")
+
+
+def test_time_unit():
+    years, minutes = time.Unit["YEARS"], time.Unit["MINUTES"]
+    assert minutes < years
+    assert years > minutes
+    assert minutes == minutes
+
+    assertRaises(lambda: years < "foo", TypeError)
