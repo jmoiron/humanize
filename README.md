@@ -74,6 +74,7 @@ readable size or throughput. It is localized to:
 
 ```pycon
 >>> import humanize
+>>> import datetime as dt
 >>> delta = dt.timedelta(seconds=3633, days=2, microseconds=123000)
 >>> humanize.precisedelta(delta)
 '2 days, 1 hour and 33.12 seconds'
