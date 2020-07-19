@@ -591,11 +591,11 @@ def assertRaises(func, exception_class, *args, **kargs):
 def test_precisedelta_bogus_call():
     assert humanize.precisedelta(None) is None
 
-    assertRaises(
-        humanize.precisedelta, ValueError, 1, minimum_unit="years", suppress=["years"]
-    )
+    with pytest.raises(ValueError):
+        humanize.precisedelta(1, minimum_unit="years", suppress=["years"])
 
-    assertRaises(humanize.naturaldelta, ValueError, 1, minimum_unit="years")
+    with pytest.raises(ValueError):
+        humanize.naturaldelta(1, minimum_unit="years")
 
 
 def test_time_unit():
@@ -604,4 +604,5 @@ def test_time_unit():
     assert years > minutes
     assert minutes == minutes
 
-    assertRaises(lambda: years < "foo", TypeError)
+    with pytest.raises(TypeError):
+        years < "foo"
