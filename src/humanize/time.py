@@ -242,7 +242,7 @@ def _quotient_and_remainder(value, divisor, unit, minimum_unit, suppress):
        If ``unit`` is ``minimum_unit``, makes the quotient a float number
        and the remainder will be zero. The rational is that if unit
        is the unit of the quotient, we cannot
-       represent the remainder because it would require an unit smaller
+       represent the remainder because it would require a unit smaller
        than the minimum_unit.
 
        >>> from humanize.time import _quotient_and_remainder, Unit
@@ -330,7 +330,7 @@ def _suitable_minimum_unit(min_unit, suppress):
                 return unit
 
         raise ValueError(
-            "Minimum unit is suppressed and not suitable replacement was found"
+            "Minimum unit is suppressed and no suitable replacement was found"
         )
 
     return min_unit
@@ -402,7 +402,7 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
     suppress = [Unit[s.upper()] for s in suppress]
 
     # Find a suitable minimum unit (it can be greater the one that the
-    # user gave us if it is suppressed.
+    # user gave us if it is suppressed).
     min_unit = Unit[minimum_unit.upper()]
     min_unit = _suitable_minimum_unit(min_unit, suppress)
     del minimum_unit
