@@ -577,17 +577,6 @@ def test_precisedelta_suppress_units(val, min_unit, suppress, expected):
     )
 
 
-def assertRaises(func, exception_class, *args, **kargs):
-    try:
-        func(*args, **kargs)
-    except Exception as e:
-        if isinstance(e, exception_class):
-            assert True
-            return
-
-    assert False
-
-
 def test_precisedelta_bogus_call():
     assert humanize.precisedelta(None) is None
 
