@@ -72,6 +72,20 @@ readable size or throughput. It is localized to:
 'an hour ago'
 ```
 
+### Precise time delta
+
+```pycon
+>>> import humanize
+>>> import datetime as dt
+>>> delta = dt.timedelta(seconds=3633, days=2, microseconds=123000)
+>>> humanize.precisedelta(delta)
+'2 days, 1 hour and 33.12 seconds'
+>>> humanize.precisedelta(delta, minimum_unit="microseconds")
+'2 days, 1 hour, 33 seconds and 123 milliseconds'
+>>> humanize.precisedelta(delta, suppress=["days"], format="%0.4f")
+'49 hours and 33.1230 seconds'
+```
+
 #### Smaller units
 
 If seconds are too large, set `minimum_unit` to milliseconds or microseconds:
