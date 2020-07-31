@@ -9,9 +9,9 @@ _CURRENT = local()
 
 
 def get_default_locale_path():
-    if __file__ is None:
-        return
     try:
+        if __file__ is None:
+            return
         return os.path.join(os.path.dirname(__file__), "locale")
     except NameError:
         return

@@ -32,19 +32,19 @@ def test_i18n_default_locale_path():
 
     # __file__ not defined
     del i18n.__file__
-    with pytest.raises(NameError) as excinfo:
-        i18n.get_default_locale_path()
-    assert str(excinfo.value) == "name '__file__' is not defined"
+    i18n.get_default_locale_path() is None
 
 
 def test_activate_without_default_locale_path():
-    # __file__ is None
-    i18n = importlib.import_module("humanize.i18n")
-    i18n.__file__ = None
     expected_msg = (
         "Humanize cannot determinate the default location of the"
         " 'locale' folder. You need to pass the path explicitly."
     )
+
+    # __file__ is None
+    i18n = importlib.import_module("humanize.i18n")
+    i18n.__file__ = None
+
     with pytest.raises(Exception) as excinfo:
         i18n.activate("ru_RU")
     assert str(excinfo.value) == expected_msg
@@ -53,4 +53,4 @@ def test_activate_without_default_locale_path():
     del i18n.__file__
     with pytest.raises(Exception) as excinfo:
         i18n.activate("ru_RU")
-    assert str(excinfo.value) == "name '__file__' is not defined"
+    assert str(excinfo.value) == expected_msg
