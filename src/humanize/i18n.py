@@ -7,11 +7,14 @@ __all__ = ["activate", "deactivate", "gettext", "ngettext"]
 _TRANSLATIONS = {None: gettext_module.NullTranslations()}
 _CURRENT = local()
 
-try:
-    _DEFAULT_LOCALE_PATH = os.path.join(os.path.dirname(__file__), "locale")
-except AttributeError:
-    # in case that __file__ does not exist
-    _DEFAULT_LOCALE_PATH = None
+
+def get_default_locale_path():
+    if __file__ is None:
+        return
+    try:
+        return os.path.join(os.path.dirname(__file__), "locale")
+    except NameError:
+        return
 
 
 def get_translation():
@@ -26,7 +29,7 @@ def activate(locale, path=None):
     @param locale: language name, eg 'en_GB'
     @param path: path to search for locales"""
     if path is None:
-        path = _DEFAULT_LOCALE_PATH
+        path = get_default_locale_path()
 
     if path is None:
         raise Exception(
