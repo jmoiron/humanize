@@ -1,2 +1,2 @@
 python:
-    install: true
+    pip_install: true
