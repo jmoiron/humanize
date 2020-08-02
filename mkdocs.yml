@@ -1,0 +1,16 @@
+site_name: humanize
+theme:
+  name: "material"
+
+nav:
+  - Home: index.md
+  - Number: number.md
+  - Time: time.md
+  - Filesize: filesize.md
+  - Internationalisation: i18n.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      watch:
+        - src/humanize
