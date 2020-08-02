@@ -11,9 +11,18 @@ from .i18n import pgettext as P_
 
 
 def ordinal(value):
-    """Converts an integer to its ordinal as a string. 1 is '1st', 2 is '2nd',
-    3 is '3rd', etc. Works for any integer or anything int() will turn into an
-    integer.  Anything other value will have nothing done to it."""
+    """Converts an integer to its ordinal as a string.
+
+    For example, 1 is "1st", 2 is "2nd", 3 is "3rd", etc. Works for any integer or
+    anything `int()` will turn into an integer. Anything other value will have nothing
+    done to it.
+
+    Args:
+        value (int, str, float): Integer to convert.
+
+    Returns:
+        str: Ordinal string.
+    """
     try:
         value = int(value)
     except (TypeError, ValueError):
@@ -39,11 +48,11 @@ def intcomma(value, ndigits=None):
     """Converts an integer to a string containing commas every three digits.
 
     For example, 3000 becomes "3,000" and 45000 becomes "45,000". To maintain some
-    compatibility with Django's intcomma, this function also accepts floats.
+    compatibility with Django's `intcomma`, this function also accepts floats.
 
     Args:
-        value (int, float, string): Integer or float to convert.
-        ndigits (int, None): digits of precision for rounding after the decimal point.
+        value (int, float, str): Integer or float to convert.
+        ndigits (int, None): Digits of precision for rounding after the decimal point.
 
     Returns:
         str: string containing commas every three digits.
@@ -92,13 +101,13 @@ def intword(value, format="%.1f"):
     decillion (33 digits) and googol (100 digits).
 
     Args:
-        value (int, float, string): Integer to convert.
-        format (str): to change the number of decimal or general format of the number
+        value (int, float, str): Integer to convert.
+        format (str): To change the number of decimal or general format of the number
             portion.
 
     Returns:
-        str: friendly text representation as a string, unless the value passed could not
-        be coaxed into an int.
+        str: Friendly text representation as a string, unless the value passed could not
+        be coaxed into an `int`.
     """
     try:
         value = int(value)
@@ -122,11 +131,11 @@ def apnumber(value):
     """Converts an integer to Associated Press style.
 
     Args:
-        value (int, float, string): Integer to convert.
+        value (int, float, str): Integer to convert.
 
     Returns:
         str: For numbers 0-9, the number spelled out. Otherwise, the number. This always
-        returns a string unless the value was not int-able, unlike the Django filter.
+        returns a string unless the value was not `int`-able, unlike the Django filter.
     """
     try:
         value = int(value)
@@ -149,21 +158,36 @@ def apnumber(value):
 
 
 def fractional(value):
-    """
-    There will be some cases where one might not want to show
-        ugly decimal places for floats and decimals.
-    This function returns a human readable fractional number
-        in form of fractions and mixed fractions.
-    Pass in a string, or a number or a float, and this function returns
-        a string representation of a fraction
-        or whole number
-        or a mixed fraction
+    """Convert to fractional number.
+
+    There will be some cases where one might not want to show ugly decimal places for
+    floats and decimals.
+
+    This function returns a human-readable fractional number in form of fractions and
+    mixed fractions.
+
+    Pass in a string, or a number or a float, and this function returns:
+
+    * a string representation of a fraction
+    * or a whole number
+    * or a mixed fraction
+
     Examples:
-        fractional(0.3) will return '1/3'
-        fractional(1.3) will return '1 3/10'
-        fractional(float(1/3)) will return '1/3'
-        fractional(1) will return '1'
-    This will always return a string.
+        ```pycon
+        >>> fractional(0.3)
+        '3/10'
+        >>> fractional(1.3)
+        '1 3/10'
+        >>> fractional(float(1/3))
+        '1/3'
+        >>> fractional(1)
+        '1'
+        ```
+    Args:
+        value (int, float, str): Integer to convert.
+
+    Returns:
+        str: Fractional number as a string.
     """
     try:
         number = float(value)
@@ -187,16 +211,19 @@ def scientific(value, precision=2):
     """Return number in string scientific notation z.wq x 10ⁿ.
 
     Examples:
-        float(0.3) will return "3.00 x 10⁻¹"
-        int(500) will return "5.00 x 10²"
-    This will always return a string.
+        ```pycon
+        >>> scientific(float(0.3))
+        '3.00 x 10⁻¹'
+        >>> scientific(int(500))
+        '5.00 x 10²'
+        ```
 
     Args:
-        value (int, float, string): Input number.
+        value (int, float, str): Input number.
         precision (int): Number of decimal for first part of the number.
 
     Returns:
-        str: number in scientific notation z.wq x 10ⁿ.
+        str: Number in scientific notation z.wq x 10ⁿ.
     """
     exponents = {
         "0": "⁰",

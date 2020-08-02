@@ -22,9 +22,17 @@ def get_translation():
 
 
 def activate(locale, path=None):
-    """Set 'locale' as current locale. Search for locale in directory 'path'
-    @param locale: language name, eg 'en_GB'
-    @param path: path to search for locales"""
+    """Activate internationalisation.
+
+    Set `locale` as current locale. Search for locale in directory `path`.
+
+    Args:
+        locale (str): Language name, e.g. `en_GB`.
+        path (str): Path to search for locales.
+
+    Returns:
+        dict: Translations.
+    """
     if path is None:
         path = _DEFAULT_LOCALE_PATH
 
@@ -41,19 +49,37 @@ def activate(locale, path=None):
 
 
 def deactivate():
+    """Deactivate internationalisation."""
     _CURRENT.locale = None
 
 
 def gettext(message):
+    """Get translation.
+
+    Args:
+        message (str): Text to translate.
+
+    Returns:
+        str: Translated text.
+    """
     return get_translation().gettext(message)
 
 
 def pgettext(msgctxt, message):
     """'Particular gettext' function.
-    It works with 'msgctxt' .po modifiers and allow duplicate keys with
-    different translations.
-    This GNU gettext function was added in Python 3.8, so for older versions we
-    reimplement it. It works by joining msgctx and msgid by '4' byte."""
+
+    It works with `msgctxt` .po modifiers and allows duplicate keys with different
+    translations.
+
+    Args:
+        msgctxt (str): Context of the translation.
+        message (str): Text to translate.
+
+    Returns:
+        str: Translated text.
+    """
+    # This GNU gettext function was added in Python 3.8, so for older versions we
+    # reimplement it. It works by joining `msgctx` and `message` by '4' byte.
     try:
         # Python 3.8+
         return get_translation().pgettext(msgctxt, message)
@@ -65,12 +91,34 @@ def pgettext(msgctxt, message):
 
 
 def ngettext(message, plural, num):
+    """Plural version of gettext.
+
+    Args:
+        message (str): Singlular text to translate.
+        plural (str): Plural text to translate.
+        num (str): The number (e.g. item count) to determine translation for the
+            respective grammatical number.
+
+    Returns:
+        str: Translated text.
+    """
     return get_translation().ngettext(message, plural, num)
 
 
 def gettext_noop(message):
-    """Example usage:
+    """Mark a string as a translation string without translating it.
+
+    Example usage:
+    ```python
     CONSTANTS = [gettext_noop('first'), gettext_noop('second')]
     def num_name(n):
-        return gettext(CONSTANTS[n])"""
+        return gettext(CONSTANTS[n])
+    ```
+
+    Args:
+        message (str): Text to translate in the future.
+
+    Returns:
+        str: Original text, unchanged.
+    """
     return message

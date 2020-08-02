@@ -1,0 +1,18 @@
+site_name: humanize
+site_url: https://example.com/docs/TODO
+repo_url: https://github.com/jmoiron/humanize
+theme:
+  name: "material"
+
+nav:
+  - Home: index.md
+  - Number: number.md
+  - Time: time.md
+  - Filesize: filesize.md
+  - Internationalisation: i18n.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      watch:
+        - src/humanize

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-"""Time humanizing functions.  These are largely borrowed from Django's
-``contrib.humanize``."""
+"""Time humanizing functions. These are largely borrowed from Django's
+`contrib.humanize`."""
 
 import datetime as dt
 import math
@@ -42,8 +42,15 @@ def _now():
 
 
 def abs_timedelta(delta):
-    """Returns an "absolute" value for a timedelta, always representing a
-    time distance."""
+    """Return an "absolute" value for a timedelta, always representing a
+    time distance.
+
+    Args:
+        delta (datetime.timedelta): Input timedelta.
+
+    Returns:
+        datetime.timedelta: Absolute timedelta.
+    """
     if delta.days < 0:
         now = _now()
         return now - (now + delta)
@@ -51,8 +58,10 @@ def abs_timedelta(delta):
 
 
 def date_and_delta(value, *, now=None):
-    """Turn a value into a date and a timedelta which represents how long ago
-    it was.  If that's not possible, return (None, value)."""
+    """Turn a value into a date and a timedelta which represents how long ago it was.
+
+    If that's not possible, return `(None, value)`.
+    """
     if not now:
         now = _now()
     if isinstance(value, dt.datetime):
@@ -74,14 +83,14 @@ def date_and_delta(value, *, now=None):
 def naturaldelta(value, months=True, minimum_unit="seconds"):
     """Return a natural representation of a timedelta or number of seconds.
 
-    This is similar to naturaltime, but does not add tense to the result.
+    This is similar to `naturaltime`, but does not add tense to the result.
 
     Args:
-        value: A timedelta or a number of seconds.
-        months: If True, then a number of months (based on 30.5 days) will be used for
-            fuzziness between years.
-        minimum_unit: If microseconds or milliseconds, use those units for subsecond
-            deltas.
+        value (datetime.timedelta): A timedelta or a number of seconds.
+        months (bool): If `True`, then a number of months (based on 30.5 days) will be
+            used for fuzziness between years.
+        minimum_unit (str): If microseconds or milliseconds, use those units for
+            subsecond deltas.
 
     Returns:
         str: A natural representation of the amount of time elapsed.
@@ -164,17 +173,17 @@ def naturaldelta(value, months=True, minimum_unit="seconds"):
 def naturaltime(value, future=False, months=True, minimum_unit="seconds"):
     """Return a natural representation of a time in a resolution that makes sense.
 
-    This is more or less compatible with Django's naturaltime filter.
+    This is more or less compatible with Django's `naturaltime` filter.
 
     Args:
-        value: A timedate or a number of seconds.
-        future: Ignored for datetimes, where the tense is always figured out based on
-            the current time. For integers, the return value will be past tense by
-            default, unless future is True.
-        months: If True, then a number of months (based on 30.5 days) will be used for
-            fuzziness between years.
-        minimum_unit: If microseconds or milliseconds, use those units for subsecond
-            times.
+        value (datetime.datetime, int): A `datetime` or a number of seconds.
+        future (bool): Ignored for `datetime`s, where the tense is always figured out
+            based on the current time. For integers, the return value will be past tense
+            by default, unless future is `True`.
+        months (bool): If `True`, then a number of months (based on 30.5 days) will be
+            used for fuzziness between years.
+        minimum_unit (str): If "microseconds" or "milliseconds", use those units for
+            subsecond times.
 
     Returns:
         str: A natural representation of the input in a resolution that makes sense.
@@ -199,7 +208,7 @@ def naturaltime(value, future=False, months=True, minimum_unit="seconds"):
 def naturalday(value, format="%b %d"):
     """For date values that are tomorrow, today or yesterday compared to
     present day returns representing string. Otherwise, returns a string
-    formatted according to ``format``."""
+    formatted according to `format`."""
     try:
         value = dt.date(value.year, value.month, value.day)
     except AttributeError:
@@ -219,7 +228,7 @@ def naturalday(value, format="%b %d"):
 
 
 def naturaldate(value):
-    """Like naturalday, but append a year for dates more than about five months away.
+    """Like `naturalday`, but append a year for dates more than about five months away.
     """
     try:
         value = dt.date(value.year, value.month, value.day)
@@ -236,10 +245,10 @@ def naturaldate(value):
 
 
 def _quotient_and_remainder(value, divisor, unit, minimum_unit, suppress):
-    """Divide ``value`` by ``divisor`` returning the quotient and
+    """Divide `value` by `divisor` returning the quotient and
        the remainder as follows:
 
-       If ``unit`` is ``minimum_unit``, makes the quotient a float number
+       If `unit` is `minimum_unit`, makes the quotient a float number
        and the remainder will be zero. The rational is that if unit
        is the unit of the quotient, we cannot
        represent the remainder because it would require a unit smaller
@@ -257,7 +266,7 @@ def _quotient_and_remainder(value, divisor, unit, minimum_unit, suppress):
        >>> _quotient_and_remainder(36, 24, Unit.DAYS, Unit.HOURS, [Unit.DAYS])
        (0, 36)
 
-       In other case return quotient and remainder as ``divmod`` would
+       In other case return quotient and remainder as `divmod` would
        do it.
 
        >>> _quotient_and_remainder(36, 24, Unit.DAYS, Unit.HOURS, [])
@@ -356,43 +365,50 @@ def _suppress_lower_units(min_unit, suppress):
 def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
     """Return a precise representation of a timedelta.
 
-       >>> import datetime as dt
-       >>> from humanize.time import precisedelta
+    ```pycon
+    >>> import datetime as dt
+    >>> from humanize.time import precisedelta
 
-       >>> delta = dt.timedelta(seconds=3633, days=2, microseconds=123000)
-       >>> precisedelta(delta)
-       '2 days, 1 hour and 33.12 seconds'
+    >>> delta = dt.timedelta(seconds=3633, days=2, microseconds=123000)
+    >>> precisedelta(delta)
+    '2 days, 1 hour and 33.12 seconds'
+    ```
 
-       A custom format can be specified to control how the fractional part
-       is represented:
+    A custom `format` can be specified to control how the fractional part
+    is represented:
 
-       >>> precisedelta(delta, format="%0.4f")
-       '2 days, 1 hour and 33.1230 seconds'
+    ```pycon
+    >>> precisedelta(delta, format="%0.4f")
+    '2 days, 1 hour and 33.1230 seconds'
+    ```
 
-       Instead, the minimum unit can be changed to have a better resolution;
-       the function still will readjust the unit to use the greatest of the
-       units that does not lose precision.
+    Instead, the `minimum_unit` can be changed to have a better resolution;
+    the function will still readjust the unit to use the greatest of the
+    units that does not lose precision.
 
-       For example setting microseconds but still representing the date
-       with milliseconds:
+    For example setting microseconds but still representing the date with milliseconds:
 
-       >>> precisedelta(delta, minimum_unit="microseconds")
-       '2 days, 1 hour, 33 seconds and 123 milliseconds'
+    ```pycon
+    >>> precisedelta(delta, minimum_unit="microseconds")
+    '2 days, 1 hour, 33 seconds and 123 milliseconds'
+    ```
 
-       If desired, some units can be suppressed: you will not see them
-       represented and the time of the other units will be adjusted
-       to keep representing the same timedelta:
+    If desired, some units can be suppressed: you will not see them represented and the
+    time of the other units will be adjusted to keep representing the same timedelta:
 
-       >>> precisedelta(delta, suppress=['days'])
-       '49 hours and 33.12 seconds'
+    ```pycon
+    >>> precisedelta(delta, suppress=['days'])
+    '49 hours and 33.12 seconds'
+    ```
 
-       Note that microseconds precision is lost if the seconds and all
-       the units below are suppressed:
+    Note that microseconds precision is lost if the seconds and all
+    the units below are suppressed:
 
-       >>> delta = dt.timedelta(seconds=90, microseconds=100)
-       >>> precisedelta(delta, suppress=['seconds', 'milliseconds', 'microseconds'])
-       '1.50 minutes'
-
+    ```pycon
+    >>> delta = dt.timedelta(seconds=90, microseconds=100)
+    >>> precisedelta(delta, suppress=['seconds', 'milliseconds', 'microseconds'])
+    '1.50 minutes'
+    ```
     """
 
     date, delta = date_and_delta(value)

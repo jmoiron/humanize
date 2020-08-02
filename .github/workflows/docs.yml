@@ -1,4 +1,4 @@
-name: Lint
+name: Docs
 
 on: [push, pull_request]
 
@@ -12,12 +12,10 @@ jobs:
       - name: Cache
         uses: actions/cache@v2
         with:
-          path: |
-            ~/.cache/pip
-            ~/.cache/pre-commit
-          key: lint-${{ hashFiles('**/setup.py') }}-${{ hashFiles('**/.pre-commit-config.yaml') }}
+          path: ~/.cache/pip
+          key: docs-${{ hashFiles('**/tox.ini') }}
           restore-keys: |
-            lint-
+            docs-
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -29,7 +27,5 @@ jobs:
           python -m pip install -U pip
           python -m pip install -U tox
 
-      - name: Lint
-        run: tox -e lint
-        env:
-          PRE_COMMIT_COLOR: always
+      - name: Docs
+        run: tox -e docs
