@@ -13,7 +13,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.cache/pip
-          key: docs-${{ hashFiles('**/setup.py') }}
+          key: docs-${{ hashFiles('**/tox.ini') }}
           restore-keys: |
             docs-
 
