@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""Bits & Bytes related humanization."""
+"""Bits and bytes related humanization."""
 
 suffixes = {
     "decimal": ("kB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"),
@@ -10,18 +10,18 @@ suffixes = {
 
 
 def naturalsize(value, binary=False, gnu=False, format="%.1f"):
-    """Format a number of bytes like a human readable filesize (eg. 10 kB).
+    """Format a number of bytes like a human readable filesize (e.g. 10 kB).
 
     By default, decimal suffixes (kB, MB) are used.
 
-    Non-gnu modes are compatible with jinja2's ``filesizeformat`` filter.
+    Non-GNU modes are compatible with jinja2's `filesizeformat` filter.
 
     Args:
-        value (int, float, string): Integer to convert.
-        binary (Boolean): If `True`, uses binary suffixes (KiB, MiB) with base 2**10
-        instead of 10**3.
-        gnu (Boolean): If `True`, the binary argument is ignored and GNU-style
-        (`ls -sh` style) prefixes are used (K, M) with the 2**10 definition.
+        value (int, float, str): Integer to convert.
+        binary (bool): If `True`, uses binary suffixes (KiB, MiB) with base
+            2<sup>10</sup> instead of 10<sup>3</sup>.
+        gnu (bool): If `True`, the binary argument is ignored and GNU-style
+            (`ls -sh` style) prefixes are used (K, M) with the 2**10 definition.
         format (str): Custom formatter.
     """
     if gnu:
