@@ -1,5 +1,5 @@
 site_name: humanize
-site_url: https://example.com/docs/TODO
+site_url: https://python-humanize.readthedocs.io
 repo_url: https://github.com/jmoiron/humanize
 theme:
   name: "material"
