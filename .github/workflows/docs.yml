@@ -1,0 +1,31 @@
+name: Docs
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: docs-${{ hashFiles('**/setup.py') }}
+          restore-keys: |
+            docs-
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: |
+          python -m pip install -U pip
+          python -m pip install -U tox
+
+      - name: Docs
+        run: tox -e docs

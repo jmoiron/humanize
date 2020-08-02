@@ -1,4 +1,6 @@
 site_name: humanize
+site_url: https://example.com/docs/TODO
+repo_url: https://github.com/jmoiron/humanize
 theme:
   name: "material"
 
