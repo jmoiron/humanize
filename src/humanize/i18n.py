@@ -11,10 +11,10 @@ _CURRENT = local()
 def get_default_locale_path():
     try:
         if __file__ is None:
-            return
+            return None
         return os.path.join(os.path.dirname(__file__), "locale")
     except NameError:
-        return
+        return None
 
 
 def get_translation():
