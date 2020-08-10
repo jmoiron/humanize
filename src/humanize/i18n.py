@@ -8,7 +8,7 @@ _TRANSLATIONS = {None: gettext_module.NullTranslations()}
 _CURRENT = local()
 
 
-def get_default_locale_path():
+def _get_default_locale_path():
     try:
         if __file__ is None:
             return None
@@ -29,7 +29,7 @@ def activate(locale, path=None):
     @param locale: language name, eg 'en_GB'
     @param path: path to search for locales"""
     if path is None:
-        path = get_default_locale_path()
+        path = _get_default_locale_path()
 
     if path is None:
         raise Exception(
