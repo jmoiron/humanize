@@ -99,7 +99,7 @@ def ngettext(message, plural, num):
     Args:
         message (str): Singlular text to translate.
         plural (str): Plural text to translate.
-        num (str): The number (e.g. item count) to determine translation for the
+        num (int): The number (e.g. item count) to determine translation for the
             respective grammatical number.
 
     Returns:
