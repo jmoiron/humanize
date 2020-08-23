@@ -84,33 +84,42 @@ def test_naturaldelta_nomonths(test_input, expected):
     [
         (0, "a moment"),
         (1, "a second"),
-        (30, "30 seconds"),
-        (dt.timedelta(minutes=1, seconds=30), "a minute"),
-        (dt.timedelta(minutes=2), "2 minutes"),
-        (dt.timedelta(hours=1, minutes=30, seconds=30), "an hour"),
-        (dt.timedelta(hours=23, minutes=50, seconds=50), "23 hours"),
-        (dt.timedelta(days=1), "a day"),
-        (dt.timedelta(days=500), "1 year, 4 months"),
-        (dt.timedelta(days=365 * 2 + 35), "2 years"),
         (dt.timedelta(seconds=1), "a second"),
-        (dt.timedelta(seconds=30), "30 seconds"),
-        (dt.timedelta(minutes=1, seconds=30), "a minute"),
-        (dt.timedelta(minutes=2), "2 minutes"),
-        (dt.timedelta(hours=1, minutes=30, seconds=30), "an hour"),
-        (dt.timedelta(hours=23, minutes=50, seconds=50), "23 hours"),
-        (dt.timedelta(days=1), "a day"),
-        (dt.timedelta(days=500), "1 year, 4 months"),
-        (dt.timedelta(days=365 * 2 + 35), "2 years"),
-        # regression tests for bugs in post-release humanize
-        (dt.timedelta(days=10000), "27 years"),
-        (dt.timedelta(days=365 + 35), "1 year, 1 month"),
         (30, "30 seconds"),
-        (dt.timedelta(days=365 * 2 + 65), "2 years"),
-        (dt.timedelta(days=365 + 4), "1 year, 4 days"),
+        (dt.timedelta(seconds=30), "30 seconds"),
+        (dt.timedelta(seconds=59), "59 seconds"),
+        (dt.timedelta(minutes=1, seconds=0), "a minute"),
+        (dt.timedelta(minutes=1, seconds=1), "a minute"),
+        (dt.timedelta(minutes=1, seconds=29), "a minute"),
+        (dt.timedelta(minutes=1, seconds=30), "2 minutes"),
+        (dt.timedelta(minutes=1, seconds=59), "2 minutes"),
+        (dt.timedelta(minutes=2, seconds=0), "2 minutes"),
+        (dt.timedelta(minutes=2, seconds=1), "2 minutes"),
+        (dt.timedelta(minutes=2, seconds=59), "3 minutes"),
+        (dt.timedelta(minutes=3, seconds=10), "3 minutes"),
+        (dt.timedelta(hours=1, minutes=25, seconds=30), "an hour"),
+        (dt.timedelta(hours=1, minutes=30, seconds=30), "2 hours"),
+        (2 * 60 * 60 - 1, "2 hours"),  # 2 hours minus 1 second
+        (2 * 60 * 60 + 1, "2 hours"),  # 2 hours plus 1 second
+        (dt.timedelta(hours=22, minutes=50, seconds=50), "23 hours"),
+        (dt.timedelta(hours=23, minutes=10, seconds=10), "23 hours"),
+        (dt.timedelta(hours=23, minutes=50, seconds=50), "a day"),
+        (dt.timedelta(hours=24, minutes=10, seconds=10), "a day"),
+        (dt.timedelta(days=1), "a day"),
+        (dt.timedelta(days=9), "9 days"),
+        (dt.timedelta(days=25), "a month"),
         (dt.timedelta(days=35), "a month"),
         (dt.timedelta(days=65), "2 months"),
-        (dt.timedelta(days=9), "9 days"),
+        (dt.timedelta(days=170), "6 months"),  # ~5.6 months
         (dt.timedelta(days=365), "a year"),
+        (dt.timedelta(days=365 + 4), "1 year, 4 days"),
+        (dt.timedelta(days=365 + 35), "1 year, 1 month"),
+        (dt.timedelta(days=500), "1 year, 4 months"),
+        (2 * 365 * 24 * 60 * 60 - 1, "2 years"),  # 2 years minus 1 second
+        (2 * 365 * 24 * 60 * 60 + 1, "2 years"),  # 2 years plus 1 second
+        (dt.timedelta(days=365 * 2 + 35), "2 years"),
+        (dt.timedelta(days=365 * 2 + 65), "2 years"),
+        (dt.timedelta(days=10000), "27 years"),
         ("NaN", "NaN"),
     ],
 )
@@ -303,6 +312,33 @@ def test_naturaldelta_minimum_unit_default(seconds, expected):
         ("milliseconds", 4, "4 seconds"),
         ("milliseconds", ONE_HOUR + FOUR_MILLISECONDS, "an hour"),
         ("milliseconds", ONE_YEAR + FOUR_MICROSECONDS, "a year"),
+        # Seconds are rounded to nearest
+        ("seconds", 0.1, "a moment"),
+        ("seconds", 0.4, "a moment"),
+        ("seconds", 0.6, "a second"),
+        ("seconds", 0.9, "a second"),
+        ("seconds", 1.1, "a second"),
+        ("seconds", 1.4, "a second"),
+        ("seconds", 1.6, "2 seconds"),
+        ("seconds", 1.9, "2 seconds"),
+        # Milliseconds are rounded to nearest
+        ("milliseconds", 0.1 * ONE_MILLISECOND, "0 milliseconds"),
+        ("milliseconds", 0.4 * ONE_MILLISECOND, "0 milliseconds"),
+        ("milliseconds", 0.6 * ONE_MILLISECOND, "1 millisecond"),
+        ("milliseconds", 0.9 * ONE_MILLISECOND, "1 millisecond"),
+        ("milliseconds", 1.1 * ONE_MILLISECOND, "1 millisecond"),
+        ("milliseconds", 1.4 * ONE_MILLISECOND, "1 millisecond"),
+        ("milliseconds", 1.6 * ONE_MILLISECOND, "2 milliseconds"),
+        ("milliseconds", 1.9 * ONE_MILLISECOND, "2 milliseconds"),
+        # Microseconds are rounded to nearest
+        ("microseconds", 0.1 * ONE_MICROSECOND, "0 microseconds"),
+        ("microseconds", 0.4 * ONE_MICROSECOND, "0 microseconds"),
+        ("microseconds", 0.6 * ONE_MICROSECOND, "1 microsecond"),
+        ("microseconds", 0.9 * ONE_MICROSECOND, "1 microsecond"),
+        ("microseconds", 1.1 * ONE_MICROSECOND, "1 microsecond"),
+        ("microseconds", 1.4 * ONE_MICROSECOND, "1 microsecond"),
+        ("microseconds", 1.6 * ONE_MICROSECOND, "2 microseconds"),
+        ("microseconds", 1.9 * ONE_MICROSECOND, "2 microseconds"),
     ],
 )
 def test_naturaldelta_minimum_unit_explicit(minimum_unit, seconds, expected):
@@ -580,7 +616,7 @@ def test_precisedelta_bogus_call():
 
 
 def test_time_unit():
-    years, minutes = time.Unit["YEARS"], time.Unit["MINUTES"]
+    years, minutes = time._Unit["YEARS"], time._Unit["MINUTES"]
     assert minutes < years
     assert years > minutes
     assert minutes == minutes
