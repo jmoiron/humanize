@@ -1,0 +1,2 @@
+include src/humanize/py.typed
+include src/humanize/*.pyi

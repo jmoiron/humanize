@@ -5,7 +5,7 @@
 suffixes = {
     "decimal": ("kB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"),
     "binary": ("KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB"),
-    "gnu": "KMGTPEZY",
+    "gnu": ("K", "M", "G", "T", "P", "E", "Z", "Y"),
 }
 
 
