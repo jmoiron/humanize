@@ -33,3 +33,10 @@ repos:
       - id: check-merge-conflict
       - id: check-toml
       - id: check-yaml
+
+  - repo: https://github.com/PyCQA/pydocstyle
+    rev: 5.1.1
+    hooks:
+      - id: pydocstyle
+        args: ["--convention", "google"]
+        files: "src/"

@@ -1,3 +1,4 @@
+"""Activate, get and deactivate translations."""
 import gettext as gettext_module
 import os.path
 from threading import local
@@ -69,7 +70,7 @@ def gettext(message):
 
 
 def pgettext(msgctxt, message):
-    """'Particular gettext' function.
+    """Fetches a particular translation.
 
     It works with `msgctxt` .po modifiers and allows duplicate keys with different
     translations.
