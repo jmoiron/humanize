@@ -7,7 +7,7 @@
 [![Travis CI Status](https://travis-ci.com/hugovk/humanize.svg?branch=master)](https://travis-ci.com/hugovk/humanize)
 [![GitHub Actions status](https://github.com/jmoiron/humanize/workflows/Test/badge.svg)](https://github.com/jmoiron/humanize/actions)
 [![codecov](https://codecov.io/gh/hugovk/humanize/branch/master/graph/badge.svg)](https://codecov.io/gh/hugovk/humanize)
-[![MIT License](https://img.shields.io/github/license/jmoiron/humanize.svg)](LICENSE)
+[![MIT License](https://img.shields.io/github/license/jmoiron/humanize.svg)](LICENCE)
 [![Tidelift](https://tidelift.com/badges/package/pypi/humanize)](https://tidelift.com/subscription/pkg/pypi-humanize?utm_source=pypi-humanize&utm_medium=badge)
 
 This modest package contains various common humanization utilities, like turning
@@ -119,11 +119,11 @@ If seconds are too large, set `minimum_unit` to milliseconds or microseconds:
 
 ```pycon
 >>> import humanize
->>> humanize.naturalsize(1000000)
+>>> humanize.naturalsize(1_000_000)
 '1.0 MB'
->>> humanize.naturalsize(1000000, binary=True)
+>>> humanize.naturalsize(1_000_000, binary=True)
 '976.6 KiB'
->>> humanize.naturalsize(1000000, gnu=True)
+>>> humanize.naturalsize(1_000_000, gnu=True)
 '976.6K'
 ```
 
