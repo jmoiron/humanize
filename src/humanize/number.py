@@ -202,9 +202,9 @@ def fractional(value):
         # (or variants of that integer like 1.0000)
         return "%.0f" % whole_number
     elif not whole_number:
-        return "{:.0f}/{:.0f}".format(numerator, denominator)
+        return f"{numerator:.0f}/{denominator:.0f}"
     else:
-        return "{:.0f} {:.0f}/{:.0f}".format(whole_number, numerator, denominator)
+        return f"{whole_number:.0f} {numerator:.0f}/{denominator:.0f}"
 
 
 def scientific(value, precision=2):
