@@ -96,9 +96,9 @@ human_powers = (
 def intword(value, format="%.1f"):
     """Converts a large integer to a friendly text representation.
 
-    Works best for numbers over 1 million. For example, 1000000 becomes "1.0 million",
-    1200000 becomes "1.2 million" and "1200000000" becomes "1.2 billion". Supports up to
-    decillion (33 digits) and googol (100 digits).
+    Works best for numbers over 1 million. For example, 1_000_000 becomes "1.0 million",
+    1200000 becomes "1.2 million" and "1_200_000_000" becomes "1.2 billion". Supports up
+    to decillion (33 digits) and googol (100 digits).
 
     Args:
         value (int, float, str): Integer to convert.

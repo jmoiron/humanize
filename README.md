@@ -119,11 +119,11 @@ If seconds are too large, set `minimum_unit` to milliseconds or microseconds:
 
 ```pycon
 >>> import humanize
->>> humanize.naturalsize(1000000)
+>>> humanize.naturalsize(1_000_000)
 '1.0 MB'
->>> humanize.naturalsize(1000000, binary=True)
+>>> humanize.naturalsize(1_000_000, binary=True)
 '976.6 KiB'
->>> humanize.naturalsize(1000000, gnu=True)
+>>> humanize.naturalsize(1_000_000, gnu=True)
 '976.6K'
 ```
 
