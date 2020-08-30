@@ -40,8 +40,8 @@ def ordinal(value):
         P_("9", "th"),
     )
     if value % 100 in (11, 12, 13):  # special case
-        return "%d%s" % (value, t[0])
-    return "%d%s" % (value, t[value % 10])
+        return f"{value}{t[0]}"
+    return f"{value}{t[value % 10]}"
 
 
 def intcomma(value, ndigits=None):
@@ -200,7 +200,7 @@ def fractional(value):
     if whole_number and not numerator and denominator == 1:
         # this means that an integer was passed in
         # (or variants of that integer like 1.0000)
-        return "%.0f" % whole_number
+        return f"{whole_number:.0f}"
     elif not whole_number:
         return f"{numerator:.0f}/{denominator:.0f}"
     else:

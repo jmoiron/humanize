@@ -97,7 +97,7 @@ def naturaldelta(value, months=True, minimum_unit="seconds"):
     """
     tmp = Unit[minimum_unit.upper()]
     if tmp not in (Unit.SECONDS, Unit.MILLISECONDS, Unit.MICROSECONDS):
-        raise ValueError("Minimum unit '%s' not supported" % minimum_unit)
+        raise ValueError(f"Minimum unit '{minimum_unit}' not supported")
     minimum_unit = tmp
 
     date, delta = date_and_delta(value)
