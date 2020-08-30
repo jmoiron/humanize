@@ -89,8 +89,7 @@ def naturaldelta(value, months=True, minimum_unit="seconds"):
         value (datetime.timedelta): A timedelta or a number of seconds.
         months (bool): If `True`, then a number of months (based on 30.5 days) will be
             used for fuzziness between years.
-        minimum_unit (str): If microseconds or milliseconds, use those units for
-            subsecond deltas.
+        minimum_unit (str): The lowest unit that can be used.
 
     Returns:
         str: A natural representation of the amount of time elapsed.
@@ -114,12 +113,15 @@ def naturaldelta(value, months=True, minimum_unit="seconds"):
 
     if not years and days < 1:
         if seconds == 0:
-            if minimum_unit == Unit.MICROSECONDS:
+            if minimum_unit == Unit.MICROSECONDS and delta.microseconds < 1000:
                 return (
                     ngettext("%d microsecond", "%d microseconds", delta.microseconds)
                     % delta.microseconds
                 )
-            elif minimum_unit == Unit.MILLISECONDS:
+            elif minimum_unit == Unit.MILLISECONDS or (
+                minimum_unit == Unit.MICROSECONDS
+                and 1000 <= delta.microseconds < 1_000_000
+            ):
                 milliseconds = delta.microseconds / 1000
                 return (
                     ngettext("%d millisecond", "%d milliseconds", milliseconds)
@@ -182,8 +184,7 @@ def naturaltime(value, future=False, months=True, minimum_unit="seconds"):
             by default, unless future is `True`.
         months (bool): If `True`, then a number of months (based on 30.5 days) will be
             used for fuzziness between years.
-        minimum_unit (str): If "microseconds" or "milliseconds", use those units for
-            subsecond times.
+        minimum_unit (str): The lowest unit that can be used.
 
     Returns:
         str: A natural representation of the input in a resolution that makes sense.

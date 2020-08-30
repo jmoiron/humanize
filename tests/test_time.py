@@ -12,10 +12,12 @@ from humanize import time
 ONE_DAY_DELTA = dt.timedelta(days=1)
 
 # In seconds
-ONE_MICROSECOND = 1 / 1_000_000
-FOUR_MICROSECONDS = 4 / 1_000_000
+ONE_MICROSECOND = 1 / 1000000
+FOUR_MICROSECONDS = 4 / 1000000
 ONE_MILLISECOND = 1 / 1000
 FOUR_MILLISECONDS = 4 / 1000
+MICROSECONDS_101_943 = 101943 / 1000000  # 101.94 milliseconds
+MILLISECONDS_1_337 = 1337 / 1000  # 1.337 seconds
 ONE_HOUR = 3600
 ONE_DAY = 24 * ONE_HOUR
 ONE_YEAR = 365.25 * ONE_DAY
@@ -293,24 +295,32 @@ def test_naturaldelta_minimum_unit_default(seconds, expected):
         ("seconds", FOUR_MICROSECONDS, "a moment"),
         ("seconds", ONE_MILLISECOND, "a moment"),
         ("seconds", FOUR_MILLISECONDS, "a moment"),
+        ("seconds", MICROSECONDS_101_943, "a moment"),  # 0.10194 s
+        ("seconds", MILLISECONDS_1_337, "a second"),  # 1.337 s
         ("seconds", 2, "2 seconds"),
         ("seconds", 4, "4 seconds"),
         ("seconds", ONE_HOUR + FOUR_MILLISECONDS, "an hour"),
         ("seconds", ONE_DAY + FOUR_MILLISECONDS, "a day"),
         ("seconds", ONE_YEAR + FOUR_MICROSECONDS, "a year"),
+        ("milliseconds", FOUR_MICROSECONDS, "0 milliseconds"),
+        ("milliseconds", ONE_MILLISECOND, "1 millisecond"),
+        ("milliseconds", FOUR_MILLISECONDS, "4 milliseconds"),
+        ("milliseconds", MICROSECONDS_101_943, "101 milliseconds"),  # 101.94 ms
+        ("milliseconds", MILLISECONDS_1_337, "a second"),  # 1,337 ms
+        ("milliseconds", 2, "2 seconds"),
+        ("milliseconds", 4, "4 seconds"),
+        ("milliseconds", ONE_HOUR + FOUR_MILLISECONDS, "an hour"),
+        ("milliseconds", ONE_YEAR + FOUR_MICROSECONDS, "a year"),
         ("microseconds", ONE_MICROSECOND, "1 microsecond"),
         ("microseconds", FOUR_MICROSECONDS, "4 microseconds"),
+        ("microseconds", FOUR_MILLISECONDS, "4 milliseconds"),
+        ("microseconds", MICROSECONDS_101_943, "101 milliseconds"),  # 101,940 µs
+        ("microseconds", MILLISECONDS_1_337, "a second"),  # 1,337,000 µs
         ("microseconds", 2, "2 seconds"),
         ("microseconds", 4, "4 seconds"),
         ("microseconds", ONE_HOUR + FOUR_MILLISECONDS, "an hour"),
         ("microseconds", ONE_DAY + FOUR_MILLISECONDS, "a day"),
         ("microseconds", ONE_YEAR + FOUR_MICROSECONDS, "a year"),
-        ("milliseconds", ONE_MILLISECOND, "1 millisecond"),
-        ("milliseconds", FOUR_MILLISECONDS, "4 milliseconds"),
-        ("milliseconds", 2, "2 seconds"),
-        ("milliseconds", 4, "4 seconds"),
-        ("milliseconds", ONE_HOUR + FOUR_MILLISECONDS, "an hour"),
-        ("milliseconds", ONE_YEAR + FOUR_MICROSECONDS, "a year"),
     ],
 )
 def test_naturaldelta_minimum_unit_explicit(minimum_unit, seconds, expected):
@@ -350,24 +360,32 @@ def test_naturaltime_minimum_unit_default(seconds, expected):
         ("seconds", FOUR_MICROSECONDS, "now"),
         ("seconds", ONE_MILLISECOND, "now"),
         ("seconds", FOUR_MILLISECONDS, "now"),
+        ("seconds", MICROSECONDS_101_943, "now"),  # 0.10194 s
+        ("seconds", MILLISECONDS_1_337, "a second ago"),  # 1.337 s
         ("seconds", 2, "2 seconds ago"),
         ("seconds", 4, "4 seconds ago"),
         ("seconds", ONE_HOUR + FOUR_MILLISECONDS, "an hour ago"),
         ("seconds", ONE_DAY + FOUR_MILLISECONDS, "a day ago"),
         ("seconds", ONE_YEAR + FOUR_MICROSECONDS, "a year ago"),
+        ("milliseconds", FOUR_MICROSECONDS, "0 milliseconds ago"),
+        ("milliseconds", ONE_MILLISECOND, "1 millisecond ago"),
+        ("milliseconds", FOUR_MILLISECONDS, "4 milliseconds ago"),
+        ("milliseconds", MICROSECONDS_101_943, "101 milliseconds ago"),  # 101.94 ms
+        ("milliseconds", MILLISECONDS_1_337, "a second ago"),  # 1,337 ms
+        ("milliseconds", 2, "2 seconds ago"),
+        ("milliseconds", 4, "4 seconds ago"),
+        ("milliseconds", ONE_HOUR + FOUR_MILLISECONDS, "an hour ago"),
+        ("milliseconds", ONE_YEAR + FOUR_MICROSECONDS, "a year ago"),
         ("microseconds", ONE_MICROSECOND, "1 microsecond ago"),
         ("microseconds", FOUR_MICROSECONDS, "4 microseconds ago"),
+        ("microseconds", FOUR_MILLISECONDS, "4 milliseconds ago"),
+        ("microseconds", MICROSECONDS_101_943, "101 milliseconds ago"),  # 101,940 µs
+        ("microseconds", MILLISECONDS_1_337, "a second ago"),  # 1,337,000 µs
         ("microseconds", 2, "2 seconds ago"),
         ("microseconds", 4, "4 seconds ago"),
         ("microseconds", ONE_HOUR + FOUR_MILLISECONDS, "an hour ago"),
         ("microseconds", ONE_DAY + FOUR_MILLISECONDS, "a day ago"),
         ("microseconds", ONE_YEAR + FOUR_MICROSECONDS, "a year ago"),
-        ("milliseconds", ONE_MILLISECOND, "1 millisecond ago"),
-        ("milliseconds", FOUR_MILLISECONDS, "4 milliseconds ago"),
-        ("milliseconds", 2, "2 seconds ago"),
-        ("milliseconds", 4, "4 seconds ago"),
-        ("milliseconds", ONE_HOUR + FOUR_MILLISECONDS, "an hour ago"),
-        ("milliseconds", ONE_YEAR + FOUR_MICROSECONDS, "a year ago"),
     ],
 )
 def test_naturaltime_minimum_unit_explicit(minimum_unit, seconds, expected):
