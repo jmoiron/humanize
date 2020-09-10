@@ -7,7 +7,7 @@
 [![Travis CI Status](https://travis-ci.com/hugovk/humanize.svg?branch=master)](https://travis-ci.com/hugovk/humanize)
 [![GitHub Actions status](https://github.com/jmoiron/humanize/workflows/Test/badge.svg)](https://github.com/jmoiron/humanize/actions)
 [![codecov](https://codecov.io/gh/hugovk/humanize/branch/master/graph/badge.svg)](https://codecov.io/gh/hugovk/humanize)
-[![MIT License](https://img.shields.io/github/license/jmoiron/humanize.svg)](LICENSE)
+[![MIT License](https://img.shields.io/github/license/jmoiron/humanize.svg)](LICENCE)
 [![Tidelift](https://tidelift.com/badges/package/pypi/humanize)](https://tidelift.com/subscription/pkg/pypi-humanize?utm_source=pypi-humanize&utm_medium=badge)
 
 This modest package contains various common humanization utilities, like turning
@@ -104,7 +104,7 @@ If seconds are too large, set `minimum_unit` to milliseconds or microseconds:
 >>> humanize.naturaldelta(delta, minimum_unit="milliseconds")
 '4 milliseconds'
 >>> humanize.naturaldelta(delta, minimum_unit="microseconds")
-'4000 microseconds'
+'4 milliseconds'
 ```
 ```pycon
 >>> humanize.naturaltime(delta)
@@ -112,18 +112,18 @@ If seconds are too large, set `minimum_unit` to milliseconds or microseconds:
 >>> humanize.naturaltime(delta, minimum_unit="milliseconds")
 '4 milliseconds ago'
 >>> humanize.naturaltime(delta, minimum_unit="microseconds")
-'4000 microseconds ago'
+'4 milliseconds ago'
 ```
 
 ### File size humanization
 
 ```pycon
 >>> import humanize
->>> humanize.naturalsize(1000000)
+>>> humanize.naturalsize(1_000_000)
 '1.0 MB'
->>> humanize.naturalsize(1000000, binary=True)
+>>> humanize.naturalsize(1_000_000, binary=True)
 '976.6 KiB'
->>> humanize.naturalsize(1000000, gnu=True)
+>>> humanize.naturalsize(1_000_000, gnu=True)
 '976.6K'
 ```
 
@@ -208,3 +208,7 @@ Where `<locale name>` is a locale abbreviation, eg. `en_GB`, `pt_BR` or just `ru
 etc.
 
 List the language at the top of this README.
+
+## API reference
+
+[https://python-humanize.readthedocs.io](https://python-humanize.readthedocs.io)

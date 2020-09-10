@@ -1,3 +1,4 @@
+"""Main package for humanize."""
 import pkg_resources
 from humanize.filesize import naturalsize
 from humanize.i18n import activate, deactivate

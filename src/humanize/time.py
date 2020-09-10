@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 
-"""Time humanizing functions. These are largely borrowed from Django's
-`contrib.humanize`."""
+"""Time humanizing functions.
+
+These are largely borrowed from Django's `contrib.humanize`.
+"""
 
 import datetime as dt
 import math
@@ -47,8 +49,7 @@ def _now():
 
 
 def abs_timedelta(delta):
-    """Return an "absolute" value for a timedelta, always representing a
-    time distance.
+    """Return an "absolute" value for a timedelta, always representing a time distance.
 
     Args:
         delta (datetime.timedelta): Input timedelta.
@@ -95,13 +96,14 @@ def _divide_and_round(numerator, denominator, rounding):
 def _naturaldelta_with_rounding(
     value, months=True, minimum_unit="seconds", rounding=_Rounding.DOWN
 ):
-    """
+    """Helper function.
+
     naturaldelta calls with rounding == nearest
     naturaltime calls with rounding == down
     """
     tmp = _Unit[minimum_unit.upper()]
     if tmp not in (_Unit.SECONDS, _Unit.MILLISECONDS, _Unit.MICROSECONDS):
-        raise ValueError("Minimum unit '%s' not supported" % minimum_unit)
+        raise ValueError(f"Minimum unit '{minimum_unit}' not supported")
     minimum_unit = tmp
 
     date, delta = date_and_delta(value)
@@ -123,12 +125,15 @@ def _naturaldelta_with_rounding(
         if rounding == _Rounding.NEAREST:
             seconds = round(seconds + (delta.microseconds / 1000000))
         if seconds == 0:
-            if minimum_unit == _Unit.MICROSECONDS:
+            if minimum_unit == _Unit.MICROSECONDS and delta.microseconds < 1000:
                 return (
                     ngettext("%d microsecond", "%d microseconds", delta.microseconds)
                     % delta.microseconds
                 )
-            elif minimum_unit == _Unit.MILLISECONDS:
+            elif minimum_unit == _Unit.MILLISECONDS or (
+                minimum_unit == _Unit.MICROSECONDS
+                and 1000 <= delta.microseconds < 1_000_000
+            ):
                 milliseconds = _divide_and_round(delta.microseconds, 1000, rounding)
                 return (
                     ngettext("%d millisecond", "%d milliseconds", milliseconds)
@@ -191,8 +196,7 @@ def naturaldelta(value, months=True, minimum_unit="seconds"):
         value (datetime.timedelta): A timedelta or a number of seconds.
         months (bool): If `True`, then a number of months (based on 30.5 days) will be
             used for fuzziness between years.
-        minimum_unit (str): If microseconds or milliseconds, use those units for
-            subsecond deltas.
+        minimum_unit (str): The lowest unit that can be used.
 
     Returns:
         str: A natural representation of the amount of time elapsed.
@@ -214,8 +218,7 @@ def naturaltime(value, future=False, months=True, minimum_unit="seconds"):
             by default, unless future is `True`.
         months (bool): If `True`, then a number of months (based on 30.5 days) will be
             used for fuzziness between years.
-        minimum_unit (str): If "microseconds" or "milliseconds", use those units for
-            subsecond times.
+        minimum_unit (str): The lowest unit that can be used.
 
     Returns:
         str: A natural representation of the input in a resolution that makes sense.
@@ -238,9 +241,12 @@ def naturaltime(value, future=False, months=True, minimum_unit="seconds"):
 
 
 def naturalday(value, format="%b %d"):
-    """For date values that are tomorrow, today or yesterday compared to
-    present day returns representing string. Otherwise, returns a string
-    formatted according to `format`."""
+    """Return a natural day.
+
+    For date values that are tomorrow, today or yesterday compared to
+    present day return representing string. Otherwise, return a string
+    formatted according to `format`.
+    """
     try:
         value = dt.date(value.year, value.month, value.day)
     except AttributeError:
@@ -260,8 +266,7 @@ def naturalday(value, format="%b %d"):
 
 
 def naturaldate(value):
-    """Like `naturalday`, but append a year for dates more than about five months away.
-    """
+    """Like `naturalday`, but append a year for dates more than ~five months away."""
     try:
         value = dt.date(value.year, value.month, value.day)
     except AttributeError:
@@ -277,35 +282,30 @@ def naturaldate(value):
 
 
 def _quotient_and_remainder(value, divisor, unit, minimum_unit, suppress):
-    """Divide `value` by `divisor` returning the quotient and
-       the remainder as follows:
+    """Divide `value` by `divisor` returning the quotient and remainder.
 
-       If `unit` is `minimum_unit`, makes the quotient a float number
-       and the remainder will be zero. The rational is that if unit
-       is the unit of the quotient, we cannot
-       represent the remainder because it would require a unit smaller
-       than the minimum_unit.
+    If `unit` is `minimum_unit`, makes the quotient a float number and the remainder
+    will be zero. The rational is that if `unit` is the unit of the quotient, we cannot
+    represent the remainder because it would require a unit smaller than the
+    `minimum_unit`.
 
-       >>> from humanize.time import _quotient_and_remainder, _Unit
-       >>> _quotient_and_remainder(36, 24, _Unit.DAYS, _Unit.DAYS, [])
-       (1.5, 0)
+    >>> from humanize.time import _quotient_and_remainder, _Unit
+    >>> _quotient_and_remainder(36, 24, _Unit.DAYS, _Unit.DAYS, [])
+    (1.5, 0)
 
-       If unit is in suppress, the quotient will be zero and the
-       remainder will be the initial value. The idea is that if we
-       cannot use unit, we are forced to use a lower unit so we cannot
-       do the division.
+    If unit is in `suppress`, the quotient will be zero and the remainder will be the
+    initial value. The idea is that if we cannot use `unit`, we are forced to use a
+    lower unit so we cannot do the division.
 
-       >>> _quotient_and_remainder(36, 24, _Unit.DAYS, _Unit.HOURS, [_Unit.DAYS])
-       (0, 36)
+    >>> _quotient_and_remainder(36, 24, _Unit.DAYS, _Unit.HOURS, [_Unit.DAYS])
+    (0, 36)
 
-       In other case return quotient and remainder as `divmod` would
-       do it.
+    In other case return quotient and remainder as `divmod` would do it.
 
-       >>> _quotient_and_remainder(36, 24, _Unit.DAYS, _Unit.HOURS, [])
-       (1, 12)
+    >>> _quotient_and_remainder(36, 24, _Unit.DAYS, _Unit.HOURS, [])
+    (1, 12)
 
     """
-
     if unit == minimum_unit:
         return (value / divisor, 0)
     elif unit in suppress:
@@ -315,26 +315,24 @@ def _quotient_and_remainder(value, divisor, unit, minimum_unit, suppress):
 
 
 def _carry(value1, value2, ratio, unit, min_unit, suppress):
-    """Return a tuple with two values as follows:
+    """Return a tuple with two values.
 
-       If the unit is in suppress multiplies value1
-       by ratio and add it to value2 (carry to right).
-       The idea is that if we cannot represent value1 we need
-       to represent it in a lower unit.
+    If the unit is in `suppress`, multiply `value1` by `ratio` and add it to `value2`
+    (carry to right). The idea is that if we cannot represent `value1` we need to
+    represent it in a lower unit.
 
        >>> from humanize.time import _carry, _Unit
        >>> _carry(2, 6, 24, _Unit.DAYS, _Unit.SECONDS, [_Unit.DAYS])
        (0, 54)
 
-       If the unit is the minimum unit, value2 is divided
-       by ratio and added to value1 (carry to left).
-       We assume that value2 has a lower unit so we need to
-       carry it to value1.
+    If the unit is the minimum unit, `value2` is divided by `ratio` and added to
+    `value1` (carry to left). We assume that `value2` has a lower unit so we need to
+    carry it to `value1`.
 
         >>> _carry(2, 6, 24, _Unit.DAYS, _Unit.DAYS, [])
         (2.25, 0)
 
-       Otherwise, just return the same input:
+    Otherwise, just return the same input:
 
        >>> _carry(2, 6, 24, _Unit.DAYS, _Unit.SECONDS, [])
        (2, 6)
@@ -350,14 +348,14 @@ def _carry(value1, value2, ratio, unit, min_unit, suppress):
 def _suitable_minimum_unit(min_unit, suppress):
     """Return a minimum unit suitable that is not suppressed.
 
-       If not suppressed, return the same unit:
+    If not suppressed, return the same unit:
 
        >>> from humanize.time import _suitable_minimum_unit, _Unit
        >>> _suitable_minimum_unit(_Unit.HOURS, [])
        <_Unit.HOURS: 4>
 
-       But if suppressed, find a unit greather than the original one
-       that is not suppressed:
+    But if suppressed, find a unit greather than the original one that is not
+    suppressed:
 
        >>> _suitable_minimum_unit(_Unit.HOURS, [_Unit.HOURS])
        <_Unit.DAYS: 5>
@@ -378,12 +376,11 @@ def _suitable_minimum_unit(min_unit, suppress):
 
 
 def _suppress_lower_units(min_unit, suppress):
-    """Extend the suppressed units (if any) with all the units that are
-       lower than the minimum unit.
+    """Extend suppressed units (if any) with all units lower than the minimum unit.
 
-       >>> from humanize.time import _suppress_lower_units, _Unit
-       >>> list(sorted(_suppress_lower_units(_Unit.SECONDS, [_Unit.DAYS])))
-       [<_Unit.MICROSECONDS: 0>, <_Unit.MILLISECONDS: 1>, <_Unit.DAYS: 5>]
+    >>> from humanize.time import _suppress_lower_units, _Unit
+    >>> list(sorted(_suppress_lower_units(_Unit.SECONDS, [_Unit.DAYS])))
+    [<_Unit.MICROSECONDS: 0>, <_Unit.MILLISECONDS: 1>, <_Unit.DAYS: 5>]
     """
     suppress = set(suppress)
     for u in _Unit:
@@ -442,7 +439,6 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
     '1.50 minutes'
     ```
     """
-
     date, delta = date_and_delta(value)
     if date is None:
         return value

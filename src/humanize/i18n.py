@@ -1,3 +1,4 @@
+"""Activate, get and deactivate translations."""
 import gettext as gettext_module
 import os.path
 from threading import local
@@ -35,6 +36,9 @@ def activate(locale, path=None):
 
     Returns:
         dict: Translations.
+
+    Raises:
+        Exception: If humanize cannot find the locale folder.
     """
     if path is None:
         path = _get_default_locale_path()
@@ -69,7 +73,7 @@ def gettext(message):
 
 
 def pgettext(msgctxt, message):
-    """'Particular gettext' function.
+    """Fetches a particular translation.
 
     It works with `msgctxt` .po modifiers and allows duplicate keys with different
     translations.
