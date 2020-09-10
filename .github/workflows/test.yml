@@ -62,9 +62,7 @@ jobs:
           tox -e py
 
       - name: Upload coverage
-        if: success()
-        run: |
-          curl --retry 8 -s https://codecov.io/bash -o codecov.sh
-          bash codecov.sh -F ${{ matrix.codecov-flag }}
-        env:
-          CODECOV_NAME: ${{ matrix.os }} Python ${{ matrix.python-version }}
+        uses: codecov/codecov-action@v1
+        with:
+          flags: ${{ matrix.codecov-flag }}
+          name: ${{ matrix.os }} Python ${{ matrix.python-version }}

@@ -104,7 +104,7 @@ If seconds are too large, set `minimum_unit` to milliseconds or microseconds:
 >>> humanize.naturaldelta(delta, minimum_unit="milliseconds")
 '4 milliseconds'
 >>> humanize.naturaldelta(delta, minimum_unit="microseconds")
-'4000 microseconds'
+'4 milliseconds'
 ```
 ```pycon
 >>> humanize.naturaltime(delta)
@@ -112,7 +112,7 @@ If seconds are too large, set `minimum_unit` to milliseconds or microseconds:
 >>> humanize.naturaltime(delta, minimum_unit="milliseconds")
 '4 milliseconds ago'
 >>> humanize.naturaltime(delta, minimum_unit="microseconds")
-'4000 microseconds ago'
+'4 milliseconds ago'
 ```
 
 ### File size humanization
@@ -208,3 +208,7 @@ Where `<locale name>` is a locale abbreviation, eg. `en_GB`, `pt_BR` or just `ru
 etc.
 
 List the language at the top of this README.
+
+## API reference
+
+[https://python-humanize.readthedocs.io](https://python-humanize.readthedocs.io)

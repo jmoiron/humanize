@@ -23,6 +23,9 @@ def naturalsize(value, binary=False, gnu=False, format="%.1f"):
         gnu (bool): If `True`, the binary argument is ignored and GNU-style
             (`ls -sh` style) prefixes are used (K, M) with the 2**10 definition.
         format (str): Custom formatter.
+
+    Returns:
+        str: Human readable representation of a filesize.
     """
     if gnu:
         suffix = suffixes["gnu"]
