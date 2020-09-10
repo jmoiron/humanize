@@ -36,6 +36,9 @@ def activate(locale, path=None):
 
     Returns:
         dict: Translations.
+
+    Raises:
+        Exception: If humanize cannot find the locale folder.
     """
     if path is None:
         path = _get_default_locale_path()
