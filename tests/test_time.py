@@ -12,11 +12,11 @@ from humanize import time
 ONE_DAY_DELTA = dt.timedelta(days=1)
 
 # In seconds
-ONE_MICROSECOND = 1 / 1000000
-FOUR_MICROSECONDS = 4 / 1000000
+ONE_MICROSECOND = 1 / 1_000_000
+FOUR_MICROSECONDS = 4 / 1_000_000
 ONE_MILLISECOND = 1 / 1000
 FOUR_MILLISECONDS = 4 / 1000
-MICROSECONDS_101_943 = 101943 / 1000000  # 101.94 milliseconds
+MICROSECONDS_101_943 = 101_943 / 1_000_000  # 101.94 milliseconds
 MILLISECONDS_1_337 = 1337 / 1000  # 1.337 seconds
 ONE_HOUR = 3600
 ONE_DAY = 24 * ONE_HOUR
@@ -53,7 +53,7 @@ def assertEqualTimedelta(td1, td2):
 def test_date_and_delta():
     now = dt.datetime.now()
     td = dt.timedelta
-    int_tests = (3, 29, 86399, 86400, 86401 * 30)
+    int_tests = (3, 29, 86_399, 86_400, 86401 * 30)
     date_tests = [now - td(seconds=x) for x in int_tests]
     td_tests = [td(seconds=x) for x in int_tests]
     results = [(now - td(seconds=x), td(seconds=x)) for x in int_tests]
@@ -121,7 +121,7 @@ def test_naturaldelta_nomonths(test_input, expected):
         (2 * 365 * 24 * 60 * 60 + 1, "2 years"),  # 2 years plus 1 second
         (dt.timedelta(days=365 * 2 + 35), "2 years"),
         (dt.timedelta(days=365 * 2 + 65), "2 years"),
-        (dt.timedelta(days=10000), "27 years"),
+        (dt.timedelta(days=10_000), "27 years"),
         ("NaN", "NaN"),
     ],
 )
@@ -153,7 +153,7 @@ def test_naturaldelta(test_input, expected):
         (NOW + dt.timedelta(days=500), "1 year, 4 months from now"),
         (NOW + dt.timedelta(days=365 * 2 + 35), "2 years from now"),
         # regression tests for bugs in post-release humanize
-        (NOW + dt.timedelta(days=10000), "27 years from now"),
+        (NOW + dt.timedelta(days=10_000), "27 years from now"),
         (NOW - dt.timedelta(days=365 + 35), "1 year, 1 month ago"),
         (30, "30 seconds ago"),
         (NOW - dt.timedelta(days=365 * 2 + 65), "2 years ago"),
@@ -191,7 +191,7 @@ def test_naturaltime(test_input, expected):
         (NOW + dt.timedelta(days=500), "1 year, 135 days from now"),
         (NOW + dt.timedelta(days=365 * 2 + 35), "2 years from now"),
         # regression tests for bugs in post-release humanize
-        (NOW + dt.timedelta(days=10000), "27 years from now"),
+        (NOW + dt.timedelta(days=10_000), "27 years from now"),
         (NOW - dt.timedelta(days=365 + 35), "1 year, 35 days ago"),
         (30, "30 seconds ago"),
         (NOW - dt.timedelta(days=365 * 2 + 65), "2 years ago"),
@@ -514,13 +514,13 @@ def test_precisedelta_multiple_units(val, min_unit, expected):
         ),
         (dt.timedelta(microseconds=2002), "milliseconds", "%0.2f", "2.00 milliseconds"),
         (
-            dt.timedelta(seconds=1, microseconds=230000),
+            dt.timedelta(seconds=1, microseconds=230_000),
             "seconds",
             "%0.2f",
             "1.23 seconds",
         ),
         (
-            dt.timedelta(hours=4, seconds=3, microseconds=200000),
+            dt.timedelta(hours=4, seconds=3, microseconds=200_000),
             "seconds",
             "%0.2f",
             "4 hours and 3.20 seconds",
@@ -574,13 +574,13 @@ def test_precisedelta_custom_format(val, min_unit, fmt, expected):
             "1000 milliseconds and 200 microseconds",
         ),
         (
-            dt.timedelta(seconds=1, microseconds=200000),
+            dt.timedelta(seconds=1, microseconds=200_000),
             "microseconds",
             ["milliseconds"],
             "1 second and 200000 microseconds",
         ),
         (
-            dt.timedelta(seconds=1, microseconds=200000),
+            dt.timedelta(seconds=1, microseconds=200_000),
             "microseconds",
             ["milliseconds", "microseconds"],
             "1.20 seconds",
