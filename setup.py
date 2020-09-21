@@ -32,6 +32,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     use_scm_version={"local_scheme": local_scheme},
+    install_requires=["setuptools"],  # pkg_resources
     setup_requires=["setuptools_scm"],
     extras_require={"tests": ["freezegun", "pytest", "pytest-cov"]},
     python_requires=">=3.6",
