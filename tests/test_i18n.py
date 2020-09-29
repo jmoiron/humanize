@@ -7,18 +7,23 @@ import pytest
 
 def test_i18n():
     three_seconds = dt.timedelta(seconds=3)
+    one_min_three_seconds = dt.timedelta(milliseconds=67_000)
 
     assert humanize.naturaltime(three_seconds) == "3 seconds ago"
     assert humanize.ordinal(5) == "5th"
+    assert humanize.precisedelta(one_min_three_seconds) == "1 minute and 7 seconds"
 
     try:
         humanize.i18n.activate("ru_RU")
         assert humanize.naturaltime(three_seconds) == "3 секунды назад"
         assert humanize.ordinal(5) == "5ый"
+        assert humanize.precisedelta(one_min_three_seconds) == "1 минута и 7 секунд"
+
     finally:
         humanize.i18n.deactivate()
         assert humanize.naturaltime(three_seconds) == "3 seconds ago"
         assert humanize.ordinal(5) == "5th"
+        assert humanize.precisedelta(one_min_three_seconds) == "1 minute and 7 seconds"
 
 
 def test_default_locale_path_defined__file__():

@@ -495,4 +495,4 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
     head = ", ".join(texts[:-1])
     tail = texts[-1]
 
-    return " and ".join((head, tail))
+    return _("%s and %s") % (head, tail)
