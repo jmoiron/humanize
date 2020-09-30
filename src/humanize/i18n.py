@@ -101,7 +101,7 @@ def ngettext(message, plural, num):
     """Plural version of gettext.
 
     Args:
-        message (str): Singlular text to translate.
+        message (str): Singular text to translate.
         plural (str): Plural text to translate.
         num (str): The number (e.g. item count) to determine translation for the
             respective grammatical number.
