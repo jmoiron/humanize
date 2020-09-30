@@ -27,7 +27,7 @@ readable size or throughput. It is localized to:
 * Persian
 * Polish
 * Russian
-* Simplified Chinese
+* Simplified mandarin
 * Slovak
 * Spanish
 * Turkish
