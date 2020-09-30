@@ -283,4 +283,4 @@ msgstr "ontem"
 #: src/humanize/time.py:498
 #, python-format
 msgid "%s and %s"
-msgstr ""
+msgstr "%s e %s"
