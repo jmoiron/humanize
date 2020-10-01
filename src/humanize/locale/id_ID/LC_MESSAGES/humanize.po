@@ -82,7 +82,7 @@ msgstr "triliun"
 
 #: src/humanize/number.py:85
 msgid "quadrillion"
-msgstr "quadrillion"
+msgstr "kuadriliun"
 
 #: src/humanize/number.py:86
 msgid "quintillion"
@@ -114,7 +114,7 @@ msgstr "googol"
 
 #: src/humanize/number.py:147
 msgid "zero"
-msgstr ""
+msgstr "nol"
 
 #: src/humanize/number.py:148
 msgid "one"
@@ -156,13 +156,13 @@ msgstr "sembilan"
 #, fuzzy, python-format
 msgid "%d microsecond"
 msgid_plural "%d microseconds"
-msgstr[0] ""
+msgstr[0] "%d mikro detik"
 
 #: src/humanize/time.py:128
 #, fuzzy, python-format
 msgid "%d millisecond"
 msgid_plural "%d milliseconds"
-msgstr[0] ""
+msgstr[0] "%d mili detik"
 
 #: src/humanize/time.py:131 src/humanize/time.py:204
 msgid "a moment"
@@ -273,4 +273,4 @@ msgstr "kemarin"
 #: src/humanize/time.py:498
 #, python-format
 msgid "%s and %s"
-msgstr ""
+msgstr "%s dan %s"
