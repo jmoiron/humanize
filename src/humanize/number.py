@@ -40,8 +40,8 @@ def ordinal(value):
         P_("9", "th"),
     )
     if value % 100 in (11, 12, 13):  # special case
-        return "%d%s" % (value, t[0])
-    return "%d%s" % (value, t[value % 10])
+        return f"{value}{t[0]}"
+    return f"{value}{t[value % 10]}"
 
 
 def intcomma(value, ndigits=None):
@@ -96,9 +96,9 @@ human_powers = (
 def intword(value, format="%.1f"):
     """Converts a large integer to a friendly text representation.
 
-    Works best for numbers over 1 million. For example, 1000000 becomes "1.0 million",
-    1200000 becomes "1.2 million" and "1200000000" becomes "1.2 billion". Supports up to
-    decillion (33 digits) and googol (100 digits).
+    Works best for numbers over 1 million. For example, 1_000_000 becomes "1.0 million",
+    1200000 becomes "1.2 million" and "1_200_000_000" becomes "1.2 billion". Supports up
+    to decillion (33 digits) and googol (100 digits).
 
     Args:
         value (int, float, str): Integer to convert.
@@ -200,11 +200,11 @@ def fractional(value):
     if whole_number and not numerator and denominator == 1:
         # this means that an integer was passed in
         # (or variants of that integer like 1.0000)
-        return "%.0f" % whole_number
+        return f"{whole_number:.0f}"
     elif not whole_number:
-        return "{:.0f}/{:.0f}".format(numerator, denominator)
+        return f"{numerator:.0f}/{denominator:.0f}"
     else:
-        return "{:.0f} {:.0f}/{:.0f}".format(whole_number, numerator, denominator)
+        return f"{whole_number:.0f} {numerator:.0f}/{denominator:.0f}"
 
 
 def scientific(value, precision=2):
