@@ -7,6 +7,7 @@ These are largely borrowed from Django's `contrib.humanize`.
 
 import datetime as dt
 import math
+import typing
 from enum import Enum
 from functools import total_ordering
 
@@ -33,17 +34,17 @@ class Unit(Enum):
     MONTHS = 6
     YEARS = 7
 
-    def __lt__(self, other):
+    def __lt__(self, other: typing.Any) -> typing.Any:
         if self.__class__ is other.__class__:
             return self.value < other.value
         return NotImplemented
 
 
-def _now():
+def _now() -> dt.datetime:
     return dt.datetime.now()
 
 
-def abs_timedelta(delta):
+def abs_timedelta(delta: dt.timedelta) -> dt.timedelta:
     """Return an "absolute" value for a timedelta, always representing a time distance.
 
     Args:
@@ -58,7 +59,9 @@ def abs_timedelta(delta):
     return delta
 
 
-def date_and_delta(value, *, now=None):
+def date_and_delta(
+    value, *, now: typing.Optional[dt.datetime] = None
+) -> typing.Tuple[typing.Any, typing.Any]:
     """Turn a value into a date and a timedelta which represents how long ago it was.
 
     If that's not possible, return `(None, value)`.
@@ -81,7 +84,11 @@ def date_and_delta(value, *, now=None):
     return date, abs_timedelta(delta)
 
 
-def naturaldelta(value, months=True, minimum_unit="seconds"):
+def naturaldelta(
+    value: typing.Union[dt.timedelta, int],
+    months: bool = True,
+    minimum_unit: typing.Literal["seconds", "milliseconds", "microseconds"] = "seconds",
+) -> str:
     """Return a natural representation of a timedelta or number of seconds.
 
     This is similar to `naturaltime`, but does not add tense to the result.
@@ -98,11 +105,11 @@ def naturaldelta(value, months=True, minimum_unit="seconds"):
     tmp = Unit[minimum_unit.upper()]
     if tmp not in (Unit.SECONDS, Unit.MILLISECONDS, Unit.MICROSECONDS):
         raise ValueError(f"Minimum unit '{minimum_unit}' not supported")
-    minimum_unit = tmp
+    min_u = tmp
 
     date, delta = date_and_delta(value)
     if date is None:
-        return value
+        return str(value)
 
     use_months = months
 
@@ -110,18 +117,17 @@ def naturaldelta(value, months=True, minimum_unit="seconds"):
     days = abs(delta.days)
     years = days // 365
     days = days % 365
-    months = int(days // 30.5)
+    num_months = int(days // 30.5)
 
     if not years and days < 1:
         if seconds == 0:
-            if minimum_unit == Unit.MICROSECONDS and delta.microseconds < 1000:
+            if min_u == Unit.MICROSECONDS and delta.microseconds < 1000:
                 return (
                     ngettext("%d microsecond", "%d microseconds", delta.microseconds)
                     % delta.microseconds
                 )
-            elif minimum_unit == Unit.MILLISECONDS or (
-                minimum_unit == Unit.MICROSECONDS
-                and 1000 <= delta.microseconds < 1_000_000
+            elif min_u == Unit.MILLISECONDS or (
+                min_u == Unit.MICROSECONDS and 1000 <= delta.microseconds < 1_000_000
             ):
                 milliseconds = delta.microseconds / 1000
                 return (
@@ -140,7 +146,7 @@ def naturaldelta(value, months=True, minimum_unit="seconds"):
             return ngettext("%d minute", "%d minutes", minutes) % minutes
         elif 3600 <= seconds < 3600 * 2:
             return _("an hour")
-        elif 3600 < seconds:
+        else:
             hours = seconds // 3600
             return ngettext("%d hour", "%d hours", hours) % hours
     elif years == 0:
@@ -149,23 +155,24 @@ def naturaldelta(value, months=True, minimum_unit="seconds"):
         if not use_months:
             return ngettext("%d day", "%d days", days) % days
         else:
-            if not months:
+            if not num_months:
                 return ngettext("%d day", "%d days", days) % days
-            elif months == 1:
+            elif num_months == 1:
                 return _("a month")
             else:
-                return ngettext("%d month", "%d months", months) % months
+                return ngettext("%d month", "%d months", num_months) % num_months
     elif years == 1:
-        if not months and not days:
+        if not num_months and not days:
             return _("a year")
-        elif not months:
+        elif not num_months:
             return ngettext("1 year, %d day", "1 year, %d days", days) % days
         elif use_months:
-            if months == 1:
+            if num_months == 1:
                 return _("1 year, 1 month")
             else:
                 return (
-                    ngettext("1 year, %d month", "1 year, %d months", months) % months
+                    ngettext("1 year, %d month", "1 year, %d months", num_months)
+                    % num_months
                 )
         else:
             return ngettext("1 year, %d day", "1 year, %d days", days) % days
@@ -173,7 +180,12 @@ def naturaldelta(value, months=True, minimum_unit="seconds"):
         return ngettext("%d year", "%d years", years) % years
 
 
-def naturaltime(value, future=False, months=True, minimum_unit="seconds"):
+def naturaltime(
+    value: typing.Union[dt.datetime, int],
+    future: bool = False,
+    months: bool = True,
+    minimum_unit: typing.Literal["seconds", "milliseconds", "microseconds"] = "seconds",
+) -> str:
     """Return a natural representation of a time in a resolution that makes sense.
 
     This is more or less compatible with Django's `naturaltime` filter.
@@ -193,7 +205,7 @@ def naturaltime(value, future=False, months=True, minimum_unit="seconds"):
     now = _now()
     date, delta = date_and_delta(value, now=now)
     if date is None:
-        return value
+        return str(value)
     # determine tense by value only if datetime/timedelta were passed
     if isinstance(value, (dt.datetime, dt.timedelta)):
         future = date > now
@@ -207,7 +219,7 @@ def naturaltime(value, future=False, months=True, minimum_unit="seconds"):
     return ago % delta
 
 
-def naturalday(value, format="%b %d"):
+def naturalday(value: typing.Union[dt.date, dt.datetime], format: str = "%b %d") -> str:
     """Return a natural day.
 
     For date values that are tomorrow, today or yesterday compared to
@@ -218,10 +230,10 @@ def naturalday(value, format="%b %d"):
         value = dt.date(value.year, value.month, value.day)
     except AttributeError:
         # Passed value wasn't date-ish
-        return value
+        return str(value)
     except (OverflowError, ValueError):
         # Date arguments out of range
-        return value
+        return str(value)
     delta = value - dt.date.today()
     if delta.days == 0:
         return _("today")
@@ -232,23 +244,25 @@ def naturalday(value, format="%b %d"):
     return value.strftime(format)
 
 
-def naturaldate(value):
+def naturaldate(value: typing.Union[dt.date, dt.datetime]) -> str:
     """Like `naturalday`, but append a year for dates more than ~five months away."""
     try:
         value = dt.date(value.year, value.month, value.day)
     except AttributeError:
         # Passed value wasn't date-ish
-        return value
+        return str(value)
     except (OverflowError, ValueError):
         # Date arguments out of range
-        return value
+        return str(value)
     delta = abs_timedelta(value - dt.date.today())
     if delta.days >= 5 * 365 / 12:
         return naturalday(value, "%b %d %Y")
     return naturalday(value)
 
 
-def _quotient_and_remainder(value, divisor, unit, minimum_unit, suppress):
+def _quotient_and_remainder(
+    value, divisor, unit, minimum_unit, suppress
+) -> typing.Tuple[float, float]:
     """Divide `value` by `divisor` returning the quotient and remainder.
 
     If `unit` is `minimum_unit`, makes the quotient a float number and the remainder
@@ -281,7 +295,9 @@ def _quotient_and_remainder(value, divisor, unit, minimum_unit, suppress):
         return divmod(value, divisor)
 
 
-def _carry(value1, value2, ratio, unit, min_unit, suppress):
+def _carry(
+    value1, value2, ratio, unit, min_unit, suppress
+) -> typing.Tuple[float, float]:
     """Return a tuple with two values.
 
     If the unit is in `suppress`, multiply `value1` by `ratio` and add it to `value2`
@@ -312,7 +328,7 @@ def _carry(value1, value2, ratio, unit, min_unit, suppress):
         return (value1, value2)
 
 
-def _suitable_minimum_unit(min_unit, suppress):
+def _suitable_minimum_unit(min_unit: Unit, suppress: typing.Iterable[Unit]) -> Unit:
     """Return a minimum unit suitable that is not suppressed.
 
     If not suppressed, return the same unit:
@@ -330,9 +346,10 @@ def _suitable_minimum_unit(min_unit, suppress):
     >>> _suitable_minimum_unit(Unit.HOURS, [Unit.HOURS, Unit.DAYS])
     <Unit.MONTHS: 6>
     """
-    if min_unit in suppress:
+    suppress_set = set(suppress)
+    if min_unit in suppress_set:
         for unit in Unit:
-            if unit > min_unit and unit not in suppress:
+            if unit > min_unit and unit not in suppress_set:
                 return unit
 
         raise ValueError(
@@ -342,7 +359,9 @@ def _suitable_minimum_unit(min_unit, suppress):
     return min_unit
 
 
-def _suppress_lower_units(min_unit, suppress):
+def _suppress_lower_units(
+    min_unit: Unit, suppress: typing.Iterable[Unit]
+) -> typing.Set[Unit]:
     """Extend suppressed units (if any) with all units lower than the minimum unit.
 
     >>> from humanize.time import _suppress_lower_units, Unit
@@ -358,7 +377,24 @@ def _suppress_lower_units(min_unit, suppress):
     return suppress
 
 
-def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
+UnitString = typing.Literal[
+    "microseconds",
+    "milliseconds",
+    "seconds",
+    "minutes",
+    "hours",
+    "days",
+    "months",
+    "years",
+]
+
+
+def precisedelta(
+    value: typing.Union[dt.timedelta, int],
+    minimum_unit: UnitString,
+    suppress: typing.Iterable[UnitString] = (),
+    format: str = "%0.2f",
+) -> str:
     """Return a precise representation of a timedelta.
 
     ```pycon
@@ -408,19 +444,19 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
     """
     date, delta = date_and_delta(value)
     if date is None:
-        return value
+        return str(value)
 
-    suppress = [Unit[s.upper()] for s in suppress]
+    suppress_set = {Unit[s.upper()] for s in suppress}
 
     # Find a suitable minimum unit (it can be greater the one that the
     # user gave us if it is suppressed).
     min_unit = Unit[minimum_unit.upper()]
-    min_unit = _suitable_minimum_unit(min_unit, suppress)
+    min_unit = _suitable_minimum_unit(min_unit, suppress_set)
     del minimum_unit
 
     # Expand the suppressed units list/set to include all the units
     # that are below the minimum unit
-    suppress = _suppress_lower_units(min_unit, suppress)
+    suppress_set = _suppress_lower_units(min_unit, suppress_set)
 
     # handy aliases
     days = delta.days
@@ -443,27 +479,27 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
     #       years, days = divmod(years, days)
     #
     # The same applies for months, hours, minutes and milliseconds below
-    years, days = _quotient_and_remainder(days, 365, YEARS, min_unit, suppress)
-    months, days = _quotient_and_remainder(days, 30.5, MONTHS, min_unit, suppress)
+    years, days = _quotient_and_remainder(days, 365, YEARS, min_unit, suppress_set)
+    months, days = _quotient_and_remainder(days, 30.5, MONTHS, min_unit, suppress_set)
 
-    # If DAYS is not in suppress, we can represent the days but
+    # If DAYS is not in suppress_set, we can represent the days but
     # if it is a suppressed unit, we need to carry it to a lower unit,
     # seconds in this case.
     #
     # The same applies for secs and usecs below
-    days, secs = _carry(days, secs, 24 * 3600, DAYS, min_unit, suppress)
+    days, secs = _carry(days, secs, 24 * 3600, DAYS, min_unit, suppress_set)
 
-    hours, secs = _quotient_and_remainder(secs, 3600, HOURS, min_unit, suppress)
-    minutes, secs = _quotient_and_remainder(secs, 60, MINUTES, min_unit, suppress)
+    hours, secs = _quotient_and_remainder(secs, 3600, HOURS, min_unit, suppress_set)
+    minutes, secs = _quotient_and_remainder(secs, 60, MINUTES, min_unit, suppress_set)
 
-    secs, usecs = _carry(secs, usecs, 1e6, SECONDS, min_unit, suppress)
+    secs, usecs = _carry(secs, usecs, 1e6, SECONDS, min_unit, suppress_set)
 
     msecs, usecs = _quotient_and_remainder(
-        usecs, 1000, MILLISECONDS, min_unit, suppress
+        usecs, 1000, MILLISECONDS, min_unit, suppress_set
     )
 
     # if _unused != 0 we had lost some precision
-    usecs, _unused = _carry(usecs, 0, 1, MICROSECONDS, min_unit, suppress)
+    usecs, _unused = _carry(usecs, 0, 1, MICROSECONDS, min_unit, suppress_set)
 
     fmts = [
         ("%d year", "%d years", years),
@@ -478,13 +514,13 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
 
     texts = []
     for unit, fmt in zip(reversed(Unit), fmts):
-        singular_txt, plural_txt, value = fmt
-        if value > 0:
-            fmt_txt = ngettext(singular_txt, plural_txt, value)
-            if unit == min_unit and math.modf(value)[0] > 0:
+        singular_txt, plural_txt, fmt_value = fmt
+        if fmt_value > 0:
+            fmt_txt = ngettext(singular_txt, plural_txt, fmt_value)
+            if unit == min_unit and math.modf(fmt_value)[0] > 0:
                 fmt_txt = fmt_txt.replace("%d", format)
 
-            texts.append(fmt_txt % value)
+            texts.append(fmt_txt % fmt_value)
 
         if unit == min_unit:
             break

@@ -2,14 +2,21 @@
 
 """Bits and bytes related humanization."""
 
-suffixes = {
+import typing
+
+suffixes: typing.Dict[str, typing.Tuple[str, ...]] = {
     "decimal": ("kB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"),
     "binary": ("KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB"),
     "gnu": ("K", "M", "G", "T", "P", "E", "Z", "Y"),
 }
 
 
-def naturalsize(value, binary=False, gnu=False, format="%.1f"):
+def naturalsize(
+    value: typing.Union[int, float, str],
+    binary: bool = False,
+    gnu: bool = False,
+    format: str = "%.1f",
+) -> str:
     """Format a number of bytes like a human readable filesize (e.g. 10 kB).
 
     By default, decimal suffixes (kB, MB) are used.

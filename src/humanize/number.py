@@ -3,19 +3,24 @@
 """Humanizing functions for numbers."""
 
 import re
+import typing
 from fractions import Fraction
 
 from .i18n import gettext as _
 from .i18n import gettext_noop as N_
 from .i18n import pgettext as P_
 
+# This type can be better defined by typing.SupportsInt, typing.SupportsFloat
+# but that's a Python 3.8 only typing option.
+NumberOrString = typing.Union[str, float, int]
 
-def ordinal(value):
+
+def ordinal(value: NumberOrString) -> str:
     """Converts an integer to its ordinal as a string.
 
     For example, 1 is "1st", 2 is "2nd", 3 is "3rd", etc. Works for any integer or
-    anything `int()` will turn into an integer. Anything other value will have nothing
-    done to it.
+    anything `int()` will turn into an integer. Anything else will just return
+    the output of str(value).  done to it.
 
     Args:
         value (int, str, float): Integer to convert.
@@ -26,7 +31,7 @@ def ordinal(value):
     try:
         value = int(value)
     except (TypeError, ValueError):
-        return value
+        return str(value)
     t = (
         P_("0", "th"),
         P_("1", "st"),
@@ -44,7 +49,7 @@ def ordinal(value):
     return f"{value}{t[value % 10]}"
 
 
-def intcomma(value, ndigits=None):
+def intcomma(value: NumberOrString, ndigits: typing.Optional[int] = None) -> str:
     """Converts an integer to a string containing commas every three digits.
 
     For example, 3000 becomes "3,000" and 45000 becomes "45,000". To maintain some
@@ -63,7 +68,7 @@ def intcomma(value, ndigits=None):
         else:
             float(value)
     except (TypeError, ValueError):
-        return value
+        return str(value)
 
     if ndigits:
         orig = "{0:.{1}f}".format(value, ndigits)
@@ -77,8 +82,10 @@ def intcomma(value, ndigits=None):
         return intcomma(new)
 
 
-powers = [10 ** x for x in (6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 100)]
-human_powers = (
+powers: typing.List[int] = [
+    10 ** x for x in (6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 100)
+]
+human_powers: typing.Tuple[str, ...] = (
     N_("million"),
     N_("billion"),
     N_("trillion"),
@@ -93,7 +100,7 @@ human_powers = (
 )
 
 
-def intword(value, format="%.1f"):
+def intword(value: NumberOrString, format: str = "%.1f") -> str:
     """Converts a large integer to a friendly text representation.
 
     Works best for numbers over 1 million. For example, 1_000_000 becomes "1.0 million",
@@ -107,12 +114,12 @@ def intword(value, format="%.1f"):
 
     Returns:
         str: Friendly text representation as a string, unless the value passed could not
-        be coaxed into an `int`.
+        be coaxed into an `int`, in which case, `str(value)` is returned.
     """
     try:
         value = int(value)
     except (TypeError, ValueError):
-        return value
+        return str(value)
 
     if value < powers[0]:
         return str(value)
@@ -127,7 +134,7 @@ def intword(value, format="%.1f"):
     return str(value)
 
 
-def apnumber(value):
+def apnumber(value: NumberOrString) -> str:
     """Converts an integer to Associated Press style.
 
     Args:
@@ -135,12 +142,13 @@ def apnumber(value):
 
     Returns:
         str: For numbers 0-9, the number spelled out. Otherwise, the number. This always
-        returns a string unless the value was not `int`-able, unlike the Django filter.
+        returns a string. If the value was not `int`-able, then `str(value)`
+        is returned.
     """
     try:
         value = int(value)
     except (TypeError, ValueError):
-        return value
+        return str(value)
     if not 0 <= value < 10:
         return str(value)
     return (
@@ -157,7 +165,7 @@ def apnumber(value):
     )[value]
 
 
-def fractional(value):
+def fractional(value: NumberOrString) -> str:
     """Convert to fractional number.
 
     There will be some cases where one might not want to show ugly decimal places for
@@ -171,6 +179,7 @@ def fractional(value):
     * a string representation of a fraction
     * or a whole number
     * or a mixed fraction
+    * or the str output of the value, if it could not be converted
 
     Examples:
         ```pycon
@@ -182,6 +191,8 @@ def fractional(value):
         '1/3'
         >>> fractional(1)
         '1'
+        >>> fractional("fallback")
+        'fallback'
         ```
     Args:
         value (int, float, str): Integer to convert.
@@ -192,11 +203,11 @@ def fractional(value):
     try:
         number = float(value)
     except (TypeError, ValueError):
-        return value
+        return str(value)
     whole_number = int(number)
     frac = Fraction(number - whole_number).limit_denominator(1000)
-    numerator = frac._numerator
-    denominator = frac._denominator
+    numerator = frac.numerator
+    denominator = frac.denominator
     if whole_number and not numerator and denominator == 1:
         # this means that an integer was passed in
         # (or variants of that integer like 1.0000)
@@ -207,7 +218,7 @@ def fractional(value):
         return f"{whole_number:.0f} {numerator:.0f}/{denominator:.0f}"
 
 
-def scientific(value, precision=2):
+def scientific(value: NumberOrString, precision: int = 2) -> str:
     """Return number in string scientific notation z.wq x 10ⁿ.
 
     Examples:
@@ -252,7 +263,7 @@ def scientific(value, precision=2):
         n = fmt.format(value)
 
     except (ValueError, TypeError):
-        return value
+        return str(value)
 
     part1, part2 = n.split("e")
     if "-0" in part2:
