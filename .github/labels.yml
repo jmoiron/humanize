@@ -55,6 +55,9 @@
 - color: d0c1ff
   description: "Translations need updating"
   name: "needs localisation"
+- color: eb6123
+  description: ""
+  name: Hacktoberfest
 - color: e29673
   name: "needs tests"
 - color: fbca04
