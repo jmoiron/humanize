@@ -100,12 +100,12 @@ def naturaldelta(value, months=True, minimum_unit="seconds", when=None):
     Examples
         Compare two timestamps in a custom local timezone::
 
-        from datetime import datetime, timedelta, timezone
+        import datetime as dt
         from dateutil.tz import gettz
 
         berlin = gettz("Europe/Berlin")
-        now = datetime.now(tz=berlin)
-        later = now + timedelta(minutes=30)
+        now = dt.datetime.now(tz=berlin)
+        later = now + dt.timedelta(minutes=30)
 
         assert naturaldelta(later, when=now) == "30 minutes"
     """
