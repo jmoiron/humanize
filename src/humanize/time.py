@@ -229,6 +229,7 @@ def naturalday(value, format="%b %d"):
     For date values that are tomorrow, today or yesterday compared to
     present day return representing string. Otherwise, return a string
     formatted according to `format`.
+
     """
     try:
         value = dt.date(value.year, value.month, value.day)
@@ -384,6 +385,7 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
     >>> delta = dt.timedelta(seconds=3633, days=2, microseconds=123000)
     >>> precisedelta(delta)
     '2 days, 1 hour and 33.12 seconds'
+
     ```
 
     A custom `format` can be specified to control how the fractional part
@@ -392,6 +394,7 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
     ```pycon
     >>> precisedelta(delta, format="%0.4f")
     '2 days, 1 hour and 33.1230 seconds'
+
     ```
 
     Instead, the `minimum_unit` can be changed to have a better resolution;
@@ -403,6 +406,7 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
     ```pycon
     >>> precisedelta(delta, minimum_unit="microseconds")
     '2 days, 1 hour, 33 seconds and 123 milliseconds'
+
     ```
 
     If desired, some units can be suppressed: you will not see them represented and the
@@ -411,6 +415,7 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
     ```pycon
     >>> precisedelta(delta, suppress=['days'])
     '49 hours and 33.12 seconds'
+
     ```
 
     Note that microseconds precision is lost if the seconds and all
@@ -420,6 +425,7 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
     >>> delta = dt.timedelta(seconds=90, microseconds=100)
     >>> precisedelta(delta, suppress=['seconds', 'milliseconds', 'microseconds'])
     '1.50 minutes'
+
     ```
     """
     date, delta = date_and_delta(value)
