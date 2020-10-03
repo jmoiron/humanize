@@ -15,7 +15,20 @@ def naturalsize(value, binary=False, gnu=False, format="%.1f"):
     By default, decimal suffixes (kB, MB) are used.
 
     Non-GNU modes are compatible with jinja2's `filesizeformat` filter.
+    Examples:
+        ```pycon
+        >>> naturalsize(3000000)
+        '3.0 MB'
+        >>> naturalsize(300, False, True)
+        '300B'
+        >>> naturalsize(3000, False, True)
+        '2.9K'
+        >>> naturalsize(3000, False, True, "%.3f")
+        '2.930K'
+        >>> naturalsize(3000, True)
+        '2.9 KiB'
 
+        ```
     Args:
         value (int, float, str): Integer to convert.
         binary (bool): If `True`, uses binary suffixes (KiB, MiB) with base
