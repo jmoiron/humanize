@@ -15,6 +15,7 @@ def naturalsize(value, binary=False, gnu=False, format="%.1f"):
     By default, decimal suffixes (kB, MB) are used.
 
     Non-GNU modes are compatible with jinja2's `filesizeformat` filter.
+
     Examples:
         ```pycon
         >>> naturalsize(3000000)

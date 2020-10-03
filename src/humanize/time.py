@@ -214,9 +214,6 @@ def naturalday(value, format="%b %d"):
     present day return representing string. Otherwise, return a string
     formatted according to `format`.
 
-    Examples:
-
-
     """
     try:
         value = dt.date(value.year, value.month, value.day)

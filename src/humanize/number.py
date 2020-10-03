@@ -33,7 +33,7 @@ def ordinal(value):
         '101st'
         >>> ordinal(111)
         '111th'
-        >>> ordinal('something else')
+        >>> ordinal("something else")
         'something else'
         >>> ordinal(None) is None
         True
@@ -71,6 +71,7 @@ def intcomma(value, ndigits=None):
 
     For example, 3000 becomes "3,000" and 45000 becomes "45,000". To maintain some
     compatibility with Django's `intcomma`, this function also accepts floats.
+
     Examples:
         ``pycon
         >>> intcomma(100)
@@ -138,6 +139,7 @@ def intword(value, format="%.1f"):
     Works best for numbers over 1 million. For example, 1_000_000 becomes "1.0 million",
     1200000 becomes "1.2 million" and "1_200_000_000" becomes "1.2 billion". Supports up
     to decillion (33 digits) and googol (100 digits).
+
     Examples:
         ```pycon
         >>> intword("100")
@@ -184,24 +186,25 @@ def intword(value, format="%.1f"):
 def apnumber(value):
     """Converts an integer to Associated Press style.
 
+    Examples:
+      ```pycon
+      >>> apnumber(0)
+      'zero'
+      >>> apnumber(5)
+      'five'
+      >>> apnumber(10)
+      '10'
+      >>> apnumber("7")
+      'seven'
+      >>> apnumber("foo")
+      'foo'
+      >>> apnumber(None) is None
+      True
+
+      ```
     Args:
         value (int, float, str): Integer to convert.
-      Examples:
-        ```pycon
-        >>> apnumber(0)
-        'zero'
-        >>> apnumber(5)
-        'five'
-        >>> apnumber(10)
-        '10'
-        >>> apnumber("7")
-        'seven'
-        >>> apnumber("foo")
-        'foo'
-        >>> apnumber(None) is None
-        True
 
-        ```
     Returns:
         str: For numbers 0-9, the number spelled out. Otherwise, the number. This always
         returns a string unless the value was not `int`-able, unlike the Django filter.
@@ -243,7 +246,6 @@ def fractional(value):
 
     Examples:
         ```pycon
-
         >>> fractional(0.3)
         '3/10'
         >>> fractional(1.3)
