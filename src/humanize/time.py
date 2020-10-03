@@ -81,7 +81,7 @@ def date_and_delta(value, *, now=None):
     return date, abs_timedelta(delta)
 
 
-def naturaldelta(value, months=True, minimum_unit="seconds"):
+def naturaldelta(value, months=True, minimum_unit="seconds", when=None):
     """Return a natural representation of a timedelta or number of seconds.
 
     This is similar to `naturaltime`, but does not add tense to the result.
@@ -91,16 +91,30 @@ def naturaldelta(value, months=True, minimum_unit="seconds"):
         months (bool): If `True`, then a number of months (based on 30.5 days) will be
             used for fuzziness between years.
         minimum_unit (str): The lowest unit that can be used.
+        when (datetime.timedelta): Point in time relative to which _value_ is
+            interpreted.  Defaults to the current time in the local timezone.
 
     Returns:
         str: A natural representation of the amount of time elapsed.
+
+    Examples
+        Compare two timestamps in a custom local timezone::
+
+        import datetime as dt
+        from dateutil.tz import gettz
+
+        berlin = gettz("Europe/Berlin")
+        now = dt.datetime.now(tz=berlin)
+        later = now + dt.timedelta(minutes=30)
+
+        assert naturaldelta(later, when=now) == "30 minutes"
     """
     tmp = Unit[minimum_unit.upper()]
     if tmp not in (Unit.SECONDS, Unit.MILLISECONDS, Unit.MICROSECONDS):
         raise ValueError(f"Minimum unit '{minimum_unit}' not supported")
     minimum_unit = tmp
 
-    date, delta = date_and_delta(value)
+    date, delta = date_and_delta(value, now=when)
     if date is None:
         return value
 
@@ -173,7 +187,7 @@ def naturaldelta(value, months=True, minimum_unit="seconds"):
         return ngettext("%d year", "%d years", years) % years
 
 
-def naturaltime(value, future=False, months=True, minimum_unit="seconds"):
+def naturaltime(value, future=False, months=True, minimum_unit="seconds", when=None):
     """Return a natural representation of a time in a resolution that makes sense.
 
     This is more or less compatible with Django's `naturaltime` filter.
@@ -186,11 +200,13 @@ def naturaltime(value, future=False, months=True, minimum_unit="seconds"):
         months (bool): If `True`, then a number of months (based on 30.5 days) will be
             used for fuzziness between years.
         minimum_unit (str): The lowest unit that can be used.
+        when (datetime.datetime): Point in time relative to which _value_ is
+            interpreted.  Defaults to the current time in the local timezone.
 
     Returns:
         str: A natural representation of the input in a resolution that makes sense.
     """
-    now = _now()
+    now = when or _now()
     date, delta = date_and_delta(value, now=now)
     if date is None:
         return value
@@ -199,7 +215,7 @@ def naturaltime(value, future=False, months=True, minimum_unit="seconds"):
         future = date > now
 
     ago = _("%s from now") if future else _("%s ago")
-    delta = naturaldelta(delta, months, minimum_unit)
+    delta = naturaldelta(delta, months, minimum_unit, when=when)
 
     if delta == _("a moment"):
         return _("now")
