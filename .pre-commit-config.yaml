@@ -45,3 +45,4 @@ repos:
     rev: v0.782
     hooks:
       - id: mypy
+        additional_dependencies: [typing-extensions==3.7.4.3]

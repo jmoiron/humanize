@@ -14,6 +14,21 @@ from functools import total_ordering
 from .i18n import gettext as _
 from .i18n import ngettext
 
+if typing.TYPE_CHECKING:
+    from typing_extensions import Literal
+
+    UnitString = Literal[
+        "microseconds",
+        "milliseconds",
+        "seconds",
+        "minutes",
+        "hours",
+        "days",
+        "months",
+        "years",
+    ]
+
+
 __all__ = [
     "naturaldelta",
     "naturaltime",
@@ -87,7 +102,7 @@ def date_and_delta(
 def naturaldelta(
     value: typing.Union[dt.timedelta, int],
     months: bool = True,
-    minimum_unit: typing.Literal["seconds", "milliseconds", "microseconds"] = "seconds",
+    minimum_unit: 'Literal["seconds", "milliseconds", "microseconds"]' = "seconds",
     when: typing.Optional[dt.datetime] = None,
 ) -> str:
     """Return a natural representation of a timedelta or number of seconds.
@@ -199,7 +214,7 @@ def naturaltime(
     value: typing.Union[dt.datetime, int],
     future: bool = False,
     months: bool = True,
-    minimum_unit: typing.Literal["seconds", "milliseconds", "microseconds"] = "seconds",
+    minimum_unit: 'Literal["seconds", "milliseconds", "microseconds"]' = "seconds",
     when: typing.Optional[dt.datetime] = None,
 ) -> str:
     """Return a natural representation of a time in a resolution that makes sense.
@@ -396,22 +411,10 @@ def _suppress_lower_units(
     return suppress
 
 
-UnitString = typing.Literal[
-    "microseconds",
-    "milliseconds",
-    "seconds",
-    "minutes",
-    "hours",
-    "days",
-    "months",
-    "years",
-]
-
-
 def precisedelta(
     value: typing.Union[dt.timedelta, int],
-    minimum_unit: UnitString,
-    suppress: typing.Iterable[UnitString] = (),
+    minimum_unit: "UnitString",
+    suppress: typing.Iterable["UnitString"] = (),
     format: str = "%0.2f",
 ) -> str:
     """Return a precise representation of a timedelta.
