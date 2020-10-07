@@ -214,10 +214,10 @@ def test_naturaltime_nomonths(test_input, expected):
         ([dt.date(TODAY.year, 3, 5)], "Mar 05"),
         (["02/26/1984"], "02/26/1984"),
         ([dt.date(1982, 6, 27), "%Y.%m.%d"], "1982.06.27"),
-        ([None], None),
+        ([None], "None"),
         (["Not a date at all."], "Not a date at all."),
-        ([VALUE_ERROR_TEST], VALUE_ERROR_TEST),
-        ([OVERFLOW_ERROR_TEST], OVERFLOW_ERROR_TEST),
+        ([VALUE_ERROR_TEST], str(VALUE_ERROR_TEST)),
+        ([OVERFLOW_ERROR_TEST], str(OVERFLOW_ERROR_TEST)),
     ],
 )
 def test_naturalday(test_args, expected):
@@ -233,10 +233,10 @@ def test_naturalday(test_args, expected):
         (YESTERDAY, "yesterday"),
         (dt.date(TODAY.year, 3, 5), "Mar 05"),
         (dt.date(1982, 6, 27), "Jun 27 1982"),
-        (None, None),
+        (None, str(None)),
         ("Not a date at all.", "Not a date at all."),
-        (VALUE_ERROR_TEST, VALUE_ERROR_TEST),
-        (OVERFLOW_ERROR_TEST, OVERFLOW_ERROR_TEST),
+        (VALUE_ERROR_TEST, str(VALUE_ERROR_TEST)),
+        (OVERFLOW_ERROR_TEST, str(OVERFLOW_ERROR_TEST)),
         (dt.date(2019, 2, 2), "Feb 02 2019"),
         (dt.date(2019, 3, 2), "Mar 02 2019"),
         (dt.date(2019, 4, 2), "Apr 02 2019"),
@@ -629,7 +629,8 @@ def test_precisedelta_suppress_units(val, min_unit, suppress, expected):
 
 
 def test_precisedelta_bogus_call():
-    assert humanize.precisedelta(None) is None
+    bogus = object()
+    assert humanize.precisedelta(bogus) == str(bogus)
 
     with pytest.raises(ValueError):
         humanize.precisedelta(1, minimum_unit="years", suppress=["years"])

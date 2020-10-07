@@ -413,7 +413,7 @@ def _suppress_lower_units(
 
 def precisedelta(
     value: typing.Union[dt.timedelta, int],
-    minimum_unit: "UnitString",
+    minimum_unit: "UnitString" = "seconds",
     suppress: typing.Iterable["UnitString"] = (),
     format: str = "%0.2f",
 ) -> str:

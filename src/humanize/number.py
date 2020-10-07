@@ -40,7 +40,7 @@ def ordinal(value: NumberOrString) -> str:
         '111th'
         >>> ordinal("something else")
         'something else'
-        >>> ordinal(None) is None
+        >>> ordinal([1, 2, 3]) == "[1, 2, 3]"
         True
 
         ```
@@ -91,8 +91,8 @@ def intcomma(value: NumberOrString, ndigits: typing.Optional[int] = None) -> str
         '1,234.55'
         >>> intcomma(14308.40, 1)
         '14,308.4'
-        >>> intcomma(None) is None
-        True
+        >>> intcomma(None)
+        'None'
 
         ```
     Args:
@@ -157,8 +157,8 @@ def intword(value: NumberOrString, format: str = "%.1f") -> str:
         '1.2 billion'
         >>> intword(8100000000000000000000000000000000)
         '8.1 decillion'
-        >>> intword(None) is None
-        True
+        >>> intword(None)
+        'None'
         >>> intword("1234000", "%0.3f")
         '1.234 million'
 
@@ -205,8 +205,8 @@ def apnumber(value: NumberOrString) -> str:
       'seven'
       >>> apnumber("foo")
       'foo'
-      >>> apnumber(None) is None
-      True
+      >>> apnumber(None)
+      'None'
 
       ```
     Args:
@@ -265,8 +265,8 @@ def fractional(value: NumberOrString) -> str:
         '1'
         >>> fractional("ten")
         'ten'
-        >>> fractional(None) == str(None)
-        True
+        >>> fractional(None)
+        'None'
 
         ```
     Args:
@@ -312,8 +312,8 @@ def scientific(value: NumberOrString, precision: int = 2) -> str:
         '9.90 x 10¹'
         >>> scientific("foo")
         'foo'
-        >>> scientific(None) is None
-        True
+        >>> scientific(None)
+        'None'
 
         ```
 

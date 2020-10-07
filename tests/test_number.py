@@ -22,7 +22,7 @@ from humanize import number
         ("103", "103rd"),
         ("111", "111th"),
         ("something else", "something else"),
-        (None, None),
+        (None, "None"),
     ],
 )
 def test_ordinal(test_input, expected):
@@ -44,7 +44,7 @@ def test_ordinal(test_input, expected):
         (["10311"], "10,311"),
         (["1000000"], "1,000,000"),
         (["1234567.1234567"], "1,234,567.1234567"),
-        ([None], None),
+        ([None], "None"),
         ([14308.40], "14,308.4"),
         ([14308.40, None], "14,308.4"),
         ([14308.40, 1], "14,308.4"),
@@ -85,7 +85,7 @@ def test_intword_powers():
         (["1300000000000000"], "1.3 quadrillion"),
         (["3500000000000000000000"], "3.5 sextillion"),
         (["8100000000000000000000000000000000"], "8.1 decillion"),
-        ([None], None),
+        ([None], "None"),
         (["1230000", "%0.2f"], "1.23 million"),
         ([10 ** 101], "1" + "0" * 101),
     ],
@@ -105,7 +105,7 @@ def test_intword(test_args, expected):
         (9, "nine"),
         (10, "10"),
         ("7", "seven"),
-        (None, None),
+        (None, "None"),
     ],
 )
 def test_apnumber(test_input, expected):
@@ -122,7 +122,7 @@ def test_apnumber(test_input, expected):
         ("7", "7"),
         ("8.9", "8 9/10"),
         ("ten", "ten"),
-        (None, None),
+        (None, "None"),
         (1 / 3, "1/3"),
         (1.5, "1 1/2"),
         (0.3, "3/10"),
@@ -144,7 +144,7 @@ def test_fractional(test_input, expected):
         (["99"], "9.90 x 10¹"),
         ([float(0.3)], "3.00 x 10⁻¹"),
         (["foo"], "foo"),
-        ([None], None),
+        ([None], "None"),
         ([1000, 1], "1.0 x 10³"),
         ([float(0.3), 1], "3.0 x 10⁻¹"),
         ([1000, 0], "1 x 10³"),
