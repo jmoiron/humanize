@@ -88,6 +88,7 @@ def naturaldelta(
     value: typing.Union[dt.timedelta, int],
     months: bool = True,
     minimum_unit: typing.Literal["seconds", "milliseconds", "microseconds"] = "seconds",
+    when: typing.Optional[dt.datetime] = None,
 ) -> str:
     """Return a natural representation of a timedelta or number of seconds.
 
@@ -98,16 +99,30 @@ def naturaldelta(
         months (bool): If `True`, then a number of months (based on 30.5 days) will be
             used for fuzziness between years.
         minimum_unit (str): The lowest unit that can be used.
+        when (datetime.datetime): Point in time relative to which _value_ is
+            interpreted.  Defaults to the current time in the local timezone.
 
     Returns:
         str: A natural representation of the amount of time elapsed.
+
+    Examples
+        Compare two timestamps in a custom local timezone::
+
+        import datetime as dt
+        from dateutil.tz import gettz
+
+        berlin = gettz("Europe/Berlin")
+        now = dt.datetime.now(tz=berlin)
+        later = now + dt.timedelta(minutes=30)
+
+        assert naturaldelta(later, when=now) == "30 minutes"
     """
     tmp = Unit[minimum_unit.upper()]
     if tmp not in (Unit.SECONDS, Unit.MILLISECONDS, Unit.MICROSECONDS):
         raise ValueError(f"Minimum unit '{minimum_unit}' not supported")
     min_u = tmp
 
-    date, delta = date_and_delta(value)
+    date, delta = date_and_delta(value, now=when)
     if date is None:
         return str(value)
 
@@ -185,6 +200,7 @@ def naturaltime(
     future: bool = False,
     months: bool = True,
     minimum_unit: typing.Literal["seconds", "milliseconds", "microseconds"] = "seconds",
+    when: typing.Optional[dt.datetime] = None,
 ) -> str:
     """Return a natural representation of a time in a resolution that makes sense.
 
@@ -198,11 +214,13 @@ def naturaltime(
         months (bool): If `True`, then a number of months (based on 30.5 days) will be
             used for fuzziness between years.
         minimum_unit (str): The lowest unit that can be used.
+        when (datetime.datetime): Point in time relative to which _value_ is
+            interpreted.  Defaults to the current time in the local timezone.
 
     Returns:
         str: A natural representation of the input in a resolution that makes sense.
     """
-    now = _now()
+    now = when or _now()
     date, delta = date_and_delta(value, now=now)
     if date is None:
         return str(value)
@@ -211,7 +229,7 @@ def naturaltime(
         future = date > now
 
     ago = _("%s from now") if future else _("%s ago")
-    delta = naturaldelta(delta, months, minimum_unit)
+    delta = naturaldelta(delta, months, minimum_unit, when=when)
 
     if delta == _("a moment"):
         return _("now")
@@ -225,6 +243,7 @@ def naturalday(value: typing.Union[dt.date, dt.datetime], format: str = "%b %d")
     For date values that are tomorrow, today or yesterday compared to
     present day return representing string. Otherwise, return a string
     formatted according to `format`.
+
     """
     try:
         value = dt.date(value.year, value.month, value.day)
@@ -404,6 +423,7 @@ def precisedelta(
     >>> delta = dt.timedelta(seconds=3633, days=2, microseconds=123000)
     >>> precisedelta(delta)
     '2 days, 1 hour and 33.12 seconds'
+
     ```
 
     A custom `format` can be specified to control how the fractional part
@@ -412,6 +432,7 @@ def precisedelta(
     ```pycon
     >>> precisedelta(delta, format="%0.4f")
     '2 days, 1 hour and 33.1230 seconds'
+
     ```
 
     Instead, the `minimum_unit` can be changed to have a better resolution;
@@ -423,6 +444,7 @@ def precisedelta(
     ```pycon
     >>> precisedelta(delta, minimum_unit="microseconds")
     '2 days, 1 hour, 33 seconds and 123 milliseconds'
+
     ```
 
     If desired, some units can be suppressed: you will not see them represented and the
@@ -431,6 +453,7 @@ def precisedelta(
     ```pycon
     >>> precisedelta(delta, suppress=['days'])
     '49 hours and 33.12 seconds'
+
     ```
 
     Note that microseconds precision is lost if the seconds and all
@@ -440,6 +463,7 @@ def precisedelta(
     >>> delta = dt.timedelta(seconds=90, microseconds=100)
     >>> precisedelta(delta, suppress=['seconds', 'milliseconds', 'microseconds'])
     '1.50 minutes'
+
     ```
     """
     date, delta = date_and_delta(value)

@@ -22,6 +22,28 @@ def ordinal(value: NumberOrString) -> str:
     anything `int()` will turn into an integer. Anything else will just return
     the output of str(value).  done to it.
 
+    Examples:
+        ```pycon
+        >>> ordinal(1)
+        '1st'
+        >>> ordinal(1002)
+        '1002nd'
+        >>> ordinal(103)
+        '103rd'
+        >>> ordinal(4)
+        '4th'
+        >>> ordinal(12)
+        '12th'
+        >>> ordinal(101)
+        '101st'
+        >>> ordinal(111)
+        '111th'
+        >>> ordinal("something else")
+        'something else'
+        >>> ordinal(None) is None
+        True
+
+        ```
     Args:
         value (int, str, float): Integer to convert.
 
@@ -55,6 +77,24 @@ def intcomma(value: NumberOrString, ndigits: typing.Optional[int] = None) -> str
     For example, 3000 becomes "3,000" and 45000 becomes "45,000". To maintain some
     compatibility with Django's `intcomma`, this function also accepts floats.
 
+    Examples:
+        ``pycon
+        >>> intcomma(100)
+        '100'
+        >>> intcomma("1000")
+        '1,000'
+        >>> intcomma(1_000_000)
+        '1,000,000'
+        >>> intcomma(1_234_567.25)
+        '1,234,567.25'
+        >>> intcomma(1234.5454545, 2)
+        '1,234.55'
+        >>> intcomma(14308.40, 1)
+        '14,308.4'
+        >>> intcomma(None) is None
+        True
+
+        ```
     Args:
         value (int, float, str): Integer or float to convert.
         ndigits (int, None): Digits of precision for rounding after the decimal point.
@@ -107,6 +147,22 @@ def intword(value: NumberOrString, format: str = "%.1f") -> str:
     1200000 becomes "1.2 million" and "1_200_000_000" becomes "1.2 billion". Supports up
     to decillion (33 digits) and googol (100 digits).
 
+    Examples:
+        ```pycon
+        >>> intword("100")
+        '100'
+        >>> intword("1000000")
+        '1.0 million'
+        >>> intword(1_200_000_000)
+        '1.2 billion'
+        >>> intword(8100000000000000000000000000000000)
+        '8.1 decillion'
+        >>> intword(None) is None
+        True
+        >>> intword("1234000", "%0.3f")
+        '1.234 million'
+
+        ```
     Args:
         value (int, float, str): Integer to convert.
         format (str): To change the number of decimal or general format of the number
@@ -137,6 +193,22 @@ def intword(value: NumberOrString, format: str = "%.1f") -> str:
 def apnumber(value: NumberOrString) -> str:
     """Converts an integer to Associated Press style.
 
+    Examples:
+      ```pycon
+      >>> apnumber(0)
+      'zero'
+      >>> apnumber(5)
+      'five'
+      >>> apnumber(10)
+      '10'
+      >>> apnumber("7")
+      'seven'
+      >>> apnumber("foo")
+      'foo'
+      >>> apnumber(None) is None
+      True
+
+      ```
     Args:
         value (int, float, str): Integer to convert.
 
@@ -191,8 +263,11 @@ def fractional(value: NumberOrString) -> str:
         '1/3'
         >>> fractional(1)
         '1'
-        >>> fractional("fallback")
-        'fallback'
+        >>> fractional("ten")
+        'ten'
+        >>> fractional(None) == str(None)
+        True
+
         ```
     Args:
         value (int, float, str): Integer to convert.
@@ -227,6 +302,19 @@ def scientific(value: NumberOrString, precision: int = 2) -> str:
         '3.00 x 10⁻¹'
         >>> scientific(int(500))
         '5.00 x 10²'
+        >>> scientific(-1000)
+        '1.00 x 10⁻³'
+        >>> scientific(1000, 1)
+        '1.0 x 10³'
+        >>> scientific(1000, 3)
+        '1.000 x 10³'
+        >>> scientific("99")
+        '9.90 x 10¹'
+        >>> scientific("foo")
+        'foo'
+        >>> scientific(None) is None
+        True
+
         ```
 
     Args:
