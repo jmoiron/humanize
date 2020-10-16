@@ -1,4 +1,4 @@
-# humanize
+# Humanize
 
 [![PyPI version](https://img.shields.io/pypi/v/humanize.svg?logo=pypi&logoColor=FFE873)](https://pypi.org/project/humanize/)
 [![Supported Python versions](https://img.shields.io/pypi/pyversions/humanize.svg?logo=python&logoColor=FFE873)](https://pypi.org/project/humanize/)
@@ -36,7 +36,7 @@ readable size or throughput. It is localized to:
 
 ## Usage
 
-### Integer humanization
+### Integer Humanization
 
 ```pycon
 >>> import humanize
@@ -52,7 +52,7 @@ readable size or throughput. It is localized to:
 '41'
 ```
 
-### Date & time humanization
+### Date & Time Humanization
 
 ```pycon
 >>> import humanize
