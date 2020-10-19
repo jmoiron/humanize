@@ -58,6 +58,9 @@
 - color: eb6123
   description: ""
   name: Hacktoberfest
+- color: eb6123
+  description: "To credit accepted Hacktoberfest PRs"
+  name: hacktoberfest-accepted
 - color: e29673
   name: "needs tests"
 - color: fbca04
