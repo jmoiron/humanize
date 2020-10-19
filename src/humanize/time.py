@@ -427,6 +427,20 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
     '1.50 minutes'
 
     ```
+
+    If the delta is too small to be represented with the minimum unit,
+    a value of zero will be returned:
+
+    ```pycon
+    >>> delta = dt.timedelta(seconds=1)
+    >>> precisedelta(delta, minimum_unit="minutes")
+    '0.02 minutes'
+
+    >>> delta = dt.timedelta(seconds=0.1)
+    >>> precisedelta(delta, minimum_unit="minutes")
+    '0 minutes'
+
+    ```
     """
     date, delta = date_and_delta(value)
     if date is None:
@@ -501,7 +515,7 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
     texts = []
     for unit, fmt in zip(reversed(Unit), fmts):
         singular_txt, plural_txt, value = fmt
-        if value > 0:
+        if value > 0 or (not texts and unit == min_unit):
             fmt_txt = ngettext(singular_txt, plural_txt, value)
             if unit == min_unit and math.modf(value)[0] > 0:
                 fmt_txt = fmt_txt.replace("%d", format)

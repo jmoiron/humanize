@@ -496,6 +496,11 @@ def test_precisedelta_one_unit_enough(val, min_unit, expected):
             "microseconds",
             "1 year, 5 days and 2 seconds",
         ),
+        (
+            dt.timedelta(seconds=0.01),
+            "minutes",
+            "0 minutes",
+        ),
     ],
 )
 def test_precisedelta_multiple_units(val, min_unit, expected):
