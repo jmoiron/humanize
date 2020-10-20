@@ -54,4 +54,5 @@ setup(
         "Topic :: Text Processing",
         "Topic :: Text Processing :: General",
     ],
+    package_data={"humanize": ["locale/*"]}
 )
