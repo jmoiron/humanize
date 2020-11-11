@@ -7,3 +7,36 @@ target_version = ["py36"]
 
 [tool.setuptools_scm]
 local_scheme = "no-local-version"
+
+[tool.isort]
+profile = "black"
+known_third_party = ["humanize"]
+
+[tool.pytest.ini_options]
+addopts = "--color=yes"
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist =
+    py{36, 37, 38, 39, py3}
+
+[testenv]
+extras =
+    tests
+commands =
+    {envpython} -m pytest --cov humanize --cov tests --cov-report xml {posargs}
+
+[testenv:docs]
+deps = -r docs/requirements.txt
+commands = mkdocs build
+
+[testenv:lint]
+deps = pre-commit
+commands = pre-commit run --all-files --show-diff-on-failure
+skip_install = true
+passenv = PRE_COMMIT_COLOR
+
+[pytest]
+addopts = --doctest-modules
+"""
