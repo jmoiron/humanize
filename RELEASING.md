@@ -1,10 +1,8 @@
 # Release Checklist
 
 - [ ] Get master to the appropriate code release state.
-      [Travis CI](https://travis-ci.org/hugovk/humanize) and
       [GitHub Actions](https://github.com/jmoiron/humanize/actions) should be running
       cleanly for all merges to master.
-      [![Build Status](https://travis-ci.org/hugovk/humanize.svg?branch=master)](https://travis-ci.org/hugovk/humanize)
       [![GitHub Actions status](https://github.com/jmoiron/humanize/workflows/Test/badge.svg)](https://github.com/jmoiron/humanize/actions)
 
 * [ ] Start from a freshly cloned repo:
