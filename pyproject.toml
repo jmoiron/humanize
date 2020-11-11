@@ -13,7 +13,7 @@ profile = "black"
 known_third_party = ["humanize"]
 
 [tool.pytest.ini_options]
-addopts = "--color=yes"
+addopts = "--color=yes --doctest-modules"
 
 [tool.tox]
 legacy_tox_ini = """
@@ -36,7 +36,4 @@ deps = pre-commit
 commands = pre-commit run --all-files --show-diff-on-failure
 skip_install = true
 passenv = PRE_COMMIT_COLOR
-
-[pytest]
-addopts = --doctest-modules
 """
