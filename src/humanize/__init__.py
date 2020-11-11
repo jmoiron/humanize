@@ -1,5 +1,6 @@
 """Main package for humanize."""
-import pkg_resources
+import sys
+
 from humanize.filesize import naturalsize
 from humanize.i18n import activate, deactivate
 from humanize.number import apnumber, fractional, intcomma, intword, ordinal, scientific
@@ -11,7 +12,12 @@ from humanize.time import (
     precisedelta,
 )
 
-__version__ = VERSION = pkg_resources.get_distribution(__name__).version
+if sys.version_info < (3, 8):
+    import importlib_metadata
+else:
+    import importlib.metadata as importlib_metadata
+
+__version__ = VERSION = importlib_metadata.version(__package__)
 
 
 __all__ = [
