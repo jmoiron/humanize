@@ -12,7 +12,7 @@ local_scheme = "no-local-version"
 profile = "black"
 
 [tool.pytest.ini_options]
-addopts = "--color=yes --doctest-modules"
+addopts = "--doctest-modules"
 
 [tool.tox]
 legacy_tox_ini = """
