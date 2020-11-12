@@ -4,9 +4,10 @@
 
 import datetime as dt
 
-import humanize
 import pytest
 from freezegun import freeze_time
+
+import humanize
 from humanize import time
 
 ONE_DAY_DELTA = dt.timedelta(days=1)

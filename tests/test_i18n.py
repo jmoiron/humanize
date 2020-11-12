@@ -1,8 +1,9 @@
 import datetime as dt
 import importlib
 
-import humanize
 import pytest
+
+import humanize
 
 
 def test_i18n():

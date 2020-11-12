@@ -2,8 +2,9 @@
 
 """Number tests."""
 
-import humanize
 import pytest
+
+import humanize
 from humanize import number
 
 
