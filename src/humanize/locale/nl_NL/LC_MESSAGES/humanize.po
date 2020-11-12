@@ -1,5 +1,5 @@
-# French (France) translations for PROJECT.
-# Copyright (C) 2013 ORGANIZATION
+# Dutch (Netherlands) translations for PROJECT.
+# Copyright (C) 2020 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
 #
@@ -202,7 +202,7 @@ msgstr "een uur"
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "%d uur"
-msgstr[1] "%d uren"
+msgstr[1] "%d uur"
 
 #: src/humanize/time.py:148
 msgid "a day"
