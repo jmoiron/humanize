@@ -6,6 +6,9 @@ import pytest
 import humanize
 
 
+@pytest.mark.filterwarnings(
+    "ignore:Plural value must be an integer, got float:DeprecationWarning"
+)
 def test_i18n():
     three_seconds = dt.timedelta(seconds=3)
     one_min_three_seconds = dt.timedelta(milliseconds=67_000)
