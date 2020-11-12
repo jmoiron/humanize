@@ -12,7 +12,10 @@ local_scheme = "no-local-version"
 profile = "black"
 
 [tool.pytest.ini_options]
-addopts = "--doctest-modules"
+addopts = "--strict-config --strict-markers --doctest-modules"
+xfail_strict = true
+junit_family = "xunit2"
+filterwarnings = ["error"]
 
 [tool.tox]
 legacy_tox_ini = """
