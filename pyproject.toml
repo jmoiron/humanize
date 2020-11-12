@@ -10,7 +10,6 @@ local_scheme = "no-local-version"
 
 [tool.isort]
 profile = "black"
-known_third_party = ["humanize"]
 
 [tool.pytest.ini_options]
 addopts = "--color=yes --doctest-modules"
