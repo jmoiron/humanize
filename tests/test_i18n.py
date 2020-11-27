@@ -26,6 +26,20 @@ def test_i18n():
         assert humanize.precisedelta(one_min_three_seconds) == "1 minute and 7 seconds"
 
 
+def test_intcomma():
+    number = 10_000_000
+
+    assert humanize.intcomma(number) == "10,000,000"
+
+    try:
+        humanize.i18n.activate("fr_FR")
+        assert humanize.intcomma(number) == "10 000 000"
+
+    finally:
+        humanize.i18n.deactivate()
+        assert humanize.intcomma(number) == "10,000,000"
+
+
 def test_default_locale_path_defined__file__():
     i18n = importlib.import_module("humanize.i18n")
     assert i18n._get_default_locale_path() is not None
