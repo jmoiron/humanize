@@ -2,8 +2,9 @@
 
 """Tests for filesize humanizing."""
 
-import humanize
 import pytest
+
+import humanize
 
 
 @pytest.mark.parametrize(

@@ -1,5 +1,6 @@
 """Main package for humanize."""
 import pkg_resources
+
 from humanize.filesize import naturalsize
 from humanize.i18n import activate, deactivate, thousands_separator
 from humanize.number import apnumber, fractional, intcomma, intword, ordinal, scientific
