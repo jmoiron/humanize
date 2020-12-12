@@ -33,6 +33,10 @@ readable size or throughput. It is localized to:
 * Ukrainian
 * Vietnamese
 
+## API reference
+
+[https://python-humanize.readthedocs.io](https://python-humanize.readthedocs.io)
+
 ## Usage
 
 ### Integer humanization
@@ -207,7 +211,3 @@ Where `<locale name>` is a locale abbreviation, eg. `en_GB`, `pt_BR` or just `ru
 etc.
 
 List the language at the top of this README.
-
-## API reference
-
-[https://python-humanize.readthedocs.io](https://python-humanize.readthedocs.io)
