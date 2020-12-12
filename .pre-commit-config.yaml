@@ -11,16 +11,16 @@ repos:
       - id: black
         args: ["--target-version", "py36"]
 
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.6.4
+    hooks:
+      - id: isort
+
   - repo: https://gitlab.com/pycqa/flake8
     rev: 3.8.4
     hooks:
       - id: flake8
         additional_dependencies: [flake8-2020, flake8-implicit-str-concat]
-
-  - repo: https://github.com/timothycrosley/isort
-    rev: 5.6.4
-    hooks:
-      - id: isort
 
   - repo: https://github.com/pre-commit/pygrep-hooks
     rev: v1.7.0
@@ -33,6 +33,7 @@ repos:
       - id: check-merge-conflict
       - id: check-toml
       - id: check-yaml
+      - id: end-of-file-fixer
 
   - repo: https://github.com/PyCQA/pydocstyle
     rev: 5.1.1
@@ -40,6 +41,11 @@ repos:
       - id: pydocstyle
         args: ["--convention", "google"]
         files: "src/"
+
+  - repo: https://github.com/tox-dev/tox-ini-fmt
+    rev: 0.5.0
+    hooks:
+      - id: tox-ini-fmt
 
   - repo: https://github.com/asottile/setup-cfg-fmt
     rev: v1.15.1

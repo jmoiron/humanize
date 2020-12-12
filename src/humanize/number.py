@@ -8,6 +8,7 @@ from fractions import Fraction
 from .i18n import gettext as _
 from .i18n import gettext_noop as N_
 from .i18n import pgettext as P_
+from .i18n import thousands_separator
 
 
 def ordinal(value):
@@ -97,9 +98,10 @@ def intcomma(value, ndigits=None):
     Returns:
         str: string containing commas every three digits.
     """
+    sep = thousands_separator()
     try:
         if isinstance(value, str):
-            float(value.replace(",", ""))
+            float(value.replace(sep, ""))
         else:
             float(value)
     except (TypeError, ValueError):
@@ -110,7 +112,7 @@ def intcomma(value, ndigits=None):
     else:
         orig = str(value)
 
-    new = re.sub(r"^(-?\d+)(\d{3})", r"\g<1>,\g<2>", orig)
+    new = re.sub(r"^(-?\d+)(\d{3})", fr"\g<1>{sep}\g<2>", orig)
     if orig == new:
         return new
     else:

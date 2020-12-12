@@ -1,8 +1,9 @@
 import datetime as dt
 import importlib
 
-import humanize
 import pytest
+
+import humanize
 
 
 def test_i18n():
@@ -24,6 +25,20 @@ def test_i18n():
         assert humanize.naturaltime(three_seconds) == "3 seconds ago"
         assert humanize.ordinal(5) == "5th"
         assert humanize.precisedelta(one_min_three_seconds) == "1 minute and 7 seconds"
+
+
+def test_intcomma():
+    number = 10_000_000
+
+    assert humanize.intcomma(number) == "10,000,000"
+
+    try:
+        humanize.i18n.activate("fr_FR")
+        assert humanize.intcomma(number) == "10 000 000"
+
+    finally:
+        humanize.i18n.deactivate()
+        assert humanize.intcomma(number) == "10,000,000"
 
 
 def test_default_locale_path_defined__file__():

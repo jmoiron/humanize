@@ -3,10 +3,16 @@ import gettext as gettext_module
 import os.path
 from threading import local
 
-__all__ = ["activate", "deactivate", "gettext", "ngettext"]
+__all__ = ["activate", "deactivate", "gettext", "ngettext", "thousands_separator"]
 
 _TRANSLATIONS = {None: gettext_module.NullTranslations()}
 _CURRENT = local()
+
+
+# Mapping of locale to thousands separator
+_THOUSANDS_SEPARATOR = {
+    "fr_FR": " ",
+}
 
 
 def _get_default_locale_path():
@@ -129,3 +135,16 @@ def gettext_noop(message):
         str: Original text, unchanged.
     """
     return message
+
+
+def thousands_separator() -> str:
+    """Return the thousands separator for a locale, default to comma.
+
+    Returns:
+         str: Thousands separator.
+    """
+    try:
+        sep = _THOUSANDS_SEPARATOR[_CURRENT.locale]
+    except (AttributeError, KeyError):
+        sep = ","
+    return sep
