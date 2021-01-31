@@ -161,13 +161,13 @@ def intword(value, format="%.1f", conversions=None):
         '1.234 million'
         >>> intword(100_000, "%0.0f", conversions=[(3, "K")])
         '100 K'
-        
+
         ```
     Args:
         value (int, float, str): Integer to convert.
         format (str): To change the number of decimal or general format of the number
             portion.
-        conversions [(int, str)]: Power to suffix conversion 
+        conversions [(int, str)]: Power to suffix conversion
 
     Returns:
         str: Friendly text representation as a string, unless the value passed could not
