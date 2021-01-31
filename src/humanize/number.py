@@ -119,23 +119,26 @@ def intcomma(value, ndigits=None):
         return intcomma(new)
 
 
-powers = [10 ** x for x in (6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 100)]
-human_powers = (
-    N_("million"),
-    N_("billion"),
-    N_("trillion"),
-    N_("quadrillion"),
-    N_("quintillion"),
-    N_("sextillion"),
-    N_("septillion"),
-    N_("octillion"),
-    N_("nonillion"),
-    N_("decillion"),
-    N_("googol"),
+default_conversions = [
+    (6, "million"),
+    (9, "billion"),
+    (12, "trillion"),
+    (15, "quadrillion"),
+    (18, "quintillion"),
+    (21, "sextillion"),
+    (24, "septillion"),
+    (27, "octillion"),
+    (30, "nonillion"),
+    (33, "decillion"),
+    (100, "googol"),
+]
+
+powers, human_powers = zip(
+    *[(10 ** power, N_(human_power)) for power, human_power in default_conversions]
 )
 
 
-def intword(value, format="%.1f"):
+def intword(value, format="%.1f", conversions=None):
     """Converts a large integer to a friendly text representation.
 
     Works best for numbers over 1 million. For example, 1_000_000 becomes "1.0 million",
@@ -156,12 +159,15 @@ def intword(value, format="%.1f"):
         True
         >>> intword("1234000", "%0.3f")
         '1.234 million'
-
+        >>> intword(100_000, "%0.0f", conversions=[(3, "K")])
+        '100 K'
+        
         ```
     Args:
         value (int, float, str): Integer to convert.
         format (str): To change the number of decimal or general format of the number
             portion.
+        conversions [(int, str)]: Power to suffix conversion 
 
     Returns:
         str: Friendly text representation as a string, unless the value passed could not
@@ -172,16 +178,27 @@ def intword(value, format="%.1f"):
     except (TypeError, ValueError):
         return value
 
-    if value < powers[0]:
+    if conversions is None:
+        l_powers, l_human_powers = powers, human_powers
+    else:
+        l_powers, l_human_powers = zip(
+            *[(10 ** power, N_(human_power)) for power, human_power in conversions]
+        )
+
+    if value < l_powers[0]:
         return str(value)
-    for ordinal, power in enumerate(powers[1:], 1):
+    elif len(l_powers) == 1:
+        chopped = value / float(l_powers[0])
+        return (" ".join([format, _(l_human_powers[0])])) % chopped
+
+    for ordinal, power in enumerate(l_powers[1:], 1):
         if value < power:
-            chopped = value / float(powers[ordinal - 1])
+            chopped = value / float(l_powers[ordinal - 1])
             if float(format % chopped) == float(10 ** 3):
-                chopped = value / float(powers[ordinal])
-                return (" ".join([format, _(human_powers[ordinal])])) % chopped
+                chopped = value / float(l_powers[ordinal])
+                return (" ".join([format, _(l_human_powers[ordinal])])) % chopped
             else:
-                return (" ".join([format, _(human_powers[ordinal - 1])])) % chopped
+                return (" ".join([format, _(l_human_powers[ordinal - 1])])) % chopped
     return str(value)
 
 
