@@ -3,7 +3,15 @@ import pkg_resources
 
 from humanize.filesize import naturalsize
 from humanize.i18n import activate, deactivate, thousands_separator
-from humanize.number import apnumber, fractional, intcomma, intword, ordinal, scientific
+from humanize.number import (
+    apnumber,
+    clamp,
+    fractional,
+    intcomma,
+    intword,
+    ordinal,
+    scientific,
+)
 from humanize.time import (
     naturaldate,
     naturalday,
@@ -19,6 +27,7 @@ __all__ = [
     "__version__",
     "activate",
     "apnumber",
+    "clamp",
     "deactivate",
     "fractional",
     "intcomma",
