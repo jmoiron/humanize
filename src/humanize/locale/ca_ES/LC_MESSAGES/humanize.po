@@ -1,0 +1,285 @@
+# Catalan translations for PACKAGE package
+# This file is distributed under the same license as the PACKAGE package.
+# Jordi Mas i Hernàndez <jmas@softcatala.org>, 2021
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: humanize\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-09 19:34+0200\n"
+"PO-Revision-Date: 2021-04-09 19:57+0200\n"
+"Last-Translator: Jordi Mas i Hernàndez <jmas@softcatala.org>\n"
+"Language-Team: Catalan\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"X-Generator: Poedit 2.4.1\n"
+
+#: src/humanize/number.py:54
+msgctxt "0"
+msgid "th"
+msgstr "º"
+
+#: src/humanize/number.py:55
+msgctxt "1"
+msgid "st"
+msgstr "º"
+
+#: src/humanize/number.py:56
+msgctxt "2"
+msgid "nd"
+msgstr "º"
+
+#: src/humanize/number.py:57
+msgctxt "3"
+msgid "rd"
+msgstr "º"
+
+#: src/humanize/number.py:58
+msgctxt "4"
+msgid "th"
+msgstr "º"
+
+#: src/humanize/number.py:59
+msgctxt "5"
+msgid "th"
+msgstr "º"
+
+#: src/humanize/number.py:60
+msgctxt "6"
+msgid "th"
+msgstr "º"
+
+#: src/humanize/number.py:61
+msgctxt "7"
+msgid "th"
+msgstr "º"
+
+#: src/humanize/number.py:62
+msgctxt "8"
+msgid "th"
+msgstr "º"
+
+#: src/humanize/number.py:63
+msgctxt "9"
+msgid "th"
+msgstr "º"
+
+#: src/humanize/number.py:124
+msgid "million"
+msgstr "milió"
+
+#: src/humanize/number.py:125
+msgid "billion"
+msgstr "mil milions"
+
+#: src/humanize/number.py:126
+msgid "trillion"
+msgstr "bilions"
+
+#: src/humanize/number.py:127
+msgid "quadrillion"
+msgstr "quadrilió"
+
+#: src/humanize/number.py:128
+msgid "quintillion"
+msgstr "quintillió"
+
+#: src/humanize/number.py:129
+msgid "sextillion"
+msgstr "sextilió"
+
+#: src/humanize/number.py:130
+msgid "septillion"
+msgstr "septilió"
+
+#: src/humanize/number.py:131
+msgid "octillion"
+msgstr "octilió"
+
+#: src/humanize/number.py:132
+msgid "nonillion"
+msgstr "nonilió"
+
+#: src/humanize/number.py:133
+msgid "decillion"
+msgstr "decilió"
+
+#: src/humanize/number.py:134
+msgid "googol"
+msgstr "googol"
+
+#: src/humanize/number.py:221
+msgid "zero"
+msgstr "zero"
+
+#: src/humanize/number.py:222
+msgid "one"
+msgstr "un"
+
+#: src/humanize/number.py:223
+msgid "two"
+msgstr "dos"
+
+#: src/humanize/number.py:224
+msgid "three"
+msgstr "tres"
+
+#: src/humanize/number.py:225
+msgid "four"
+msgstr "quatre"
+
+#: src/humanize/number.py:226
+msgid "five"
+msgstr "cinc"
+
+#: src/humanize/number.py:227
+msgid "six"
+msgstr "sis"
+
+#: src/humanize/number.py:228
+msgid "seven"
+msgstr "set"
+
+#: src/humanize/number.py:229
+msgid "eight"
+msgstr "vuit"
+
+#: src/humanize/number.py:230
+msgid "nine"
+msgstr "nou"
+
+#: src/humanize/time.py:133
+#, python-format
+msgid "%d microsecond"
+msgid_plural "%d microseconds"
+msgstr[0] "%d microsegon"
+msgstr[1] "%d microsegons"
+
+#: src/humanize/time.py:142
+#, python-format
+msgid "%d millisecond"
+msgid_plural "%d milliseconds"
+msgstr[0] "%d mil·lisegons"
+msgstr[1] "%d mil·lisegons"
+
+#: src/humanize/time.py:145 src/humanize/time.py:220
+msgid "a moment"
+msgstr "un moment"
+
+#: src/humanize/time.py:147
+msgid "a second"
+msgstr "un segon"
+
+#: src/humanize/time.py:149
+#, python-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d segon"
+msgstr[1] "%d segons"
+
+#: src/humanize/time.py:151
+msgid "a minute"
+msgstr "un minut"
+
+#: src/humanize/time.py:154
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d minut"
+msgstr[1] "%d minuts"
+
+#: src/humanize/time.py:156
+msgid "an hour"
+msgstr "una hora"
+
+#: src/humanize/time.py:159
+#, python-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d hora"
+msgstr[1] "%d hores"
+
+#: src/humanize/time.py:162
+msgid "a day"
+msgstr "un dia"
+
+#: src/humanize/time.py:164 src/humanize/time.py:167
+#, python-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d dia"
+msgstr[1] "%d dies"
+
+#: src/humanize/time.py:169
+msgid "a month"
+msgstr "un mes"
+
+#: src/humanize/time.py:171
+#, python-format
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] "%d mes"
+msgstr[1] "%d mesos"
+
+#: src/humanize/time.py:174
+msgid "a year"
+msgstr "un any"
+
+#: src/humanize/time.py:176 src/humanize/time.py:185
+#, python-format
+msgid "1 year, %d day"
+msgid_plural "1 year, %d days"
+msgstr[0] "1 any, %d dia"
+msgstr[1] "1 any, %d dies"
+
+#: src/humanize/time.py:179
+msgid "1 year, 1 month"
+msgstr "1 any, 1 mes"
+
+#: src/humanize/time.py:182
+#, python-format
+msgid "1 year, %d month"
+msgid_plural "1 year, %d months"
+msgstr[0] "1 any, %d mes"
+msgstr[1] "1 any, %d mesos"
+
+#: src/humanize/time.py:187
+#, python-format
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] "%d any"
+msgstr[1] "%d anys"
+
+#: src/humanize/time.py:217
+#, python-format
+msgid "%s from now"
+msgstr "en %s"
+
+#: src/humanize/time.py:217
+#, python-format
+msgid "%s ago"
+msgstr "fa %s"
+
+#: src/humanize/time.py:221
+msgid "now"
+msgstr "ara"
+
+#: src/humanize/time.py:244
+msgid "today"
+msgstr "avui"
+
+#: src/humanize/time.py:246
+msgid "tomorrow"
+msgstr "demà"
+
+#: src/humanize/time.py:248
+msgid "yesterday"
+msgstr "ahir"
+
+#: src/humanize/time.py:534
+#, python-format
+msgid "%s and %s"
+msgstr "%s i %s"
