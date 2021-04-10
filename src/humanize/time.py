@@ -335,17 +335,17 @@ def _suitable_minimum_unit(min_unit, suppress):
     If not suppressed, return the same unit:
 
     >>> from humanize.time import _suitable_minimum_unit, Unit
-    >>> _suitable_minimum_unit(Unit.HOURS, [])
-    <Unit.HOURS: 4>
+    >>> _suitable_minimum_unit(Unit.HOURS, []).name
+    'HOURS'
 
     But if suppressed, find a unit greather than the original one that is not
     suppressed:
 
-    >>> _suitable_minimum_unit(Unit.HOURS, [Unit.HOURS])
-    <Unit.DAYS: 5>
+    >>> _suitable_minimum_unit(Unit.HOURS, [Unit.HOURS]).name
+    'DAYS'
 
-    >>> _suitable_minimum_unit(Unit.HOURS, [Unit.HOURS, Unit.DAYS])
-    <Unit.MONTHS: 6>
+    >>> _suitable_minimum_unit(Unit.HOURS, [Unit.HOURS, Unit.DAYS]).name
+    'MONTHS'
     """
     if min_unit in suppress:
         for unit in Unit:
@@ -363,8 +363,8 @@ def _suppress_lower_units(min_unit, suppress):
     """Extend suppressed units (if any) with all units lower than the minimum unit.
 
     >>> from humanize.time import _suppress_lower_units, Unit
-    >>> list(sorted(_suppress_lower_units(Unit.SECONDS, [Unit.DAYS])))
-    [<Unit.MICROSECONDS: 0>, <Unit.MILLISECONDS: 1>, <Unit.DAYS: 5>]
+    >>> [x.name for x in sorted(_suppress_lower_units(Unit.SECONDS, [Unit.DAYS]))]
+    ['MICROSECONDS', 'MILLISECONDS', 'DAYS']
     """
     suppress = set(suppress)
     for u in Unit:
