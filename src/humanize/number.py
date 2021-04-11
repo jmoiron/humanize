@@ -74,7 +74,7 @@ def intcomma(value, ndigits=None):
     compatibility with Django's `intcomma`, this function also accepts floats.
 
     Examples:
-        ``pycon
+        ```pycon
         >>> intcomma(100)
         '100'
         >>> intcomma("1000")
