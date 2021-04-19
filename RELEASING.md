@@ -14,6 +14,12 @@ git clone https://github.com/jmoiron/humanize
 cd humanize
 ```
 
+* [ ] Generate translation binaries:
+
+```bash
+scripts/generate-translation-binaries.sh
+```
+
 * [ ] (Optional) Create a distribution and release on **TestPyPI**:
 
 ```bash

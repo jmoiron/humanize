@@ -48,6 +48,11 @@ jobs:
           python -m pip install -U wheel
           python -m pip install -U tox
 
+      - name: Generate translation binaries
+        run: |
+          scripts/generate-translation-binaries.sh
+          git status
+
       - name: Tox tests
         run: |
           tox -e py
