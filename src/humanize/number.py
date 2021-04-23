@@ -119,8 +119,9 @@ def intcomma(value, ndigits=None):
         return intcomma(new)
 
 
-powers = [10 ** x for x in (6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 100)]
+powers = [10 ** x for x in (3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 100)]
 human_powers = (
+    N_("thousand"),
     N_("million"),
     N_("billion"),
     N_("trillion"),
@@ -146,6 +147,8 @@ def intword(value, format="%.1f"):
         ```pycon
         >>> intword("100")
         '100'
+        >>> intword("12400")
+        '12.4 thousand'
         >>> intword("1000000")
         '1.0 million'
         >>> intword(1_200_000_000)
