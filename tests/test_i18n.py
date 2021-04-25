@@ -20,6 +20,9 @@ def test_i18n():
         assert humanize.ordinal(5) == "5ый"
         assert humanize.precisedelta(one_min_three_seconds) == "1 минута и 7 секунд"
 
+    except FileNotFoundError:
+        pytest.skip("Generate .mo with scripts/generate-translation-binaries.sh")
+
     finally:
         humanize.i18n.deactivate()
         assert humanize.naturaltime(three_seconds) == "3 seconds ago"
@@ -35,6 +38,9 @@ def test_intcomma():
     try:
         humanize.i18n.activate("fr_FR")
         assert humanize.intcomma(number) == "10 000 000"
+
+    except FileNotFoundError:
+        pytest.skip("Generate .mo with scripts/generate-translation-binaries.sh")
 
     finally:
         humanize.i18n.deactivate()

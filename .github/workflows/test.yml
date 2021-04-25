@@ -42,11 +42,25 @@ jobs:
           restore-keys: |
             ${{ matrix.os }}-${{ matrix.python-version }}-v1-
 
+      - name: Install Linux dependencies
+        if: startsWith(matrix.os, 'ubuntu')
+        run: |
+          sudo apt install gettext
+
+      - name: Install macOS dependencies
+        if: startsWith(matrix.os, 'macos')
+        run: |
+          brew install gettext
+
       - name: Install dependencies
         run: |
           python -m pip install -U pip
           python -m pip install -U wheel
           python -m pip install -U tox
+
+      - name: Generate translation binaries
+        run: |
+          scripts/generate-translation-binaries.sh
 
       - name: Tox tests
         run: |
