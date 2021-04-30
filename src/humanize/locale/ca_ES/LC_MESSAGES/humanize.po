@@ -74,77 +74,66 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: src/humanize/number.py:127
-#, fuzzy
 msgid "million"
 msgid_plural "million"
 msgstr[0] "milió"
 msgstr[1] "milió"
 
 #: src/humanize/number.py:128
-#, fuzzy
 msgid "billion"
 msgid_plural "billion"
 msgstr[0] "mil milions"
 msgstr[1] "mil milions"
 
 #: src/humanize/number.py:129
-#, fuzzy
 msgid "trillion"
 msgid_plural "trillion"
 msgstr[0] "bilions"
 msgstr[1] "bilions"
 
 #: src/humanize/number.py:130
-#, fuzzy
 msgid "quadrillion"
 msgid_plural "quadrillion"
 msgstr[0] "quadrilió"
 msgstr[1] "quadrilió"
 
 #: src/humanize/number.py:131
-#, fuzzy
 msgid "quintillion"
 msgid_plural "quintillion"
 msgstr[0] "quintillió"
 msgstr[1] "quintillió"
 
 #: src/humanize/number.py:132
-#, fuzzy
 msgid "sextillion"
 msgid_plural "sextillion"
 msgstr[0] "sextilió"
 msgstr[1] "sextilió"
 
 #: src/humanize/number.py:133
-#, fuzzy
 msgid "septillion"
 msgid_plural "septillion"
 msgstr[0] "septilió"
 msgstr[1] "septilió"
 
 #: src/humanize/number.py:134
-#, fuzzy
 msgid "octillion"
 msgid_plural "octillion"
 msgstr[0] "octilió"
 msgstr[1] "octilió"
 
 #: src/humanize/number.py:135
-#, fuzzy
 msgid "nonillion"
 msgid_plural "nonillion"
 msgstr[0] "nonilió"
 msgstr[1] "nonilió"
 
 #: src/humanize/number.py:136
-#, fuzzy
 msgid "decillion"
 msgid_plural "decillion"
 msgstr[0] "decilió"
 msgstr[1] "decilió"
 
 #: src/humanize/number.py:137
-#, fuzzy
 msgid "googol"
 msgid_plural "googol"
 msgstr[0] "googol"
