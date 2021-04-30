@@ -70,7 +70,7 @@ msgstr "."
 
 #: src/humanize/number.py:124
 msgid "thousand"
-msgstr ""
+msgstr "tuhatta"
 
 #: src/humanize/number.py:125
 msgid "million"
