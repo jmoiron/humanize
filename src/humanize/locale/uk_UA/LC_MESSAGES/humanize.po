@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 17:01+0300\n"
+"POT-Creation-Date: 2021-04-30 22:34+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: TL\n"
 "Language-Team: uk_UA\n"
@@ -15,141 +15,177 @@ msgstr ""
 "Generated-By:\n"
 "X-Generator: \n"
 
-#: src/humanize/number.py:54
+#: src/humanize/number.py:56
 msgctxt "0"
 msgid "th"
 msgstr "ий"
 
-#: src/humanize/number.py:55
+#: src/humanize/number.py:57
 msgctxt "1"
 msgid "st"
 msgstr "ий"
 
-#: src/humanize/number.py:56
+#: src/humanize/number.py:58
 msgctxt "2"
 msgid "nd"
 msgstr "ий"
 
-#: src/humanize/number.py:57
+#: src/humanize/number.py:59
 msgctxt "3"
 msgid "rd"
 msgstr "ій"
 
-#: src/humanize/number.py:58
+#: src/humanize/number.py:60
 msgctxt "4"
 msgid "th"
 msgstr "ий"
 
-#: src/humanize/number.py:59
+#: src/humanize/number.py:61
 msgctxt "5"
 msgid "th"
 msgstr "ий"
 
-#: src/humanize/number.py:60
+#: src/humanize/number.py:62
 msgctxt "6"
 msgid "th"
 msgstr "ий"
 
-#: src/humanize/number.py:61
+#: src/humanize/number.py:63
 msgctxt "7"
 msgid "th"
 msgstr "ий"
 
-#: src/humanize/number.py:62
+#: src/humanize/number.py:64
 msgctxt "8"
 msgid "th"
 msgstr "ий"
 
-#: src/humanize/number.py:63
+#: src/humanize/number.py:65
 msgctxt "9"
 msgid "th"
 msgstr "ий"
 
-#: src/humanize/number.py:124
-msgid "thousand"
-msgstr ""
-
-#: src/humanize/number.py:125
-msgid "million"
-msgstr "мільйонів"
-
 #: src/humanize/number.py:126
-msgid "billion"
-msgstr "мільярдів"
+msgid "thousand"
+msgid_plural "thousand"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: src/humanize/number.py:127
-msgid "trillion"
-msgstr "трильйонів"
+msgid "million"
+msgid_plural "million"
+msgstr[0] "мільйонів"
+msgstr[1] "мільйонів"
+msgstr[2] "мільйонів"
 
 #: src/humanize/number.py:128
-msgid "quadrillion"
-msgstr "квадрильйонів"
+msgid "billion"
+msgid_plural "billion"
+msgstr[0] "мільярдів"
+msgstr[1] "мільярдів"
+msgstr[2] "мільярдів"
 
 #: src/humanize/number.py:129
-msgid "quintillion"
-msgstr "квинтиліонів"
+msgid "trillion"
+msgid_plural "trillion"
+msgstr[0] "трильйонів"
+msgstr[1] "трильйонів"
+msgstr[2] "трильйонів"
 
 #: src/humanize/number.py:130
-msgid "sextillion"
-msgstr "сикстильйонів"
+msgid "quadrillion"
+msgid_plural "quadrillion"
+msgstr[0] "квадрильйонів"
+msgstr[1] "квадрильйонів"
+msgstr[2] "квадрильйонів"
 
 #: src/humanize/number.py:131
-msgid "septillion"
-msgstr "септильйонів"
+msgid "quintillion"
+msgid_plural "quintillion"
+msgstr[0] "квинтиліонів"
+msgstr[1] "квинтиліонів"
+msgstr[2] "квинтиліонів"
 
 #: src/humanize/number.py:132
-msgid "octillion"
-msgstr "октильйонів"
+msgid "sextillion"
+msgid_plural "sextillion"
+msgstr[0] "сикстильйонів"
+msgstr[1] "сикстильйонів"
+msgstr[2] "сикстильйонів"
 
 #: src/humanize/number.py:133
-msgid "nonillion"
-msgstr "нонильйонів"
+msgid "septillion"
+msgid_plural "septillion"
+msgstr[0] "септильйонів"
+msgstr[1] "септильйонів"
+msgstr[2] "септильйонів"
 
 #: src/humanize/number.py:134
-msgid "decillion"
-msgstr "децильйонів"
+msgid "octillion"
+msgid_plural "octillion"
+msgstr[0] "октильйонів"
+msgstr[1] "октильйонів"
+msgstr[2] "октильйонів"
 
 #: src/humanize/number.py:135
-msgid "googol"
-msgstr "гугола"
+msgid "nonillion"
+msgid_plural "nonillion"
+msgstr[0] "нонильйонів"
+msgstr[1] "нонильйонів"
+msgstr[2] "нонильйонів"
 
-#: src/humanize/number.py:224
+#: src/humanize/number.py:136
+msgid "decillion"
+msgid_plural "decillion"
+msgstr[0] "децильйонів"
+msgstr[1] "децильйонів"
+msgstr[2] "децильйонів"
+
+#: src/humanize/number.py:137
+msgid "googol"
+msgid_plural "googol"
+msgstr[0] "гугола"
+msgstr[1] "гугола"
+msgstr[2] "гугола"
+
+#: src/humanize/number.py:228
 msgid "zero"
 msgstr "нуль"
 
-#: src/humanize/number.py:225
+#: src/humanize/number.py:229
 msgid "one"
 msgstr "один"
 
-#: src/humanize/number.py:226
+#: src/humanize/number.py:230
 msgid "two"
 msgstr "два"
 
-#: src/humanize/number.py:227
+#: src/humanize/number.py:231
 msgid "three"
 msgstr "три"
 
-#: src/humanize/number.py:228
+#: src/humanize/number.py:232
 msgid "four"
 msgstr "чотири"
 
-#: src/humanize/number.py:229
+#: src/humanize/number.py:233
 msgid "five"
 msgstr "п'ять"
 
-#: src/humanize/number.py:230
+#: src/humanize/number.py:234
 msgid "six"
 msgstr "шість"
 
-#: src/humanize/number.py:231
+#: src/humanize/number.py:235
 msgid "seven"
 msgstr "сім"
 
-#: src/humanize/number.py:232
+#: src/humanize/number.py:236
 msgid "eight"
 msgstr "вісім"
 
-#: src/humanize/number.py:233
+#: src/humanize/number.py:237
 msgid "nine"
 msgstr "дев'ять"
 

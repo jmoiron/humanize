@@ -6,7 +6,8 @@ import re
 from fractions import Fraction
 
 from .i18n import gettext as _
-from .i18n import gettext_noop as N_
+from .i18n import ngettext
+from .i18n import ngettext_noop as NS_
 from .i18n import pgettext as P_
 from .i18n import thousands_separator
 
@@ -121,18 +122,18 @@ def intcomma(value, ndigits=None):
 
 powers = [10 ** x for x in (3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 100)]
 human_powers = (
-    N_("thousand"),
-    N_("million"),
-    N_("billion"),
-    N_("trillion"),
-    N_("quadrillion"),
-    N_("quintillion"),
-    N_("sextillion"),
-    N_("septillion"),
-    N_("octillion"),
-    N_("nonillion"),
-    N_("decillion"),
-    N_("googol"),
+    NS_("thousand", "thousand"),
+    NS_("million", "million"),
+    NS_("billion", "billion"),
+    NS_("trillion", "trillion"),
+    NS_("quadrillion", "quadrillion"),
+    NS_("quintillion", "quintillion"),
+    NS_("sextillion", "sextillion"),
+    NS_("septillion", "septillion"),
+    NS_("octillion", "octillion"),
+    NS_("nonillion", "nonillion"),
+    NS_("decillion", "decillion"),
+    NS_("googol", "googol"),
 )
 
 
@@ -182,9 +183,15 @@ def intword(value, format="%.1f"):
             chopped = value / float(powers[ordinal - 1])
             if float(format % chopped) == float(10 ** 3):
                 chopped = value / float(powers[ordinal])
-                return (" ".join([format, _(human_powers[ordinal])])) % chopped
+                singular, plural = human_powers[ordinal]
+                return (
+                    " ".join([format, ngettext(singular, plural, chopped)])
+                ) % chopped
             else:
-                return (" ".join([format, _(human_powers[ordinal - 1])])) % chopped
+                singular, plural = human_powers[ordinal - 1]
+                return (
+                    " ".join([format, ngettext(singular, plural, chopped)])
+                ) % chopped
     return str(value)
 
 
