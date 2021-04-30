@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: humanize\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-29 21:07+0300\n"
+"POT-Creation-Date: 2021-04-30 17:01+0300\n"
 "PO-Revision-Date: 2017-03-02 11:26+0200\n"
 "Last-Translator: Ville Skyttä <ville.skytta@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -18,269 +18,273 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.12\n"
 
-#: src/humanize/number.py:31
+#: src/humanize/number.py:54
 msgctxt "0"
 msgid "th"
 msgstr "."
 
-#: src/humanize/number.py:32
+#: src/humanize/number.py:55
 msgctxt "1"
 msgid "st"
 msgstr "."
 
-#: src/humanize/number.py:33
+#: src/humanize/number.py:56
 msgctxt "2"
 msgid "nd"
 msgstr "."
 
-#: src/humanize/number.py:34
+#: src/humanize/number.py:57
 msgctxt "3"
 msgid "rd"
 msgstr "."
 
-#: src/humanize/number.py:35
+#: src/humanize/number.py:58
 msgctxt "4"
 msgid "th"
 msgstr "."
 
-#: src/humanize/number.py:36
+#: src/humanize/number.py:59
 msgctxt "5"
 msgid "th"
 msgstr "."
 
-#: src/humanize/number.py:37
+#: src/humanize/number.py:60
 msgctxt "6"
 msgid "th"
 msgstr "."
 
-#: src/humanize/number.py:38
+#: src/humanize/number.py:61
 msgctxt "7"
 msgid "th"
 msgstr "."
 
-#: src/humanize/number.py:39
+#: src/humanize/number.py:62
 msgctxt "8"
 msgid "th"
 msgstr "."
 
-#: src/humanize/number.py:40
+#: src/humanize/number.py:63
 msgctxt "9"
 msgid "th"
 msgstr "."
 
-#: src/humanize/number.py:82
+#: src/humanize/number.py:124
+msgid "thousand"
+msgstr "tuhatta"
+
+#: src/humanize/number.py:125
 msgid "million"
 msgstr "miljoonaa"
 
-#: src/humanize/number.py:83
+#: src/humanize/number.py:126
 msgid "billion"
 msgstr "miljardia"
 
-#: src/humanize/number.py:84
+#: src/humanize/number.py:127
 msgid "trillion"
 msgstr "biljoonaa"
 
-#: src/humanize/number.py:85
+#: src/humanize/number.py:128
 msgid "quadrillion"
 msgstr "kvadriljoonaa"
 
-#: src/humanize/number.py:86
+#: src/humanize/number.py:129
 msgid "quintillion"
 msgstr "kvintiljoonaa"
 
-#: src/humanize/number.py:87
+#: src/humanize/number.py:130
 msgid "sextillion"
 msgstr "sekstiljoonaa"
 
-#: src/humanize/number.py:88
+#: src/humanize/number.py:131
 msgid "septillion"
 msgstr "septiljoonaa"
 
-#: src/humanize/number.py:89
+#: src/humanize/number.py:132
 msgid "octillion"
 msgstr "oktiljoonaa"
 
-#: src/humanize/number.py:90
+#: src/humanize/number.py:133
 msgid "nonillion"
 msgstr "noniljoonaa"
 
-#: src/humanize/number.py:91
+#: src/humanize/number.py:134
 msgid "decillion"
 msgstr "dekiljoonaa"
 
-#: src/humanize/number.py:92
+#: src/humanize/number.py:135
 msgid "googol"
 msgstr "googol"
 
-#: src/humanize/number.py:147
+#: src/humanize/number.py:224
 msgid "zero"
 msgstr "nolla"
 
-#: src/humanize/number.py:148
+#: src/humanize/number.py:225
 msgid "one"
 msgstr "yksi"
 
-#: src/humanize/number.py:149
+#: src/humanize/number.py:226
 msgid "two"
 msgstr "kaksi"
 
-#: src/humanize/number.py:150
+#: src/humanize/number.py:227
 msgid "three"
 msgstr "kolme"
 
-#: src/humanize/number.py:151
+#: src/humanize/number.py:228
 msgid "four"
 msgstr "neljä"
 
-#: src/humanize/number.py:152
+#: src/humanize/number.py:229
 msgid "five"
 msgstr "viisi"
 
-#: src/humanize/number.py:153
+#: src/humanize/number.py:230
 msgid "six"
 msgstr "kuusi"
 
-#: src/humanize/number.py:154
+#: src/humanize/number.py:231
 msgid "seven"
 msgstr "seitsemän"
 
-#: src/humanize/number.py:155
+#: src/humanize/number.py:232
 msgid "eight"
 msgstr "kahdeksan"
 
-#: src/humanize/number.py:156
+#: src/humanize/number.py:233
 msgid "nine"
 msgstr "yhdeksän"
 
-#: src/humanize/time.py:119
+#: src/humanize/time.py:133
 #, fuzzy, python-format
 msgid "%d microsecond"
 msgid_plural "%d microseconds"
 msgstr[0] "%d mikrosekunti"
 msgstr[1] "%d mikrosekuntia"
 
-#: src/humanize/time.py:128
+#: src/humanize/time.py:142
 #, fuzzy, python-format
 msgid "%d millisecond"
 msgid_plural "%d milliseconds"
 msgstr[0] "%d millisekunti"
 msgstr[1] "%d millisekuntia"
 
-#: src/humanize/time.py:131 src/humanize/time.py:204
+#: src/humanize/time.py:145 src/humanize/time.py:220
 msgid "a moment"
 msgstr "hetki"
 
-#: src/humanize/time.py:133
+#: src/humanize/time.py:147
 msgid "a second"
 msgstr "sekunti"
 
-#: src/humanize/time.py:135
+#: src/humanize/time.py:149
 #, python-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d sekunti"
 msgstr[1] "%d sekuntia"
 
-#: src/humanize/time.py:137
+#: src/humanize/time.py:151
 msgid "a minute"
 msgstr "minuutti"
 
-#: src/humanize/time.py:140
+#: src/humanize/time.py:154
 #, python-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d minuutti"
 msgstr[1] "%d minuuttia"
 
-#: src/humanize/time.py:142
+#: src/humanize/time.py:156
 msgid "an hour"
 msgstr "tunti"
 
-#: src/humanize/time.py:145
+#: src/humanize/time.py:159
 #, python-format
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "%d tunti"
 msgstr[1] "%d tuntia"
 
-#: src/humanize/time.py:148
+#: src/humanize/time.py:162
 msgid "a day"
 msgstr "päivä"
 
-#: src/humanize/time.py:150 src/humanize/time.py:153
+#: src/humanize/time.py:164 src/humanize/time.py:167
 #, python-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d päivä"
 msgstr[1] "%d päivää"
 
-#: src/humanize/time.py:155
+#: src/humanize/time.py:169
 msgid "a month"
 msgstr "kuukausi"
 
-#: src/humanize/time.py:157
+#: src/humanize/time.py:171
 #, python-format
 msgid "%d month"
 msgid_plural "%d months"
 msgstr[0] "%d kuukausi"
 msgstr[1] "%d kuukautta"
 
-#: src/humanize/time.py:160
+#: src/humanize/time.py:174
 msgid "a year"
 msgstr "vuosi"
 
-#: src/humanize/time.py:162 src/humanize/time.py:171
+#: src/humanize/time.py:176 src/humanize/time.py:185
 #, python-format
 msgid "1 year, %d day"
 msgid_plural "1 year, %d days"
 msgstr[0] "1 vuosi, %d päivä"
 msgstr[1] "1 vuosi, %d päivää"
 
-#: src/humanize/time.py:165
+#: src/humanize/time.py:179
 msgid "1 year, 1 month"
 msgstr "1 vuosi, 1 kuukausi"
 
-#: src/humanize/time.py:168
+#: src/humanize/time.py:182
 #, python-format
 msgid "1 year, %d month"
 msgid_plural "1 year, %d months"
 msgstr[0] "1 vuosi, %d kuukausi"
 msgstr[1] "1 vuosi, %d kuukautta"
 
-#: src/humanize/time.py:173
+#: src/humanize/time.py:187
 #, python-format
 msgid "%d year"
 msgid_plural "%d years"
 msgstr[0] "%d vuosi"
 msgstr[1] "%d vuotta"
 
-#: src/humanize/time.py:201
+#: src/humanize/time.py:217
 #, python-format
 msgid "%s from now"
 msgstr "%s tästä"
 
-#: src/humanize/time.py:201
+#: src/humanize/time.py:217
 #, python-format
 msgid "%s ago"
 msgstr "%s sitten"
 
-#: src/humanize/time.py:205
+#: src/humanize/time.py:221
 msgid "now"
 msgstr "nyt"
 
-#: src/humanize/time.py:227
+#: src/humanize/time.py:244
 msgid "today"
 msgstr "tänään"
 
-#: src/humanize/time.py:229
+#: src/humanize/time.py:246
 msgid "tomorrow"
 msgstr "huomenna"
 
-#: src/humanize/time.py:231
+#: src/humanize/time.py:248
 msgid "yesterday"
 msgstr "eilen"
 
-#: src/humanize/time.py:498
+#: src/humanize/time.py:534
 #, python-format
 msgid "%s and %s"
 msgstr "%s ja %s"
