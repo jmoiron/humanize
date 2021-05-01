@@ -47,6 +47,28 @@ def test_intcomma():
         assert humanize.intcomma(number) == "10,000,000"
 
 
+@pytest.mark.parametrize(
+    ("locale", "number", "expected_result"),
+    (
+        ("es_ES", 1000000, "1.0 millón"),
+        ("es_ES", 3500000, "3.5 millones"),
+        ("es_ES", 1000000000, "1.0 billón"),
+        ("es_ES", 1200000000, "1.2 billones"),
+        ("es_ES", 1000000000000, "1.0 trillón"),
+        ("es_ES", 6700000000000, "6.7 trillones"),
+    ),
+)
+def test_intword_plurals(locale, number, expected_result):
+    try:
+        humanize.i18n.activate(locale)
+    except FileNotFoundError:
+        pytest.skip("Generate .mo with scripts/generate-translation-binaries.sh")
+    else:
+        assert humanize.intword(number) == expected_result
+    finally:
+        humanize.i18n.deactivate()
+
+
 def test_default_locale_path_defined__file__():
     i18n = importlib.import_module("humanize.i18n")
     assert i18n._get_default_locale_path() is not None

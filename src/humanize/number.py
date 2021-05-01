@@ -2,6 +2,7 @@
 
 """Humanizing functions for numbers."""
 
+import math
 import re
 from fractions import Fraction
 
@@ -185,12 +186,12 @@ def intword(value, format="%.1f"):
                 chopped = value / float(powers[ordinal])
                 singular, plural = human_powers[ordinal]
                 return (
-                    " ".join([format, ngettext(singular, plural, chopped)])
+                    " ".join([format, ngettext(singular, plural, math.ceil(chopped))])
                 ) % chopped
             else:
                 singular, plural = human_powers[ordinal - 1]
                 return (
-                    " ".join([format, ngettext(singular, plural, chopped)])
+                    " ".join([format, ngettext(singular, plural, math.ceil(chopped))])
                 ) % chopped
     return str(value)
 
