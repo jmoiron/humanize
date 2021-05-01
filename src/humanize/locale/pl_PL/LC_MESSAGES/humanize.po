@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 17:01+0300\n"
+"POT-Creation-Date: 2021-04-30 22:34+0200\n"
 "PO-Revision-Date: 2020-04-22 10:02+0200\n"
 "Last-Translator: Bartosz Bubak <bartosz.bubak gmail com>\n"
 "Language-Team: Polish\n"
@@ -18,141 +18,177 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: src/humanize/number.py:54
+#: src/humanize/number.py:56
 msgctxt "0"
 msgid "th"
 msgstr "."
 
-#: src/humanize/number.py:55
+#: src/humanize/number.py:57
 msgctxt "1"
 msgid "st"
 msgstr "."
 
-#: src/humanize/number.py:56
+#: src/humanize/number.py:58
 msgctxt "2"
 msgid "nd"
 msgstr "."
 
-#: src/humanize/number.py:57
+#: src/humanize/number.py:59
 msgctxt "3"
 msgid "rd"
 msgstr "."
 
-#: src/humanize/number.py:58
+#: src/humanize/number.py:60
 msgctxt "4"
 msgid "th"
 msgstr "."
 
-#: src/humanize/number.py:59
+#: src/humanize/number.py:61
 msgctxt "5"
 msgid "th"
 msgstr "."
 
-#: src/humanize/number.py:60
+#: src/humanize/number.py:62
 msgctxt "6"
 msgid "th"
 msgstr "."
 
-#: src/humanize/number.py:61
+#: src/humanize/number.py:63
 msgctxt "7"
 msgid "th"
 msgstr "."
 
-#: src/humanize/number.py:62
+#: src/humanize/number.py:64
 msgctxt "8"
 msgid "th"
 msgstr "."
 
-#: src/humanize/number.py:63
+#: src/humanize/number.py:65
 msgctxt "9"
 msgid "th"
 msgstr "."
 
-#: src/humanize/number.py:124
-msgid "thousand"
-msgstr ""
-
-#: src/humanize/number.py:125
-msgid "million"
-msgstr "milion"
-
 #: src/humanize/number.py:126
-msgid "billion"
-msgstr "bilion"
+msgid "thousand"
+msgid_plural "thousand"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: src/humanize/number.py:127
-msgid "trillion"
-msgstr "trylion"
+msgid "million"
+msgid_plural "million"
+msgstr[0] "milion"
+msgstr[1] "milion"
+msgstr[2] "milion"
 
 #: src/humanize/number.py:128
-msgid "quadrillion"
-msgstr "kwadrylion"
+msgid "billion"
+msgid_plural "billion"
+msgstr[0] "bilion"
+msgstr[1] "bilion"
+msgstr[2] "bilion"
 
 #: src/humanize/number.py:129
-msgid "quintillion"
-msgstr "kwintylion"
+msgid "trillion"
+msgid_plural "trillion"
+msgstr[0] "trylion"
+msgstr[1] "trylion"
+msgstr[2] "trylion"
 
 #: src/humanize/number.py:130
-msgid "sextillion"
-msgstr "sekstylion"
+msgid "quadrillion"
+msgid_plural "quadrillion"
+msgstr[0] "kwadrylion"
+msgstr[1] "kwadrylion"
+msgstr[2] "kwadrylion"
 
 #: src/humanize/number.py:131
-msgid "septillion"
-msgstr "septylion"
+msgid "quintillion"
+msgid_plural "quintillion"
+msgstr[0] "kwintylion"
+msgstr[1] "kwintylion"
+msgstr[2] "kwintylion"
 
 #: src/humanize/number.py:132
-msgid "octillion"
-msgstr "oktylion"
+msgid "sextillion"
+msgid_plural "sextillion"
+msgstr[0] "sekstylion"
+msgstr[1] "sekstylion"
+msgstr[2] "sekstylion"
 
 #: src/humanize/number.py:133
-msgid "nonillion"
-msgstr "nonilion"
+msgid "septillion"
+msgid_plural "septillion"
+msgstr[0] "septylion"
+msgstr[1] "septylion"
+msgstr[2] "septylion"
 
 #: src/humanize/number.py:134
-msgid "decillion"
-msgstr "decylion"
+msgid "octillion"
+msgid_plural "octillion"
+msgstr[0] "oktylion"
+msgstr[1] "oktylion"
+msgstr[2] "oktylion"
 
 #: src/humanize/number.py:135
-msgid "googol"
-msgstr "googol"
+msgid "nonillion"
+msgid_plural "nonillion"
+msgstr[0] "nonilion"
+msgstr[1] "nonilion"
+msgstr[2] "nonilion"
 
-#: src/humanize/number.py:224
+#: src/humanize/number.py:136
+msgid "decillion"
+msgid_plural "decillion"
+msgstr[0] "decylion"
+msgstr[1] "decylion"
+msgstr[2] "decylion"
+
+#: src/humanize/number.py:137
+msgid "googol"
+msgid_plural "googol"
+msgstr[0] "googol"
+msgstr[1] "googol"
+msgstr[2] "googol"
+
+#: src/humanize/number.py:228
 msgid "zero"
 msgstr "zero"
 
-#: src/humanize/number.py:225
+#: src/humanize/number.py:229
 msgid "one"
 msgstr "jeden"
 
-#: src/humanize/number.py:226
+#: src/humanize/number.py:230
 msgid "two"
 msgstr "dwa"
 
-#: src/humanize/number.py:227
+#: src/humanize/number.py:231
 msgid "three"
 msgstr "trzy"
 
-#: src/humanize/number.py:228
+#: src/humanize/number.py:232
 msgid "four"
 msgstr "cztery"
 
-#: src/humanize/number.py:229
+#: src/humanize/number.py:233
 msgid "five"
 msgstr "pięć"
 
-#: src/humanize/number.py:230
+#: src/humanize/number.py:234
 msgid "six"
 msgstr "sześć"
 
-#: src/humanize/number.py:231
+#: src/humanize/number.py:235
 msgid "seven"
 msgstr "siedem"
 
-#: src/humanize/number.py:232
+#: src/humanize/number.py:236
 msgid "eight"
 msgstr "osiem"
 
-#: src/humanize/number.py:233
+#: src/humanize/number.py:237
 msgid "nine"
 msgstr "dziewięć"
 

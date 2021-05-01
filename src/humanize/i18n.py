@@ -137,6 +137,26 @@ def gettext_noop(message):
     return message
 
 
+def ngettext_noop(singular, plural):
+    """Mark two strings as pluralized translations without translating them.
+
+    Example usage:
+    ```python
+    CONSTANTS = [ngettext_noop('first', 'firsts'), ngettext_noop('second', 'seconds')]
+    def num_name(n):
+        return ngettext(*CONSTANTS[n])
+    ```
+
+    Args:
+        singular (str): Singular text to translate in the future.
+        plural (str): Plural text to translate in the future.
+
+    Returns:
+        tuple: Original text, unchanged.
+    """
+    return (singular, plural)
+
+
 def thousands_separator() -> str:
     """Return the thousands separator for a locale, default to comma.
 

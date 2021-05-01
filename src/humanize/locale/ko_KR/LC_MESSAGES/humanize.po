@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 17:01+0300\n"
+"POT-Creation-Date: 2021-04-30 22:34+0200\n"
 "PO-Revision-Date: 2013-07-10 11:38+0900\n"
 "Last-Translator: @youngrok\n"
 "Language-Team: ko_KR <LL@li.org>\n"
@@ -19,160 +19,184 @@ msgstr ""
 "Generated-By: Babel 0.9.6\n"
 "X-Generator: Poedit 1.5.7\n"
 
-#: src/humanize/number.py:54
+#: src/humanize/number.py:56
 #, fuzzy
 msgctxt "0"
 msgid "th"
 msgstr "번째"
 
-#: src/humanize/number.py:55
+#: src/humanize/number.py:57
 #, fuzzy
 msgctxt "1"
 msgid "st"
 msgstr "번째"
 
-#: src/humanize/number.py:56
+#: src/humanize/number.py:58
 #, fuzzy
 msgctxt "2"
 msgid "nd"
 msgstr "번째"
 
-#: src/humanize/number.py:57
+#: src/humanize/number.py:59
 #, fuzzy
 msgctxt "3"
 msgid "rd"
 msgstr "번째"
 
-#: src/humanize/number.py:58
+#: src/humanize/number.py:60
 #, fuzzy
 msgctxt "4"
 msgid "th"
 msgstr "번째"
 
-#: src/humanize/number.py:59
+#: src/humanize/number.py:61
 #, fuzzy
 msgctxt "5"
 msgid "th"
 msgstr "번째"
 
-#: src/humanize/number.py:60
+#: src/humanize/number.py:62
 #, fuzzy
 msgctxt "6"
 msgid "th"
 msgstr "번째"
 
-#: src/humanize/number.py:61
+#: src/humanize/number.py:63
 #, fuzzy
 msgctxt "7"
 msgid "th"
 msgstr "번째"
 
-#: src/humanize/number.py:62
+#: src/humanize/number.py:64
 #, fuzzy
 msgctxt "8"
 msgid "th"
 msgstr "번째"
 
-#: src/humanize/number.py:63
+#: src/humanize/number.py:65
 #, fuzzy
 msgctxt "9"
 msgid "th"
 msgstr "번째"
 
-#: src/humanize/number.py:124
-msgid "thousand"
-msgstr ""
-
-#: src/humanize/number.py:125
-msgid "million"
-msgstr "%(value)s million"
-
 #: src/humanize/number.py:126
-msgid "billion"
-msgstr "milliard"
+msgid "thousand"
+msgid_plural "thousand"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/humanize/number.py:127
-#, fuzzy
-msgid "trillion"
-msgstr "%(value)s billion"
+msgid "million"
+msgid_plural "million"
+msgstr[0] "%(value)s million"
+msgstr[1] "%(value)s million"
 
 #: src/humanize/number.py:128
-#, fuzzy
-msgid "quadrillion"
-msgstr "%(value)s quadrillion"
+msgid "billion"
+msgid_plural "billion"
+msgstr[0] "milliard"
+msgstr[1] "milliard"
 
 #: src/humanize/number.py:129
 #, fuzzy
-msgid "quintillion"
-msgstr "%(value)s quintillion"
+msgid "trillion"
+msgid_plural "trillion"
+msgstr[0] "%(value)s billion"
+msgstr[1] "%(value)s billion"
 
 #: src/humanize/number.py:130
 #, fuzzy
-msgid "sextillion"
-msgstr "%(value)s sextillion"
+msgid "quadrillion"
+msgid_plural "quadrillion"
+msgstr[0] "%(value)s quadrillion"
+msgstr[1] "%(value)s quadrillion"
 
 #: src/humanize/number.py:131
 #, fuzzy
-msgid "septillion"
-msgstr "%(value)s septillion"
+msgid "quintillion"
+msgid_plural "quintillion"
+msgstr[0] "%(value)s quintillion"
+msgstr[1] "%(value)s quintillion"
 
 #: src/humanize/number.py:132
 #, fuzzy
-msgid "octillion"
-msgstr "%(value)s octillion"
+msgid "sextillion"
+msgid_plural "sextillion"
+msgstr[0] "%(value)s sextillion"
+msgstr[1] "%(value)s sextillion"
 
 #: src/humanize/number.py:133
 #, fuzzy
-msgid "nonillion"
-msgstr "%(value)s nonillion"
+msgid "septillion"
+msgid_plural "septillion"
+msgstr[0] "%(value)s septillion"
+msgstr[1] "%(value)s septillion"
 
 #: src/humanize/number.py:134
 #, fuzzy
-msgid "decillion"
-msgstr "%(value)s décillion"
+msgid "octillion"
+msgid_plural "octillion"
+msgstr[0] "%(value)s octillion"
+msgstr[1] "%(value)s octillion"
 
 #: src/humanize/number.py:135
 #, fuzzy
-msgid "googol"
-msgstr "%(value)s gogol"
+msgid "nonillion"
+msgid_plural "nonillion"
+msgstr[0] "%(value)s nonillion"
+msgstr[1] "%(value)s nonillion"
 
-#: src/humanize/number.py:224
+#: src/humanize/number.py:136
+#, fuzzy
+msgid "decillion"
+msgid_plural "decillion"
+msgstr[0] "%(value)s décillion"
+msgstr[1] "%(value)s décillion"
+
+#: src/humanize/number.py:137
+#, fuzzy
+msgid "googol"
+msgid_plural "googol"
+msgstr[0] "%(value)s gogol"
+msgstr[1] "%(value)s gogol"
+
+#: src/humanize/number.py:228
 msgid "zero"
 msgstr ""
 
-#: src/humanize/number.py:225
+#: src/humanize/number.py:229
 msgid "one"
 msgstr "하나"
 
-#: src/humanize/number.py:226
+#: src/humanize/number.py:230
 msgid "two"
 msgstr "둘"
 
-#: src/humanize/number.py:227
+#: src/humanize/number.py:231
 msgid "three"
 msgstr "셋"
 
-#: src/humanize/number.py:228
+#: src/humanize/number.py:232
 msgid "four"
 msgstr "넷"
 
-#: src/humanize/number.py:229
+#: src/humanize/number.py:233
 msgid "five"
 msgstr "다섯"
 
-#: src/humanize/number.py:230
+#: src/humanize/number.py:234
 msgid "six"
 msgstr "여섯"
 
-#: src/humanize/number.py:231
+#: src/humanize/number.py:235
 msgid "seven"
 msgstr "일곱"
 
-#: src/humanize/number.py:232
+#: src/humanize/number.py:236
 msgid "eight"
 msgstr "여덟"
 
-#: src/humanize/number.py:233
+#: src/humanize/number.py:237
 msgid "nine"
 msgstr "아홉"
 
