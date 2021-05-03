@@ -19,6 +19,7 @@ __all__ = [
     "naturalday",
     "naturaldate",
     "precisedelta",
+    "precisetime"
 ]
 
 

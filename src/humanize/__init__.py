@@ -37,6 +37,7 @@ __all__ = [
     "naturaldelta",
     "naturalsize",
     "naturaltime",
+    "precisetime",
     "ordinal",
     "precisedelta",
     "scientific",
