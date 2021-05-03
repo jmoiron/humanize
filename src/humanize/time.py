@@ -224,7 +224,7 @@ def naturaltime(value, future=False, months=True, minimum_unit="seconds", when=N
     return ago % delta
 
 
-def precisetime(value, future=False, minimum_unit="seconds", suppress=(), when=None):
+def precisetime(value, future=False, minimum_unit="seconds", suppress=(), format="$0.2f", when=None):
     """Precise like `precisedelta` but includes tense like `naturaltime`.
 
     Args:
@@ -250,7 +250,7 @@ def precisetime(value, future=False, minimum_unit="seconds", suppress=(), when=N
         future = date > now
 
     ago = _("%s from now") if future else _("%s ago")
-    delta = precisedelta(delta, minimum_unit, suppress=suppress, when=when)
+    delta = precisedelta(delta, minimum_unit, suppress=suppress, format=format, when=when)
 
     if delta == _("a moment"):
         return _("now")
