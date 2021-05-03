@@ -18,6 +18,7 @@ from humanize.time import (
     naturaldelta,
     naturaltime,
     precisedelta,
+    precisetime
 )
 
 __version__ = VERSION = pkg_resources.get_distribution(__name__).version
