@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 22:34+0200\n"
+"POT-Creation-Date: 2021-05-04 23:15+0200\n"
 "PO-Revision-Date: 2014-03-24 20:32+0300\n"
 "Last-Translator: Sergey Prokhorov <me@seriyps.ru>\n"
 "Language-Team: ru_RU <LL@li.org>\n"
@@ -20,184 +20,227 @@ msgstr ""
 "Generated-By: Babel 0.9.6\n"
 "X-Generator: Poedit 1.5.4\n"
 
-# в Django тут "ий" но на самом деле оба варианта работают плохо
-#: src/humanize/number.py:56
-msgctxt "0"
+#: src/humanize/number.py:57
+msgctxt "0 (male)"
 msgid "th"
 msgstr "ой"
 
-#: src/humanize/number.py:57
-msgctxt "1"
+#: src/humanize/number.py:58
+msgctxt "1 (male)"
 msgid "st"
 msgstr "ый"
 
-#: src/humanize/number.py:58
-msgctxt "2"
+#: src/humanize/number.py:59
+msgctxt "2 (male)"
 msgid "nd"
 msgstr "ой"
 
-#: src/humanize/number.py:59
-msgctxt "3"
+#: src/humanize/number.py:60
+msgctxt "3 (male)"
 msgid "rd"
 msgstr "ий"
 
-# в Django тут "ий" но на самом деле оба варианта работают плохо
-#: src/humanize/number.py:60
-msgctxt "4"
-msgid "th"
-msgstr "ый"
-
-# в Django тут "ий" но на самом деле оба варианта работают плохо
 #: src/humanize/number.py:61
-msgctxt "5"
+msgctxt "4 (male)"
 msgid "th"
 msgstr "ый"
 
-# в Django тут "ий" но на самом деле оба варианта работают плохо
 #: src/humanize/number.py:62
-msgctxt "6"
-msgid "th"
-msgstr "ой"
-
-# в Django тут "ий" но на самом деле оба варианта работают плохо
-#: src/humanize/number.py:63
-msgctxt "7"
-msgid "th"
-msgstr "ой"
-
-# в Django тут "ий" но на самом деле оба варианта работают плохо
-#: src/humanize/number.py:64
-msgctxt "8"
-msgid "th"
-msgstr "ой"
-
-# в Django тут "ий" но на самом деле оба варианта работают плохо
-#: src/humanize/number.py:65
-msgctxt "9"
+msgctxt "5 (male)"
 msgid "th"
 msgstr "ый"
 
-#: src/humanize/number.py:126
+#: src/humanize/number.py:63
+msgctxt "6 (male)"
+msgid "th"
+msgstr "ой"
+
+#: src/humanize/number.py:64
+msgctxt "7 (male)"
+msgid "th"
+msgstr "ой"
+
+#: src/humanize/number.py:65
+msgctxt "8 (male)"
+msgid "th"
+msgstr "ой"
+
+#: src/humanize/number.py:66
+msgctxt "9 (male)"
+msgid "th"
+msgstr "ый"
+
+#: src/humanize/number.py:70
+msgctxt "0 (female)"
+msgid "th"
+msgstr "ой"
+
+#: src/humanize/number.py:71
+msgctxt "1 (female)"
+msgid "st"
+msgstr "ый"
+
+#: src/humanize/number.py:72
+msgctxt "2 (female)"
+msgid "nd"
+msgstr "ой"
+
+#: src/humanize/number.py:73
+msgctxt "3 (female)"
+msgid "rd"
+msgstr "ий"
+
+#: src/humanize/number.py:74
+msgctxt "4 (female)"
+msgid "th"
+msgstr "ый"
+
+#: src/humanize/number.py:75
+msgctxt "5 (female)"
+msgid "th"
+msgstr "ый"
+
+#: src/humanize/number.py:76
+msgctxt "6 (female)"
+msgid "th"
+msgstr "ой"
+
+#: src/humanize/number.py:77
+msgctxt "7 (female)"
+msgid "th"
+msgstr "ой"
+
+#: src/humanize/number.py:78
+msgctxt "8 (female)"
+msgid "th"
+msgstr "ой"
+
+#: src/humanize/number.py:79
+msgctxt "9 (female)"
+msgid "th"
+msgstr "ый"
+
+#: src/humanize/number.py:140
 msgid "thousand"
 msgid_plural "thousand"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/humanize/number.py:127
+#: src/humanize/number.py:141
 msgid "million"
 msgid_plural "million"
 msgstr[0] "миллиона"
 msgstr[1] "миллиона"
 msgstr[2] "миллиона"
 
-#: src/humanize/number.py:128
+#: src/humanize/number.py:142
 msgid "billion"
 msgid_plural "billion"
 msgstr[0] "миллиарда"
 msgstr[1] "миллиарда"
 msgstr[2] "миллиарда"
 
-#: src/humanize/number.py:129
+#: src/humanize/number.py:143
 msgid "trillion"
 msgid_plural "trillion"
 msgstr[0] "триллиона"
 msgstr[1] "триллиона"
 msgstr[2] "триллиона"
 
-#: src/humanize/number.py:130
+#: src/humanize/number.py:144
 msgid "quadrillion"
 msgid_plural "quadrillion"
 msgstr[0] "квадриллиона"
 msgstr[1] "квадриллиона"
 msgstr[2] "квадриллиона"
 
-#: src/humanize/number.py:131
+#: src/humanize/number.py:145
 msgid "quintillion"
 msgid_plural "quintillion"
 msgstr[0] "квинтиллиона"
 msgstr[1] "квинтиллиона"
 msgstr[2] "квинтиллиона"
 
-#: src/humanize/number.py:132
+#: src/humanize/number.py:146
 msgid "sextillion"
 msgid_plural "sextillion"
 msgstr[0] "сикстиллиона"
 msgstr[1] "сикстиллиона"
 msgstr[2] "сикстиллиона"
 
-#: src/humanize/number.py:133
+#: src/humanize/number.py:147
 msgid "septillion"
 msgid_plural "septillion"
 msgstr[0] "септиллиона"
 msgstr[1] "септиллиона"
 msgstr[2] "септиллиона"
 
-#: src/humanize/number.py:134
+#: src/humanize/number.py:148
 msgid "octillion"
 msgid_plural "octillion"
 msgstr[0] "октиллиона"
 msgstr[1] "октиллиона"
 msgstr[2] "октиллиона"
 
-#: src/humanize/number.py:135
+#: src/humanize/number.py:149
 msgid "nonillion"
 msgid_plural "nonillion"
 msgstr[0] "нониллиона"
 msgstr[1] "нониллиона"
 msgstr[2] "нониллиона"
 
-#: src/humanize/number.py:136
+#: src/humanize/number.py:150
 msgid "decillion"
 msgid_plural "decillion"
 msgstr[0] "децилиона"
 msgstr[1] "децилиона"
 msgstr[2] "децилиона"
 
-#: src/humanize/number.py:137
+#: src/humanize/number.py:151
 msgid "googol"
 msgid_plural "googol"
 msgstr[0] "гогола"
 msgstr[1] "гогола"
 msgstr[2] "гогола"
 
-#: src/humanize/number.py:228
+#: src/humanize/number.py:246
 msgid "zero"
 msgstr ""
 
-#: src/humanize/number.py:229
+#: src/humanize/number.py:247
 msgid "one"
 msgstr "один"
 
-#: src/humanize/number.py:230
+#: src/humanize/number.py:248
 msgid "two"
 msgstr "два"
 
-#: src/humanize/number.py:231
+#: src/humanize/number.py:249
 msgid "three"
 msgstr "три"
 
-#: src/humanize/number.py:232
+#: src/humanize/number.py:250
 msgid "four"
 msgstr "четыре"
 
-#: src/humanize/number.py:233
+#: src/humanize/number.py:251
 msgid "five"
 msgstr "пять"
 
-#: src/humanize/number.py:234
+#: src/humanize/number.py:252
 msgid "six"
 msgstr "шесть"
 
-#: src/humanize/number.py:235
+#: src/humanize/number.py:253
 msgid "seven"
 msgstr "семь"
 
-#: src/humanize/number.py:236
+#: src/humanize/number.py:254
 msgid "eight"
 msgstr "восемь"
 
-#: src/humanize/number.py:237
+#: src/humanize/number.py:255
 msgid "nine"
 msgstr "девять"
 

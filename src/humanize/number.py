@@ -13,7 +13,7 @@ from .i18n import pgettext as P_
 from .i18n import thousands_separator
 
 
-def ordinal(value):
+def ordinal(value, gender="male"):
     """Converts an integer to its ordinal as a string.
 
     For example, 1 is "1st", 2 is "2nd", 3 is "3rd", etc. Works for any integer or
@@ -44,6 +44,7 @@ def ordinal(value):
         ```
     Args:
         value (int, str, float): Integer to convert.
+        gender (str): Gender for translations. Accepts either "male" or "female".
 
     Returns:
         str: Ordinal string.
@@ -52,18 +53,32 @@ def ordinal(value):
         value = int(value)
     except (TypeError, ValueError):
         return value
-    t = (
-        P_("0", "th"),
-        P_("1", "st"),
-        P_("2", "nd"),
-        P_("3", "rd"),
-        P_("4", "th"),
-        P_("5", "th"),
-        P_("6", "th"),
-        P_("7", "th"),
-        P_("8", "th"),
-        P_("9", "th"),
-    )
+    if gender == "male":
+        t = (
+            P_("0 (male)", "th"),
+            P_("1 (male)", "st"),
+            P_("2 (male)", "nd"),
+            P_("3 (male)", "rd"),
+            P_("4 (male)", "th"),
+            P_("5 (male)", "th"),
+            P_("6 (male)", "th"),
+            P_("7 (male)", "th"),
+            P_("8 (male)", "th"),
+            P_("9 (male)", "th"),
+        )
+    else:
+        t = (
+            P_("0 (female)", "th"),
+            P_("1 (female)", "st"),
+            P_("2 (female)", "nd"),
+            P_("3 (female)", "rd"),
+            P_("4 (female)", "th"),
+            P_("5 (female)", "th"),
+            P_("6 (female)", "th"),
+            P_("7 (female)", "th"),
+            P_("8 (female)", "th"),
+            P_("9 (female)", "th"),
+        )
     if value % 100 in (11, 12, 13):  # special case
         return f"{value}{t[0]}"
     return f"{value}{t[value % 10]}"

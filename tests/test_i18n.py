@@ -69,6 +69,29 @@ def test_intword_plurals(locale, number, expected_result):
         humanize.i18n.deactivate()
 
 
+@pytest.mark.parametrize(
+    ("locale", "number", "gender", "expected_result"),
+    (
+        ("fr_FR", 1, "male", "1er"),
+        ("fr_FR", 1, "female", "1ère"),
+        ("fr_FR", 2, "male", "2e"),
+        ("es_ES", 1, "male", "1º"),
+        ("es_ES", 5, "female", "5ª"),
+        ("it_IT", 3, "male", "3º"),
+        ("it_IT", 8, "female", "8ª"),
+    ),
+)
+def test_ordinal_genders(locale, number, gender, expected_result):
+    try:
+        humanize.i18n.activate(locale)
+    except FileNotFoundError:
+        pytest.skip("Generate .mo with scripts/generate-translation-binaries.sh")
+    else:
+        assert humanize.ordinal(number, gender=gender) == expected_result
+    finally:
+        humanize.i18n.deactivate()
+
+
 def test_default_locale_path_defined__file__():
     i18n = importlib.import_module("humanize.i18n")
     assert i18n._get_default_locale_path() is not None
