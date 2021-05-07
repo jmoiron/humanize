@@ -311,4 +311,4 @@ msgstr "ayer"
 #: src/humanize/time.py:534
 #, python-format
 msgid "%s and %s"
-msgstr ""
+msgstr "%s y %s"
