@@ -644,6 +644,239 @@ def test_precisedelta_bogus_call():
         humanize.naturaldelta(1, minimum_unit="years")
 
 
+@freeze_time("2020-02-02")
+@pytest.mark.parametrize(
+    "val, min_unit, expected",
+    [
+        (NOW + dt.timedelta(microseconds=1), "microseconds", "1 microsecond from now"),
+        (NOW + dt.timedelta(microseconds=2), "microseconds", "2 microseconds from now"),
+        (
+            NOW + dt.timedelta(microseconds=1000),
+            "microseconds",
+            "1 millisecond from now",
+        ),
+        (
+            NOW + dt.timedelta(microseconds=2000),
+            "microseconds",
+            "2 milliseconds from now",
+        ),
+        (NOW + dt.timedelta(seconds=1), "seconds", "1 second from now"),
+        (1, "seconds", "1 second ago"),
+        (2, "seconds", "2 seconds ago"),
+        (60, "seconds", "1 minute ago"),
+        (120, "seconds", "2 minutes ago"),
+        (3600, "seconds", "1 hour ago"),
+        (3600 * 2, "seconds", "2 hours ago"),
+        (3600 * 24, "seconds", "1 day ago"),
+        (3600 * 24 * 2, "seconds", "2 days ago"),
+        (3600 * 24 * 365, "seconds", "1 year ago"),
+        (3600 * 24 * 365 * 2, "seconds", "2 years ago"),
+    ],
+)
+def test_precisetime_one_unit_enough(val, min_unit, expected):
+    assert humanize.precisetime(val, minimum_unit=min_unit) == expected
+
+
+@freeze_time("2020-02-02")
+@pytest.mark.parametrize(
+    "val, min_unit, expected",
+    [
+        (
+            NOW + dt.timedelta(microseconds=1001),
+            "microseconds",
+            "1 millisecond and 1 microsecond from now",
+        ),
+        (
+            NOW + dt.timedelta(microseconds=2002),
+            "microseconds",
+            "2 milliseconds and 2 microseconds from now",
+        ),
+        (
+            NOW + dt.timedelta(seconds=1, microseconds=2),
+            "microseconds",
+            "1 second and 2 microseconds from now",
+        ),
+        (
+            NOW + dt.timedelta(hours=4, seconds=3, microseconds=2),
+            "microseconds",
+            "4 hours, 3 seconds and 2 microseconds from now",
+        ),
+        (
+            NOW + dt.timedelta(days=5, hours=4, seconds=3, microseconds=2),
+            "microseconds",
+            "5 days, 4 hours, 3 seconds and 2 microseconds from now",
+        ),
+        (
+            NOW + dt.timedelta(days=370, hours=4, seconds=3, microseconds=2),
+            "microseconds",
+            "1 year, 5 days, 4 hours, 3 seconds and 2 microseconds from now",
+        ),
+        (
+            NOW + dt.timedelta(days=370, microseconds=2),
+            "microseconds",
+            "1 year, 5 days and 2 microseconds from now",
+        ),
+        (
+            NOW + dt.timedelta(days=370, seconds=2),
+            "microseconds",
+            "1 year, 5 days and 2 seconds from now",
+        ),
+        (
+            NOW + dt.timedelta(seconds=0.01),
+            "minutes",
+            "0 minutes from now",
+        ),
+    ],
+)
+def test_precisetime_multiple_units(val, min_unit, expected):
+    assert humanize.precisetime(val, minimum_unit=min_unit) == expected
+
+
+@freeze_time("2020-02-02")
+@pytest.mark.parametrize(
+    "val, min_unit, fmt, expected",
+    [
+        (
+            NOW + dt.timedelta(microseconds=1001),
+            "milliseconds",
+            "%0.4f",
+            "1.0010 milliseconds from now",
+        ),
+        (
+            NOW + dt.timedelta(microseconds=2002),
+            "milliseconds",
+            "%0.4f",
+            "2.0020 milliseconds from now",
+        ),
+        (
+            NOW + dt.timedelta(microseconds=2002),
+            "milliseconds",
+            "%0.2f",
+            "2.00 milliseconds from now",
+        ),
+        (
+            NOW + dt.timedelta(seconds=1, microseconds=230000),
+            "seconds",
+            "%0.2f",
+            "1.23 seconds from now",
+        ),
+        (
+            NOW + dt.timedelta(hours=4, seconds=3, microseconds=200000),
+            "seconds",
+            "%0.2f",
+            "4 hours and 3.20 seconds from now",
+        ),
+        (
+            NOW + dt.timedelta(days=5, hours=4, seconds=30 * 60),
+            "seconds",
+            "%0.2f",
+            "5 days, 4 hours and 30 minutes from now",
+        ),
+        (
+            NOW + dt.timedelta(days=5, hours=4, seconds=30 * 60),
+            "hours",
+            "%0.2f",
+            "5 days and 4.50 hours from now",
+        ),
+        (
+            NOW + dt.timedelta(days=5, hours=4, seconds=30 * 60),
+            "days",
+            "%0.2f",
+            "5.19 days from now",
+        ),
+        (NOW + dt.timedelta(days=120), "months", "%0.2f", "3.93 months from now"),
+        (NOW + dt.timedelta(days=183), "years", "%0.1f", "0.5 years from now"),
+    ],
+)
+def test_precisetime_custom_format(val, min_unit, fmt, expected):
+    assert humanize.precisetime(val, minimum_unit=min_unit, format=fmt) == expected
+
+
+@freeze_time("2020-02-02")
+@pytest.mark.parametrize(
+    "val, min_unit, suppress, expected",
+    [
+        (
+            NOW + dt.timedelta(microseconds=1200),
+            "microseconds",
+            [],
+            "1 millisecond and 200 microseconds from now",
+        ),
+        (
+            NOW + dt.timedelta(microseconds=1200),
+            "microseconds",
+            ["milliseconds"],
+            "1200 microseconds from now",
+        ),
+        (
+            NOW + dt.timedelta(microseconds=1200),
+            "microseconds",
+            ["microseconds"],
+            "1.20 milliseconds from now",
+        ),
+        (
+            NOW + dt.timedelta(seconds=1, microseconds=200),
+            "microseconds",
+            ["seconds"],
+            "1000 milliseconds and 200 microseconds from now",
+        ),
+        (
+            NOW + dt.timedelta(seconds=1, microseconds=200000),
+            "microseconds",
+            ["milliseconds"],
+            "1 second and 200000 microseconds from now",
+        ),
+        (
+            NOW + dt.timedelta(seconds=1, microseconds=200000),
+            "microseconds",
+            ["milliseconds", "microseconds"],
+            "1.20 seconds from now",
+        ),
+        (
+            NOW + dt.timedelta(hours=4, seconds=30, microseconds=200),
+            "microseconds",
+            ["microseconds"],
+            "4 hours, 30 seconds and 0.20 milliseconds from now",
+        ),
+        (
+            NOW + dt.timedelta(hours=4, seconds=30, microseconds=200),
+            "microseconds",
+            ["seconds"],
+            "4 hours, 30000 milliseconds and 200 microseconds from now",
+        ),
+        (
+            NOW + dt.timedelta(hours=4, seconds=30, microseconds=200),
+            "microseconds",
+            ["seconds", "milliseconds"],
+            "4 hours and 30000200 microseconds from now",
+        ),
+        (
+            NOW + dt.timedelta(hours=4, seconds=30, microseconds=200),
+            "microseconds",
+            ["hours"],
+            "240 minutes, 30 seconds and 200 microseconds from now",
+        ),
+        (
+            NOW + dt.timedelta(hours=4, seconds=30, microseconds=200),
+            "microseconds",
+            ["hours", "seconds", "milliseconds", "microseconds"],
+            "240.50 minutes from now",
+        ),
+    ],
+)
+def test_precisetime_suppress_units(val, min_unit, suppress, expected):
+    assert (
+        humanize.precisetime(val, minimum_unit=min_unit, suppress=suppress) == expected
+    )
+
+
+def test_precisetime_bogus_call():
+    assert humanize.precisetime(None) is None
+
+    with pytest.raises(ValueError):
+        humanize.precisetime(1, minimum_unit="years", suppress=["years"])
+
+
 def test_time_unit():
     years, minutes = time.Unit["YEARS"], time.Unit["MINUTES"]
     assert minutes < years

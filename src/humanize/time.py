@@ -19,7 +19,7 @@ __all__ = [
     "naturalday",
     "naturaldate",
     "precisedelta",
-    "precisetime"
+    "precisetime",
 ]
 
 
@@ -131,17 +131,17 @@ def naturaldelta(value, months=True, minimum_unit="seconds", when=None):
         if seconds == 0:
             if minimum_unit == Unit.MICROSECONDS and delta.microseconds < 1000:
                 return (
-                        ngettext("%d microsecond", "%d microseconds", delta.microseconds)
-                        % delta.microseconds
+                    ngettext("%d microsecond", "%d microseconds", delta.microseconds)
+                    % delta.microseconds
                 )
             elif minimum_unit == Unit.MILLISECONDS or (
-                    minimum_unit == Unit.MICROSECONDS
-                    and 1000 <= delta.microseconds < 1_000_000
+                minimum_unit == Unit.MICROSECONDS
+                and 1000 <= delta.microseconds < 1_000_000
             ):
                 milliseconds = delta.microseconds / 1000
                 return (
-                        ngettext("%d millisecond", "%d milliseconds", milliseconds)
-                        % milliseconds
+                    ngettext("%d millisecond", "%d milliseconds", milliseconds)
+                    % milliseconds
                 )
             return _("a moment")
         elif seconds == 1:
@@ -180,7 +180,7 @@ def naturaldelta(value, months=True, minimum_unit="seconds", when=None):
                 return _("1 year, 1 month")
             else:
                 return (
-                        ngettext("1 year, %d month", "1 year, %d months", months) % months
+                    ngettext("1 year, %d month", "1 year, %d months", months) % months
                 )
         else:
             return ngettext("1 year, %d day", "1 year, %d days", days) % days
@@ -224,16 +224,19 @@ def naturaltime(value, future=False, months=True, minimum_unit="seconds", when=N
     return ago % delta
 
 
-def precisetime(value, future=False, minimum_unit="seconds", suppress=(), format="$0.2f", when=None):
+def precisetime(
+    value, future=False, minimum_unit="seconds", suppress=(), format="%0.2f", when=None
+):
     """Precise like `precisedelta` but includes tense like `naturaltime`.
 
     Args:
-        value (datetime.datetime, int): A `datetime` or a number of seconds.
+        value (datetime.datetime): A `datetime` or a number of seconds.
         future (bool): Ignored for `datetime`s, where the tense is always figured out
             based on the current time. For integers, the return value will be past tense
             by default, unless future is `True`.
         minimum_unit (str): The lowest unit that can be used.
-        suppress: If desired, some units can be suppressed: you will not see them represented and the time of the other
+        suppress: If desired, some units can be suppressed:
+        you will not see them represented and the time of the other
             units will be adjusted to keep representing the same timedelta
         when (datetime.datetime): Point in time relative to which _value_ is
             interpreted.  Defaults to the current time in the local timezone.
@@ -250,7 +253,9 @@ def precisetime(value, future=False, minimum_unit="seconds", suppress=(), format
         future = date > now
 
     ago = _("%s from now") if future else _("%s ago")
-    delta = precisedelta(delta, minimum_unit, suppress=suppress, format=format, when=when)
+    delta = precisedelta(
+        delta, minimum_unit, suppress=suppress, format=format, when=now
+    )
 
     if delta == _("a moment"):
         return _("now")
