@@ -257,8 +257,10 @@ def precisetime(
         delta, minimum_unit, suppress=suppress, format=format, when=now
     )
 
-    if delta == _("a moment"):
-        return _("now")
+    # janky but probably relatively efficient to check for "0 [any unit]"
+    splitdelta = delta.split(" ")
+    if len(splitdelta) == 2 and float(splitdelta[0]) == 0:
+        return "now"
 
     return ago % delta
 
