@@ -81,7 +81,12 @@ def date_and_delta(value, *, now=None):
     return date, abs_timedelta(delta)
 
 
-def naturaldelta(value, months=True, minimum_unit="seconds", when=None):
+def naturaldelta(
+    value,
+    months=True,
+    minimum_unit="seconds",
+    when=None,
+) -> str:
     """Return a natural representation of a timedelta or number of seconds.
 
     This is similar to `naturaltime`, but does not add tense to the result.
@@ -187,7 +192,13 @@ def naturaldelta(value, months=True, minimum_unit="seconds", when=None):
         return ngettext("%d year", "%d years", years) % years
 
 
-def naturaltime(value, future=False, months=True, minimum_unit="seconds", when=None):
+def naturaltime(
+    value,
+    future=False,
+    months=True,
+    minimum_unit="seconds",
+    when=None,
+) -> str:
     """Return a natural representation of a time in a resolution that makes sense.
 
     This is more or less compatible with Django's `naturaltime` filter.
@@ -223,7 +234,7 @@ def naturaltime(value, future=False, months=True, minimum_unit="seconds", when=N
     return ago % delta
 
 
-def naturalday(value, format="%b %d"):
+def naturalday(value, format="%b %d") -> str:
     """Return a natural day.
 
     For date values that are tomorrow, today or yesterday compared to
@@ -249,7 +260,7 @@ def naturalday(value, format="%b %d"):
     return value.strftime(format)
 
 
-def naturaldate(value):
+def naturaldate(value) -> str:
     """Like `naturalday`, but append a year for dates more than ~five months away."""
     try:
         value = dt.date(value.year, value.month, value.day)
@@ -375,7 +386,7 @@ def _suppress_lower_units(min_unit, suppress):
     return suppress
 
 
-def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f"):
+def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f") -> str:
     """Return a precise representation of a timedelta.
 
     ```pycon
