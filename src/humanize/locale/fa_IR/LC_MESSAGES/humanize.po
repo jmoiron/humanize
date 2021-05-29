@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: humanize\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 22:34+0200\n"
+"POT-Creation-Date: 2021-05-04 23:15+0200\n"
 "PO-Revision-Date: 2017-01-10 02:44+0330\n"
 "Last-Translator: Christian Klein <chris@5711.org>\n"
 "Language-Team: German\n"
@@ -19,165 +19,215 @@ msgstr ""
 "Generated-By: Christian Klein\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: src/humanize/number.py:56
-msgctxt "0"
+#: src/humanize/number.py:57
+msgctxt "0 (male)"
 msgid "th"
 msgstr "."
 
-#: src/humanize/number.py:57
-msgctxt "1"
+#: src/humanize/number.py:58
+msgctxt "1 (male)"
 msgid "st"
 msgstr "اولین"
 
-#: src/humanize/number.py:58
-msgctxt "2"
+#: src/humanize/number.py:59
+msgctxt "2 (male)"
 msgid "nd"
 msgstr "دومین"
 
-#: src/humanize/number.py:59
-msgctxt "3"
+#: src/humanize/number.py:60
+msgctxt "3 (male)"
 msgid "rd"
 msgstr "سومین"
 
-#: src/humanize/number.py:60
-msgctxt "4"
-msgid "th"
-msgstr "چهارمین"
-
 #: src/humanize/number.py:61
-msgctxt "5"
+msgctxt "4 (male)"
+msgid "th"
+msgstr "چهارمی"
+
+#: src/humanize/number.py:62
+msgctxt "5 (male)"
 msgid "th"
 msgstr "پنجمین"
 
-#: src/humanize/number.py:62
-msgctxt "6"
-msgid "th"
-msgstr "ششمین"
-
 #: src/humanize/number.py:63
-msgctxt "7"
+msgctxt "6 (male)"
 msgid "th"
-msgstr "هفتمین"
+msgstr "ششمی"
 
 #: src/humanize/number.py:64
-msgctxt "8"
+msgctxt "7 (male)"
 msgid "th"
-msgstr "هشتمین"
+msgstr "هفتمی"
 
 #: src/humanize/number.py:65
-msgctxt "9"
+msgctxt "8 (male)"
+msgid "th"
+msgstr "هشتمی"
+
+#: src/humanize/number.py:66
+msgctxt "9 (male)"
 msgid "th"
 msgstr "نهمین"
 
-#: src/humanize/number.py:126
+#: src/humanize/number.py:70
+msgctxt "0 (female)"
+msgid "th"
+msgstr "."
+
+#: src/humanize/number.py:71
+msgctxt "1 (female)"
+msgid "st"
+msgstr "اولین"
+
+#: src/humanize/number.py:72
+msgctxt "2 (female)"
+msgid "nd"
+msgstr "دومین"
+
+#: src/humanize/number.py:73
+msgctxt "3 (female)"
+msgid "rd"
+msgstr "سومین"
+
+#: src/humanize/number.py:74
+msgctxt "4 (female)"
+msgid "th"
+msgstr "چهارمی"
+
+#: src/humanize/number.py:75
+msgctxt "5 (female)"
+msgid "th"
+msgstr "پنجمین"
+
+#: src/humanize/number.py:76
+msgctxt "6 (female)"
+msgid "th"
+msgstr "ششمی"
+
+#: src/humanize/number.py:77
+msgctxt "7 (female)"
+msgid "th"
+msgstr "هفتمی"
+
+#: src/humanize/number.py:78
+msgctxt "8 (female)"
+msgid "th"
+msgstr "هشتمی"
+
+#: src/humanize/number.py:79
+msgctxt "9 (female)"
+msgid "th"
+msgstr "نهمین"
+
+#: src/humanize/number.py:140
 msgid "thousand"
 msgid_plural "thousand"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/humanize/number.py:127
+#: src/humanize/number.py:141
 msgid "million"
 msgid_plural "million"
 msgstr[0] "میلیون"
 msgstr[1] "میلیون"
 
-#: src/humanize/number.py:128
+#: src/humanize/number.py:142
 msgid "billion"
 msgid_plural "billion"
 msgstr[0] "میلیارد"
 msgstr[1] "میلیارد"
 
-#: src/humanize/number.py:129
+#: src/humanize/number.py:143
 msgid "trillion"
 msgid_plural "trillion"
 msgstr[0] "ترلیون"
 msgstr[1] "ترلیون"
 
-#: src/humanize/number.py:130
+#: src/humanize/number.py:144
 msgid "quadrillion"
 msgid_plural "quadrillion"
 msgstr[0] "کوادریلیون"
 msgstr[1] "کوادریلیون"
 
-#: src/humanize/number.py:131
+#: src/humanize/number.py:145
 msgid "quintillion"
 msgid_plural "quintillion"
 msgstr[0] "کوانتیلیون"
 msgstr[1] "کوانتیلیون"
 
-#: src/humanize/number.py:132
+#: src/humanize/number.py:146
 msgid "sextillion"
 msgid_plural "sextillion"
 msgstr[0] "سکستیلیون"
 msgstr[1] "سکستیلیون"
 
-#: src/humanize/number.py:133
+#: src/humanize/number.py:147
 msgid "septillion"
 msgid_plural "septillion"
 msgstr[0] "سپتیلیون"
 msgstr[1] "سپتیلیون"
 
-#: src/humanize/number.py:134
+#: src/humanize/number.py:148
 msgid "octillion"
 msgid_plural "octillion"
 msgstr[0] "اوکتیلیون"
 msgstr[1] "اوکتیلیون"
 
-#: src/humanize/number.py:135
+#: src/humanize/number.py:149
 msgid "nonillion"
 msgid_plural "nonillion"
 msgstr[0] "نونیلیون"
 msgstr[1] "نونیلیون"
 
-#: src/humanize/number.py:136
+#: src/humanize/number.py:150
 msgid "decillion"
 msgid_plural "decillion"
 msgstr[0] "دسیلیون"
 msgstr[1] "دسیلیون"
 
-#: src/humanize/number.py:137
+#: src/humanize/number.py:151
 msgid "googol"
 msgid_plural "googol"
 msgstr[0] "گوگول"
 msgstr[1] "گوگول"
 
-#: src/humanize/number.py:228
+#: src/humanize/number.py:246
 msgid "zero"
 msgstr ""
 
-#: src/humanize/number.py:229
+#: src/humanize/number.py:247
 msgid "one"
 msgstr "یک"
 
-#: src/humanize/number.py:230
+#: src/humanize/number.py:248
 msgid "two"
 msgstr "دو"
 
-#: src/humanize/number.py:231
+#: src/humanize/number.py:249
 msgid "three"
 msgstr "سه"
 
-#: src/humanize/number.py:232
+#: src/humanize/number.py:250
 msgid "four"
 msgstr "چهار"
 
-#: src/humanize/number.py:233
+#: src/humanize/number.py:251
 msgid "five"
 msgstr "پنج"
 
-#: src/humanize/number.py:234
+#: src/humanize/number.py:252
 msgid "six"
 msgstr "شش"
 
-#: src/humanize/number.py:235
+#: src/humanize/number.py:253
 msgid "seven"
 msgstr "هفت"
 
-#: src/humanize/number.py:236
+#: src/humanize/number.py:254
 msgid "eight"
 msgstr "هشت"
 
-#: src/humanize/number.py:237
+#: src/humanize/number.py:255
 msgid "nine"
 msgstr "نه"
 
