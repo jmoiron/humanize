@@ -22,7 +22,7 @@ msgstr ""
 #: src/humanize/number.py:57
 msgctxt "0 (male)"
 msgid "th"
-msgstr "."
+msgstr "صفرمین"
 
 #: src/humanize/number.py:58
 msgctxt "1 (male)"
@@ -42,7 +42,7 @@ msgstr "سومین"
 #: src/humanize/number.py:61
 msgctxt "4 (male)"
 msgid "th"
-msgstr "چهارمی"
+msgstr "چهارمین"
 
 #: src/humanize/number.py:62
 msgctxt "5 (male)"
@@ -52,17 +52,17 @@ msgstr "پنجمین"
 #: src/humanize/number.py:63
 msgctxt "6 (male)"
 msgid "th"
-msgstr "ششمی"
+msgstr "ششمین"
 
 #: src/humanize/number.py:64
 msgctxt "7 (male)"
 msgid "th"
-msgstr "هفتمی"
+msgstr "هفتمین"
 
 #: src/humanize/number.py:65
 msgctxt "8 (male)"
 msgid "th"
-msgstr "هشتمی"
+msgstr "هشتمین"
 
 #: src/humanize/number.py:66
 msgctxt "9 (male)"
@@ -72,7 +72,7 @@ msgstr "نهمین"
 #: src/humanize/number.py:70
 msgctxt "0 (female)"
 msgid "th"
-msgstr "."
+msgstr "صفرمین"
 
 #: src/humanize/number.py:71
 msgctxt "1 (female)"
@@ -92,7 +92,7 @@ msgstr "سومین"
 #: src/humanize/number.py:74
 msgctxt "4 (female)"
 msgid "th"
-msgstr "چهارمی"
+msgstr "چهارمین"
 
 #: src/humanize/number.py:75
 msgctxt "5 (female)"
@@ -102,17 +102,17 @@ msgstr "پنجمین"
 #: src/humanize/number.py:76
 msgctxt "6 (female)"
 msgid "th"
-msgstr "ششمی"
+msgstr "ششمین"
 
 #: src/humanize/number.py:77
 msgctxt "7 (female)"
 msgid "th"
-msgstr "هفتمی"
+msgstr "هفتمین"
 
 #: src/humanize/number.py:78
 msgctxt "8 (female)"
 msgid "th"
-msgstr "هشتمی"
+msgstr "هشتمین"
 
 #: src/humanize/number.py:79
 msgctxt "9 (female)"
@@ -122,8 +122,8 @@ msgstr "نهمین"
 #: src/humanize/number.py:140
 msgid "thousand"
 msgid_plural "thousand"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "هزار"
+msgstr[1] "هزار"
 
 #: src/humanize/number.py:141
 msgid "million"
@@ -193,7 +193,7 @@ msgstr[1] "گوگول"
 
 #: src/humanize/number.py:246
 msgid "zero"
-msgstr ""
+msgstr "صفر"
 
 #: src/humanize/number.py:247
 msgid "one"
@@ -235,15 +235,15 @@ msgstr "نه"
 #, python-format
 msgid "%d microsecond"
 msgid_plural "%d microseconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d میکرو‌ثانیه"
+msgstr[1] "%d میکرو‌ثانیه"
 
 #: src/humanize/time.py:142
 #, python-format
 msgid "%d millisecond"
 msgid_plural "%d milliseconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d میلی‌ثانیه"
+msgstr[1] "%d میلی‌ثانیه"
 
 #: src/humanize/time.py:145 src/humanize/time.py:220
 msgid "a moment"
@@ -362,4 +362,4 @@ msgstr "دیروز"
 #: src/humanize/time.py:534
 #, python-format
 msgid "%s and %s"
-msgstr ""
+msgstr "%s و %s"
