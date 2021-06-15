@@ -1,4 +1,4 @@
-# French (France) translations for PROJECT.
+# Vietnamese (Vietnam) translations for PROJECT.
 # Copyright (C) 2013 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
@@ -122,8 +122,8 @@ msgstr "."
 #: src/humanize/number.py:140
 msgid "thousand"
 msgid_plural "thousand"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "nghìn"
+msgstr[1] "nghìn"
 
 #: src/humanize/number.py:141
 msgid "million"
@@ -153,8 +153,8 @@ msgstr[1] "%(value)s triệu tỷ"
 #, fuzzy
 msgid "quintillion"
 msgid_plural "quintillion"
-msgstr[0] "%(value)s quintillion"
-msgstr[1] "%(value)s quintillion"
+msgstr[0] "%(value)s tỷ tỷ"
+msgstr[1] "%(value)s tỷ tỷ"
 
 #: src/humanize/number.py:146
 #, fuzzy
@@ -200,7 +200,7 @@ msgstr[1] "%(value)s gogol"
 
 #: src/humanize/number.py:246
 msgid "zero"
-msgstr ""
+msgstr "không"
 
 #: src/humanize/number.py:247
 msgid "one"
@@ -242,15 +242,15 @@ msgstr "chín"
 #, python-format
 msgid "%d microsecond"
 msgid_plural "%d microseconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d micro giây"
+msgstr[1] "%d micro giây"
 
 #: src/humanize/time.py:142
 #, python-format
 msgid "%d millisecond"
 msgid_plural "%d milliseconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d mili giây"
+msgstr[1] "%d mili giây"
 
 #: src/humanize/time.py:145 src/humanize/time.py:220
 msgid "a moment"
@@ -369,4 +369,4 @@ msgstr "ngày hôm qua"
 #: src/humanize/time.py:534
 #, python-format
 msgid "%s and %s"
-msgstr ""
+msgstr "%s và %s"
