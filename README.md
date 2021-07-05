@@ -31,6 +31,7 @@ readable size or throughput. It is localized to:
 * Slovak
 * Slovenian
 * Spanish
+* Swedish
 * Turkish
 * Ukrainian
 * Vietnamese
