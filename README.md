@@ -29,7 +29,9 @@ readable size or throughput. It is localized to:
 * Russian
 * Simplified Chinese
 * Slovak
+* Slovenian
 * Spanish
+* Swedish
 * Turkish
 * Ukrainian
 * Vietnamese

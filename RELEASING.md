@@ -12,11 +12,7 @@ cd /tmp
 rm -rf humanize
 git clone https://github.com/jmoiron/humanize
 cd humanize
-```
-
-* [ ] Generate translation binaries:
-
-```bash
+# Generate translation binaries
 scripts/generate-translation-binaries.sh
 ```
 
