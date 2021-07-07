@@ -235,7 +235,6 @@ def naturaltime(
     return ago % delta
 
 
-
 def precisetime(
     value, future=False, minimum_unit="seconds", suppress=(), format="%0.2f", when=None
 ):
@@ -269,12 +268,14 @@ def precisetime(
         delta, minimum_unit, suppress=suppress, format=format, when=now
     )
 
-    # this line addresses a theoretical edge case where a language doesnt put spaces before/after numbers
+    # this line addresses a theoretical edge case where a language doesnt put spaces
+    # before/after numbers
     splitdelta = "".join(
         i for i in delta if i.isdigit() or i in " ,."
     )  # remove all but numbers and other things
     splitdelta = splitdelta.split(" ")
-    # for every "word" in the result, check if every "number" is equal to 0. if so, replace it with now.
+    # for every "word" in the result, check if every "number" is equal to 0. if so,
+    # replace it with now.
     for word in splitdelta:
         try:
             if float(word) != 0:
@@ -439,7 +440,9 @@ def _suppress_lower_units(min_unit, suppress):
     return suppress
 
 
-def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f", when=None) -> str:
+def precisedelta(
+    value, minimum_unit="seconds", suppress=(), format="%0.2f", when=None
+) -> str:
     """Return a precise representation of a timedelta.
 
     ```pycon
