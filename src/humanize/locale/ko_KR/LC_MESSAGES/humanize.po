@@ -264,15 +264,15 @@ msgstr "아홉"
 #, python-format
 msgid "%d microsecond"
 msgid_plural "%d microseconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d마이크로초"
+msgstr[1] "%d마이크로초"
 
 #: src/humanize/time.py:142
 #, python-format
 msgid "%d millisecond"
 msgid_plural "%d milliseconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d밀리초"
+msgstr[1] "%d밀리초"
 
 #: src/humanize/time.py:145 src/humanize/time.py:220
 msgid "a moment"
@@ -308,7 +308,7 @@ msgstr "1시간"
 #, python-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] "%d heure"
+msgstr[0] "%d시간"
 msgstr[1] "%d시간"
 
 #: src/humanize/time.py:162
@@ -319,18 +319,18 @@ msgstr "하루"
 #, python-format
 msgid "%d day"
 msgid_plural "%d days"
-msgstr[0] "%d jour"
+msgstr[0] "%d일"
 msgstr[1] "%d일"
 
 #: src/humanize/time.py:169
 msgid "a month"
-msgstr "한달"
+msgstr "1개월"
 
 #: src/humanize/time.py:171
 #, python-format
 msgid "%d month"
 msgid_plural "%d months"
-msgstr[0] "%d mois"
+msgstr[0] "%d개월"
 msgstr[1] "%d개월"
 
 #: src/humanize/time.py:174
@@ -341,8 +341,8 @@ msgstr "1년"
 #, python-format
 msgid "1 year, %d day"
 msgid_plural "1 year, %d days"
-msgstr[0] "1년 %d일"
-msgstr[1] "1년 %d일"
+msgstr[0] "1년, %d일"
+msgstr[1] "1년, %d일"
 
 #: src/humanize/time.py:179
 msgid "1 year, 1 month"
@@ -359,8 +359,8 @@ msgstr[1] "1년, %d개월"
 #, python-format
 msgid "%d year"
 msgid_plural "%d years"
-msgstr[0] "%d 년"
-msgstr[1] "%d ans"
+msgstr[0] "%d년"
+msgstr[1] "%d년"
 
 #: src/humanize/time.py:217
 #, python-format
