@@ -1,0 +1,291 @@
+# Bengali translations for humanize package.
+# Copyright (C) 2021 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the humanize package.
+# Wasi Master <arianmollik323@gmail.com>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: humanize\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-29 21:59+0600\n"
+"PO-Revision-Date: 2021-07-29 22:07+0600\n"
+"Last-Translator: U-WASI-PC\\Wasi Master <arianmollik323@gmail.com>\n"
+"Language-Team: Bengali\n"
+"Language: bn_BD\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/humanize/number.py:58
+msgctxt "0 (male)"
+msgid "th"
+msgstr ""
+
+#: src/humanize/number.py:59
+msgctxt "1 (male)"
+msgid "st"
+msgstr ""
+
+#: src/humanize/number.py:60
+msgctxt "2 (male)"
+msgid "nd"
+msgstr ""
+
+#: src/humanize/number.py:61
+msgctxt "3 (male)"
+msgid "rd"
+msgstr ""
+
+#: src/humanize/number.py:62
+msgctxt "4 (male)"
+msgid "th"
+msgstr ""
+
+#: src/humanize/number.py:63
+msgctxt "5 (male)"
+msgid "th"
+msgstr ""
+
+#: src/humanize/number.py:64
+msgctxt "6 (male)"
+msgid "th"
+msgstr ""
+
+#: src/humanize/number.py:65
+msgctxt "7 (male)"
+msgid "th"
+msgstr ""
+
+#: src/humanize/number.py:66
+msgctxt "8 (male)"
+msgid "th"
+msgstr ""
+
+#: src/humanize/number.py:67
+msgctxt "9 (male)"
+msgid "th"
+msgstr ""
+
+#: src/humanize/number.py:71
+msgctxt "0 (female)"
+msgid "th"
+msgstr ""
+
+#: src/humanize/number.py:72
+msgctxt "1 (female)"
+msgid "st"
+msgstr ""
+
+#: src/humanize/number.py:73
+msgctxt "2 (female)"
+msgid "nd"
+msgstr ""
+
+#: src/humanize/number.py:74
+msgctxt "3 (female)"
+msgid "rd"
+msgstr ""
+
+#: src/humanize/number.py:75
+msgctxt "4 (female)"
+msgid "th"
+msgstr ""
+
+#: src/humanize/number.py:76
+msgctxt "5 (female)"
+msgid "th"
+msgstr ""
+
+#: src/humanize/number.py:77
+msgctxt "6 (female)"
+msgid "th"
+msgstr ""
+
+#: src/humanize/number.py:78
+msgctxt "7 (female)"
+msgid "th"
+msgstr ""
+
+#: src/humanize/number.py:79
+msgctxt "8 (female)"
+msgid "th"
+msgstr ""
+
+#: src/humanize/number.py:80
+msgctxt "9 (female)"
+msgid "th"
+msgstr ""
+
+#: src/humanize/number.py:247
+msgid "zero"
+msgstr "শুন্য"
+
+#: src/humanize/number.py:248
+msgid "one"
+msgstr "এক"
+
+#: src/humanize/number.py:249
+msgid "two"
+msgstr "দুই"
+
+#: src/humanize/number.py:250
+msgid "three"
+msgstr "তিন"
+
+#: src/humanize/number.py:251
+msgid "four"
+msgstr "চার"
+
+#: src/humanize/number.py:252
+msgid "five"
+msgstr "পাচ"
+
+#: src/humanize/number.py:253
+msgid "six"
+msgstr "ছয়"
+
+#: src/humanize/number.py:254
+msgid "seven"
+msgstr "সাত"
+
+#: src/humanize/number.py:255
+msgid "eight"
+msgstr "আট"
+
+#: src/humanize/number.py:256
+msgid "nine"
+msgstr "নয়"
+
+#: src/humanize/time.py:138
+#, python-format
+msgid "%d microsecond"
+msgid_plural "%d microseconds"
+msgstr[0] "%d মাইক্রোসেকন্ড"
+msgstr[1] "%d মাইক্রোসেকন্ড"
+
+#: src/humanize/time.py:147
+#, python-format
+msgid "%d millisecond"
+msgid_plural "%d milliseconds"
+msgstr[0] "%d মিলিসেকন্ড"
+msgstr[1] "%d মিলিসেকন্ড"
+
+#: src/humanize/time.py:150 src/humanize/time.py:231
+msgid "a moment"
+msgstr "এক মুহুর্ত"
+
+#: src/humanize/time.py:152
+msgid "a second"
+msgstr "এক সেকন্ড"
+
+#: src/humanize/time.py:154
+#, python-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d সেকন্ড"
+msgstr[1] "%d সেকন্ড"
+
+#: src/humanize/time.py:156
+msgid "a minute"
+msgstr "এক মিনিট"
+
+#: src/humanize/time.py:159
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d মিনিট"
+msgstr[1] "%d মিনিট"
+
+#: src/humanize/time.py:161
+msgid "an hour"
+msgstr "এক ঘন্টা"
+
+#: src/humanize/time.py:164
+#, python-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d ঘন্টা"
+msgstr[1] "%d ঘন্টা"
+
+#: src/humanize/time.py:167
+msgid "a day"
+msgstr "এক দিন"
+
+#: src/humanize/time.py:169 src/humanize/time.py:172
+#, python-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d দিন"
+msgstr[1] "%d দিন"
+
+#: src/humanize/time.py:174
+msgid "a month"
+msgstr "এক মাস"
+
+#: src/humanize/time.py:176
+#, python-format
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] "%d মাস"
+msgstr[1] "%d মাস"
+
+#: src/humanize/time.py:179
+msgid "a year"
+msgstr "এক বছর"
+
+#: src/humanize/time.py:181 src/humanize/time.py:190
+#, python-format
+msgid "1 year, %d day"
+msgid_plural "1 year, %d days"
+msgstr[0] "%d বছর"
+msgstr[1] "%d বছর"
+
+#: src/humanize/time.py:184
+msgid "1 year, 1 month"
+msgstr "১ বছর, ১ মাস"
+
+#: src/humanize/time.py:187
+#, python-format
+msgid "1 year, %d month"
+msgid_plural "1 year, %d months"
+msgstr[0] "১ বছর, %d মাস"
+msgstr[1] "১ বছর, %d মাস"
+
+#: src/humanize/time.py:192
+#, python-format
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] "%d বছর"
+msgstr[1] "%d বছর"
+
+#: src/humanize/time.py:228
+#, python-format
+msgid "%s from now"
+msgstr "আজ থেকে %s পরে"
+
+#: src/humanize/time.py:228
+#, python-format
+msgid "%s ago"
+msgstr "%s আগে"
+
+#: src/humanize/time.py:232
+msgid "now"
+msgstr "এখন"
+
+#: src/humanize/time.py:255
+msgid "today"
+msgstr "আজকে"
+
+#: src/humanize/time.py:257
+msgid "tomorrow"
+msgstr "আগামীকাল"
+
+#: src/humanize/time.py:259
+msgid "yesterday"
+msgstr "গতকাল"
+
+#: src/humanize/time.py:545
+#, python-format
+msgid "%s and %s"
+msgstr "%s আর  %s"
