@@ -96,7 +96,7 @@ def naturaldelta(
         months (bool): If `True`, then a number of months (based on 30.5 days) will be
             used for fuzziness between years.
         minimum_unit (str): The lowest unit that can be used.
-        when (datetime.timedelta): Point in time relative to which _value_ is
+        when (datetime.datetime): Point in time relative to which _value_ is
             interpreted.  Defaults to the current time in the local timezone.
 
     Returns:
