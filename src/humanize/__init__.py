@@ -2,7 +2,7 @@
 import pkg_resources
 
 from humanize.filesize import naturalsize
-from humanize.i18n import activate, deactivate, thousands_separator
+from humanize.i18n import activate, deactivate, gettext, ngettext, thousands_separator
 from humanize.number import (
     apnumber,
     clamp,
@@ -35,6 +35,7 @@ __all__ = [
     "date_and_delta",
     "deactivate",
     "fractional",
+    "gettext",
     "intcomma",
     "intword",
     "naturaldate",
@@ -42,6 +43,7 @@ __all__ = [
     "naturaldelta",
     "naturalsize",
     "naturaltime",
+    "ngettext",
     "ordinal",
     "precisedelta",
     "scientific",
