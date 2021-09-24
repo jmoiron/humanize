@@ -13,6 +13,9 @@ from humanize.number import (
     scientific,
 )
 from humanize.time import (
+    Unit,
+    abs_timedelta,
+    date_and_delta,
     naturaldate,
     naturalday,
     naturaldelta,
@@ -25,9 +28,11 @@ __version__ = VERSION = pkg_resources.get_distribution(__name__).version
 
 __all__ = [
     "__version__",
+    "abs_timedelta",
     "activate",
     "apnumber",
     "clamp",
+    "date_and_delta",
     "deactivate",
     "fractional",
     "intcomma",
@@ -41,5 +46,6 @@ __all__ = [
     "precisedelta",
     "scientific",
     "thousands_separator",
+    "Unit",
     "VERSION",
 ]

@@ -14,11 +14,14 @@ from .i18n import gettext as _
 from .i18n import ngettext
 
 __all__ = [
+    "abs_timedelta",
+    "date_and_delta",
     "naturaldelta",
     "naturaltime",
     "naturalday",
     "naturaldate",
     "precisedelta",
+    "Unit",
 ]
 
 
