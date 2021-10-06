@@ -19,9 +19,9 @@ scripts/generate-translation-binaries.sh
 * [ ] (Optional) Create a distribution and release on **TestPyPI**:
 
 ```bash
-pip install -U pip setuptools wheel twine keyring
+pip install -U pip build keyring twine
 rm -rf build dist
-python3 setup.py sdist --format=gztar bdist_wheel
+python -m build
 twine check dist/*
 twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 ```
@@ -43,9 +43,9 @@ git tag -a 2.1.0 -m "Release 2.1.0"
 * [ ] Create a distribution and release on **live PyPI**:
 
 ```bash
-pip install -U pip setuptools wheel twine keyring
+pip install -U pip build keyring twine
 rm -rf build dist
-python3 setup.py sdist --format=gztar bdist_wheel
+python -m build
 twine check dist/*
 twine upload -r pypi dist/*
 ```
