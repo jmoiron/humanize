@@ -1,5 +1,4 @@
 """Main package for humanize."""
-import pkg_resources
 
 from humanize.filesize import naturalsize
 from humanize.i18n import activate, deactivate, thousands_separator
@@ -20,7 +19,14 @@ from humanize.time import (
     precisedelta,
 )
 
-__version__ = VERSION = pkg_resources.get_distribution(__name__).version
+try:
+    # Python 3.8+
+    import importlib.metadata as importlib_metadata
+except ImportError:
+    # <Python 3.7 and lower
+    import importlib_metadata
+
+__version__ = importlib_metadata.version(__name__)
 
 
 __all__ = [
