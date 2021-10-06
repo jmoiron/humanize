@@ -1,34 +1,34 @@
 repos:
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.12.0
+    rev: v2.29.0
     hooks:
       - id: pyupgrade
         args: ["--py36-plus"]
 
   - repo: https://github.com/psf/black
-    rev: 20.8b1
+    rev: 21.9b0
     hooks:
       - id: black
         args: ["--target-version", "py36"]
 
   - repo: https://github.com/PyCQA/isort
-    rev: 5.8.0
+    rev: 5.9.3
     hooks:
       - id: isort
 
   - repo: https://gitlab.com/pycqa/flake8
-    rev: 3.9.0
+    rev: 3.9.2
     hooks:
       - id: flake8
         additional_dependencies: [flake8-2020, flake8-implicit-str-concat]
 
   - repo: https://github.com/pre-commit/pygrep-hooks
-    rev: v1.8.0
+    rev: v1.9.0
     hooks:
       - id: python-check-blanket-noqa
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.4.0
+    rev: v4.0.1
     hooks:
       - id: check-merge-conflict
       - id: check-toml
@@ -36,19 +36,18 @@ repos:
       - id: end-of-file-fixer
 
   - repo: https://github.com/PyCQA/pydocstyle
-    rev: 6.0.0
+    rev: 6.1.1
     hooks:
       - id: pydocstyle
         args: ["--convention", "google"]
         files: "src/"
 
   - repo: https://github.com/tox-dev/tox-ini-fmt
-    rev: 0.5.0
+    rev: 0.5.1
     hooks:
       - id: tox-ini-fmt
 
   - repo: https://github.com/asottile/setup-cfg-fmt
-    rev: v1.17.0
+    rev: v1.18.0
     hooks:
     -   id: setup-cfg-fmt
-        args: ["--max-py-version=3.10"]
