@@ -1,8 +1,9 @@
-# Simplified Chinese (China) translation for the project
-# Copyright (C) 2016
+# Traditional Chinese (China) translation for the project
+# Copyright (C) 2021
 # This file is distributed under the same license as the PACKAGE package.
 # AZLisme <helloazl@icloud.com>, 2016.
 # Liwen SUN <sunliwen@gmail.com>, 2019.
+# Edward Ho <edward@edward.is>, 2021.
 #
 msgid ""
 msgstr ""
@@ -10,9 +11,9 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-04 23:15+0200\n"
 "PO-Revision-Date: 2016-11-14 23:02+0000\n"
-"Last-Translator: Liwen SUN <sunliwen@gmail.com>\n"
-"Language-Team: Chinese (simplified)\n"
-"Language: zh_CN\n"
+"Last-Translator: Edward Ho <edward@edward.is>\n"
+"Language-Team: Chinese (traditional)\n"
+"Language: zh_HK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -121,20 +122,20 @@ msgstr "第"
 #: src/humanize/number.py:140
 msgid "thousand"
 msgid_plural "thousand"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "千"
+msgstr[1] "千"
 
 #: src/humanize/number.py:141
 msgid "million"
 msgid_plural "million"
-msgstr[0] "百万"
-msgstr[1] "百万"
+msgstr[0] "百萬"
+msgstr[1] "百萬"
 
 #: src/humanize/number.py:142
 msgid "billion"
 msgid_plural "billion"
-msgstr[0] "十亿"
-msgstr[1] "十亿"
+msgstr[0] "十億"
+msgstr[1] "十億"
 
 #: src/humanize/number.py:143
 msgid "trillion"
@@ -145,8 +146,8 @@ msgstr[1] "兆"
 #: src/humanize/number.py:144
 msgid "quadrillion"
 msgid_plural "quadrillion"
-msgstr[0] "万亿"
-msgstr[1] "万亿"
+msgstr[0] "萬億"
+msgstr[1] "萬億"
 
 #: src/humanize/number.py:145
 msgid "quintillion"
@@ -181,18 +182,18 @@ msgstr[1] "百穰"
 #: src/humanize/number.py:150
 msgid "decillion"
 msgid_plural "decillion"
-msgstr[0] "十沟"
-msgstr[1] "十沟"
+msgstr[0] "十溝"
+msgstr[1] "十溝"
 
 #: src/humanize/number.py:151
 msgid "googol"
 msgid_plural "googol"
-msgstr[0] "古高尔"
-msgstr[1] "古高尔"
+msgstr[0] "古高爾"
+msgstr[1] "古高爾"
 
 #: src/humanize/number.py:246
 msgid "zero"
-msgstr ""
+msgstr "零"
 
 #: src/humanize/number.py:247
 msgid "one"
@@ -234,96 +235,96 @@ msgstr "九"
 #, python-format
 msgid "%d microsecond"
 msgid_plural "%d microseconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "微秒"
+msgstr[1] "微秒"
 
 #: src/humanize/time.py:142
 #, python-format
 msgid "%d millisecond"
 msgid_plural "%d milliseconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "毫秒"
+msgstr[1] "毫秒"
 
 #: src/humanize/time.py:145 src/humanize/time.py:220
 msgid "a moment"
-msgstr "一会儿"
+msgstr "一會"
 
 #: src/humanize/time.py:147
 msgid "a second"
-msgstr "1秒"
+msgstr "1 秒"
 
 #: src/humanize/time.py:149
 #, python-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "%d秒"
-msgstr[1] "%d秒"
+msgstr[0] "%d 秒"
+msgstr[1] "%d 秒"
 
 #: src/humanize/time.py:151
 msgid "a minute"
-msgstr "1分"
+msgstr "1 分鐘"
 
 #: src/humanize/time.py:154
 #, python-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "%d分"
-msgstr[1] "%d分"
+msgstr[0] "%d 分鐘"
+msgstr[1] "%d 分鐘"
 
 #: src/humanize/time.py:156
 msgid "an hour"
-msgstr "1小时"
+msgstr "1 小時"
 
 #: src/humanize/time.py:159
 #, python-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] "%d小时"
-msgstr[1] "%d小时"
+msgstr[0] "%d 小時"
+msgstr[1] "%d 小時"
 
 #: src/humanize/time.py:162
 msgid "a day"
-msgstr "1天"
+msgstr "1 天"
 
 #: src/humanize/time.py:164 src/humanize/time.py:167
 #, python-format
 msgid "%d day"
 msgid_plural "%d days"
-msgstr[0] "%d天"
-msgstr[1] "%d天"
+msgstr[0] "%d 天"
+msgstr[1] "%d 天"
 
 #: src/humanize/time.py:169
 msgid "a month"
-msgstr "1月"
+msgstr "1 月"
 
 #: src/humanize/time.py:171
 #, python-format
 msgid "%d month"
 msgid_plural "%d months"
-msgstr[0] "%d月"
-msgstr[1] "%d月"
+msgstr[0] "%d 月"
+msgstr[1] "%d 月"
 
 #: src/humanize/time.py:174
 msgid "a year"
-msgstr "1年"
+msgstr "1 年"
 
 #: src/humanize/time.py:176 src/humanize/time.py:185
 #, python-format
 msgid "1 year, %d day"
 msgid_plural "1 year, %d days"
-msgstr[0] "%d年"
-msgstr[1] "%d年"
+msgstr[0] "%d 年"
+msgstr[1] "%d 年"
 
 #: src/humanize/time.py:179
 msgid "1 year, 1 month"
-msgstr "1年又1月"
+msgstr "1 年又 1 個月"
 
 #: src/humanize/time.py:182
 #, python-format
 msgid "1 year, %d month"
 msgid_plural "1 year, %d months"
-msgstr[0] "1年又%d月"
-msgstr[1] "1年又%d月"
+msgstr[0] "1 年又 %d 個月"
+msgstr[1] "1 年又 %d 個月"
 
 #: src/humanize/time.py:187
 #, python-format
@@ -335,16 +336,16 @@ msgstr[1] "%d年"
 #: src/humanize/time.py:217
 #, python-format
 msgid "%s from now"
-msgstr "%s之后"
+msgstr "%s 之後"
 
 #: src/humanize/time.py:217
 #, python-format
 msgid "%s ago"
-msgstr "%s之前"
+msgstr "%s 之前"
 
 #: src/humanize/time.py:221
 msgid "now"
-msgstr "现在"
+msgstr "現在"
 
 #: src/humanize/time.py:244
 msgid "today"
@@ -361,4 +362,4 @@ msgstr "昨天"
 #: src/humanize/time.py:534
 #, python-format
 msgid "%s and %s"
-msgstr ""
+msgstr "%s 與 %s"
