@@ -1,12 +1,13 @@
+.coverage
+.DS_Store
+.eggs
+.testmondata
+.tox
 *.egg-info*
 *.mo
 *.pot
 *.py[co]
 *.sw[po]
-.coverage
-.eggs
-.testmondata
-.tox
 build
 dist
 docs/_build*
