@@ -2,6 +2,7 @@
 # Copyright (C) 2020 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Bartosz Bubak <bartosz.bubak@gmail.com>, 2020.
+# Added missing strings by Krystian Postek <krystian postek eu>, 2020.
 #
 msgid ""
 msgstr ""
@@ -336,7 +337,7 @@ msgstr[2] "1 rok, %d dni"
 
 #: src/humanize/time.py:179
 msgid "1 year, 1 month"
-msgstr ""
+msgstr "1 rok, 1 miesiąc"
 
 #: src/humanize/time.py:182
 #, python-format
@@ -383,4 +384,4 @@ msgstr "wczoraj"
 #: src/humanize/time.py:534
 #, python-format
 msgid "%s and %s"
-msgstr ""
+msgstr "%s i %s"
