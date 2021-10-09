@@ -13,3 +13,4 @@ docs/_build*
 htmlcov
 site
 tags
+.DS_Store
