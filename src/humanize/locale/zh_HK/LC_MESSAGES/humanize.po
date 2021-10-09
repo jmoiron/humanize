@@ -235,15 +235,15 @@ msgstr "九"
 #, python-format
 msgid "%d microsecond"
 msgid_plural "%d microseconds"
-msgstr[0] "微秒"
-msgstr[1] "微秒"
+msgstr[0] "%d 微秒"
+msgstr[1] "%d 微秒"
 
 #: src/humanize/time.py:142
 #, python-format
 msgid "%d millisecond"
 msgid_plural "%d milliseconds"
-msgstr[0] "毫秒"
-msgstr[1] "毫秒"
+msgstr[0] "%d 毫秒"
+msgstr[1] "%d 毫秒"
 
 #: src/humanize/time.py:145 src/humanize/time.py:220
 msgid "a moment"
