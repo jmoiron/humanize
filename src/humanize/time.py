@@ -7,8 +7,7 @@ These are largely borrowed from Django's `contrib.humanize`.
 
 import datetime as dt
 import math
-import warnings
-from enum import Enum, EnumMeta
+from enum import Enum
 from functools import total_ordering
 
 from .i18n import _gettext as _
@@ -40,43 +39,6 @@ class _Unit(Enum):
         return NotImplemented
 
 
-class _UnitMeta(EnumMeta):
-    """Metaclass for an enum that emits deprecation warnings when accessed."""
-
-    def __getattribute__(self, name):
-        warnings.warn(
-            "`Unit` has been deprecated. "
-            "The enum is still available as the private member `_Unit`.",
-            DeprecationWarning,
-        )
-        return EnumMeta.__getattribute__(_Unit, name)
-
-    def __getitem__(cls, name):
-        warnings.warn(
-            "`Unit` has been deprecated. "
-            "The enum is still available as the private member `_Unit`.",
-            DeprecationWarning,
-        )
-        return _Unit.__getitem__(name)
-
-    def __call__(
-        cls, value, names=None, *, module=None, qualname=None, type=None, start=1
-    ):
-        warnings.warn(
-            "`Unit` has been deprecated. "
-            "The enum is still available as the private member `_Unit`.",
-            DeprecationWarning,
-        )
-        return _Unit.__call__(
-            value, names, module=module, qualname=qualname, type=type, start=start
-        )
-
-
-class Unit(Enum, metaclass=_UnitMeta):
-    # Temporary alias for _Unit to allow backwards-compatible usage.
-    pass
-
-
 def _now():
     return dt.datetime.now()
 
@@ -94,26 +56,6 @@ def _abs_timedelta(delta):
         now = _now()
         return now - (now + delta)
     return delta
-
-
-def abs_timedelta(delta):
-    """Return an "absolute" value for a timedelta, always representing a time distance.
-
-    Args:
-        delta (datetime.timedelta): Input timedelta.
-
-    Returns:
-        datetime.timedelta: Absolute timedelta.
-
-    WARNING: This function has been deprecated. It is still available as the private
-    member `_abs_timedelta`.
-    """
-    warnings.warn(
-        "`abs_timedelta` has been deprecated. "
-        "It is still available as the private member `_abs_timedelta`.",
-        DeprecationWarning,
-    )
-    return _abs_timedelta(delta)
 
 
 def _date_and_delta(value, *, now=None):
@@ -137,22 +79,6 @@ def _date_and_delta(value, *, now=None):
         except (ValueError, TypeError):
             return None, value
     return date, _abs_timedelta(delta)
-
-
-def date_and_delta(delta):
-    """Turn a value into a date and a timedelta which represents how long ago it was.
-
-    If that's not possible, return `(None, value)`.
-
-    WARNING: This function has been deprecated. It is still available as the private
-    member `_date_and_delta`.
-    """
-    warnings.warn(
-        "`date_and_delta` has been deprecated. "
-        "It is still available as the private member `_date_and_delta`.",
-        DeprecationWarning,
-    )
-    return _date_and_delta(delta)
 
 
 def naturaldelta(
