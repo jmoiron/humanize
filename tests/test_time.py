@@ -62,10 +62,10 @@ def test_date_and_delta():
     results = [(now - td(seconds=x), td(seconds=x)) for x in int_tests]
     for t in (int_tests, date_tests, td_tests):
         for arg, result in zip(t, results):
-            date, d = time.date_and_delta(arg)
+            date, d = time._date_and_delta(arg)
             assertEqualDatetime(date, result[0])
             assertEqualTimedelta(d, result[1])
-    assert time.date_and_delta("NaN") == (None, "NaN")
+    assert time._date_and_delta("NaN") == (None, "NaN")
 
 
 # Tests for the public interface of humanize.time
@@ -645,7 +645,7 @@ def test_precisedelta_bogus_call():
 
 
 def test_time_unit():
-    years, minutes = time.Unit["YEARS"], time.Unit["MINUTES"]
+    years, minutes = time._Unit["YEARS"], time._Unit["MINUTES"]
     assert minutes < years
     assert years > minutes
     assert minutes == minutes
