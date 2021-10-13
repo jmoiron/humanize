@@ -11,8 +11,8 @@ import warnings
 from enum import Enum, EnumMeta
 from functools import total_ordering
 
-from .i18n import gettext as _
-from .i18n import ngettext
+from .i18n import _gettext as _
+from .i18n import _ngettext
 
 __all__ = [
     "naturaldelta",
@@ -209,7 +209,7 @@ def naturaldelta(
         if seconds == 0:
             if minimum_unit == _Unit.MICROSECONDS and delta.microseconds < 1000:
                 return (
-                    ngettext("%d microsecond", "%d microseconds", delta.microseconds)
+                    _ngettext("%d microsecond", "%d microseconds", delta.microseconds)
                     % delta.microseconds
                 )
             elif minimum_unit == _Unit.MILLISECONDS or (
@@ -218,52 +218,52 @@ def naturaldelta(
             ):
                 milliseconds = delta.microseconds / 1000
                 return (
-                    ngettext("%d millisecond", "%d milliseconds", milliseconds)
+                    _ngettext("%d millisecond", "%d milliseconds", milliseconds)
                     % milliseconds
                 )
             return _("a moment")
         elif seconds == 1:
             return _("a second")
         elif seconds < 60:
-            return ngettext("%d second", "%d seconds", seconds) % seconds
+            return _ngettext("%d second", "%d seconds", seconds) % seconds
         elif 60 <= seconds < 120:
             return _("a minute")
         elif 120 <= seconds < 3600:
             minutes = seconds // 60
-            return ngettext("%d minute", "%d minutes", minutes) % minutes
+            return _ngettext("%d minute", "%d minutes", minutes) % minutes
         elif 3600 <= seconds < 3600 * 2:
             return _("an hour")
         elif 3600 < seconds:
             hours = seconds // 3600
-            return ngettext("%d hour", "%d hours", hours) % hours
+            return _ngettext("%d hour", "%d hours", hours) % hours
     elif years == 0:
         if days == 1:
             return _("a day")
         if not use_months:
-            return ngettext("%d day", "%d days", days) % days
+            return _ngettext("%d day", "%d days", days) % days
         else:
             if not months:
-                return ngettext("%d day", "%d days", days) % days
+                return _ngettext("%d day", "%d days", days) % days
             elif months == 1:
                 return _("a month")
             else:
-                return ngettext("%d month", "%d months", months) % months
+                return _ngettext("%d month", "%d months", months) % months
     elif years == 1:
         if not months and not days:
             return _("a year")
         elif not months:
-            return ngettext("1 year, %d day", "1 year, %d days", days) % days
+            return _ngettext("1 year, %d day", "1 year, %d days", days) % days
         elif use_months:
             if months == 1:
                 return _("1 year, 1 month")
             else:
                 return (
-                    ngettext("1 year, %d month", "1 year, %d months", months) % months
+                    _ngettext("1 year, %d month", "1 year, %d months", months) % months
                 )
         else:
-            return ngettext("1 year, %d day", "1 year, %d days", days) % days
+            return _ngettext("1 year, %d day", "1 year, %d days", days) % days
     else:
-        return ngettext("%d year", "%d years", years) % years
+        return _ngettext("%d year", "%d years", years) % years
 
 
 def naturaltime(
@@ -601,7 +601,7 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f") -> 
     for unit, fmt in zip(reversed(_Unit), fmts):
         singular_txt, plural_txt, value = fmt
         if value > 0 or (not texts and unit == min_unit):
-            fmt_txt = ngettext(singular_txt, plural_txt, value)
+            fmt_txt = _ngettext(singular_txt, plural_txt, value)
             if unit == min_unit and math.modf(value)[0] > 0:
                 fmt_txt = fmt_txt.replace("%d", format)
 
