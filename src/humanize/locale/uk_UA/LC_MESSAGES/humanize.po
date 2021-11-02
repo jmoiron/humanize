@@ -118,7 +118,7 @@ msgstr "ий"
 #: src/humanize/number.py:140
 msgid "thousand"
 msgid_plural "thousand"
-msgstr[0] "тасяча"
+msgstr[0] "тисяча"
 msgstr[1] "тисячі"
 msgstr[2] "тисяч"
 
