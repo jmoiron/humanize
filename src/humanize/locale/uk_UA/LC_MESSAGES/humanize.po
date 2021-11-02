@@ -118,86 +118,86 @@ msgstr "ий"
 #: src/humanize/number.py:140
 msgid "thousand"
 msgid_plural "thousand"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "тасяча"
+msgstr[1] "тисячі"
+msgstr[2] "тисяч"
 
 #: src/humanize/number.py:141
 msgid "million"
 msgid_plural "million"
-msgstr[0] "мільйонів"
-msgstr[1] "мільйонів"
+msgstr[0] "мільйон"
+msgstr[1] "мільйона"
 msgstr[2] "мільйонів"
 
 #: src/humanize/number.py:142
 msgid "billion"
 msgid_plural "billion"
-msgstr[0] "мільярдів"
-msgstr[1] "мільярдів"
+msgstr[0] "мільярд"
+msgstr[1] "мільярда"
 msgstr[2] "мільярдів"
 
 #: src/humanize/number.py:143
 msgid "trillion"
 msgid_plural "trillion"
-msgstr[0] "трильйонів"
-msgstr[1] "трильйонів"
+msgstr[0] "трильйон"
+msgstr[1] "трильйона"
 msgstr[2] "трильйонів"
 
 #: src/humanize/number.py:144
 msgid "quadrillion"
 msgid_plural "quadrillion"
-msgstr[0] "квадрильйонів"
-msgstr[1] "квадрильйонів"
+msgstr[0] "квадрильйон"
+msgstr[1] "квадрильйона"
 msgstr[2] "квадрильйонів"
 
 #: src/humanize/number.py:145
 msgid "quintillion"
 msgid_plural "quintillion"
-msgstr[0] "квинтиліонів"
-msgstr[1] "квинтиліонів"
+msgstr[0] "квинтиліон"
+msgstr[1] "квинтиліона"
 msgstr[2] "квинтиліонів"
 
 #: src/humanize/number.py:146
 msgid "sextillion"
 msgid_plural "sextillion"
-msgstr[0] "сикстильйонів"
-msgstr[1] "сикстильйонів"
+msgstr[0] "сикстильйон"
+msgstr[1] "сикстильйона"
 msgstr[2] "сикстильйонів"
 
 #: src/humanize/number.py:147
 msgid "septillion"
 msgid_plural "septillion"
-msgstr[0] "септильйонів"
-msgstr[1] "септильйонів"
+msgstr[0] "септильйон"
+msgstr[1] "септильйона"
 msgstr[2] "септильйонів"
 
 #: src/humanize/number.py:148
 msgid "octillion"
 msgid_plural "octillion"
-msgstr[0] "октильйонів"
-msgstr[1] "октильйонів"
+msgstr[0] "октильйон"
+msgstr[1] "октильйона"
 msgstr[2] "октильйонів"
 
 #: src/humanize/number.py:149
 msgid "nonillion"
 msgid_plural "nonillion"
-msgstr[0] "нонильйонів"
-msgstr[1] "нонильйонів"
+msgstr[0] "нонильйон"
+msgstr[1] "нонильйона"
 msgstr[2] "нонильйонів"
 
 #: src/humanize/number.py:150
 msgid "decillion"
 msgid_plural "decillion"
-msgstr[0] "децильйонів"
-msgstr[1] "децильйонів"
+msgstr[0] "децильйон"
+msgstr[1] "децильйона"
 msgstr[2] "децильйонів"
 
 #: src/humanize/number.py:151
 msgid "googol"
 msgid_plural "googol"
-msgstr[0] "гугола"
-msgstr[1] "гугола"
-msgstr[2] "гугола"
+msgstr[0] "гугол"
+msgstr[1] "гугла"
+msgstr[2] "гуглів"
 
 #: src/humanize/number.py:246
 msgid "zero"
@@ -244,8 +244,8 @@ msgstr "дев'ять"
 msgid "%d microsecond"
 msgid_plural "%d microseconds"
 msgstr[0] "%d мікросекунда"
-msgstr[1] "%d мікросекунд"
-msgstr[2] "%d мікросекунди"
+msgstr[1] "%d мікросекунди"
+msgstr[2] "%d мікросекунд"
 
 #: src/humanize/time.py:142
 #, fuzzy, python-format
@@ -253,7 +253,7 @@ msgid "%d millisecond"
 msgid_plural "%d milliseconds"
 msgstr[0] "%d мілісекунда"
 msgstr[1] "%d мілісекунди"
-msgstr[2] "%d мілісекунди"
+msgstr[2] "%d мілісекунд"
 
 #: src/humanize/time.py:145 src/humanize/time.py:220
 msgid "a moment"
@@ -261,14 +261,14 @@ msgstr "у цей момент"
 
 #: src/humanize/time.py:147
 msgid "a second"
-msgstr "секунду"
+msgstr "секунда"
 
 #: src/humanize/time.py:149
 #, python-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d секунда"
-msgstr[1] "%d секунд"
+msgstr[1] "%d секунди"
 msgstr[2] "%d секунд"
 
 #: src/humanize/time.py:151
@@ -292,7 +292,7 @@ msgstr "година"
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "%d година"
-msgstr[1] "%d годин"
+msgstr[1] "%d години"
 msgstr[2] "%d годин"
 
 #: src/humanize/time.py:162
@@ -305,7 +305,7 @@ msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d день"
 msgstr[1] "%d дня"
-msgstr[2] "%d дні"
+msgstr[2] "%d днів"
 
 #: src/humanize/time.py:169
 msgid "a month"
@@ -380,4 +380,4 @@ msgstr "вчора"
 #: src/humanize/time.py:534
 #, python-format
 msgid "%s and %s"
-msgstr ""
+msgstr "%s й %s"
