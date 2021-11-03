@@ -248,17 +248,17 @@ msgstr "девять"
 #, python-format
 msgid "%d microsecond"
 msgid_plural "%d microseconds"
-msgstr[0] "микросекунда"
-msgstr[1] "микросекунды"
-msgstr[2] "микросекунд"
+msgstr[0] "%d микросекунда"
+msgstr[1] "%d микросекунды"
+msgstr[2] "%d микросекунд"
 
 #: src/humanize/time.py:142
 #, python-format
 msgid "%d millisecond"
 msgid_plural "%d milliseconds"
-msgstr[0] "миллисекунда"
-msgstr[1] "миллисекунды"
-msgstr[2] "миллисекунд"
+msgstr[0] "%d миллисекунда"
+msgstr[1] "%d миллисекунды"
+msgstr[2] "%d миллисекунд"
 
 #: src/humanize/time.py:145 src/humanize/time.py:220
 msgid "a moment"
