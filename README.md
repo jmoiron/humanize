@@ -36,6 +36,7 @@ readable size or throughput. It is localized to:
 * Turkish
 * Ukrainian
 * Vietnamese
+* Danish
 
 ## API reference
 
