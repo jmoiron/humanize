@@ -1,0 +1,364 @@
+# Danish translations for humanize package.
+# Copyright (C) 2021
+# This file is distributed under the same license as the humanize project.
+# YURII DEREVYCH <gkhelloworld@gmail.com>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: humanize\n"
+"Report-Msgid-Bugs-To: https://github.com/jmoiron/humanize/issues\n"
+"POT-Creation-Date: 2021-07-05 09:49+0200\n"
+"PO-Revision-Date: 2021-11-24 22:25+0200\n"
+"Last-Translator: YURII DEREVYCH <gkhelloworld@gmail.com>\n"
+"Language-Team: Da\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0\n"
+
+#: src/humanize/number.py:58
+msgctxt "0 (male)"
+msgid "th"
+msgstr ":e"
+
+#: src/humanize/number.py:59
+msgctxt "1 (male)"
+msgid "st"
+msgstr ":e"
+
+#: src/humanize/number.py:60
+msgctxt "2 (male)"
+msgid "nd"
+msgstr ":t"
+
+#: src/humanize/number.py:61
+msgctxt "3 (male)"
+msgid "rd"
+msgstr ":e"
+
+#: src/humanize/number.py:62
+msgctxt "4 (male)"
+msgid "th"
+msgstr ":e"
+
+#: src/humanize/number.py:63
+msgctxt "5 (male)"
+msgid "th"
+msgstr ":e"
+
+#: src/humanize/number.py:64
+msgctxt "6 (male)"
+msgid "th"
+msgstr ":e"
+
+#: src/humanize/number.py:65
+msgctxt "7 (male)"
+msgid "th"
+msgstr ":e"
+
+#: src/humanize/number.py:66
+msgctxt "8 (male)"
+msgid "th"
+msgstr ":e"
+
+#: src/humanize/number.py:67
+msgctxt "9 (male)"
+msgid "th"
+msgstr ":e"
+
+#: src/humanize/number.py:71
+msgctxt "0 (female)"
+msgid "th"
+msgstr ":e"
+
+#: src/humanize/number.py:72
+msgctxt "1 (female)"
+msgid "st"
+msgstr ":e"
+
+#: src/humanize/number.py:73
+msgctxt "2 (female)"
+msgid "nd"
+msgstr ":t"
+
+#: src/humanize/number.py:74
+msgctxt "3 (female)"
+msgid "rd"
+msgstr ":e"
+
+#: src/humanize/number.py:75
+msgctxt "4 (female)"
+msgid "th"
+msgstr ":e"
+
+#: src/humanize/number.py:76
+msgctxt "5 (female)"
+msgid "th"
+msgstr ":e"
+
+#: src/humanize/number.py:77
+msgctxt "6 (female)"
+msgid "th"
+msgstr ":e"
+
+#: src/humanize/number.py:78
+msgctxt "7 (female)"
+msgid "th"
+msgstr ":e"
+
+#: src/humanize/number.py:79
+msgctxt "8 (female)"
+msgid "th"
+msgstr ":e"
+
+#: src/humanize/number.py:80
+msgctxt "9 (female)"
+msgid "th"
+msgstr ":e"
+
+#: src/humanize/number.py:141
+msgid "thousand"
+msgid_plural "thousand"
+msgstr[0] "tusind"
+msgstr[1] "thousand"
+
+#: src/humanize/number.py:142
+msgid "million"
+msgid_plural "million"
+msgstr[0] "million"
+msgstr[1] "millioner"
+
+#: src/humanize/number.py:143
+msgid "billion"
+msgid_plural "billion"
+msgstr[0] "billion"
+msgstr[1] "billioner"
+
+#: src/humanize/number.py:144
+msgid "trillion"
+msgid_plural "trillion"
+msgstr[0] "billion"
+msgstr[1] "billioner"
+
+#: src/humanize/number.py:145
+msgid "quadrillion"
+msgid_plural "quadrillion"
+msgstr[0] "quadrillion"
+msgstr[1] "quadrillioner"
+
+#: src/humanize/number.py:146
+msgid "quintillion"
+msgid_plural "quintillion"
+msgstr[0] "quintillion"
+msgstr[1] "quintillioner"
+
+#: src/humanize/number.py:147
+msgid "sextillion"
+msgid_plural "sextillion"
+msgstr[0] "sextillion"
+msgstr[1] "sextillioner"
+
+#: src/humanize/number.py:148
+msgid "septillion"
+msgid_plural "septillion"
+msgstr[0] "septillion"
+msgstr[1] "septillioner"
+
+#: src/humanize/number.py:149
+msgid "octillion"
+msgid_plural "octillion"
+msgstr[0] "octillion"
+msgstr[1] "octillioner"
+
+#: src/humanize/number.py:150
+msgid "nonillion"
+msgid_plural "nonillion"
+msgstr[0] "nonillion"
+msgstr[1] "nonillioner"
+
+#: src/humanize/number.py:151
+msgid "decillion"
+msgid_plural "decillion"
+msgstr[0] "decillion"
+msgstr[1] "decillioner"
+
+#: src/humanize/number.py:152
+msgid "googol"
+msgid_plural "googol"
+msgstr[0] "googol"
+msgstr[1] "googol"
+
+#: src/humanize/number.py:247
+msgid "zero"
+msgstr "nul"
+
+#: src/humanize/number.py:248
+msgid "one"
+msgstr "en"
+
+#: src/humanize/number.py:249
+msgid "two"
+msgstr "to"
+
+#: src/humanize/number.py:250
+msgid "three"
+msgstr "tre"
+
+#: src/humanize/number.py:251
+msgid "four"
+msgstr "fire"
+
+#: src/humanize/number.py:252
+msgid "five"
+msgstr "fem"
+
+#: src/humanize/number.py:253
+msgid "six"
+msgstr "seks"
+
+#: src/humanize/number.py:254
+msgid "seven"
+msgstr "syv"
+
+#: src/humanize/number.py:255
+msgid "eight"
+msgstr "otte"
+
+#: src/humanize/number.py:256
+msgid "nine"
+msgstr "ni"
+
+#: src/humanize/time.py:138
+#, python-format
+msgid "%d microsecond"
+msgid_plural "%d microseconds"
+msgstr[0] "%d mikrosekund"
+msgstr[1] "%d mikrosekunder"
+
+#: src/humanize/time.py:147
+#, python-format
+msgid "%d millisecond"
+msgid_plural "%d milliseconds"
+msgstr[0] "%d millsekund"
+msgstr[1] "%d millsekunder"
+
+#: src/humanize/time.py:150 src/humanize/time.py:231
+msgid "a moment"
+msgstr "et øjeblik"
+
+#: src/humanize/time.py:152
+msgid "a second"
+msgstr "en anden"
+
+#: src/humanize/time.py:154
+#, python-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d sekund"
+msgstr[1] "%d sekunder"
+
+#: src/humanize/time.py:156
+msgid "a minute"
+msgstr "en minut"
+
+#: src/humanize/time.py:159
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d minut"
+msgstr[1] "%d minutter"
+
+#: src/humanize/time.py:161
+msgid "an hour"
+msgstr "en time"
+
+#: src/humanize/time.py:164
+#, python-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d time"
+msgstr[1] "%d timer"
+
+#: src/humanize/time.py:167
+msgid "a day"
+msgstr "en dag"
+
+#: src/humanize/time.py:169 src/humanize/time.py:172
+#, python-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d dag"
+msgstr[1] "%d dage"
+
+#: src/humanize/time.py:174
+msgid "a month"
+msgstr "en måned"
+
+#: src/humanize/time.py:176
+#, python-format
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] "%d måned"
+msgstr[1] "%d måneder"
+
+#: src/humanize/time.py:179
+msgid "a year"
+msgstr "et år"
+
+#: src/humanize/time.py:181 src/humanize/time.py:190
+#, python-format
+msgid "1 year, %d day"
+msgid_plural "1 year, %d days"
+msgstr[0] "1 år, %d dag"
+msgstr[1] "1 år, %d dage"
+
+#: src/humanize/time.py:184
+msgid "1 year, 1 month"
+msgstr "1 år, 1 måned"
+
+#: src/humanize/time.py:187
+#, python-format
+msgid "1 year, %d month"
+msgid_plural "1 year, %d months"
+msgstr[0] "1 år, %d måned"
+msgstr[1] "1 år, %d måneder"
+
+#: src/humanize/time.py:192
+#, python-format
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] "%d år"
+msgstr[1] "%d år"
+
+#: src/humanize/time.py:228
+#, python-format
+msgid "%s from now"
+msgstr "%s fra nu"
+
+#: src/humanize/time.py:228
+#, python-format
+msgid "%s ago"
+msgstr "%s siden"
+
+#: src/humanize/time.py:232
+msgid "now"
+msgstr "nu"
+
+#: src/humanize/time.py:255
+msgid "today"
+msgstr "i dag"
+
+#: src/humanize/time.py:257
+msgid "tomorrow"
+msgstr "i morgen"
+
+#: src/humanize/time.py:259
+msgid "yesterday"
+msgstr "i går"
+
+#: src/humanize/time.py:545
+#, python-format
+msgid "%s and %s"
+msgstr "%s og %s"
