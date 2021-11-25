@@ -5,10 +5,11 @@ on:
     # branches to consider in the event; optional, defaults to all
     branches:
       - master
+  workflow_dispatch:
 
 jobs:
   update_release_draft:
-    if: github.repository == 'jmoiron/humanize'
+    if: github.repository_owner == 'jmoiron'
     runs-on: ubuntu-latest
     steps:
       # Drafts your next release notes as pull requests are merged into "master"

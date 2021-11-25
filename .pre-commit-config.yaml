@@ -16,7 +16,7 @@ repos:
     hooks:
       - id: isort
 
-  - repo: https://gitlab.com/pycqa/flake8
+  - repo: https://github.com/PyCQA/flake8
     rev: 3.9.2
     hooks:
       - id: flake8
@@ -50,4 +50,7 @@ repos:
   - repo: https://github.com/asottile/setup-cfg-fmt
     rev: v1.18.0
     hooks:
-    -   id: setup-cfg-fmt
+      - id: setup-cfg-fmt
+
+ci:
+  autoupdate_schedule: quarterly
