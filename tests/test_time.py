@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 """Tests for time humanizing."""
 
 import datetime as dt
