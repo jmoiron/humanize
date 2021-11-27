@@ -1,3 +1,4 @@
+"""Internationalisation tests."""
 import datetime as dt
 import importlib
 
