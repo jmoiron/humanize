@@ -6,10 +6,10 @@ import math
 import re
 from fractions import Fraction
 
-from .i18n import gettext as _
-from .i18n import ngettext
-from .i18n import ngettext_noop as NS_
-from .i18n import pgettext as P_
+from .i18n import _gettext as _
+from .i18n import _ngettext
+from .i18n import _ngettext_noop as NS_
+from .i18n import _pgettext as P_
 from .i18n import thousands_separator
 
 
@@ -201,12 +201,12 @@ def intword(value, format="%.1f"):
                 chopped = value / float(powers[ordinal])
                 singular, plural = human_powers[ordinal]
                 return (
-                    " ".join([format, ngettext(singular, plural, math.ceil(chopped))])
+                    " ".join([format, _ngettext(singular, plural, math.ceil(chopped))])
                 ) % chopped
             else:
                 singular, plural = human_powers[ordinal - 1]
                 return (
-                    " ".join([format, ngettext(singular, plural, math.ceil(chopped))])
+                    " ".join([format, _ngettext(singular, plural, math.ceil(chopped))])
                 ) % chopped
     return str(value)
 
