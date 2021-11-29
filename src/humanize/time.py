@@ -44,11 +44,12 @@ class _UnitMeta(EnumMeta):
     """Metaclass for an enum that emits deprecation warnings when accessed."""
 
     def __getattribute__(self, name):
-        warnings.warn(
-            "`Unit` has been deprecated. "
-            "The enum is still available as the private member `_Unit`.",
-            DeprecationWarning,
-        )
+        # Temporarily comment out to avoid warning during 'import humanize'
+        # warnings.warn(
+        #     "`Unit` has been deprecated. "
+        #     "The enum is still available as the private member `_Unit`.",
+        #     DeprecationWarning,
+        # )
         return EnumMeta.__getattribute__(_Unit, name)
 
     def __getitem__(cls, name):
