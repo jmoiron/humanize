@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 """Number tests."""
 
 import pytest
