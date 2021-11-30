@@ -22,6 +22,8 @@ __all__ = [
     "precisedelta",
 ]
 
+_IMPORTING = True
+
 
 @total_ordering
 class _Unit(Enum):
@@ -44,30 +46,32 @@ class _UnitMeta(EnumMeta):
     """Metaclass for an enum that emits deprecation warnings when accessed."""
 
     def __getattribute__(self, name):
-        # Temporarily comment out to avoid warning during 'import humanize'
-        # warnings.warn(
-        #     "`Unit` has been deprecated. "
-        #     "The enum is still available as the private member `_Unit`.",
-        #     DeprecationWarning,
-        # )
+        if not _IMPORTING:
+            warnings.warn(
+                "`Unit` has been deprecated. "
+                "The enum is still available as the private member `_Unit`.",
+                DeprecationWarning,
+            )
         return EnumMeta.__getattribute__(_Unit, name)
 
     def __getitem__(cls, name):
-        warnings.warn(
-            "`Unit` has been deprecated. "
-            "The enum is still available as the private member `_Unit`.",
-            DeprecationWarning,
-        )
+        if not _IMPORTING:
+            warnings.warn(
+                "`Unit` has been deprecated. "
+                "The enum is still available as the private member `_Unit`.",
+                DeprecationWarning,
+            )
         return _Unit.__getitem__(name)
 
     def __call__(
         cls, value, names=None, *, module=None, qualname=None, type=None, start=1
     ):
-        warnings.warn(
-            "`Unit` has been deprecated. "
-            "The enum is still available as the private member `_Unit`.",
-            DeprecationWarning,
-        )
+        if not _IMPORTING:
+            warnings.warn(
+                "`Unit` has been deprecated. "
+                "The enum is still available as the private member `_Unit`.",
+                DeprecationWarning,
+            )
         return _Unit.__call__(
             value, names, module=module, qualname=qualname, type=type, start=start
         )
@@ -618,3 +622,5 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f") -> 
     tail = texts[-1]
 
     return _("%s and %s") % (head, tail)
+
+_IMPORTING = False
