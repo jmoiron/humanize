@@ -13,6 +13,7 @@ from functools import total_ordering
 
 from .i18n import _gettext as _
 from .i18n import _ngettext
+from .number import intcomma
 
 __all__ = [
     "naturaldelta",
@@ -264,7 +265,7 @@ def naturaldelta(
         else:
             return _ngettext("1 year, %d day", "1 year, %d days", days) % days
     else:
-        return _ngettext("%d year", "%d years", years) % years
+        return _ngettext("%s year", "%s years", years) % intcomma(years)
 
 
 def naturaltime(
@@ -605,6 +606,10 @@ def precisedelta(value, minimum_unit="seconds", suppress=(), format="%0.2f") -> 
             fmt_txt = _ngettext(singular_txt, plural_txt, value)
             if unit == min_unit and math.modf(value)[0] > 0:
                 fmt_txt = fmt_txt.replace("%d", format)
+            elif unit == YEARS:
+                fmt_txt = fmt_txt.replace("%d", "%s")
+                texts.append(fmt_txt % intcomma(value))
+                continue
 
             texts.append(fmt_txt % value)
 
