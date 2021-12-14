@@ -173,6 +173,9 @@ def naturaldelta(
         minimum_unit (str): The lowest unit that can be used.
         when (datetime.datetime): Point in time relative to which _value_ is
             interpreted.  Defaults to the current time in the local timezone.
+            .. deprecated:: 3.13
+            If you need to construct a timedelta, do it inline as the first
+            argument.
 
     Returns:
         str: A natural representation of the amount of time elapsed.
@@ -189,6 +192,14 @@ def naturaldelta(
 
         assert naturaldelta(later, when=now) == "30 minutes"
     """
+    if when:
+        warnings.warn(
+            "The `when` parameter of naturaldelta() is deprecated and will be "
+            "removed in humanize 4.0. If you need to construct a timedelta, "
+            "do it inline as the first argument.",
+            DeprecationWarning,
+            stacklevel=2,
+        )
     tmp = _Unit[minimum_unit.upper()]
     if tmp not in (_Unit.SECONDS, _Unit.MILLISECONDS, _Unit.MICROSECONDS):
         raise ValueError(f"Minimum unit '{minimum_unit}' not supported")
