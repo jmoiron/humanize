@@ -194,7 +194,7 @@ def naturaldelta(
     """
     if when:
         warnings.warn(
-            "The `when` parameter of naturaldelta() is deprecated and will be "
+            "The `when` parameter of `naturaldelta()` is deprecated and will be "
             "removed in humanize 4.0. If you need to construct a timedelta, "
             "do it inline as the first argument.",
             DeprecationWarning,
