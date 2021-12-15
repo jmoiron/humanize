@@ -173,7 +173,7 @@ def naturaldelta(
         minimum_unit (str): The lowest unit that can be used.
         when (datetime.datetime): Point in time relative to which _value_ is
             interpreted.  Defaults to the current time in the local timezone.
-            .. deprecated:: 3.13
+            .. deprecated:: 3.14
             If you need to construct a timedelta, do it inline as the first
             argument.
 
