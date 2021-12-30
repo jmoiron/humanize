@@ -161,24 +161,26 @@ def naturaldelta(
     value,
     months=True,
     minimum_unit="seconds",
-    when=None,
 ) -> str:
     """Return a natural representation of a timedelta or number of seconds.
 
     This is similar to `naturaltime`, but does not add tense to the result.
 
     Args:
-        value (datetime.timedelta): A timedelta or a number of seconds.
+        value (datetime.timedelta or int): A timedelta or a number of seconds.
         months (bool): If `True`, then a number of months (based on 30.5 days) will be
             used for fuzziness between years.
         minimum_unit (str): The lowest unit that can be used.
-        when (datetime.datetime): Point in time relative to which _value_ is
-            interpreted.  Defaults to the current time in the local timezone.
-            Deprecated in version 3.14; If you need to construct a timedelta,
-            do it inline as the first argument.
+        when (datetime.datetime): Removed in version 4.0; If you need to
+            construct a timedelta, do it inline as the first argument.
 
     Returns:
-        str: A natural representation of the amount of time elapsed.
+        str (str or `value`): A natural representation of the amount of time
+            elapsed unless `value` is not datetime.timedelta or cannot be
+            converted to int. In that case, a `value` is returned unchanged.
+
+    Raises:
+        OverflowError: If `value` is too large to convert to datetime.timedelta.
 
     Examples
         Compare two timestamps in a custom local timezone::
@@ -190,24 +192,21 @@ def naturaldelta(
         now = dt.datetime.now(tz=berlin)
         later = now + dt.timedelta(minutes=30)
 
-        assert naturaldelta(later, when=now) == "30 minutes"
+        assert naturaldelta(later - now) == "30 minutes"
     """
-    if when:
-        warnings.warn(
-            "The `when` parameter of `naturaldelta()` is deprecated and will be "
-            "removed in humanize 4.0. If you need to construct a timedelta, "
-            "do it inline as the first argument.",
-            DeprecationWarning,
-            stacklevel=2,
-        )
     tmp = _Unit[minimum_unit.upper()]
     if tmp not in (_Unit.SECONDS, _Unit.MILLISECONDS, _Unit.MICROSECONDS):
         raise ValueError(f"Minimum unit '{minimum_unit}' not supported")
     minimum_unit = tmp
 
-    date, delta = _date_and_delta(value, now=when)
-    if date is None:
-        return value
+    if isinstance(value, dt.timedelta):
+        delta = value
+    else:
+        try:
+            value = int(value)
+            delta = dt.timedelta(seconds=value)
+        except (ValueError, TypeError):
+            return value
 
     use_months = months
 
@@ -312,7 +311,7 @@ def naturaltime(
         future = date > now
 
     ago = _("%s from now") if future else _("%s ago")
-    delta = naturaldelta(delta, months, minimum_unit, when=when)
+    delta = naturaldelta(delta, months, minimum_unit)
 
     if delta == _("a moment"):
         return _("now")
