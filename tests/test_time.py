@@ -334,37 +334,6 @@ def test_naturaldelta_minimum_unit_explicit(minimum_unit, seconds, expected):
 
 
 @pytest.mark.parametrize(
-    "test_input, when, expected",
-    [
-        (NOW, NOW, "a moment"),
-        (NOW_UTC, NOW_UTC, "a moment"),
-    ],
-)
-def test_naturaldelta_when_explicit(test_input, when, expected):
-    # Act / Assert
-    assert humanize.naturaldelta(test_input, when=when) == expected
-
-
-@pytest.mark.parametrize(
-    "value, when",
-    [
-        (NOW_UTC, None),
-        (NOW_UTC, NOW),
-        (NOW_UTC_PLUS_01_00, None),
-        (NOW_UTC_PLUS_01_00, NOW),
-    ],
-)
-def test_naturaldelta_when_missing_tzinfo(value, when):
-    """Subtraction `when - value` is not defined by the `datetime` module when
-    either operand has not timezone-info (`tz=None`) and raises a TypeError.
-    """
-
-    # Act / Assert
-    with pytest.raises(TypeError):
-        humanize.naturaldelta(value, when=when)
-
-
-@pytest.mark.parametrize(
     "seconds, expected",
     [
         (ONE_MICROSECOND, "now"),
