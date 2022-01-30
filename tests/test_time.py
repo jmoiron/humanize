@@ -118,6 +118,7 @@ def test_naturaldelta_nomonths(test_input, expected):
         (dt.timedelta(days=65), "2 months"),
         (dt.timedelta(days=9), "9 days"),
         (dt.timedelta(days=365), "a year"),
+        (dt.timedelta(days=365 * 1_141), "1,141 years"),
         ("NaN", "NaN"),
     ],
 )
@@ -446,6 +447,7 @@ def test_naturaltime_minimum_unit_explicit(minimum_unit, seconds, expected):
         (3600 * 24 * 2, "seconds", "2 days"),
         (3600 * 24 * 365, "seconds", "1 year"),
         (3600 * 24 * 365 * 2, "seconds", "2 years"),
+        (3600 * 24 * 365 * 1_963, "seconds", "1,963 years"),
     ],
 )
 def test_precisedelta_one_unit_enough(val, min_unit, expected):
@@ -643,7 +645,7 @@ def test_precisedelta_bogus_call():
 
 
 def test_time_unit():
-    years, minutes = time._Unit["YEARS"], time._Unit["MINUTES"]
+    years, minutes = time.Unit["YEARS"], time.Unit["MINUTES"]
     assert minutes < years
     assert years > minutes
     assert minutes == minutes

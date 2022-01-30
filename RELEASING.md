@@ -22,8 +22,7 @@ scripts/generate-translation-binaries.sh
 pip install -U pip build keyring twine
 rm -rf build dist
 python -m build
-twine check dist/*
-twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+twine check --strict dist/* && twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 ```
 
 - [ ] (Optional) Check **test** installation:
@@ -46,8 +45,7 @@ git tag -a 2.1.0 -m "Release 2.1.0"
 pip install -U pip build keyring twine
 rm -rf build dist
 python -m build
-twine check dist/*
-twine upload -r pypi dist/*
+twine check --strict dist/* && twine upload -r pypi dist/*
 ```
 
 * [ ] Check installation:
