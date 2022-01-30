@@ -616,7 +616,7 @@ def test_precisedelta_bogus_call():
 
 
 def test_time_unit():
-    years, minutes = time._Unit["YEARS"], time._Unit["MINUTES"]
+    years, minutes = time.Unit["YEARS"], time.Unit["MINUTES"]
     assert minutes < years
     assert years > minutes
     assert minutes == minutes
