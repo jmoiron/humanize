@@ -7,7 +7,6 @@ These are largely borrowed from Django's `contrib.humanize`.
 
 import datetime as dt
 import math
-import warnings
 from enum import Enum
 from functools import total_ordering
 

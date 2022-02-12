@@ -129,14 +129,14 @@ def intcomma(value, ndigits=None):
     else:
         orig = str(value)
 
-    new = re.sub(r"^(-?\d+)(\d{3})", fr"\g<1>{sep}\g<2>", orig)
+    new = re.sub(r"^(-?\d+)(\d{3})", rf"\g<1>{sep}\g<2>", orig)
     if orig == new:
         return new
     else:
         return intcomma(new)
 
 
-powers = [10 ** x for x in (3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 100)]
+powers = [10**x for x in (3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 100)]
 human_powers = (
     NS_("thousand", "thousand"),
     NS_("million", "million"),
@@ -197,7 +197,7 @@ def intword(value, format="%.1f"):
     for ordinal, power in enumerate(powers[1:], 1):
         if value < power:
             chopped = value / float(powers[ordinal - 1])
-            if float(format % chopped) == float(10 ** 3):
+            if float(format % chopped) == float(10**3):
                 chopped = value / float(powers[ordinal])
                 singular, plural = human_powers[ordinal]
                 return (

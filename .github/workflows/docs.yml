@@ -1,26 +1,20 @@
 name: Docs
 
-on: [push, pull_request]
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Cache
-        uses: actions/cache@v2
-        with:
-          path: ~/.cache/pip
-          key: docs-${{ hashFiles('**/tox.ini') }}
-          restore-keys: |
-            docs-
-
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8
+          python-version: "3.x"
+          pip: cache
+          pip-dependency-path: tox.ini
 
       - name: Install dependencies
         run: |
