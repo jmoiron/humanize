@@ -60,26 +60,6 @@ def _abs_timedelta(delta):
     return delta
 
 
-def abs_timedelta(delta):
-    """Return an "absolute" value for a timedelta, always representing a time distance.
-
-    Args:
-        delta (datetime.timedelta): Input timedelta.
-
-    Returns:
-        datetime.timedelta: Absolute timedelta.
-
-    WARNING: This function has been deprecated. It is still available as the private
-    member `_abs_timedelta`.
-    """
-    warnings.warn(
-        "`abs_timedelta` has been deprecated. "
-        "It is still available as the private member `_abs_timedelta`.",
-        DeprecationWarning,
-    )
-    return _abs_timedelta(delta)
-
-
 def _date_and_delta(value, *, now=None):
     """Turn a value into a date and a timedelta which represents how long ago it was.
 
@@ -101,22 +81,6 @@ def _date_and_delta(value, *, now=None):
         except (ValueError, TypeError):
             return None, value
     return date, _abs_timedelta(delta)
-
-
-def date_and_delta(delta):
-    """Turn a value into a date and a timedelta which represents how long ago it was.
-
-    If that's not possible, return `(None, value)`.
-
-    WARNING: This function has been deprecated. It is still available as the private
-    member `_date_and_delta`.
-    """
-    warnings.warn(
-        "`date_and_delta` has been deprecated. "
-        "It is still available as the private member `_date_and_delta`.",
-        DeprecationWarning,
-    )
-    return _date_and_delta(delta)
 
 
 def naturaldelta(
