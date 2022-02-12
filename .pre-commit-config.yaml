@@ -16,6 +16,20 @@ repos:
     hooks:
       - id: isort
 
+  - repo: https://github.com/myint/autoflake
+    rev: v1.4
+    hooks:
+      - id: autoflake
+        name: autoflake
+        args:
+          [
+            "--in-place",
+            "--remove-unused-variables",
+            "--remove-all-unused-imports",
+          ]
+        language: python
+        files: \.py$
+
   - repo: https://github.com/PyCQA/flake8
     rev: 4.0.1
     hooks:
