@@ -22,14 +22,14 @@ import humanize
         ([3000, False, True], "2.9K"),
         ([3000000, False, True], "2.9M"),
         ([1024, False, True], "1.0K"),
-        ([10 ** 26 * 30, False, True], "2481.5Y"),
-        ([10 ** 26 * 30, True], "2481.5 YiB"),
-        ([10 ** 26 * 30], "3000.0 YB"),
+        ([10**26 * 30, False, True], "2481.5Y"),
+        ([10**26 * 30, True], "2481.5 YiB"),
+        ([10**26 * 30], "3000.0 YB"),
         ([1, False, False], "1 Byte"),
         ([3141592, False, False, "%.2f"], "3.14 MB"),
         ([3000, False, True, "%.3f"], "2.930K"),
         ([3000000000, False, True, "%.0f"], "3G"),
-        ([10 ** 26 * 30, True, False, "%.3f"], "2481.542 YiB"),
+        ([10**26 * 30, True, False, "%.3f"], "2481.542 YiB"),
     ],
 )
 def test_naturalsize(test_args, expected):
