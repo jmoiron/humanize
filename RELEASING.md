@@ -29,7 +29,7 @@ twine check --strict dist/* && twine upload --repository-url https://test.pypi.o
 
 ```bash
 pip3 uninstall -y humanize
-pip3 install -U -i https://test.pypi.org/simple/ humanize
+pip3 install -U -i https://test.pypi.org/simple/ humanize --pre
 python3 -c "import humanize; print(humanize.__version__)"
 ```
 
