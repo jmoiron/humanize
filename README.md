@@ -42,11 +42,13 @@ human-readable size or throughput. It is localized to:
 
 [https://python-humanize.readthedocs.io](https://python-humanize.readthedocs.io)
 
+<!-- usage-start -->
+
 ## Usage
 
 ### Integer humanization
 
-```pycon
+```python
 >>> import humanize
 >>> humanize.intcomma(12345)
 '12,345'
@@ -62,7 +64,7 @@ human-readable size or throughput. It is localized to:
 
 ### Date & time humanization
 
-```pycon
+```python
 >>> import humanize
 >>> import datetime as dt
 >>> humanize.naturalday(dt.datetime.now())
@@ -83,7 +85,7 @@ human-readable size or throughput. It is localized to:
 
 ### Precise time delta
 
-```pycon
+```python
 >>> import humanize
 >>> import datetime as dt
 >>> delta = dt.timedelta(seconds=3633, days=2, microseconds=123000)
@@ -99,13 +101,13 @@ human-readable size or throughput. It is localized to:
 
 If seconds are too large, set `minimum_unit` to milliseconds or microseconds:
 
-```pycon
+```python
 >>> import humanize
 >>> import datetime as dt
 >>> humanize.naturaldelta(dt.timedelta(seconds=2))
 '2 seconds'
 ```
-```pycon
+```python
 >>> delta = dt.timedelta(milliseconds=4)
 >>> humanize.naturaldelta(delta)
 'a moment'
@@ -114,7 +116,7 @@ If seconds are too large, set `minimum_unit` to milliseconds or microseconds:
 >>> humanize.naturaldelta(delta, minimum_unit="microseconds")
 '4 milliseconds'
 ```
-```pycon
+```python
 >>> humanize.naturaltime(delta)
 'now'
 >>> humanize.naturaltime(delta, minimum_unit="milliseconds")
@@ -125,7 +127,7 @@ If seconds are too large, set `minimum_unit` to milliseconds or microseconds:
 
 ### File size humanization
 
-```pycon
+```python
 >>> import humanize
 >>> humanize.naturalsize(1_000_000)
 '1.0 MB'
@@ -137,7 +139,7 @@ If seconds are too large, set `minimum_unit` to milliseconds or microseconds:
 
 ### Human-readable floating point numbers
 
-```pycon
+```python
 >>> import humanize
 >>> humanize.fractional(1/3)
 '1/3'
@@ -153,7 +155,7 @@ If seconds are too large, set `minimum_unit` to milliseconds or microseconds:
 
 ### Scientific notation
 
-```pycon
+```python
 >>> import humanize
 >>> humanize.scientific(0.3)
 '3.00 x 10⁻¹'
@@ -173,7 +175,7 @@ If seconds are too large, set `minimum_unit` to milliseconds or microseconds:
 
 How to change locale at runtime:
 
-```pycon
+```python
 >>> import humanize
 >>> import datetime as dt
 >>> humanize.naturaltime(dt.timedelta(seconds=3))
@@ -189,7 +191,7 @@ How to change locale at runtime:
 You can pass additional parameter `path` to `activate` to specify a path to search
 locales in.
 
-```pycon
+```python
 >>> import humanize
 >>> humanize.i18n.activate("xx_XX")
 <...>
@@ -197,6 +199,8 @@ FileNotFoundError: [Errno 2] No translation file found for domain: 'humanize'
 >>> humanize.i18n.activate("pt_BR", path="path/to/my/own/translation/")
 <gettext.GNUTranslations instance ...>
 ```
+
+<!-- usage-end -->
 
 How to add new phrases to existing locale files:
 

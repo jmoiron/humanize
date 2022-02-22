@@ -7,5 +7,9 @@ Welcome to the humanize API reference.
 * [Filesize](filesize)
 * [I18n](i18n)
 
-For usage examples see
-[README.md](https://github.com/jmoiron/humanize/blob/master/README.md).
+{%
+   include-markdown "../README.md"
+   start="<!-- usage-start -->"
+   end="<!-- usage-end -->"
+   comments=false
+%}

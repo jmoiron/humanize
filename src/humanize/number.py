@@ -421,9 +421,9 @@ def clamp(value, format="{:}", floor=None, ceil=None, floor_token="<", ceil_toke
         floor (int, float): Smallest value before clamping.
         ceil (int, float): Largest value before clamping.
         floor_token (str): If value is smaller than floor, token will be prepended
-        to output.
+            to output.
         ceil_token (str): If value is larger than ceil, token will be prepended
-        to output.
+            to output.
 
     Returns:
         str: Formatted number. The output is clamped between the indicated floor and

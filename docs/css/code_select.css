@@ -1,0 +1,9 @@
+/* Don't allow to select >>> in ```pycon``` code blocks */
+.highlight .gp, .highlight .go { /* Generic.Prompt, Generic.Output */
+    user-select: none;
+}
+
+/* >>> selection in ```python``` code blocks is handled with Javascript */
+.no-user-select {
+    user-select: none;
+}
