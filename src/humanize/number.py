@@ -417,7 +417,7 @@ def clamp(value, format="{:}", floor=None, ceil=None, floor_token="<", ceil_toke
     Args:
         value (int, float): Input number.
         format (str OR callable): Can either be a formatting string, or a callable
-        function than receives value and returns a string.
+            function that receives value and returns a string.
         floor (int, float): Smallest value before clamping.
         ceil (int, float): Largest value before clamping.
         floor_token (str): If value is smaller than floor, token will be prepended
