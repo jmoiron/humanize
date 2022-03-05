@@ -2,7 +2,18 @@ site_name: humanize
 site_url: https://python-humanize.readthedocs.io
 repo_url: https://github.com/jmoiron/humanize
 theme:
-  name: "material"
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
 
 nav:
   - Home: index.md
