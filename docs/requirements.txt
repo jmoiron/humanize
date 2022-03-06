@@ -1,3 +1,6 @@
 mkdocs>=1.1
 mkdocs-material
-mkdocstrings
+mkdocstrings[python-legacy]>=0.18
+mkdocs-include-markdown-plugin
+pygments
+pymdown-extensions>=9.2
