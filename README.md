@@ -42,6 +42,8 @@ human-readable size or throughput. It is localized to:
 
 [https://python-humanize.readthedocs.io](https://python-humanize.readthedocs.io)
 
+<!-- usage-start -->
+
 ## Usage
 
 ### Integer humanization
@@ -197,6 +199,8 @@ FileNotFoundError: [Errno 2] No translation file found for domain: 'humanize'
 >>> humanize.i18n.activate("pt_BR", path="path/to/my/own/translation/")
 <gettext.GNUTranslations instance ...>
 ```
+
+<!-- usage-end -->
 
 How to add new phrases to existing locale files:
 

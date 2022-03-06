@@ -1,0 +1,10 @@
+/* Don't allow to select >>> in ```pycon``` code blocks */
+.language-pycon .gp,
+.language-pycon .go {
+  user-select: none;
+}
+
+/* Hide "Copy to clipboard" buttons in ```pycon``` code blocks */
+.highlight.language-pycon .md-clipboard {
+  display: none;
+}
