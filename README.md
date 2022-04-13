@@ -13,30 +13,31 @@ This modest package contains various common humanization utilities, like turning
 a number into a fuzzy human-readable duration ("3 minutes ago") or into a
 human-readable size or throughput. It is localized to:
 
-* Bengali
-* Brazilian Portuguese
-* Catalan
-* Danish
-* Dutch
-* European Portuguese
-* Finnish
-* French
-* German
-* Indonesian
-* Italian
-* Japanese
-* Korean
-* Persian
-* Polish
-* Russian
-* Simplified Chinese
-* Slovak
-* Slovenian
-* Spanish
-* Swedish
-* Turkish
-* Ukrainian
-* Vietnamese
+- Arabic
+- Bengali
+- Brazilian Portuguese
+- Catalan
+- Danish
+- Dutch
+- European Portuguese
+- Finnish
+- French
+- German
+- Indonesian
+- Italian
+- Japanese
+- Korean
+- Persian
+- Polish
+- Russian
+- Simplified Chinese
+- Slovak
+- Slovenian
+- Spanish
+- Swedish
+- Turkish
+- Ukrainian
+- Vietnamese
 
 ## API reference
 
@@ -107,6 +108,7 @@ If seconds are too large, set `minimum_unit` to milliseconds or microseconds:
 >>> humanize.naturaldelta(dt.timedelta(seconds=2))
 '2 seconds'
 ```
+
 ```pycon
 >>> delta = dt.timedelta(milliseconds=4)
 >>> humanize.naturaldelta(delta)
@@ -116,6 +118,7 @@ If seconds are too large, set `minimum_unit` to milliseconds or microseconds:
 >>> humanize.naturaldelta(delta, minimum_unit="microseconds")
 '4 milliseconds'
 ```
+
 ```pycon
 >>> humanize.naturaltime(delta)
 'now'
