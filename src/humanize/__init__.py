@@ -47,5 +47,4 @@ __all__ = [
     "precisedelta",
     "scientific",
     "thousands_separator",
-    "VERSION",
 ]
