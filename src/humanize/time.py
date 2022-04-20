@@ -40,8 +40,8 @@ class Unit(Enum):
         return NotImplemented
 
 
-def _now():
-    return dt.datetime.now()
+def _now(aware=False):
+    return dt.datetime.now().astimezone() if aware else dt.datetime.now()
 
 
 def _abs_timedelta(delta):
@@ -54,7 +54,7 @@ def _abs_timedelta(delta):
         datetime.timedelta: Absolute timedelta.
     """
     if delta.days < 0:
-        now = _now()
+        now = _now(True)
         return now - (now + delta)
     return delta
 
@@ -65,7 +65,7 @@ def _date_and_delta(value, *, now=None):
     If that's not possible, return `(None, value)`.
     """
     if not now:
-        now = _now()
+        now = _now(value.tzinfo)
     if isinstance(value, dt.datetime):
         date = value
         delta = now - value
@@ -227,7 +227,7 @@ def naturaltime(
     Returns:
         str: A natural representation of the input in a resolution that makes sense.
     """
-    now = when or _now()
+    now = when or _now(value.tzinfo)
     date, delta = _date_and_delta(value, now=now)
     if date is None:
         return value
@@ -260,7 +260,7 @@ def naturalday(value, format="%b %d") -> str:
     except (OverflowError, ValueError):
         # Date arguments out of range
         return value
-    delta = value - dt.date.today()
+    delta = value - _now(value.tzinfo)
     if delta.days == 0:
         return _("today")
     elif delta.days == 1:
@@ -280,7 +280,7 @@ def naturaldate(value) -> str:
     except (OverflowError, ValueError):
         # Date arguments out of range
         return value
-    delta = _abs_timedelta(value - dt.date.today())
+    delta = _abs_timedelta(value - _now(value.tzinfo))
     if delta.days >= 5 * 365 / 12:
         return naturalday(value, "%b %d %Y")
     return naturalday(value)
