@@ -1,3 +1,5 @@
+Migrating to https://github.com/python-humanize/humanize
+
 # humanize
 
 [![PyPI version](https://img.shields.io/pypi/v/humanize.svg?logo=pypi&logoColor=FFE873)](https://pypi.org/project/humanize/)
