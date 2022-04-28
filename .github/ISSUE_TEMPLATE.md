@@ -1,3 +1,6 @@
+Migrating to https://github.com/python-humanize/humanize
+
+
 ### What did you do?
 
 ### What did you expect to happen?
