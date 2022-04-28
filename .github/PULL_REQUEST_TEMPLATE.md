@@ -1,7 +1,1 @@
-Fixes #
-
-Changes proposed in this pull request:
-
-* 
-* 
-* 
+Migrating to python-humanize/humanize
