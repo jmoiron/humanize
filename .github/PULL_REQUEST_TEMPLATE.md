@@ -1,7 +1,3 @@
-Fixes #
+## 🚀 Development has moved to https://github.com/python-humanize/humanize 🚀
 
-Changes proposed in this pull request:
-
-* 
-* 
-* 
+Open new pull requests at https://github.com/python-humanize/humanize/pulls
