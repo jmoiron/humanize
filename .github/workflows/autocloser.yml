@@ -10,5 +10,5 @@ jobs:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         issue-close-message: "🚀 Development has moved, please open issues at https://github.com/python-humanize/humanize/issues 🚀"
         pr-close-message: "🚀 Development has moved, please open PRs at https://github.com/python-humanize/humanize/pulls 🚀"
-        issue-pattern: "🚀 Development has moved to https://github.com/python-humanize/humanize 🚀"
-        pr-pattern: "🚀 Development has moved to https://github.com/python-humanize/humanize 🚀"
+        issue-pattern: "🚀🚀🚀 Development has moved to https://github.com/python-humanize/humanize 🚀🚀🚀"
+        pr-pattern: "🚀🚀🚀 Development has moved to https://github.com/python-humanize/humanize 🚀🚀🚀"
