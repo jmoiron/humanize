@@ -1,388 +1,365 @@
-# Polish translations for PACKAGE package.
-# Copyright (C) 2020 THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# Bartosz Bubak <bartosz.bubak@gmail.com>, 2020.
-# Added missing strings by Krystian Postek <krystian postek eu>, 2020.
+# Russian (Russia) translations for PROJECT.
+# Copyright (C) 2013 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.0.1\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-04 23:15+0200\n"
-"PO-Revision-Date: 2022-07-17 18:28+0300\n"
-"Last-Translator: Bartosz Bubak <bartosz.bubak gmail com>\n"
-"Language-Team: Polish\n"
-"Language: pl\n"
+"PO-Revision-Date: 2022-07-17 18:21+0300\n"
+"Last-Translator: Sergey Prokhorov <me@seriyps.ru>\n"
+"Language-Team: bg_BG <LL@li.org>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 0.9.6\n"
 "X-Generator: Poedit 3.1.1\n"
 
 #: src/humanize/number.py:57
 msgctxt "0 (male)"
 msgid "th"
-msgstr "."
+msgstr "а"
 
 #: src/humanize/number.py:58
 msgctxt "1 (male)"
 msgid "st"
-msgstr "."
+msgstr "ви"
 
 #: src/humanize/number.py:59
 msgctxt "2 (male)"
 msgid "nd"
-msgstr "."
+msgstr "ри"
 
 #: src/humanize/number.py:60
 msgctxt "3 (male)"
 msgid "rd"
-msgstr "."
+msgstr "ти"
 
 #: src/humanize/number.py:61
 msgctxt "4 (male)"
 msgid "th"
-msgstr "."
+msgstr "ти"
 
 #: src/humanize/number.py:62
 msgctxt "5 (male)"
 msgid "th"
-msgstr "."
+msgstr "ти"
 
 #: src/humanize/number.py:63
 msgctxt "6 (male)"
 msgid "th"
-msgstr "."
+msgstr "ти"
 
 #: src/humanize/number.py:64
 msgctxt "7 (male)"
 msgid "th"
-msgstr "."
+msgstr "ми"
 
 #: src/humanize/number.py:65
 msgctxt "8 (male)"
 msgid "th"
-msgstr "."
+msgstr "мо"
 
 #: src/humanize/number.py:66
 msgctxt "9 (male)"
 msgid "th"
-msgstr "."
+msgstr "и"
 
 #: src/humanize/number.py:70
 msgctxt "0 (female)"
 msgid "th"
-msgstr "."
+msgstr "а"
 
 #: src/humanize/number.py:71
 msgctxt "1 (female)"
 msgid "st"
-msgstr "."
+msgstr "ва"
 
 #: src/humanize/number.py:72
 msgctxt "2 (female)"
 msgid "nd"
-msgstr "."
+msgstr "ра"
 
 #: src/humanize/number.py:73
 msgctxt "3 (female)"
 msgid "rd"
-msgstr "."
+msgstr "та"
 
 #: src/humanize/number.py:74
 msgctxt "4 (female)"
 msgid "th"
-msgstr "."
+msgstr "та"
 
 #: src/humanize/number.py:75
 msgctxt "5 (female)"
 msgid "th"
-msgstr "."
+msgstr "та"
 
 #: src/humanize/number.py:76
 msgctxt "6 (female)"
 msgid "th"
-msgstr "."
+msgstr "та"
 
 #: src/humanize/number.py:77
 msgctxt "7 (female)"
 msgid "th"
-msgstr "."
+msgstr "ма"
 
 #: src/humanize/number.py:78
 msgctxt "8 (female)"
 msgid "th"
-msgstr "."
+msgstr "ма"
 
 #: src/humanize/number.py:79
 msgctxt "9 (female)"
 msgid "th"
-msgstr "."
+msgstr "та"
 
 #: src/humanize/number.py:140
 msgid "thousand"
 msgid_plural "thousand"
-msgstr[0] "tysiąc"
-msgstr[1] "tysiąc"
-msgstr[2] "tysięcy"
+msgstr[0] "хиляда"
+msgstr[1] "хиляди"
 
 #: src/humanize/number.py:141
 msgid "million"
 msgid_plural "million"
-msgstr[0] "milion"
-msgstr[1] "miliony"
-msgstr[2] "milionów"
+msgstr[0] "милион"
+msgstr[1] "милиони"
 
 #: src/humanize/number.py:142
 msgid "billion"
 msgid_plural "billion"
-msgstr[0] "bilion"
-msgstr[1] "biliony"
-msgstr[2] "bilionów"
+msgstr[0] "милиард"
+msgstr[1] "милиарди"
 
 #: src/humanize/number.py:143
 msgid "trillion"
 msgid_plural "trillion"
-msgstr[0] "trylion"
-msgstr[1] "tryliony"
-msgstr[2] "trylionów"
+msgstr[0] "трилион"
+msgstr[1] "трилиони"
 
 #: src/humanize/number.py:144
 msgid "quadrillion"
 msgid_plural "quadrillion"
-msgstr[0] "kwadrylion"
-msgstr[1] "kwadryliony"
-msgstr[2] "kwadrylionów"
+msgstr[0] "квадрилион"
+msgstr[1] "квадрилиони"
 
 #: src/humanize/number.py:145
 msgid "quintillion"
 msgid_plural "quintillion"
-msgstr[0] "kwintylion"
-msgstr[1] "kwintyliony"
-msgstr[2] "kwintylionów"
+msgstr[0] "квинтилион"
+msgstr[1] "квинтилиони"
 
 #: src/humanize/number.py:146
 msgid "sextillion"
 msgid_plural "sextillion"
-msgstr[0] "sekstylion"
-msgstr[1] "sekstyliony"
-msgstr[2] "sekstylionów"
+msgstr[0] "сикстилион"
+msgstr[1] "сикстилиони"
 
 #: src/humanize/number.py:147
 msgid "septillion"
 msgid_plural "septillion"
-msgstr[0] "septylion"
-msgstr[1] "septyliony"
-msgstr[2] "septylionów"
+msgstr[0] "септилион"
+msgstr[1] "септилиони"
 
 #: src/humanize/number.py:148
 msgid "octillion"
 msgid_plural "octillion"
-msgstr[0] "oktylion"
-msgstr[1] "oktyliony"
-msgstr[2] "oktylionów"
+msgstr[0] "октилион"
+msgstr[1] "октилиони"
 
 #: src/humanize/number.py:149
 msgid "nonillion"
 msgid_plural "nonillion"
-msgstr[0] "nonilion"
-msgstr[1] "noniliony"
-msgstr[2] "nonilionów"
+msgstr[0] "нонилион"
+msgstr[1] "нонилиони"
 
 #: src/humanize/number.py:150
 msgid "decillion"
 msgid_plural "decillion"
-msgstr[0] "decylion"
-msgstr[1] "decyliony"
-msgstr[2] "decylionów"
+msgstr[0] "децилион"
+msgstr[1] "децилиони"
 
 #: src/humanize/number.py:151
 msgid "googol"
 msgid_plural "googol"
-msgstr[0] "googol"
-msgstr[1] "googoly"
-msgstr[2] "googolów"
+msgstr[0] "гогол"
+msgstr[1] "гоголи"
 
 #: src/humanize/number.py:246
 msgid "zero"
-msgstr "zero"
+msgstr "нула"
 
 #: src/humanize/number.py:247
 msgid "one"
-msgstr "jeden"
+msgstr "едно"
 
 #: src/humanize/number.py:248
 msgid "two"
-msgstr "dwa"
+msgstr "две"
 
 #: src/humanize/number.py:249
 msgid "three"
-msgstr "trzy"
+msgstr "три"
 
 #: src/humanize/number.py:250
 msgid "four"
-msgstr "cztery"
+msgstr "четири"
 
 #: src/humanize/number.py:251
 msgid "five"
-msgstr "pięć"
+msgstr "пет"
 
 #: src/humanize/number.py:252
 msgid "six"
-msgstr "sześć"
+msgstr "шест"
 
 #: src/humanize/number.py:253
 msgid "seven"
-msgstr "siedem"
+msgstr "седем"
 
 #: src/humanize/number.py:254
 msgid "eight"
-msgstr "osiem"
+msgstr "осем"
 
 #: src/humanize/number.py:255
 msgid "nine"
-msgstr "dziewięć"
+msgstr "девет"
 
 #: src/humanize/time.py:133
 #, python-format
 msgid "%d microsecond"
 msgid_plural "%d microseconds"
-msgstr[0] "%d mikrosekunda"
-msgstr[1] "%d mikrosekundy"
-msgstr[2] "%d mikrosekund"
+msgstr[0] "%d микросекунда"
+msgstr[1] "%d микросекунди"
 
 #: src/humanize/time.py:142
 #, python-format
 msgid "%d millisecond"
 msgid_plural "%d milliseconds"
-msgstr[0] "%d milisekunda"
-msgstr[1] "%d milisekundy"
-msgstr[2] "%d milisekund"
+msgstr[0] "%d милисекунда"
+msgstr[1] "%d милисекунди"
 
 #: src/humanize/time.py:145 src/humanize/time.py:220
 msgid "a moment"
-msgstr "chwila"
+msgstr "сега на мига"
 
 #: src/humanize/time.py:147
 msgid "a second"
-msgstr "sekunda"
+msgstr "секунда"
 
 #: src/humanize/time.py:149
 #, python-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "%d sekunda"
-msgstr[1] "%d sekundy"
-msgstr[2] "%d sekund"
+msgstr[0] "%d секунда"
+msgstr[1] "%d секунди"
 
 #: src/humanize/time.py:151
 msgid "a minute"
-msgstr "minuta"
+msgstr "минута"
 
 #: src/humanize/time.py:154
 #, python-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "%d minuta"
-msgstr[1] "%d minuty"
-msgstr[2] "%d minut"
+msgstr[0] "%d минута"
+msgstr[1] "%d минути"
 
 #: src/humanize/time.py:156
 msgid "an hour"
-msgstr "godzina"
+msgstr "час"
 
 #: src/humanize/time.py:159
 #, python-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] "%d godzina"
-msgstr[1] "%d godziny"
-msgstr[2] "%d godzin"
+msgstr[0] "%d час"
+msgstr[1] "%d часа"
 
 #: src/humanize/time.py:162
 msgid "a day"
-msgstr "dzień"
+msgstr "ден"
 
 #: src/humanize/time.py:164 src/humanize/time.py:167
 #, python-format
 msgid "%d day"
 msgid_plural "%d days"
-msgstr[0] "%d dzień"
-msgstr[1] "%d dni"
-msgstr[2] "%d dni"
+msgstr[0] "%d ден"
+msgstr[1] "%d дни"
 
 #: src/humanize/time.py:169
 msgid "a month"
-msgstr "miesiąc"
+msgstr "месец"
 
 #: src/humanize/time.py:171
 #, python-format
 msgid "%d month"
 msgid_plural "%d months"
-msgstr[0] "%d miesiąc"
-msgstr[1] "%d miesiące"
-msgstr[2] "%d miesięcy"
+msgstr[0] "%d месец"
+msgstr[1] "%d месеци"
 
 #: src/humanize/time.py:174
 msgid "a year"
-msgstr "rok"
+msgstr "година"
 
 #: src/humanize/time.py:176 src/humanize/time.py:185
 #, python-format
 msgid "1 year, %d day"
 msgid_plural "1 year, %d days"
-msgstr[0] "1 rok, %d dzień"
-msgstr[1] "1 rok, %d dni"
-msgstr[2] "1 rok, %d dni"
+msgstr[0] "1 година, %d ден"
+msgstr[1] "1 година, %d дни"
 
 #: src/humanize/time.py:179
 msgid "1 year, 1 month"
-msgstr "1 rok, 1 miesiąc"
+msgstr "1 година, 1 месец"
 
 #: src/humanize/time.py:182
 #, python-format
 msgid "1 year, %d month"
 msgid_plural "1 year, %d months"
-msgstr[0] "1 rok, %d miesiąc"
-msgstr[1] "1 rok, %d miesiące"
-msgstr[2] "1 rok, %d miesięcy"
+msgstr[0] "1 година, %d месец"
+msgstr[1] "1 година, %d месеци"
 
 #: src/humanize/time.py:187
 #, python-format
 msgid "%d year"
 msgid_plural "%d years"
-msgstr[0] "%d rok"
-msgstr[1] "%d lat"
-msgstr[2] "%d lata"
+msgstr[0] "%d година"
+msgstr[1] "%d години"
 
 #: src/humanize/time.py:217
 #, python-format
 msgid "%s from now"
-msgstr "%s od teraz"
+msgstr "след %s"
 
 #: src/humanize/time.py:217
 #, python-format
 msgid "%s ago"
-msgstr "%s temu"
+msgstr "преди %s"
 
 #: src/humanize/time.py:221
 msgid "now"
-msgstr "teraz"
+msgstr "сега"
 
 #: src/humanize/time.py:244
 msgid "today"
-msgstr "dziś"
+msgstr "днес"
 
 #: src/humanize/time.py:246
 msgid "tomorrow"
-msgstr "jutro"
+msgstr "утре"
 
 #: src/humanize/time.py:248
 msgid "yesterday"
-msgstr "wczoraj"
+msgstr "вчера"
 
 #: src/humanize/time.py:534
 #, python-format
 msgid "%s and %s"
-msgstr "%s i %s"
+msgstr "%s и %s"
