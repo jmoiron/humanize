@@ -49,7 +49,10 @@ def naturalsize(value, binary=False, gnu=False, format="%.1f"):
         suffix = suffixes["decimal"]
 
     base = 1024 if (gnu or binary) else 1000
-    bytes = float(value)
+    try:
+        bytes = float(value)
+    except (TypeError, ValueError, OverflowError):
+        return str(value)
     abs_bytes = abs(bytes)
 
     if abs_bytes == 1 and not gnu:
