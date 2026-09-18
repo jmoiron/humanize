@@ -139,7 +139,7 @@ def test_fractional(test_input, expected):
     "test_args, expected",
     [
         ([1000], "1.00 x 10³"),
-        ([-1000], "1.00 x 10⁻³"),
+        ([-1000], "-1.00 x 10³"),
         ([5.5], "5.50 x 10⁰"),
         ([5781651000], "5.78 x 10⁹"),
         (["1000"], "1.00 x 10³"),
@@ -172,3 +172,13 @@ def test_scientific(test_args, expected):
 )
 def test_clamp(test_args, expected):
     assert humanize.clamp(*test_args) == expected
+
+
+def test_scientific_negative_and_nonfinite():
+    assert humanize.scientific(-1000) == "-1.00 x 10³"
+    assert humanize.scientific(-0.001) == "-1.00 x 10⁻³"
+    # non-finite values are returned unchanged (no cryptic split errors)
+    assert humanize.scientific(float("inf")) == float("inf")
+    assert humanize.scientific(float("-inf")) == float("-inf")
+    import math
+    assert math.isnan(humanize.scientific(float("nan")))

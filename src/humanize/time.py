@@ -135,8 +135,13 @@ def naturaldelta(
 
     use_months = months
 
-    seconds = abs(delta.seconds)
-    days = abs(delta.days)
+    # timedelta normalizes negatives as (days=-1, seconds=86395) for -5s;
+    # abs(days)/abs(seconds) separately would report that as "a day".
+    if delta.total_seconds() < 0:
+        delta = -delta
+
+    seconds = delta.seconds
+    days = delta.days
     years = days // 365
     days = days % 365
     months = int(days // 30.5)

@@ -322,7 +322,7 @@ def scientific(value, precision=2):
         >>> scientific(int(500))
         '5.00 x 10²'
         >>> scientific(-1000)
-        '1.00 x 10⁻³'
+        '-1.00 x 10³'
         >>> scientific(1000, 1)
         '1.0 x 10³'
         >>> scientific(1000, 3)
@@ -357,18 +357,23 @@ def scientific(value, precision=2):
         "+": "⁺",
         "-": "⁻",
     }
-    negative = False
     try:
-        if "-" in str(value):
-            value = str(value).replace("-", "")
-            negative = True
-
         if isinstance(value, str):
             value = float(value)
+        else:
+            value = float(value)
+    except (ValueError, TypeError):
+        return value
 
+    if not math.isfinite(value):
+        return value
+
+    negative = value < 0
+    value = abs(value)
+
+    try:
         fmt = "{:.%se}" % str(int(precision))
         n = fmt.format(value)
-
     except (ValueError, TypeError):
         return value
 
@@ -380,13 +385,12 @@ def scientific(value, precision=2):
         part2 = part2.replace("+0", "")
 
     new_part2 = []
-    if negative:
-        new_part2.append(exponents["-"])
-
     for char in part2:
         new_part2.append(exponents[char])
 
     final_str = part1 + " x 10" + "".join(new_part2)
+    if negative:
+        final_str = "-" + final_str
 
     return final_str
 

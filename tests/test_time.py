@@ -623,3 +623,10 @@ def test_time_unit():
 
     with pytest.raises(TypeError):
         years < "foo"
+
+
+def test_naturaldelta_negative_duration():
+    """Negative durations must match the positive magnitude (not timedelta day borrow)."""
+    assert humanize.naturaldelta(-5) == humanize.naturaldelta(5)
+    assert humanize.naturaldelta(dt.timedelta(seconds=-5)) == "5 seconds"
+    assert humanize.naturaldelta(dt.timedelta(days=-1)) == "a day"
